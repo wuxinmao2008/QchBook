@@ -1,0 +1,161 @@
+.calibre {
+    display: block;
+    font-size: 1em;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 5pt
+    }
+.calibre1 {
+    display: block;
+    margin: 1em 0
+    }
+.calibre2 {
+    font-weight: bold
+    }
+.calibre3 {
+    color: gray;
+    display: block;
+    height: 2px;
+    margin: 0.5em auto;
+    border: currentColor inset 1px
+    }
+.calibre4 {
+    display: block
+    }
+.calibre5 {
+    display: block;
+    text-align: right;
+    margin: 1em 0
+    }
+.calibre6 {
+    display: block;
+    font-size: 1.66667em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0.83em 0
+    }
+.calibre7 {
+    display: block;
+    font-size: 1.29167em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 1em 0
+    }
+.calibre8 {
+    display: block;
+    list-style-type: disc;
+    margin-bottom: 1em;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.calibre9 {
+    height: auto;
+    width: auto
+    }
+.calibre10 {
+    display: block;
+    text-align: center;
+    margin: 1em 0
+    }
+.calibre11 {
+    font-style: italic
+    }
+.calibre12 {
+    font-family: monospace
+    }
+.calibre13 {
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-indent: 0
+    }
+.calibre14 {
+    display: table-header-group;
+    vertical-align: middle
+    }
+.calibre15 {
+    display: table-row;
+    vertical-align: inherit
+    }
+.calibre16 {
+    display: table-cell;
+    font-weight: bold;
+    vertical-align: inherit;
+    padding: 1px
+    }
+.calibre17 {
+    display: table-row-group;
+    vertical-align: middle
+    }
+.calibre18 {
+    display: table-cell;
+    text-align: inherit;
+    vertical-align: inherit;
+    padding: 1px
+    }
+.calibre19 {
+    font-size: 0.75em;
+    line-height: normal;
+    vertical-align: sub
+    }
+.calibre20 {
+    font-size: 0.75em;
+    line-height: normal;
+    vertical-align: super
+    }
+.calibre21 {
+    display: table-row;
+    vertical-align: middle
+    }
+.calibre22 {
+    display: block;
+    text-align: left;
+    margin: 1em 0
+    }
+.calibre23 {
+    font-size: 0.83333em;
+    line-height: 1.2;
+    vertical-align: sub
+    }
+.calibre24 {
+    height: auto;
+    width: 15%
+    }
+.calibre25 {
+    height: auto;
+    width: 45%
+    }
+.calibre26 {
+    height: auto;
+    width: 50%
+    }
+.dai_ma_wu_xing_hao {
+    display: block;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin: 1em 0
+    }
+.di_1ji_wu_xu_lie_biao {
+    display: list-item
+    }
+.not-in-toc {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0.67em 0
+    }
+.sgc-toc-title {
+    display: block
+    }
+.sigil_not_in_toc {
+    display: block;
+    font-weight: bold;
+    margin: 1.33em 0
+    }
+.ti_shi {
+    display: block;
+    margin: 1em
+    }

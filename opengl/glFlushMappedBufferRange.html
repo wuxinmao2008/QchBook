@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glFlushMappedBufferRange</h4>
+<p class="calibre1">表示修改一个映射缓冲区的一个范围。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLsync glFlushMappedBufferRange(GLenum target,
+　　　　　　GLintptr offset,
+　　　　　　GLsizeiptr length);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定清理操作的目标。target必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">offset</p>
+<p class="calibre1">指定缓冲区子范围的开始位置，以及本机器单元为单位。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">指定缓冲区子范围的长度，以及本机器单元为单位。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glFlushMappedBufferRange表示已经对一个映射缓冲区的一个范围作了修改。这个缓冲区以前必须与GL_MAP_FLUSH_EXPLICIT标记进行映射。offset和length表示映射修改的子范围，以及本单元为单位。指定要被清理的子范围被关联到缓冲区中当前映射的范围的开始位置。</p>
+<p class="calibre1">glFlushMappedBufferRange可能被多次调用，来指示需要进行清理的映射的不同子范围。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果offset或length为负，或者如果offset + length超出映射的大小，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果0被绑定到tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果绑定到tarGet的缓冲区对象没有被映射，或者在没有GL_MAP_FLUSH_EXPLICIT标记的情况下被绑定，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glMapBufferRange, glMapBuffer, glUnmapBuffer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

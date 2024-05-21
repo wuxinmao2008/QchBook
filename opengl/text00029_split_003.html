@@ -1,0 +1,1809 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+  <body class="calibre">
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glMultiDrawElementsBaseVertex</h4>
+<p class="calibre1">通过指定数组数据元素和一个应用到每个索引的索引来渲染多组图元。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glMultiDrawElementsBaseVertex(GLenum mode,
+　　　　　　const GLsizei *count,
+　　　　　　GLenum type,
+　　　　　　const GLvoid **indices,
+　　　　　　GLsizei primcount,
+　　　　　　GLint *basevertex);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定将要渲染哪种类型的图元。符号常量GL_POINTS、GL_LINE_STRIP、GL_LINE_LOOP、GL_LINES、GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP、GL_TRIANGLE_FAN、GL_TRIANGLES、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY都是可接受的。</p>
+<p class="calibre1">count</p>
+<p class="calibre1">指向一个元素计数的数组。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">指定indices中的值的类型，必须是GL_UNSIGNED_BYTE、GL_UNSIGNED_SHORT和GL_UNSIGNED_INT中的一个。</p>
+<p class="calibre1">indices</p>
+<p class="calibre1">指定一个指向索引存储位置的指针。</p>
+<p class="calibre1">primcount</p>
+<p class="calibre1">指定count数组的大小。</p>
+<p class="calibre1">basevertex</p>
+<p class="calibre1">指定一个指向基本顶点存储位置的指针。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glMultiDrawElementsBaseVertex 的行为与glDrawElementsBaseVertex相同，除了primcount分离元素列表被指定之外。</p>
+<p class="calibre1">它的效果与下列代码相同。</p>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">for (int i = 0; i &lt; primcount; i++)
+if (count[i] &gt; 0)
+glDrawElementsBaseVertex(mode,
+count[i],
+type,
+indices[i],
+basevertex[i]);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glMultiDrawElementsBaseVertex 只在3.1或更高版本的GL中可用。</p>
+<p class="calibre1">GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果primcount为负值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到一个激活的数组或这个元素数组，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glMultiDrawElements, glDrawElementsBaseVertex, glDrawArrays,glVertexAttribPointer</p>
+<h4 class="sigil_not_in_toc">glMultiTexCoord</h4>
+<p class="calibre1">设置当前纹理坐标。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glMultiTexCoord1s GLenum target GLshort s
+void glMultiTexCoord1i GLenum target GLint s
+void glMultiTexCoord1f GLenum target GLfloat s
+void glMultiTexCoord1d GLenum target GLdouble s
+void glMultiTexCoord2s GLenum target GLshort s GLshort t
+void glMultiTexCoord2i GLenum target GLint s GLint t
+void glMultiTexCoord2f GLenum target GLfloat s GLfloat t
+void glMultiTexCoord2d GLenum target GLdouble s GLdouble t
+void glMultiTexCoord3s GLenum target GLshort s GLshort t GLshort r
+void glMultiTexCoord3i GLenum target GLint s GLint t GLint r
+void glMultiTexCoord3f GLenum target GLfloat s GLfloat t GLfloat r
+void glMultiTexCoord3d GLenum target GLdouble s GLdouble t GLdouble r
+void glMultiTexCoord4s GLenum target GLshort s GLshort t GLshort r GLshort q
+void glMultiTexCoord4i GLenum target GLint s GLint t GLint r GLint q
+void glMultiTexCoord4f GLenum target GLfloat s GLfloat t GLfloat r GLfloat q
+void glMultiTexCoord4d GLenum target GLdouble s GLdouble t GLdouble r GLdouble q</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定坐标要被修改的纹理单元。纹理单元的数量是实现相关的，但必须至少为2。符号常量必须为GL_TEXTUREi 中的一个，其中i 的取值范围为从0到GL_MAX_TEXTURE_COORDS - 1，这是一个与实现相关的值。</p>
+<p class="calibre1">s、t、r、q 为tarGet 纹理单元指定s、t、r 和q 纹理坐标。并不是所有参数都会在所有形式的命令中出现。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glMultiTexCoord1sv GLenum target const GLshort * v
+void glMultiTexCoord1iv GLenum target const GLint * v
+void glMultiTexCoord1fv GLenum target const GLfloat * v
+void glMultiTexCoord1dv GLenum target const GLdouble * v
+void glMultiTexCoord2sv GLenum target const GLshort * v
+void glMultiTexCoord2iv GLenum target const GLint * v
+void glMultiTexCoord2fv GLenum target const GLfloat * v
+void glMultiTexCoord2dv GLenum target const GLdouble * v
+void glMultiTexCoord3sv GLenum target const GLshort * v
+void glMultiTexCoord3iv GLenum target const GLint * v
+void glMultiTexCoord3fv GLenum target const GLfloat * v
+void glMultiTexCoord3dv GLenum target const GLdouble * v
+void glMultiTexCoord4sv GLenum target const GLshort * v
+void glMultiTexCoord4iv GLenum target const GLint * v
+void glMultiTexCoord4fv GLenum target const GLfloat * v
+void glMultiTexCoord4dv GLenum target const GLdouble * v</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定坐标要被修改的纹理单元。纹理单元的数量是实现相关的，但必须至少为2。符号常量必须为GL_TEXTUREi 中的一个，其中i 的取值范围为从0到GL_MAX_TEXTURE_COORDS - 1，这是一个与实现相关的值。</p>
+<p class="calibre1">v指定一个指向一个包含1个、2个、3个或4个元素的数组，这些元素一次指定s、t、r 和q 纹理坐标。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glMultiTexCoord 指定1维、2维、3维或4维纹理坐标。</p>
+<p class="calibre1">glMultiTexCoord1 将当前纹理坐标设置为（s,0,0,1）；对glMultiTexCoord2的一次调用则将它们设置为（s,t,0,1）。同样，glMultiTexCoord3将指定为（s,t,r,1），而glMultiTexCoord4则将所有4个分量定义为（s,t,r,q）。</p>
+<p class="calibre1">当前纹理坐标是与每个顶点和每个当前光栅位置相关的数据的一部分。在初始情况下，（s,t,r,q）的值为（0,0,0,1）。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">当前纹理坐标可以在任何时间更新。</p>
+<p class="calibre1">GL_TEXTUREi = GL_TEXTURE0 + I 总是成立的。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_CURRENT_TEXTURE_COORDS，选择适当的纹理单元。</p>
+<p class="calibre1">glGet，其自变量为GL_MAX_TEXTURE_COORDS。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glActiveTexture, glTexCoord, glVertex</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glPixelStore</h4>
+<p class="calibre1">设置像素存储模式。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glPixelStoref(GLenum pname,
+　　　　　　GLfloat param);
+void glPixelStorei(GLenum pname,
+　　　　　　GLint param);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定将要进行设置的参数的符号名。共有6个值对将像素数打包到内存有影响：GL_PACK_SWAP_BYTES、GL_PACK_LSB_FIRST、GL_PACK_ROW_LENGTH、GL_PACK_IMAGE_HEIGHT、GL_PACK_SKIP_PIXELS、GL_PACK_SKIP_ROWS、GL_PACK_SKIP_IMAGES和GL_PACK_ALIGNMENT。另外6个数据影响像素数据从内存中解压缩：GL_UNPACK_SWAP_BYTES、GL_UNPACK_LSB_FIRST、GL_UNPACK_ROW_LENGTH、GL_UNPACK_IMAGE_HEIGHT、GL_UNPACK_SKIP_PIXELS、GL_UNPACK_SKIP_ROWS、GL_UNPACK_SKIP_IMAGES和GL_UNPACK_ALIGNMENT。</p>
+<p class="calibre1">param</p>
+<p class="calibre1">指定pname将被设置的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glPixelStore设置像素存储模式，除了纹理模式解包（参见glTexImage1D、glTexImage2D、glTexImage3D、glTexSubImage1D、glTexSubImage2D、glTexSubImage3D）之外，这个存储模式还会影响后续的glReadPixels。</p>
+<p class="calibre1">pname 是一个符号常量，指示将要被设置的参数，param为新的值。12个存储参数中的6个会影响像素数据如何被返回到客户端内存。这些参数如下所示。</p>
+<p class="calibre1">GL_PACK_SWAP_BYTES</p>
+<p class="calibre1">如果为真，多byte颜色分量、深度分量、颜色索引或模板索引的字节排序将被倒转。也就是说，如果一个4字节分量包含b<sub class="calibre19">0</sub>
+ 、b<sub class="calibre19">1</sub>
+ 、b<sub class="calibre19">2</sub>
+ 、b<sub class="calibre19">3</sub>
+ 四个byte，那么在GL_UNPACK_SWAP_BYTES为真时，它将以b<sub class="calibre19">3</sub>
+ 、b<sub class="calibre19">2</sub>
+ 、b<sub class="calibre19">1</sub>
+ 、b<sub class="calibre19">0</sub>
+ 的顺序从内存中获得。</p>
+<p class="calibre1">GL_UNPACK_SWAP_BYTES 对一个像素中分量的内存顺序没有影响，而只对分量中的字节或索引顺序产生影响。例如，一个GL_RGB格式像素的3个分量总是以红色第一、绿色第二、兰色第3的顺序存储，无论GL_UNPACK_SWAP_BYTES为何值。</p>
+<p class="calibre1">GL_PACK_LSB_FIRST</p>
+<p class="calibre1">如果为真，字节中的bit将以从最小（least significant）到最大（most significant）的顺序排列。否则，每个字节中的第一个位将为最大的一个。</p>
+<p class="calibre1">GL_PACK_ROW_LENGTH</p>
+<p class="calibre1">如果大于0的话，GL_PACK_ROW_LENGTH 将定义一行像素数字。如果在这一行中的第一个像素被放置在内存中的位置p，那么下一行的第一个像素的位置将通过跳过</p>
+<p class="calibre1"><img alt="853" src="Image00252.jpg" class="calibre9"/>
+</p>
+<p class="calibre1">个分量或索引来获得，其中n为一个像素中分量或索引的数量，l为一行中像素的个数（如果它大于0则为GL_PACK_ROW_LENGTH，否则为像素例行程序的width自变量），a 为GL_PACK_ALIGNMENT的值，s 为单个分量的大小，以字节为单位（如果a&lt;s，则视为a = s）。对于1bit值的情况，下一行的位置通过跳过</p>
+<p class="calibre10"><img alt="854" src="Image00253.jpg" class="calibre9"/>
+</p>
+<p class="calibre1">个分量或索引来获得。</p>
+<p class="calibre1">在这个描述中的语句 component 引用非索引（nonindex）值red、green、blue、alpha和depth。。举例来说，GL_RGB存储格式的每个像素有3个分量，</p>
+<p class="calibre1">第一个为红色，第二个为绿色，最后是蓝色。</p>
+<p class="calibre1">GL_PACK_IMAGE_HEIGHT</p>
+<p class="calibre1">如果大于0的话，GL_PACK_IMAGE_HEIGHT 将定义一个图像三维纹理体中的像素数量，其中的“image（图像）”由所有使用同一个三维索引的像素定义。如果在这一行中的第一个像素被放置在内存中的位置p，那么下一行的第一个像素的位置将通过跳过</p>
+<p class="calibre10"><img alt="854-2" src="Image00254.jpg" class="calibre9"/>
+</p>
+<p class="calibre1">个分量或索引来获得，其中n为一个像素中分量或索引的数量，l为一行中像素的个数（如果它大于0则为GL_PACK_ROW_LENGTH，否则为glTexImage3D 例行程序的width自变量），h 为一个像素图像中的行数（如果它大于0则为GL_PACK_IMAGE_HEIGHT，否则为glTexImage3D 例行程序的height自变量），a 为GL_PACK_ALIGNMENT的值，s 为单个分量的大小，以字节为单位（如果a&lt;s，则视为a = s）。</p>
+<p class="calibre1">在这个描述中的语句 component 引用非索引（nonindex）值red、green、blue、alpha和depth。举例来说，GL_RGB存储格式的每个像素有3个分量，</p>
+<p class="calibre1">第一个为红色，第二个为绿色，最后是蓝色。</p>
+<p class="calibre1">GL_PACK_SKIP_PIXELS, GL_PACK_SKIP_ROWS, and GL_PACK_SKIP_IMAGES</p>
+<p class="calibre1">这些值是为了方便而提供给程序员的。它们并没有提供通过简单地增加传递到glReadPixels的指针的方式所不能实现的功能。将GL_PACK_SKIP_PIXELS设为i就相当于将指针增加in个分量或索引，其中n是每个像素中的分量或索引数量。将GL_PACK_SKIP_ROWS设为j就相当于将指针增加jm个分量或索引，其中m是每行中的分量或索引数量，就像刚刚在GL_PACK_ROW_LENGTH部分计算的一样。将GL_PACK_SKIP_IMAGES 设为k就相当于将指针增加kp个分量或索引，其中p是个图像中的分量或索引数量，就像刚刚在GL_PACK_IMAGE_HEIGHT部分计算的一样。</p>
+<p class="calibre1">GL_PACK_ALIGNMENT</p>
+<p class="calibre1">指定内存中每个像素行起点的排列请求。允许值为1（byte排列）、2（排列为偶数byte的行）、4（字（word）排列）和8（行从双字边界开始）。</p>
+<p class="calibre1">这12个存储参数中的其他6个影响像素数据如何从客户端内存中读取。</p>
+<p class="calibre1">这些值对glTexImage1D、glTexImage2D、glTexImage3D、glTexSubImage1D、glTexSubImage2D和glTexSubImage3D都很重要。</p>
+<p class="calibre1">这些值如下所示。</p>
+<p class="calibre1">GL_UNPACK_SWAP_BYTES</p>
+<p class="calibre1">如果为真，多字节颜色分量、深度分量、颜色索引或模板索引的字节排序将被倒转。也就是说，如果一个4byte分量包含b<sub class="calibre19">0</sub>
+ 、b<sub class="calibre19">1</sub>
+ 、b<sub class="calibre19">2</sub>
+ 、b<sub class="calibre19">3</sub>
+ 四个byte，那么在GL_UNPACK_SWAP_BYTES为真时，它将以b<sub class="calibre19">3</sub>
+ 、b<sub class="calibre19">2</sub>
+ 、b<sub class="calibre19">1</sub>
+ 、b<sub class="calibre19">0</sub>
+ 的顺序从内存中获得。</p>
+<p class="calibre1">GL_UNPACK_SWAP_BYTES 对一个像素中分量的内存顺序没有影响，而只对分量中的字节或索引顺序产生影响。例如，一个GL_RGB格式像素的3个分量总是以红色第一、绿色第二、蓝色第3的顺序存储，无论GL_UNPACK_SWAP_BYTES为何值。</p>
+<p class="calibre1">GL_UNPACK_LSB_FIRST</p>
+<p class="calibre1">如果为真，字节中的bit将以从最小（least significant）到最大（most significant）的顺序排列。否则，每个字节中的第一个位将为最大的一个。</p>
+<p class="calibre1">GL_UNPACK_ROW_LENGTH</p>
+<p class="calibre1">如果大于0的话，GL_UNPACK_ROW_LENGTH 将定义一行像素数字。如果在这一行中的第一个像素被放置在内存中的位置p，那么下一行的第一个像素的位置将通过跳过</p>
+<p class="calibre1"><img alt="853" src="Image00255.jpg" class="calibre9"/>
+</p>
+<p class="calibre1">个分量或索引来获得，其中n为一个像素中分量或索引的数量，l为一行中像素的个数（如果它大于0则为GL_UNPACK_ROW_LENGTH，否则为像素例行程序的width自变量），a 为GL_UNPACK_ALIGNMENT的值，s 为单个分量的大小，以字节为单位（如果a&lt;s，则视为a = s）。对于1bit值的情况，下一行的位置通过跳过</p>
+<p class="calibre10"><img alt="854" src="Image00256.jpg" class="calibre9"/>
+</p>
+<p class="calibre22">个分量或索引来获得。</p>
+<p class="calibre1">在这个描述中的语句 component 引用非索引（nonindex）值red、green、blue、alpha和depth。举例来说，GL_RGB存储格式的每个像素有3个分量，</p>
+<p class="calibre1">第一个为红色，第二个为绿色，最后是蓝色。</p>
+<p class="calibre1">GL_UNPACK_IMAGE_HEIGHT</p>
+<p class="calibre1">如果大于0的话，GL_UNPACK_IMAGE_HEIGHT 将定义一个图像空间纹理体中的像素数量，其中的“image（图像）”由所有使用同一个空间索引的像素定义。如果在这一行中的第一个像素被放置在内存中的位置p，那么下一行的第一个像素的位置将通过跳过</p>
+<p class="calibre1"><img alt="854-2" src="Image00257.jpg" class="calibre9"/>
+</p>
+<p class="calibre22">个分量或索引来获得，其中n为一个像素中分量或索引的数量，l为一行中像素的个数（如果它大于0则为GL_UNPACK_ROW_LENGTH，否则为像素例行程序的width自变量），h 为一个像素图像中的行数（如果它大于0则为GL_UNPACK_IMAGE_HEIGHT，否则为像素例行程序的height自变量），a 为GL_UNPACK_ALIGNMENT的值，s 为单个分量的大小，以字节为单位（如果a&lt;s，则视为a = s）。</p>
+<p class="calibre1">在这个描述中的语句 component 引用非索引（nonindex）值red、green、blue、alpha和depth。举例来说，GL_RGB存储格式的每个像素有3个分量，第一个为红色，第二个为绿色，最后是蓝色。</p>
+<p class="calibre1">GL_UNPACK_SKIP_PIXELS和 GL_UNPACK_SKIP_ROWS</p>
+<p class="calibre1">这些值是为了方便而提供给程序员的。它们并没有提供通过增加传递到glTexImage1D、glTexImage2D、glTexSubImage1D 或glTexSubImage2D的指针的方式所不能实现的功能。将GL_UNPACK_SKIP_PIXELS设为i就相当于将指针增加in个分量或索引，其中n是每个像素中的分量或索引数量。将 GL_UNPACK_SKIP_ROWS设为j就相当于将指针增加jm个分量或索引，其中m是每行中的分量或索引数量，就像刚刚在GL_UNPACK_ROW_LENGTH部分计算的一样。</p>
+<p class="calibre1">GL_UNPACK_ALIGNMENT</p>
+<p class="calibre1">指定内存中每个像素行起点的排列请求。允许值为1（byte排列）、2（排列为偶数byte的行）、4（字（word）排列）和8（行从双字边界开始）。</p>
+<p class="calibre1">下面的列表给出了每个能够通过glPixelStore进行设置的存储参数类型、初始值和有效值范围。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">pname</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">类　　型</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">初 始 值</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">有效范围</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_SWAP_BYTES</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">boolean</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">false</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">true或false</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_LSB_FIRST</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">boolean</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">false</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">true或false</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_ROW_LENGTH</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_IMAGE_HEIGHT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_SKIP_ROWS</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_SKIP_PIXELS</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞）</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_SKIP_IMAGES</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PACK_ALIGNMENT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">1, 2, 4或8</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_SWAP_BYTES</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">boolean</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">false</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">true或false</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_LSB_FIRST</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">boolean</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">false</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">true或false</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_ROW_LENGTH</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_IMAGE_HEIGHT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_SKIP_ROWS</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_SKIP_PIXELS</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_SKIP_IMAGES</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">[0, ∞ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNPACK_ALIGNMENT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">integer</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">1, 2, 4或8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="calibre1">glPixelStoref可以用来设置任何像素存储参数。如果参数类型为布尔型，那么在param为0时参数值为false；在其他情况下则为ture。如果pname 是一个整型参数，那么param将被舍入到最接近的整数。</p>
+<p class="calibre1">同样，glPixelStorei 也可以被用来设置任何像素存储参数。布尔型在param为0时参数值为false；在其他情况下则为ture。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果一个负的行长度、像素跳跃（pixel skip）或行跳跃（row skip）值被指定，或者一个除1、2、4或8以外的其他排列被指定，则产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet， 其自变量为GL_PACK_SWAP_BYTES。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_LSB_FIRST。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_ROW_LENGTH。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_IMAGE_HEIGHT。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_SKIP_ROWS。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_SKIP_PIXELS。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_SKIP_IMAGES。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_ALIGNMENT。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_SWAP_BYTES。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_LSB_FIRST。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_ROW_LENGTH。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_IMAGE_HEIGHT。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_SKIP_ROWS。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_SKIP_PIXELS。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_SKIP_IMAGES。</p>
+<p class="calibre1">glGet，其自变量为GL_UNPACK_ALIGNMENT。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glReadPixels, glTexImage1D, glTexImage2D, glTexImage3D, glTexSubImage1D,glTexSubImage2D, glTexSubImage3D</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glPointParameter</h4>
+<p class="calibre1">指定点参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glPointParameterf(GLenum pname,
+　　　　　　GLfloat param);
+void glPointParameteri(GLenum pname,
+　　　　　　GLint param);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定一个单值点参数。GL_POINT_FADE_THRESHOLD_SIZE和GL_POINT_SPRITE_COORD_ORIGIN 都可以被接受。</p>
+<p class="calibre1">param</p>
+<p class="calibre1">指定pname将被设置的值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glPointParameterfv(GLenum pname,
+　　　　　　const GLfloat * params);
+void glPointParameteriv(GLenum pname,
+　　　　　　const GLint * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定一个点参数。GL_POINT_FADE_THRESHOLD_SIZE和GL_POINT_SPRITE_COORD_ORIGIN 都可以被接受。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">指定要分配给pname的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">下列值都能被pname所接受。</p>
+<p class="calibre1">GL_POINT_FADE_THRESHOLD_SIZE</p>
+<p class="calibre1">params 是一个单个浮点值，它指定点大小在超出指定值时将被截取到的阈值。初始值为1.0。</p>
+<p class="calibre1">GL_POINT_SPRITE_COORD_ORIGIN</p>
+<p class="calibre1">params 是一个单个枚举类型（enum）值，它指定点精灵纹理坐标原点，可以是GL_LOWER_LEFT或GL_UPPER_LEFT。默认值为GL_UPPER_LEFT。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果为GL_POINT_FADE_THRESHOLD_SIZE指定的值小于0，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果为GL_POINT_SPRITE_COORD_ORIGIN指定的值不是GL_LOWER_LEFT 或GL_UPPER_LEFT，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_POINT_FADE_THRESHOLD_SIZE。</p>
+<p class="calibre1">glGet，其自变量为GL_POINT_SPRITE_COORD_ORIGIN。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glPointSize</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。Copyright © 2010 Khronos Group。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glPointSize</h4>
+<p class="calibre1">指定光栅化点的直径。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glPointSize(GLfloat size);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">size</p>
+<p class="calibre1">指定光栅化点的直径。初始值为1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glPointSize 指定点的光栅化直径。如果点大小模式被禁用（参见以GL_PROGRAM_POINT_SIZ为参数的glEnable），这个值将用于对点进行光栅化。</p>
+<p class="calibre1">否则，将会使用写入到着色语言内建gl_PointSize变量的值。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">在GL_POINT_SIZE被查询时总是返回由glPointSize指定的点大小。</p>
+<p class="calibre1">点的截取和舍入对指定值不产生影响。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果size小于或等于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_POINT_SIZE_RANGE。</p>
+<p class="calibre1">glGet，其自变量为GL_POINT_SIZE_GRANULARITY。</p>
+<p class="calibre1">glGet，其自变量为GL_POINT_SIZE。</p>
+<p class="calibre1">glGet，其自变量为GL_POINT_SIZE_MIN。</p>
+<p class="calibre1">glGet，其自变量为GL_POINT_SIZE_MAX。</p>
+<p class="calibre1">glGet，其自变量为GL_POINT_FADE_THRESHOLD_SIZE。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_PROGRAM_POINT_SIZE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glEnable, glPointParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glPolygonMode</h4>
+<p class="calibre1">选择一个多边形光栅化模式。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glPolygonMode(GLenum face,
+　　　　　　GLenum mode);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">face</p>
+<p class="calibre1">指定mode应用到的多边形。对于前向多边形和背向多边形，必须为GL_FRONT_AND_BACK。</p>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定多边形将如何被光栅化。可接受的值为GL_POINT、GL_LINE和GL_FILL。对前向多边形和背向多边形，初始值均为 GL_FILL 。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glPolygonMode 控制多边形光栅化的解释。face 描述应用哪个多边形mode：前向多边形和背向多边形(GL_FRONT_AND_BACK)。多边形模式只影响多边形的最终光栅化。特别是，一个多边形的顶点被光照，并且多边形被裁减，而且可能在这些模式应用之前被筛选。</p>
+<p class="calibre1">在mode中有3个模式被定义并能够被指定。</p>
+<p class="calibre1">GL_POINT</p>
+<p class="calibre1">被标记为一个边界边缘起点的多边形顶点将作为点来绘制。</p>
+<p class="calibre1">诸如GL_POINT_SIZE和GL_POINT_SMOOTH这样的点属性控制点的光栅化。除GL_POLYGON_MODE之外的多边形光栅化属性不会产生影响。</p>
+<p class="calibre1">GL_LINE</p>
+<p class="calibre1">多边形的边界边缘将作为线段来绘制。诸如GL_LINE_WIDTH和GL_LINE_SMOOTH这样的线属性控制线的光栅化。除GL_POLYGON_MODE之外的多边形光栅化属性不会产生影响。</p>
+<p class="calibre1">GL_FILL</p>
+<p class="calibre1">多边形的内部被填充。诸如GL_POLYGON_SMOOTH这样的多边形属性控制多边形的光栅化。</p>
+<p class="calibre1">示例</p>
+<p class="calibre1">调用glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);来绘制多边形轮廓的表面。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">顶点通过边缘标记来标示是否为有边界或无边界的。边缘标记最初在它分解三角形带和三角形扇时由GL内部生成。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果face或mode不是可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_POLYGON_MODE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glLineWidth, glPointSize</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glPolygonOffset</h4>
+<p class="calibre1">设置计算深度值的比例和单位。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glPolygonOffset(GLfloat factor,
+　　　　　　GLfloat units);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">factor</p>
+<p class="calibre1">指定一个用于为每个多边形创建一个深度偏移的缩放因子。初始值为0。</p>
+<p class="calibre1">units</p>
+<p class="calibre1">将乘以一个实现指定的值来创建一个常数深度偏移。初始值为0。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">当GL_POLYGON_OFFSET_FILL、GL_POLYGON_OFFSET_LINE或GL_POLYGON_OFFSET_POINT被激活时，每个片段的depth 值都将在它被从适当顶点的depth值进行插值替换后进行偏移。偏移的值为factor * DZ + r * units 其中DZ是关于多边形屏幕区域的深度变化的度量单位，而r则是为一个给定实现生成一个可解析偏移所保证的最小值。偏移会在深度测试执行前和这个值被写入到深度缓冲区前添加。</p>
+<p class="calibre1">glPolygonOffset 对于隐藏线图象渲染、在表面上应用贴花（decal）和加亮边缘固体渲染都非常有用。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glPolygonOffset对于放置在反馈缓冲区中的深度坐标不会产生影响。</p>
+<p class="calibre1">glPolygonOffset对选择不会产生影响。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glIsEnabled，其自变量为GL_POLYGON_OFFSET_FILL、GL_POLYGON_OFFSET_LINE或GL_POLYGON_<br class="sgc-toc-title"/>
+OFFSET_POINT。</p>
+<p class="calibre1">glGet，其自变量为GL_POLYGON_OFFSET_FACTOR或GL_POLYGON_OFFSET_UNITS。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDepthFunc, glEnable, glGet, glIsEnabled</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glPrimitiveRestartIndex</h4>
+<p class="calibre1">指定图元重启索引。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glPrimitiveRestartIndex(GLuint index);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">index</p>
+<p class="calibre1">指定要解释为图元重启索引的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glPrimitiveRestartIndex 指定一个在开启图元重启时特别对待的一个顶点数组。这就是我们所说的图元重启索引。</p>
+<p class="calibre1">当一个Draw*命令将一组通用属性数组元素传输到GL时，如果与这一组相对应的顶点数组与图元重启索引相同，那么GL就不会将这些元素作为一个顶点进行处理。取而代之的是，就像绘制命令以前一个传输结束，而另一个绘制命令立即以同样的参数开始一样，但是只对紧接下来的元素直到最初指定元素的末尾进行传输。</p>
+<p class="calibre1">在使用glDrawElementsBaseVertex、glDrawElementsInstancedBaseVertex或glMultiDrawElementsBaseVertex时，图元重启比较会在基本顶点偏置被添加到数组索引之前发生。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glPrimitiveRestartIndex 只在3.1或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDrawArrays, glDrawElements, glDrawElementsBaseVertex,glDrawElementsInstancedBaseVertex</p>
+<h4 class="sigil_not_in_toc">glProvokingVertex</h4>
+<p class="calibre1">指定要作为平面着色varying变量的数据源使用的顶点。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glProvokingVertex(GLenum provokeMode);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">provokeMode</p>
+<p class="calibre1">指定要作为平面着色varying变量的数据源使用的顶点。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">对一个顶点着色器varying输出变量进行平面着色（Flatshading）就是为这个图元的所有顶点的这个输出分配同一个值。从中获取这些值的顶点就叫做provokingvertex，而glProvokingVertex则指定将哪个顶点作为平面着色varying变量源来使用。</p>
+<p class="calibre1">provokeMode必须为GL_FIRST_VERTEX_CONVENTION或GL_LAST_VERTEX_ CONVENTION，并且控制将其值分配给平面着色varying变量输出的顶点。支持图元类型的这些值的插值是：</p>
+<p class="calibre1">如果一个顶点或几何图形着色器是活动的，那么用户定义的varying变量输出可能会在声明输出时使用flat限定符进行平面着色。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glProvokingVertex在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果provokeMode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">多边形i的图元类型</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">第一个顶点约定</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">最后一个顶点约定</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">point</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">independentline</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2i - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2i</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">line loop</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i+1, if i &lt; n 1, if i = n</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">line strip</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i+ 1</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">independent triangle</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">3i - 2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">3i</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">triangle strip</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i+ 2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">triangle fan</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i + 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i + 2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">line adjacency</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">4i - 2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">4i - 1</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">line strip adjacency</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i + 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">i + 2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">triangle adjacency</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">6i - 5</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">6i - 1</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">triangle strip adjacency</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2i - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2i + 3</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4 class="sigil_not_in_toc">glQueryCounter</h4>
+<p class="calibre1">在前面所有的命令到达GL服务器之后，但是未必已经执行时，将GL时间记录到一个查询对象中。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glQueryCounter(GLuint id,
+　　　　　　GLenum target);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">id</p>
+<p class="calibre1">指定要记录GL时间的查询对象的名称。</p>
+<p class="calibre1">target</p>
+<p class="calibre1">指定将要查询的计数器。target必须为GL_TIMESTAMP。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glQueryCounter会使GL将当前时间记录到查询对象指定的id。</p>
+<p class="calibre1">target必须为GL_TIMESTAMP。在GL客户端、服务器状态和帧缓冲区中前面所有命令完全实现之后，这个时间将进行记录。当时间被记录时，那个对象的查询结果将被标记为可用的。可以在一个glBeginQuery / glEndQuery块中使用glQueryCounter计时器查询，这个块的目标为GL_TIME_ELAPSED并且不影响这个查询的结果。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glQueryCounter只在3.3或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果id是一个已经在glBeginQuery / glEndQuery块中使用的查询对象的名称，则产生GL_INVALID_OPERATION<br class="sgc-toc-title"/>
+错误。</p>
+<p class="calibre1">如果id不是以前的一个glGenQueries调用返回的查询对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果tarGet不是GL_TIMESTAMP，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenQueries, glBeginQuery, glEndQuery, glDeleteQueries, glGetQueryObject,glGetQueryiv, glGet</p>
+<h4 class="sigil_not_in_toc">glReadBuffer</h4>
+<p class="calibre1">为像素选择一个颜色缓冲区源。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glReadBuffer(GLenum mode);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定一个颜色缓冲区。可以接受的值为GL_NONE、GL_FRONT_LEFT、GL_FRONT_RIGHT、GL_BACK_LEFT、GL_BACK_RIGHT、GL_FRONT、GL_BACK、GL_LEFT和GL_RIGHT。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glReadBuffer 指定一个颜色缓冲区作为后续glReadPixels、glCopyTexImage1D、glCopyTexImage2D、glCopyTexSubImage1D、glCopyTexSubImage2D和glCopyTexSubImage3D命令的源。mode 接受12个或更多预定义值中的一个。在一个完全配置的系统中，GL_FRONT、GL_LEFT和GL_FRONT_LEFT 都指定左前缓冲区（front left buffer），GL_FRONT_RIGHT 和GL_RIGHT 指定右前缓冲区（front right buffer），而GL_BACK_LEFT 和 GL_BACK 则指定左后缓冲区（back left buffer）。</p>
+<p class="calibre1">非立体双缓冲区（Nonstereo double-buffered）配置只有一个左前缓冲区和一个左后缓冲区。单缓冲区配置有一个左前缓冲区和一个右前缓冲区。如果为非立体（nonstereo），则只有一个左前缓冲区。将一个不存在的缓冲区指定到glReadBuffer是一个错误。</p>
+<p class="calibre1">在初始状态下，mode 在单缓冲区配置中为GL_FRONT，而在双缓冲区配置中则为GL_BACK。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是12个（或者更多）可接受的值中的一个，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果mode 指定一个不存在的缓冲区，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_READ_BUFFER。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCopyTexImage1D, glCopyTexImage2D, glCopyTexSubImage1D,glCopyTexSubImage2D, glCopyTexSubImage3D, glDrawBuffer, glReadPixels</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glReadPixels</h4>
+<p class="calibre1">从帧缓冲区中读取一个像素块（block of pixels）。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glReadPixels(GLint x,
+　　　　　　GLint y,
+　　　　　　GLsizei width,
+　　　　　　GLsizei height,
+　　　　　　GLenum format,
+　　　　　　GLenum type,
+　　　　　　GLvoid * data);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">x</p>
+<p class="calibre1">y</p>
+<p class="calibre1">指定从帧缓冲区读取的第一个像素的窗口坐标。这个位置为像素矩形块的左下角。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">height</p>
+<p class="calibre1">指定像素矩形的尺寸。width 和 height 都为1则代表单个像素。</p>
+<p class="calibre1">format</p>
+<p class="calibre1">指定像素数据的格式。下列符号值都可以接受：</p>
+<p class="calibre1">GL_STENCIL_INDEX、GL_DEPTH_COMPONENT、GL_DEPTH_STENCIL、GL_RED、GL_GREEN、GL_BLUE、GL_RGB、GL_BGR、GL_RGBA和GL_BGRA。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">指定像素数据的数据类型。必须为GL_UNSIGNED_BYTE、GL_BYTE、GL_UNSIGNED_SHORT、GL_SHORT、GL_UNSIGNED_INT、GL_INT、GL_HALF_FLOAT、GL_FLOAT、GL_UNSIGNED_BYTE_3_3_2、GL_UNSIGNED_BYTE_2_3_3_REV、GL_UNSIGNED_SHORT_5_6_5、GL_UNSIGNED_SHORT_5_6_5_REV、GL_UNSIGNED_SHORT_4_4_4_4、GL_UNSIGNED_SHORT_4_4_4_4_REV、GL_UNSIGNED_SHORT_5_5_5_1、GL_UNSIGNED_SHORT_1_5_5_5_REV、GL_UNSIGNED_INT_8_8_8_8、GL_UNSIGNED_INT_8_8_8_8_REV、GL_UNSIGNED_INT_10_10_10_2、GL_UNSIGNED_INT_2_10_10_10_REV、GL_UNSIGNED_INT_24_8、GL_UNSIGNED_INT_10F_11F_11F_REV、GL_UNSIGNED_INT_5_9_9_9_REV和GL_FLOAT_32_UNSIGNED_INT_24_8_REV中之一。</p>
+<p class="calibre1">data</p>
+<p class="calibre1">返回像素数据。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glReadPixels 将像素数据从帧缓冲区中返回到从data位置开始的客户端内存中，从左下角位于（x, y）的像素开始。几个参数在像素数据被放置到客户端内存中之前控制像素数据的处理。这些参数由glPixelStore命令进行设置。这个参考页描述由这些命令指定的大多数，但并非全部参数对glReadPixels的影响。</p>
+<p class="calibre1">如果一个非0 指定缓冲区对象在各像素块被请求时被绑定到GL_PIXEL_PACK_BUFFER 目标（参见glBindBuffer），data 将被视作缓冲区对象数据存储的一个字节偏移，而不是一个指向客户端内存的指针。</p>
+<p class="calibre1">glReadPixels 从每个左下角位于（x + i,y + j），其中0&lt;=i&lt;width、0&lt;=j&lt;height的像素返回值。这个像素被称为第j行的第i个像素。像素将以从最低行到最高行的行顺序和每行中从左到右的顺序来返回。</p>
+<p class="calibre1">format 指定返回像素值的格式，可接受的值如下。</p>
+<p class="calibre1">GL_STENCIL_INDEX</p>
+<p class="calibre1">模板索引将从模板缓冲区读取。每个索引都被转换为定点值，根据GL_INDEX_SHIFT的值和符号来进行左移或右移，并被加到GL_INDEX_OFFSET上。如果GL_MAP_STENCIL为GL_TRUE，索引将由它们在GL_PIXEL_MAP_S_TO_S表中的映射来替换。</p>
+<p class="calibre1">GL_DEPTH_COMPONENT</p>
+<p class="calibre1">深度值将从深度缓冲区读取。个索引都被转换为浮点值，最小深度值映射到0而最大深度值映射到1。</p>
+<p class="calibre1">每个分量随后都会乘以GL_DEPTH_SCALE，并被加到GL_DEPTH_BIAS上，并且最后被缩放到[0,1]范围。</p>
+<p class="calibre1">GL_DEPTH_STENCIL</p>
+<p class="calibre1">深度值将从深度缓冲区和模板缓冲区中读取。type参数必须为GL_UNSIGNED_INT_24_8或GL_FLOAT_32_UNSIGNED_INT_24_8_REV。</p>
+<p class="calibre1">GL_RED</p>
+<p class="calibre1">GL_GREEN</p>
+<p class="calibre1">GL_BLUE</p>
+<p class="calibre1">GL_RGB</p>
+<p class="calibre1">GL_BGR</p>
+<p class="calibre1">GL_RGBA</p>
+<p class="calibre1">GL_BGRA</p>
+<p class="calibre1">最后，这些索引或分量都会转换为正确的格式，由type指定。如果format为GL_STENCIL_INDEX，并且type不为GL_FLOAT，那么每个索引都会由后面列表中给出的遮罩值进行遮罩。如果type为GL_FLOAT，那么每个整数索引都会被转换到单精度浮点格式。</p>
+<p class="calibre1">如果format为GL_RED、GL_GREEN、GL_BLUE、GL_RGB、GL_BGR、GL_RGBA或GL_BGRA ，并且type不为GL_FLOAT，那么每个索引都会乘以后面列表中给出的乘数。如果type 为GL_FLOAT，那么每个分量都会原封不动地（或者在它与所使用的GL不同时，转换成客户端的单精度浮点格式）进行传递。</p>
+<p class="calibre1">这些值将按如下方式方式到内存中。如果format 为GL_STENCIL_INDEX、GL_DEPTH_COMPONENT、GL_RED、GL_GREEN或GL_BLUE，那么将返回一个单个值，并且第j行第i个像素的数据将被放置到 (j)width + i位置。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">类　　型</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">索引遮罩</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">分量变换</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_BYTE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">8</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">8</sup>
+ – 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_BYTE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">7</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1"><img alt="图像说明文字" src="Image00258.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_SHORT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">16</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">16</sup>
+ – 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SHORT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">15</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1"><img alt="图像说明文字" src="Image00259.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">32</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">32</sup>
+ – 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">31</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1"><img alt="图像说明文字" src="Image00260.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_HALF_FLOAT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">none</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">none</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_BYTE_3_3_2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ – 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_BYTE_2_3_3_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_SHORT_5_6_5</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_SHORT_5_6_5_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_SHORT_4_4_4_4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_SHORT_4_4_4_4_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_SHORT_5_5_5_1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_SHORT_1_5_5_5_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_8_8_8_8</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_8_8_8_8_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_10_10_10_2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_2_10_10_10_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ - 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_24_8</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">2<sup class="calibre20">N</sup>
+ - 1</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">（2<sup class="calibre20">N</sup>
+ – 1）c</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_10F_11F_11F_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">-</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Special</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_5_9_9_9_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">-</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Special</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_T_32_UNSIGNED_INT_24_8_REV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">none</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">c(Depth Only)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="calibre1">GL_RGB和GL_BGR 为每个像素返回3个值，GL_RGBA 和 GL_BGRA 为每个像素返回4个值，所有对应一个单个像素的值都要在data中占据连续的空间。由glPixelStore设置的存储参数，例如GL_PACK_LSB_FIRST 和GL_PACK_SWAP_BYTES，将影响数据被写入内存的方式。</p>
+<p class="calibre1">详细描述参见glPixelStore。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">位于与当前GL环境相联接的窗口之外的像素的值为未定义的。</p>
+<p class="calibre1">如果有错误产生，那么data的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果format 或type不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果width或者height为负值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果format 是GL_STENCIL_INDEX，并且不存在模板缓冲区，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果format 是GL_DEPTH_INDEX，并且不存在模板缓冲区，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果format是GL_DEPTH_STENCIL，并且不存在深度缓冲区或者不存在模板缓冲区，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果format 是GL_DEPTH_STENCIL，并且type不是GL_UNSIGNED_INT_24_8或GL_FLOAT_32_UNSIGNED_INT_24_8_REV，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果type为GL_UNSIGNED_BYTE_3_3_2、GL_UNSIGNED_BYTE_2_3_3_REV、GL_UNSIGNED_SHORT_5_6_5或GL_UNSIGNED_SHORT_5_6_5_REV中的一个，并且format 不是GL_RGB，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果type为GL_UNSIGNED_SHORT_4_4_4_4、GL_UNSIGNED_SHORT_4_4_4_4_REV、GL_UNSIGNED_SHORT_5_5_5_1、GL_UNSIGNED_SHORT_1_5_5_5_REV、GL_UNSIGNED_INT_8_8_8_8、GL_UNSIGNED_INT_8_8_8_8_REV、GL_UNSIGNED_INT_10_10_10_2或GL_UNSIGNED_INT_2_10_10_10_REVGL_UNSIGNED_INT_5_9_9_9_REV中的一个，并且format既不是GL_RGBA也不是GL_BGRA，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER目标，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER 目标，并且数据将要被打包到缓冲区对象，以致内存写入请求将超出数据存储大小，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER 目标，并且data 没有平均分成将一个由type指定的数据存储到内存中所需的字节数，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果GL_READ_FRAMEBUFFER_BINDING是非0的，读取帧缓冲区完成，并且读取帧缓冲区的GL_SAMPLE_BUFFERS的值大于0，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_INDEX_SIZE。</p>
+<p class="calibre1">glGet，其自变量为 GL_PIXEL_PACK_BUFFER_BINDING。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glPixelStore, glReadBuffer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glRenderbufferStorage</h4>
+<p class="calibre1">建立渲染缓冲区对象的图像的数据存储、格式和维度。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glRenderbufferStorage(GLenum target,
+　　　　　　GLenum internalformat,　　　　　　
+　　　　　　GLsizei width,
+　　　　　　GLsizei height);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定位置目标要绑定到的绑定点，必须为GL_RENDERBUFFER。</p>
+<p class="calibre1">internalformat</p>
+<p class="calibre1">指定渲染缓冲区对象的图像所使用的内部格式。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">指定渲染缓冲区的宽度，以像素为单位。</p>
+<p class="calibre1">height</p>
+<p class="calibre1">指定渲染缓冲区的高度，以像素为单位。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glRenderbufferStorage 等价于调用samples 设为0的glRenderbufferStorageMultisample 。</p>
+<p class="calibre1">target指定的操作目标，必须为GL_RENDERBUFFER。Internalformat 指定用于渲染缓冲区对象的存储的内部格式，必须为颜色可渲染、深度可渲染或模板可渲染的格式。width和height 是渲染缓冲区的维度，以像素为单位。width 和height 必须都小于或等于GL_MAX_RENDERBUFFER_SIZE的值。</p>
+<p class="calibre1">如果成功，glRenderbufferStorage会在调用glRenderbufferStorage变为未定义之后删除存在的任何渲染缓冲区图像数据存储和数据存储的内容。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_RENDERBUFFER，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果width或者height为负值，或者大于GL_MAX_RENDERBUFFER_SIZE的值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果internalformat不是一个颜色可渲染、深度可渲染或模板可渲染的格式，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果GL不能创建要求的size的数据存储，则产生GL_OUT_OF_MEMORY错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenRenderbuffers, glBindRenderbuffer, glRenderbufferStorageMultisample,glFramebufferRenderbuffer, glDeleteRenderbuffers</p>
+<h4 class="sigil_not_in_toc">glRenderbufferStorageMultisample</h4>
+<p class="calibre1">建立渲染缓冲区对象的图像的数据存储、格式、维度和样本计数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glRenderbufferStorageMultisample(GLenum target,
+　　　　　　GLsizei samples,
+　　　　　　GLenum internalformat,
+　　　　　　GLsizei width,
+　　　　　　GLsizei height);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定位置目标要绑定到的绑定点，必须为GL_RENDERBUFFER。</p>
+<p class="calibre1">samples</p>
+<p class="calibre1">指定渲染缓冲区对象的存储所使用的样本数量。</p>
+<p class="calibre1">internalformat</p>
+<p class="calibre1">指定渲染缓冲区对象的图像所使用的内部格式。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">指定渲染缓冲区的宽度，以像素为单位。</p>
+<p class="calibre1">height</p>
+<p class="calibre1">指定渲染缓冲区的高度，以像素为单位。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glRenderbufferStorageMultisample建立渲染缓冲区对象的图像的数据存储、格式、维度和样本数量。</p>
+<p class="calibre1">target指定的操作目标，必须为GL_RENDERBUFFER。Internalformat 指定用于渲染缓冲区对象的存储的内部格式，必须为颜色可渲染、深度可渲染或模板可渲染的格式。width和height 是渲染缓冲区的维度，以像素为单位。width 和height 必须都小于或等于GL_MAX_RENDERBUFFER_SIZE的值。samples 指定用于渲染缓冲区对象的存储的样本数量，必须小于或等于GL_MAX_SAMPLES的值。如果internalformat是一个有符号或无符号的整数格式，那么必须小于或等于GL_MAX_INTEGER_SAMPLES的值。</p>
+<p class="calibre1">如果成功，glRenderbufferStorageMultisample 会在调用glRenderbufferStorageMultisample 变为未定义之后删除存在的任何渲染缓冲区图像数据存储和数据存储的内容。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_RENDERBUFFER，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果samples大于GL_MAX_SAMPLES，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果internalformat不是一个颜色可渲染、深度可渲染或模板可渲染的格式，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果internalformat是一个有符号或无符号的整数格式，并且samples大于或等于GL_MAX_INTEGER_SAMPLES的值，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果width或者height为负值，或者大于GL_MAX_RENDERBUFFER_SIZE的值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果GL不能创建要求的size的数据存储，则产生GL_OUT_OF_MEMORY错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenRenderbuffers, glBindRenderbuffer, glRenderbufferStorage, glFramebufferRenderbuffer,<br class="sgc-toc-title"/>
+glDeleteRenderbuffers</p>
+<h4 class="sigil_not_in_toc">glSampleCoverage</h4>
+<p class="calibre1">指定多重采样覆盖参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glSampleCoverage(GLclampf value,
+　　　　　　GLboolean invert);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">value</p>
+<p class="calibre1">指定单个浮点采样覆盖值。这个值将被截取到[0,1]范围内。初始值为1.0。</p>
+<p class="calibre1">invert</p>
+<p class="calibre1">指定单个布尔值，指示是否应该对覆盖遮罩取反。</p>
+<p class="calibre1">GL_TRUE 和GL_FALSE 都可以被接受。初始值为GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">多采样对一个像素以不同的与具体实现相关的亚像素进行多次采样，以产生抗锯齿效果。如果被激活，则对抗锯齿点、线、多边形和图像进行透明度多重采样。</p>
+<p class="calibre1">value 用于构建一个临时遮罩，这个遮罩用于确定在解析最终片段颜色时将使用哪些采样。这个遮罩将与从多采样计算中生成的覆盖遮罩进行按位与（bitwise-and）。如果 invert 标记被设置，那么临时遮罩将被转置（所有bit都被翻转），然后将进行按位与。</p>
+<p class="calibre1">如果一个实现没有任何可用的多采样缓冲区，或者多采样被禁止，那么光栅化将在只有一个采样的情况下进行，计算一个像素的最终RGB颜色。</p>
+<p class="calibre1">如果提供了一个得到实现支持的多采样缓冲区，并且多重采样被激活，那么一个像素的最终颜色将通过对每个像素综合几个采样而生成。每个采样包含颜色、深度和模板信息，允许这些操作在每个采样上执行。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_SAMPLE_COVERAGE_VALUE。</p>
+<p class="calibre1">glGet，其自变量为GL_SAMPLE_COVERAGE_INVERT。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_MULTISAMPLE。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_SAMPLE_ALPHA_TO_COVERAGE。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_SAMPLE_ALPHA_TO_ONE。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_SAMPLE_COVERAGE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glEnable</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glSampleMaski</h4>
+<p class="calibre1">设置采样遮罩的子字节值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glSampleMaski(GLuint maskNumber,
+　　　　　　GLbitfield mask);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">maskNumber</p>
+<p class="calibre1">指定要更新采样遮罩子字节的哪个32位子字节。</p>
+<p class="calibre1">mask</p>
+<p class="calibre1">指定遮罩子字节的新值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glSampleMaski 设置多字节采样遮罩子字节的一个32位子字节GL_SAMPLE_MASK_VALUE。</p>
+<p class="calibre1">maskIndex指定要更新采样遮罩子字节的哪个32位子字节，而mask 则指定这个子字节要使用的新值。maskIndex必须小于GL_MAX_SAMPLE_MASK_WORDS的值。遮罩第M 字节的第B 位与样本32 x M + B对应。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glSampleMaski只在3.2或更高版本的GL中，或者在支持ARB_texture_multisample扩展的情况下可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果maskIndex大于或等于GL_MAX_SAMPLE_MASK_WORDS的值，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenRenderbuffers, glBindRenderbuffer, glRenderbufferStorageMultisample,glFramebufferRenderbuffer, glDeleteRenderbuffers</p>
+<h4 class="sigil_not_in_toc">glSamplerParameter</h4>
+<p class="calibre1">设置采样器参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glSamplerParameterf(GLuint sampler,
+　　　　　　GLenum pname,
+　　　　　　GLfloat param);
+void glSamplerParameteri(GLuint sampler,
+　　　　　　GLenum pname,
+　　　　　　GLint param);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sampler</p>
+<p class="calibre1">指定其参数将要被修改的采样器对象。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定一个单值纹理参数的符号名。pname可以为下列值之一：GL_TEXTURE_WRAP_S、GL_TEXTURE_WRAP_T、GL_TEXTURE_WRAP_R、GL_TEXTURE_MIN_FILTER、GL_TEXTURE_MAG_FILTER、GL_TEXTURE_MIN_LOD、GL_TEXTURE_MAX_LOD、GL_TEXTURE_LOD_BIAS GL_TEXTURE_COMPARE_MODE或GL_TEXTURE_COMPARE_FUNC。</p>
+<p class="calibre1">param</p>
+<p class="calibre1">指定pname的值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glSamplerParameterfv GLuint sampler GLenum pname const GLfloat * params
+void glSamplerParameteriv GLuint sampler GLenum pname const GLint * params</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sampler</p>
+<p class="calibre1">指定其参数将要被修改的采样器对象。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定一个纹理参数的符号名。pname可以为下列值之一：</p>
+<p class="calibre1">GL_TEXTURE_WRAP_S、GL_TEXTURE_WRAP_T、GL_TEXTURE_WRAP_R、GL_TEXTURE_MIN_FILTER、GL_TEXTURE_MAG_FILTER、TEXTURE_BORDER_COLOR、GL_TEXTURE_MIN_LOD、GL_TEXTURE_MAX_LOD、GL_TEXTURE_LOD_BIAS GL_TEXTURE_COMPARE_MODE或GL_TEXTURE_COMPARE_FUNC。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">指定一个指向的一个或多个pname值所存储的数组的指针。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glSamplerParameter 将pname的一个或多个值分配给指定为pname的采样器参数。Sampler指定将要修改的采样器对象，并且必须为一个采样器对象的名称，从以前的一个glGenSamplers调用返回。在pname中，下列符号都可以接受：</p>
+<p class="calibre1">GL_TEXTURE_MIN_FILTER</p>
+<p class="calibre1">纹理缩小函数在进行纹理贴图的像素被映射到大于一个纹理元素的区域时使用。一共有6个定义的缩小函数。其中两个使用最近的一个或最近的4个纹理元素来计算纹理值。</p>
+<p class="calibre1">其他4个使用Mip贴图。</p>
+<p class="calibre1">Mip贴图是一组排序的数组，代表同一个图像的一组分辨率逐渐降低的版本。如果图像的维度为2<sup class="calibre20">n</sup>
+ *2<sup class="calibre20">m</sup>
+ ，那么就有max(n,m)+1个Mip贴图。</p>
+<p class="calibre1">第一个Mip贴图是原始纹理,维度为2<sup class="calibre20">n</sup>
+ *2<sup class="calibre20">m</sup>
+ 。每个后续Mip贴图的纹理为2<sup class="calibre20">k-1</sup>
+ *2<sup class="calibre20">l-1</sup>
+ ，其中2<sup class="calibre20">k</sup>
+ *2<sup class="calibre20">l</sup>
+ 是前一个Mip贴图的维度，直到k=0或l=0为止。这时，后续Mip贴图的维度为1*2<sup class="calibre20">l-1</sup>
+ 或2<sup class="calibre20">k-1</sup>
+ *1，直到最后一个Mip贴图为止，其维度为1*1。可以调用以level 参数指示Mip贴图顺序的glTexImage1D、glTexImage2D、glTexImage3D、glCopyTexImage1D或glCopyTexImage2D来定义Mip贴图。层次0是原始纹理，层次max(n,m)是最后的1*1Mip贴图。</p>
+<p class="calibre1">params支持下列函数函数来缩小纹理。</p>
+<p class="calibre1">GL_NEAREST</p>
+<p class="calibre1">返回距离进行纹理贴图的像素的中心最近（曼哈顿距离）的纹理元素的值。</p>
+<p class="calibre1">GL_LINEAR</p>
+<p class="calibre1">返回距离进行纹理贴图的像素的中心最近的4个纹理元素的加权平均值。其中可以包含边缘纹理元素，根据GL_TEXTURE_WRAP_S和GL_TEXTURE_WRAP_T的值和确切的映射而定。</p>
+<p class="calibre1">GL_NEAREST_MIPMAP_NEAREST</p>
+<p class="calibre1">选择最接近地匹配进行纹理贴图的像素大小的Mip贴图，并使用GL_NEAREST标准（与像素中心最接近的纹理元素）来生成一个纹理值。</p>
+<p class="calibre1">GL_LINEAR_MIPMAP_NEAREST</p>
+<p class="calibre1">选择最接近地匹配进行纹理贴图的像素大小的Mip贴图，并使用GL_LINEAR 标准（4个与像素中心最接近的纹理元素的加权平均值）来生成一个纹理值。</p>
+<p class="calibre1">GL_NEAREST_MIPMAP_LINEAR</p>
+<p class="calibre1">选择最接近地匹配进行纹理贴图的像素大小的两个Mip贴图，并使用GL_NEAREST标准（与像素中心最接近的纹理元素）来从每个Mip贴图生成一个纹理值。最终的纹理值是这两个值的一个加权平均值。</p>
+<p class="calibre1">GL_LINEAR_MIPMAP_LINEAR</p>
+<p class="calibre1">选择最接近地匹配进行纹理贴图的像素大小两个的Mip贴图，并使用GL_LINEAR 标准（4个与像素中心最接近的纹理元素的加权平均值）来从每个Mip贴图生成一个纹理值。最终的纹理值是这两个值的一个加权平均值。</p>
+<p class="calibre1">在缩小处理过程中采样的纹理元素越多，出现的锯齿假影就越少。当GL_NEAREST和GL_LINEAR缩小函数能够比其他4个更快时，它们只对4个纹理元素中的一个进行采样，以决定进行渲染的像素的纹理值，并且可以生成莫尔条纹（moire pattern）或不规则过渡（ragged transitions）。GL_TEXTURE_MIN_FILTER的初始值为GL_NEAREST_MIPMAP_LINEAR。</p>
+<p class="calibre1">GL_TEXTURE_MAG_FILTER</p>
+<p class="calibre1">纹理放大函数在进行纹理贴图的像素被映射到小于或等于一个纹理元素的区域时使用。它会将纹理放大函数设置为GL_NEAREST或GL_LINEAR（如下所示）。GL_NEAREST通常要比GL_LINEAR快，但是它能够产生边缘更加锐利的纹理图像，因为纹理元素之间的过渡不那么平滑。GL_TEXTURE_MAG_FILTER的初始值为GL_LINEAR。</p>
+<p class="calibre1">GL_NEAREST</p>
+<p class="calibre1">返回距离进行纹理贴图的像素的中心最近（曼哈顿距离）的纹理元素的值。</p>
+<p class="calibre1">GL_LINEAR</p>
+<p class="calibre1">返回距离进行纹理贴图的像素的中心最近的4个纹理元素的加权平均值。其中可以包含边缘纹理元素，根据GL_TEXTURE_WRAP_S和GL_TEXTURE_WRAP_T的值和确切的映射而定。</p>
+<p class="calibre1">GL_TEXTURE_MIN_LOD</p>
+<p class="calibre1">设置最小层次细节参数。这个浮点值限制了最高分辨率Mip贴图（最低层次的Mip贴图）的选择。初始值为-1000。</p>
+<p class="calibre1">GL_TEXTURE_MAX_LOD</p>
+<p class="calibre1">设置最大层次细节参数。这个浮点值限制了最低分辨率Mip贴图（最高层次的Mip贴图）的选择。初始值为1000。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_S</p>
+<p class="calibre1">将纹理坐标环绕参数设置为GL_CLAMP_TO_EDGE、GL_MIRRORED_REPEAT或GL_REPEAT。GL_CLAMP_TO_BORDER会使坐标截取到<img alt="\left[ {\frac{{ - 1}}{2}, + \frac{1}{2}} \right]" src="Image00261.gif" class="calibre9"/>
+ ，范围内，其中N是截取方向上纹理的大小。</p>
+<p class="calibre1">GL_CLAMP_TO_EDGE 会使坐标截取到<img alt="\left[ {\frac{1}{2},1 - \frac{1}{2}} \right]" src="Image00262.gif" class="calibre9"/>
+ 范围内，其中N是截取方向上纹理的大小。</p>
+<p class="calibre1">GL_REPEAT导致坐标的整数部分被忽略；GL只使用小数部分，从而创建一个重复模式。</p>
+<p class="calibre1">GL_MIRRORED_REPEAT导致在s的整数部分为偶数时坐标被设置为纹理坐标的小数部分，而在这个整数部分为奇数时纹理坐标则被设置为1-frac(s)，其中frac(s)代表s的小数部分。初始状态下，GL_TEXTURE_WRAP_S被设置为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_T</p>
+<p class="calibre1">将纹理坐标环绕参数设置为GL_CLAMP_TO_EDGE、GL_MIRRORED_REPEAT或GL_REPEAT。参见GL_TEXTURE_WRAP_S相关讨论。</p>
+<p class="calibre1">初始状态下，GL_TEXTURE_WRAP_T被设置为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_R</p>
+<p class="calibre1">将纹理坐标环绕参数设置为GL_CLAMP_TO_EDGE、GL_MIRRORED_REPEAT或GL_REPEAT。参见GL_TEXTURE_WRAP_S相关讨论。</p>
+<p class="calibre1">初始状态下，GL_TEXTURE_WRAP_R 被设置为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_BORDER_COLOR</p>
+<p class="calibre1">Sets a border color. params包含4个值，即纹理边缘的RGBA颜色。整数颜色分量进行线性插值，这样最大正整数被映射到1.0，而最小的负整数则被映射到-1.0。这些值在指定时将被截取到[0,1]范围内。初始状态下，边界颜色为(0, 0, 0, 0)。</p>
+<p class="calibre1">GL_TEXTURE_COMPARE_MODE</p>
+<p class="calibre1">为当前绑定的纹理指定纹理比较模式。也就是一个内部格式为GL_DEPTH_COMPONENT_*;（参见glTexImage2D）的纹理。允许的值为：</p>
+<p class="calibre1">GL_COMPARE_REF_TO_TEXTURE</p>
+<p class="calibre1">指定进行插值和截取的纹理坐标应该与当前绑定纹理的值进行比较。更多关于如何进行比较的细节参见关于GL_TEXTURE_COMPARE_FUNC的讨论。比较的结果被分配到红色通道。</p>
+<p class="calibre1">GL_NONE</p>
+<p class="calibre1">指定红色通道应该从当前绑定的纹理分配正确的值。</p>
+<p class="calibre1">GL_TEXTURE_COMPARE_FUNC</p>
+<p class="calibre1">指定当GL_TEXTURE_COMPARE_MODE设置为GL_COMPARE_REF_TO_TEXTURE时使用的比较操作符。</p>
+<p class="calibre1">允许值为：</p>
+<p class="calibre1">其中r为当前插值纹理坐标，而Dt则为从当前绑定纹理中采样的纹理值。result被分配给Rt。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glSamplerParameter 只在3.3或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果sampler 不是以前的一个glGenSamplers调用返回的采样器对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果params 应该有一个定义的常数值（基于pname的值）但实际却不是这样，则产生GL_INVALID_ENUM错误。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">纹理比较函数</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">计算结果</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_LEQUAL</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Result= <img alt="图像说明文字" src="Image00263.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_GEQUAL</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Result= <img alt="图像说明文字" src="Image00264.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_LESS</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Result= <img alt="图像说明文字" src="Image00265.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_GREATER</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Result=<img alt="图像说明文字" src="Image00266.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_EQUAL</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Result= <img alt="图像说明文字" src="Image00267.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_NOTEQUAL</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Result= <img alt="图像说明文字" src="Image00268.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ALWAYS</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">result= 0.0</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_NEVER</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">result= 0.0</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetSamplerParameter</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenSamplers, glBindSampler, glDeleteSamplers, glIsSampler, glBindTexture</p>
+<h4 class="sigil_not_in_toc">glScissor</h4>
+<p class="calibre1">定义裁剪框。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glScissor(GLint x,
+　　　　　　GLint y,
+　　　　　　GLsizei width,
+　　　　　　GLsizei height);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">x</p>
+<p class="calibre1">y</p>
+<p class="calibre1">指定裁剪框的左下角。初始值为（0，0）。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">height</p>
+<p class="calibre1">指定裁剪框的宽度和高度。当一个GL环境第一次被绑定到一个窗口时，width和height将被设置为这个窗口的尺寸。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glScissor 在窗口坐标中定义一个矩形，这个矩形就叫做裁剪框。最前面的两个参数x和y指定裁剪框的左下角。width 和 height指定裁剪框的宽度和高度。</p>
+<p class="calibre1">可以通过调用自变量为GL_SCISSOR_TEST的glEnable和glDisable来激活和禁止裁剪测试。初始状态下，模板测试是禁止的。如果这个测试被激活，那么只有位于这个裁剪框中的像素能够通过绘制命令来进行修改。窗口坐标在帧缓冲区像素的共享角（shared corner）上有整数值。glScissor(0,0,1,1) 允许只在窗口左下角进行的修改，而glScissor(0,0,0,0)则不允许对窗口中的任何像素进行修改。</p>
+<p class="calibre1">当裁剪测试被禁止时，就相当于裁剪框包含了整个窗口。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果width或者height为负值，则产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_SCISSOR_BOX。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_SCISSOR_TEST。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glEnable, glViewport</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glShaderSource</h4>
+<p class="calibre1">替换一个着色器对象中的源代码。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glShaderSource(GLuint shader,
+　　　　　　GLsizei count,
+　　　　　　const GLchar **string,
+　　　　　　const GLint *length);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定源代码将被替换的着色器对象的句柄。</p>
+<p class="calibre1">count</p>
+<p class="calibre1">指定string和length数组中的元素数量。</p>
+<p class="calibre1">string</p>
+<p class="calibre1">指定一个指向包含将要被载入着色器的源代码的字符串的指针数组。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">指定字符串长度数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glShaderSource将shader中的源代码设置设置为由string指定的字符串数组中的源代码。着色器对象中原来存储的任何源代码都会被完全替代。数组中的字符串数量由count指定。如果length为NULL，那么每个字符串将被假定为以空结束符结束。如果length为除NULL以外的其他值，那么它将指向一个为每一个string的相应元素包含一个字符串长度的数组。length数组中的每一个元素可以包含相应字符串的长度（空字符并不作为字符串长度的一部分来进行计数），或者一个小于0的值来指明字符串为以空结束符结束的。源代码字符串在这时不会被扫描或解析；它们将简单地被复制到指定的着色器对象。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">OpenGL在glShaderSource被调用时复制着色器源代码字符串，所以一个应用程序可以在函数返回后立即释放它的副本。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果shader不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果shader不是一个着色器对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果count小于0，则产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetShader，其自变量为shader 和GL_SHADER_SOURCE_LENGTH。</p>
+<p class="calibre1">glGetShaderSource，其自变量为shader。</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCompileShader, glCreateShader, glDeleteShader</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glStencilFunc</h4>
+<p class="calibre1">为模板测试设置前向和背向函数及引用值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glStencilFunc(GLenum func,
+　　　　　　GLint ref,
+　　　　　　GLuint mask);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">func</p>
+<p class="calibre1">指定测试函数。共有8个标记可用，分别是GL_NEVER、GL_LESS、GL_LEQUAL、GL_GREATER、GL_GEQUAL、GL_EQUAL、GL_NOTEQUAL和GL_ALWAYS。初始值为GL_ALWAYS。</p>
+<p class="calibre1">ref</p>
+<p class="calibre1">为模板测试指定引用值。ref将被限制到[0, 2<sup class="calibre20">n</sup>
+ -1]范围，其中n是模板缓冲区中位平面的数量。初始值为0。</p>
+<p class="calibre1">mask</p>
+<p class="calibre1">指定一个遮罩，这个遮罩在测试完成后与引用值和存储模板值都进行与运算。初始值都为1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">和深度缓冲一样，模板化（Stenciling）在每个像素偏移上激活和禁止绘制。我们使用GL会址图元来在模板平面进行绘制，然后对几何图形和图象进行渲染，使用模板平面来遮蔽屏幕的一部分。典型情况下，模板化在多道渲染（multipass rendering）运算中用来获得特殊效果，这些效果有贴花（decal）、轮廓（outlining）和结构立体几何渲染（constructive solid geometry rendering）等。</p>
+<p class="calibre1">模板测试根据对引用值和模板缓冲区中的值进行比较的结果消除一个像素。可以通过调用自变量为GL_STENCIL_TEST的glEnable和glDisable来激活和禁止模板测试。要根据模板测试的结果来指定动作，可以调用glStencilOp或glStencilOpSeparate。</p>
+<p class="calibre1">可以有两组单独的func、ref和mask 参数。其中一组影响背向多边形，而另外一组则影响前向多边形和其他非多边形图元。</p>
+<p class="calibre1">glStencilFunc 将前向和背向模板状态设置为同一个值。使用glStencilFuncSeparate来将前向和背向模板状态设置为不同的值。</p>
+<p class="calibre1">func 是一个符号常量，它决定模板比较函数。它接受后面列出的8个值中的一个。ref 是一个整数引用值，它将在模板比较中使用。它会被截取到[0, 2<sup class="calibre20">n</sup>
+ -1]范围，其中n为模板缓冲区中位平面的数量。mask指定一个与引用值和存储模板值进行按位与的遮罩，进行按位与的值将参与比较。</p>
+<p class="calibre1">如果stencil 表示存储在相应模板缓冲区位置的值，下面的列表展示了每个能够由func指定的比较函数的影响。只有在比较成功时，像素才会传递到下光栅化处理的一个阶段（参见glStencilOp）。所有测试都将 stencil 视为[0, 2<sup class="calibre20">n</sup>
+ -1]范围内的无符号整数，其中n为模板缓冲区中位平面的数量。</p>
+<p class="calibre1">下列值都能被func所接受。</p>
+<p class="calibre1">GL_NEVER　　　 总是失败。</p>
+<p class="calibre1">GL_LESS　　　　 当 ( ref &amp; mask ) &lt; ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_LEQUAL　　　当 ( ref &amp; mask )≤( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_GREATER　　 当 ( ref &amp; mask ) &gt; ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_GEQUAL　　　当 ( ref &amp; mask )≥( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_EQUAL　　　　当 ( ref &amp; mask ) = ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_NOTEQUAL　　当 ( ref &amp; mask )!= ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_ALWAYS　　　总是通过。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">在初始条件下，模板测试是被禁用的。如果不存在模板缓冲区，那么将不会出现模板修改，这就好像模板测试总是通过一样。 glStencilFunc 与调用face被设置为GL_FRONT_AND_BACK的glStencilFuncSeparate一样。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果func不是8个可接受值中的一个，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet参数为GL_STENCIL_FUNC、GL_STENCIL_VALUE_MASK、GL_STENCIL_REF、GL_STENCIL_BACK_FUNC、GL_STENCIL_BACK_VALUE_MASK、GL_STENCIL_BACK_REF或GL_STENCIL_BITS。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_STENCIL_TEST。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBlendFunc, glDepthFunc, glEnable, glLogicOp, glStencilFuncSeparate,glStencilMask, glStencilMaskSeparate, glStencilOp, glStencilOpSeparate</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glStencilFuncSeparate</h4>
+<p class="calibre1">为模板测试设置前向和/或背向函数及引用值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glStencilFuncSeparate(GLenum face,
+　　　　　　GLenum func,
+　　　　　　GLint ref,
+　　　　　　GLuint mask);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">face</p>
+<p class="calibre1">指定前向和/或背向模板状态是否被更新。共有3个标记可用，分别是GL_FRONT、GL_BACK和GL_FRONT_AND_BACK。</p>
+<p class="calibre1">func</p>
+<p class="calibre1">指定测试函数。共有8个标记可用，分别是GL_NEVER、GL_LESS、GL_LEQUAL、GL_GREATER、GL_GEQUAL、GL_EQUAL、GL_NOTEQUAL和GL_ALWAYS。初始值为GL_ALWAYS。</p>
+<p class="calibre1">ref</p>
+<p class="calibre1">为模板测试指定引用值。ref 将被限制到[0,2n-1]范围，其中n 是模板缓冲区中位平面的数量。初始值为0。</p>
+<p class="calibre1">mask</p>
+<p class="calibre1">指定一个遮罩，这个遮罩在测试完成后与引用值和存储模板值都进行与运算。初始值都为1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">和深度缓冲一样，模板化（Stenciling）在每个像素偏移上激活和禁止绘制。我们使用GL会址图元来在模板平面进行绘制，然后对几何图形和图象进行渲染，使用模板平面来遮蔽屏幕的一部分。典型情况下，模板化在多道渲染（multipass rendering）运算中用来获得特殊效果，这些效果有贴花（decal）、轮廓（outlining）和结构立体几何渲染（constructive solid geometry rendering）等。</p>
+<p class="calibre1">模板测试根据对引用值和模板缓冲区中的值进行比较的结果消除一个像素。可以通过调用自变量为GL_STENCIL_TEST的glEnable和glDisable来激活和禁止模板测试。要根据模板测试的结果来指定动作，可以调用glStencilOp或glStencilOpSeparate。</p>
+<p class="calibre1">可以有两组单独的func、ref和mask参数。其中一组影响背向多边形，而另外一组则影响前向多边形和其他非多边形图元。</p>
+<p class="calibre1">glStencilFunc将前向和背向模板状态设置为同一个值，就像调用了face被设置为GL_FRONT_AND_BACK的glStencilFuncSeparate一样。</p>
+<p class="calibre1">func是一个符号常量，它决定模板比较函数。它接受后面列出的8个值中的一个。ref是一个整数引用值，它将在模板比较中使用。它会被截取到[0, 2<sup class="calibre20">n</sup>
+ -1]范围，其中n 为模板缓冲区中位平面的数量。mask指定一个与引用值和存储模板值进行按位与的遮罩，进行按位与的值将参与比较。</p>
+<p class="calibre1">如果stencil 表示存储在相应模板缓冲区位置的值，下面的列表展示了每个能够由func指定的比较函数的影响。只有在比较成功时，像素才会传递到下光栅化处理的一个阶段（参见glStencilOp）。所有测试都将 stencil 视为[0, 2<sup class="calibre20">n</sup>
+ -1]范围内的无符号整数，其中n为模板缓冲区中位平面的数量。</p>
+<p class="calibre1">下列值都能被func所接受。</p>
+<p class="calibre1">GL_NEVER　　　　总是失败。</p>
+<p class="calibre1">GL_LESS　　　　　当 ( ref &amp; mask ) &lt; ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_LEQUAL　　　 当 ( ref &amp; mask ) &lt;= ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_GREATER　　　当 ( ref &amp; mask ) &gt; ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_GEQUAL　　　 当 ( ref &amp; mask ) &gt;= ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_EQUAL　　　　 当 ( ref &amp; mask ) = ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_NOTEQUAL　　 当 ( ref &amp; mask )!= ( stencil &amp; mask )时通过。</p>
+<p class="calibre1">GL_ALWAYS　　　 总是通过。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">在初始条件下，模板测试是被禁用的。如果不存在模板缓冲区，那么将不会出现模板修改，这就好像模板测试总是通过一样。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果func不是8个可接受值中的一个，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet参数为GL_STENCIL_FUNC、GL_STENCIL_VALUE_MASK、GL_STENCIL_REF、GL_STENCIL_BACK_FUNC、GL_STENCIL_BACK_VALUE_MASK、GL_STENCIL_BACK_REF或GL_STENCIL_BITS。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_STENCIL_TEST。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBlendFunc, glDepthFunc, glEnable, glLogicOp, glStencilFunc, glStencilMask,glStencilMaskSeparate, glStencilOp, glStencilOpSeparate</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2006 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glStencilMask</h4>
+<p class="calibre1">控制模板平面中的独立位的前向和背向写入。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glStencilMask(GLuint mask);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mask</p>
+<p class="calibre1">指定一个位遮罩来激活和禁止模板平面中的独立位的写入。</p>
+<p class="calibre1">在初始情况下，遮罩为全1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glStencilMask模板平面中的独立位的前向和背向写入。的最低有效位n 个位指定了一个遮罩，其中n 为模板缓冲区中的位的数量。如果遮罩中某个位置出现了一个1，那么将可以写入模板缓冲区中相应位。如果遮罩中某个位置出现了一个0，那么模板缓冲区中相应位将为写保护的。在初始情况下所有位都被激活写入。</p>
+<p class="calibre1">可以有两个独立的mask写入遮罩（writemasks）；其中一个影响背向多边形，而另一个则影响前向多边形以及其他非多边形图元。glStencilMask将前向和背向写入遮罩设置为同一个值。使用glStencilMaskSeparate来将前向和背向模板写入遮罩设置为不同的值。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glStencilMask与调用face被设置为GL_FRONT_AND_BACK的glStencilMaskSeparate 一样。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_STENCIL_WRITEMASK、GL_STENCIL_BACK_WRITEMASK或GL_STENCIL_BITS。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glColorMask, glDepthMask, glStencilFunc, glStencilFuncSeparate, glStencilMaskSeparate, glStencilOp, glStencilOpSeparate</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glStencilMaskSeparate</h4>
+<p class="calibre1">控制模板平面中的独立位的前向和/或背向写入。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glStencilMaskSeparate(GLenum face,
+　　　　　　GLuint mask);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">face</p>
+<p class="calibre1">指定前向和/或背向模板写入遮罩是否被更新。共有3个标记可用，分别是GL_FRONT、GL_BACK和GL_FRONT_AND_BACK。</p>
+<p class="calibre1">mask</p>
+<p class="calibre1">指定一个位遮罩来激活和禁止模板平面中的独立位的写入。</p>
+<p class="calibre1">在初始情况下，遮罩为全1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glStencilMaskSeparate 控制模板平面中的独立位的前向和背向写入。的最低有效位n个位指定了一个遮罩，其中n为模板缓冲区中的位的数量。如果遮罩中某个位置出现了一个1，那么将可以写入模板缓冲区中相应位。如果遮罩中某个位置出现了一个0，那么模板缓冲区中相应位将为写保护的。在初始情况下所有位都被激活写入。</p>
+<p class="calibre1">可以有两个独立的mask写入遮罩（writemasks）；其中一个影响背向多边形，而另一个则影响前向多边形以及其他非多边形图元。glStencilMask将前向和背向写入遮罩设置为同一个值，就像调用face被设置为GL_FRONT_AND_BACK的glStencilMaskSeparate一样。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果face不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_STENCIL_WRITEMASK、GL_STENCIL_BACK_WRITEMASK或GL_STENCIL_BITS。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glColorMask, glDepthMask, glStencilFunc, glStencilFuncSeparate,glStencilMask, glStencilOp, glStencil OpSeparate</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2006 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glStencilOp</h4>
+<p class="calibre1">设置前向和背向模板测试动作。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glStencilOp(GLenum sfail,
+　　　　　　GLenum dpfail,
+　　　　　　GLenum dppass);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sfail</p>
+<p class="calibre1">指定在模板测试失败后采取的动作。共有8个标记可以接受：GL_KEEP、GL_ZERO、GL_REPLACE、GL_INCR, GL_INCR_WRAP、GL_DECR, GL_DECR_WRAP和GL_INVERT。初始值为GL_KEEP。</p>
+<p class="calibre1">dpfail</p>
+<p class="calibre1">指定在模板测试通过但深度测试失败后采取的模板动作。dpfail接受和sfail相同的符号常量。初始值为GL_KEEP。</p>
+<p class="calibre1">dppass</p>
+<p class="calibre1">指定在模板测试都通过，或在模板测试通过并且没有被激活的深度缓冲区或深度测试时采取的模板动作。</p>
+<p class="calibre1">dppass接受和sfail相同的符号常量。初始值为GL_KEEP。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">和深度缓冲一样，模板化（Stenciling）在每个像素偏移上激活和禁止绘制。我们使用GL会址图元来在模板平面进行绘制，然后对几何图形和图像进行渲染，使用模板平面来遮蔽屏幕的一部分。典型情况下，模板化在多道渲染（multipass rendering）运算中用来获得特殊效果，这些效果有贴花（decal）、轮廓（outlining）和结构立体几何渲染（constructive solid geometry rendering）等。</p>
+<p class="calibre1">模板测试根据对引用值和模板缓冲区中的值进行比较的结果消除一个像素。可以通过调用自变量为GL_STENCIL_TEST的glEnable和glDisable来激活和禁止模板测试；如果要控制它，则可以调用glStencilFunc或glStencilFuncSeparate。</p>
+<p class="calibre1">可以有两组单独的sfail、dpfail 和dppass参数。其中一组影响背向多边形，而另外一组则影响前向多边形和其他非多边形图元。</p>
+<p class="calibre1">glStencilOp将前向和背向模板状态设置为同一个值。使用glStencilOpSeparate 来将前向和背向模板状态设置为不同的值。</p>
+<p class="calibre1">glStencilOp 接受3个自变量，这3个自变量指示在模板化被激活时存储的模板值上将会发生什么。如果模板测试失败，那么像素的颜色或深度缓冲区将不会有任何改变，并且sfail指定模板缓冲区内容上将会发生什么。下列8个动作都可能发生。</p>
+<p class="calibre1">GL_KEEP　　　　　　　保持当前值。</p>
+<p class="calibre1">GL_ZERO　　　　　　　将模板缓冲区的值设为0</p>
+<p class="calibre1">GL_REPLACE　　　　　将模板缓冲区值设为ref，正如glStencilFunc所指定的。</p>
+<p class="calibre1">GL_INCR　　　　　　　 增加当前模板缓冲区值。截取到可表示的最大无符号值。</p>
+<p class="calibre1">GL_INCR_WRAP　　　　 增加当前模板缓冲区值。在增加可表示的最大无符号值时将模板缓冲区值环绕（wrap）到0。</p>
+<p class="calibre1">GL_DECR　　　　　　　增加当前模板缓冲区值。截取到0。</p>
+<p class="calibre1">GL_DECR_WRAP　　　 增加当前模板缓冲区值。在增加模板缓冲区值0时将模板缓冲区值环绕（wrap）到可表示的最大无符号值。</p>
+<p class="calibre1">GL_INVERT　　　　　　 对模板缓冲区值按位取反（bitwise invert）。</p>
+<p class="calibre1">模板缓冲区值将被视为无符号整数。在增加和减少时，这些值被限制（wrap）到0和2<sup class="calibre20">n</sup>
+ -1，其中2<sup class="calibre20">n</sup>
+ -1为查询GL_STENCIL_BITS返回的值。</p>
+<p class="calibre1">glStencilOp的其他两个自变量根据后续深度缓冲区测试成功（dppass）或失败（dpfail）（参见glDepthFunc）来指定模板缓冲区动作。这些动作都是用与sfail相同的8个符号常量来指定的。注意，当不存在深度缓冲区，或者当深度缓冲区没有被激活时，dpfail将被忽略。在这些情况下，sfail 和dppass 分别指定在模板测试失败和通过时的模板动作。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">在初始条件下，模板测试是被禁用的。如果不存在模板缓冲区，那么将不会发生任何模板修改，并且就像模板测试总是通过一样，不考虑glStencilOp的任何调用。</p>
+<p class="calibre1">glStencilOp与调用face被设置为GL_FRONT_AND_BACK的glStencilOpSeparate一样。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果sfail、dpfail 或 dppass 为已定义常数值以外的任何值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet参数为GL_STENCIL_FAIL、GL_STENCIL_PASS_DEPTH_PASS、GL_STENCIL_PASS_DEPTH_FAIL、GL_STENCIL_BACK_FAIL、GL_STENCIL_BACK_PASS_DEPTH_PASS、GL_STENCIL_BACK_PASS_DEPTH_FAIL或GL_STENCIL_BITS。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_STENCIL_TEST。</p>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glCopyTexSubImage1D</h4>
+<p class="calibre1">复制一个一维纹理子图像。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glCopyTexSubImage1D(GLenum target,
+　　　　　　GLint level,
+　　　　　　GLint xoffset,
+　　　　　　GLint x,
+　　　　　　GLint y,
+　　　　　　GLsizei width);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标纹理。必须为GL_TEXTURE_1D。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定层次细节数量。Level 0 是基本图像层次。Level n是第n级Mip贴图缩略图。</p>
+<p class="calibre1">xoffset</p>
+<p class="calibre1">指定纹理数组中的texel偏移。</p>
+<p class="calibre1">x</p>
+<p class="calibre1">y</p>
+<p class="calibre1">指定将要复制的那行像素的左角的窗口坐标。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">指定纹理子图像的宽度。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCopyTexSubImage1D 用来自当前GL_READ_BUFFER（而不是来自主内存，就和glTexSubImage1D的情况一样）的像素来代替一维纹理图像的一部分。</p>
+<p class="calibre1">左端位于(x,\ y)且长度为width的屏幕对齐像素行代替纹理数组中x索引从xoffset到xoffset + width – 1（包括边界）的部分。纹理数组中的目的部分不能包括任何最初指定的纹理数组之外的texel。</p>
+<p class="calibre1">这行中的像素就像调用了glCopyPixels一样被处理，但是在最后的变换之前处理过程将停止。这时所有像素分量值都被限定到[0,1]范围，然后被转换到纹理的内部格式，以便存储到Texel数组中。</p>
+<p class="calibre1">指定一个宽度为0的子纹理并不是错误，但是这样做不会产生任何效果。如果当前GL_READ_BUFFER指定行任何像素在当前渲染环境相关联的读取窗口之外，那么为这些像素所获得的值将是未定义的。</p>
+<p class="calibre1">不能对指定纹理数组的nternalformat,、width或border参数，或者指定子区域外的texel值作任何修改。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glPixelStore会影响纹理图像。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_TEXTURE_1D，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果纹理数组没有被以前的glTexImage1D或glCopyTexImage1D操作所定义，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果level小于0，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果level大于log<sub class="calibre19">2</sub>
+ (max)值，其中max 是GL_MAX_TEXTURE_SIZE的返回值，则可能产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果xoffset &lt;– b或 (xoffset + width) &gt; (w – b) ，其中w和b分别是被修改的纹理图像的GL_TEXTURE_WIDTH和GL_TEXTURE_BORDER，则产生GL_INVALID_VALUE 错误。注意w包含边界宽度的两倍。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetTexImage</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_TEXTURE_1D。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCopyTexImage1D, glCopyTexImage2D, glCopyTexSubImage2D, glCopyTexSubImage3D, glPixelStore, glReadBuffer, glTexImage1D, glTexImage2D, glTexImage3D, glTexParameter, glTexSubImage1D, glTexSubImage2D,<br class="sgc-toc-title"/>
+glTexSubImage3D</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

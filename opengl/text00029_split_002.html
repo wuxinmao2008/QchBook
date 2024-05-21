@@ -1,0 +1,1992 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+  <body class="calibre">
+
+
+<h4 class="sigil_not_in_toc">glGetBufferPointerv</h4>
+<p class="calibre1">返回一个指向被映射的缓冲区对象数据存储的指针。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetBufferPointerv(GLenum target,
+　　　　　　GLenum pname,
+　　　　　　GLvoid ** params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标缓冲区对象。符号常量必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定要返回的指针。符号常量必须为GL_BUFFER_MAP_POINTER。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回由pname指定的指针值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetBufferPointerv 返回指针信息。pname 是一个指示将要返回的指针的符号常量必须为GL_BUFFER_MAP_POINTER，即缓冲区对象的数据存储映射到的指针。如果数据存储当前没有被映射，则返回NULL。params 是一个指向放置返回指针值的位置的指针。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<p class="calibre1">指针的初始值为NULL。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet 或pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果保留的缓冲区对象名称0被绑定到 tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindBuffer, glMapBuffer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetBufferSubData</h4>
+<p class="calibre1">返回一个缓冲区对象的数据存储的子集。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetBufferSubData(GLenum target,
+　　　　　　GLintptr offset,
+　　　　　　GLsizeiptr size,
+　　　　　　GLvoid * data);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标缓冲区对象。符号常量必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">offset</p>
+<p class="calibre1">指定缓冲区对象的数据存储（数据将从中返回）的偏移，以字节为单位。</p>
+<p class="calibre1">size</p>
+<p class="calibre1">指定返回的数据存储区域的大小，以字节为单位。</p>
+<p class="calibre1">data</p>
+<p class="calibre1">指定一个指向缓冲区对象数据返回到的区域的指针。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetBufferSubData从当前捆绑到tarGet的缓冲区对象中返回一部分或全部数据存储。起始于字节偏移offset和扩展size 字节的数据会从数据存储复制到由data指向的内存。如果缓冲区对象当前被映射，或者offset和size一起定义一个超出缓冲区对象数据存储边界的范围，则会抛出一个错误。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么data的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_ARRAY_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER或GL_PIXEL_UNPACK_BUFFER，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果offset 或者size为负，或者如果offset和size一起定义一个超出缓冲区对象数据存储范围的内存区域，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果保留的缓冲区对象名称0被绑定到 tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果被查询的缓冲区对象被映射，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindBuffer, glBufferData, glBufferSubData, glMapBuffer, glUnmapBuffer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetCompressedTexImage</h4>
+<p class="calibre1">返回一个压缩纹理图像</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetCompressedTexImage(GLenum target,
+　　　　　　GLint lod,
+　　　　　　GLvoid * img);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">target 指定将要获得哪个纹理。GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z和GL_TEXTURE_CUBE_MAP_NEGATIVE_Z都可以被接受。</p>
+<p class="calibre1">lod</p>
+<p class="calibre1">指定期望图像的层次细节数量。Level 0 是基本图像层次。</p>
+<p class="calibre1">Level n是第n级Mip贴图缩略图。</p>
+<p class="calibre1">img</p>
+<p class="calibre1">返回这个压缩纹理图像</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetCompressedTexImage将与target和lod关联的压缩纹理图像返回到img。img 应该是一个GL_TEXTURE_COMPRESSED_IMAGE_SIZE 字节的数组。target 指定所期望的纹理图像是否是由glTexImage1D (GL TEXTURE_1D)、glTexImage2D (GL_TEXTURE_2D 或任何 GL_TEXTURE_CUBE_MAP_*)或 glTexImage3D(GL_TEXTURE_3D) 指定的。lod 指定期望图像的层次细节数量。</p>
+<p class="calibre1">如果在纹理图像被指定的情况下，所需的非0缓冲区对象被绑定到GL_PIXEL_PACK_BUFFER目标（参见glBindBuffer），img将被看作缓冲区对象数据存储的一个字节偏移。</p>
+<p class="calibre1">为了将错误减到最少，首先要核实纹理是通过调用自变量为GL_TEXTURE_COMPRESSED的glGetTexLevelParameter来进行压缩的。如果纹理被压缩，那么调用自变量为GL_TEXTURE_COMPRESSED_IMAGE_SIZE的glGetTexLevelParameter来确定存储压缩纹理所需的内存总量。最后，通过调用自变量为GL_TEXTURE_INTERNAL_FORMAT的glGetTexLevelParameter来检索纹理的内部格式。要存储纹理以供后面使用，将内部格式和大小与检索的纹理图像相关联。这些数据能够被各自用于载入tarGet纹理的的纹理或子纹理输入程序所使用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果lod i小于0或大于实现所能允许的LOD最大值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果glGetCompressedTexImage 被用来检索一个未压缩内部格式的纹理，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER目标，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER 目标，并且数据将要被打包到缓冲区对象，以致内存写入请求将超出数据存储大小，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetTexLevelParameter，其自变量为GL_TEXTURE_COMPRESSED。</p>
+<p class="calibre1">glGetTexLevelParameter，其自变量为GL_TEXTURE_COMPRESSED_IMAGE_SIZE。</p>
+<p class="calibre1">glGetTexLevelParameter，其自变量为GL_TEXTURE_INTERNAL_FORMAT。</p>
+<p class="calibre1">glGet，其自变量为 GL_PIXEL_PACK_BUFFER_BINDING。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glActiveTexture, glCompressedTexImage1D, glCompressedTexImage2D, glCompressedTexImage3D, glCompressedTexSubImage1D, glCompressedTexSubImage2D, glCompressedTexSubImage3D, glReadPixels, glTexImage1D, glTexImage2D, glTexImage3D, glTexParameter, glTexSubImage1D, glTexSubImage2D, glTexSubImage3D</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetError</h4>
+<p class="calibre1">返回错误信息。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLenum glGetError(void);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetError返回错误标记的值。每个可检出的错误都会被分配一个数字代码和符号名。在出现错误时，错误标记将被设置为适当的错误代码值。在glGetError被调用、错误代码被返回并且标记被重设为GL_NO_ERROR之前，不会有其他错误被记录。如果一次glGetError调用返回GL_NO_ERROR，那就说明从上一次调用glGetError或GL初始化开始没有出现可检出的错误。</p>
+<p class="calibre1">考虑到分布式实现，还需要几个错误标记。如果任何单个错误标记记录了一个错误，那么在glGetError被调用时这个标记的值会被返回，而这个标记则被重设为GL_NO_ERROR。如果一个以上的标记都记录了一个错误，那么glGetError返回，并清除任意一个错误标记值。这样，如果所有的错误标记都要被重置，那么glGetError 在一个循环中将总是被调用，直到它返回GL_NO_ERROR。</p>
+<p class="calibre1">在初始情况下，所有错误标记都被设置为GL_NO_ERROR。</p>
+<p class="calibre1">下面的错误是当前被定义的。</p>
+<p class="calibre1">GL_NO_ERROR</p>
+<p class="calibre1">没有记录任何错误。这个符号常量的值保证为0。</p>
+<p class="calibre1">GL_INVALID_ENUM</p>
+<p class="calibre1">一个列举自变量被指定了一个不可接受的值。错误的命令将被忽略，并且除了设置错误标记之外，不产生任何其它副作用。</p>
+<p class="calibre1">GL_INVALID_VALUE</p>
+<p class="calibre1">一个数字自变量超出了允许范围。错误的命令将被忽略，并且除了设置错误标记之外，不产生任何其它副作用。</p>
+<p class="calibre1">GL_INVALID_OPERATION</p>
+<p class="calibre1">指定的操作在当前状态下不允许。错误的命令将被忽略，并且除了设置错误标记之外，不产生任何其它副作用。</p>
+<p class="calibre1">GL_INVALID_FRAMEBUFFER_OPERATION</p>
+<p class="calibre1">帧缓冲区对象不完整。错误的命令将被忽略，并且除了设置错误标记之外，不产生任何其它副作用。</p>
+<p class="calibre1">GL_OUT_OF_MEMORY</p>
+<p class="calibre1">没有足够的剩余内存用来执行此命令。在这个错误被记录之后，除了这个错误标记的状态之外，GL的状态为未定义的。</p>
+<p class="calibre1">当一个错误标记被设置时，一个GL操作的结果只有在GL_OUT_OF_MEMORY出现时才是未定义的。在其他所有情况下，产生错误的命令都将被忽略，并且不会对GL状态或帧缓冲区内容产生任何影响。如果产生的命令返回一个值，那么它将返回0。如果glGetError本身生成了一个错误，那么它返回0。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetFragDataIndex</h4>
+<p class="calibre1">查询颜色索引到用户定义的varying输出变量的绑定。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLint glGetFragDataIndex(GLuint program,
+　　　　　　const char * name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">包含将要查询绑定的varying输出变量的程序的名称。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">用户定义的将要查询索引的varying输出变量的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetFragDataIndex返回当程序对象program上一次连接时变量name被绑定到的片段颜色的索引。如果name不是一个program的varying输出变量，或者如果出现错误，则将会返回-1。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glGetFragDataIndex 只在3.3或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是一个程序对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateProgram, glBindFragDataLocation, glBindFragDataLocationIndexed, glGetFragDataLocation</p>
+<h4 class="sigil_not_in_toc">glGetFragDataLocation</h4>
+<p class="calibre1">查询从颜色号到用户定义的varying输出变量的数量。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLint glGetFragDataLocation(GLuint program,
+　　　　　　const char * name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">包含将要查询绑定的varying输出变量的程序的名称。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">用户定义的将要查询绑定的varying输出变量的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetFragDataLocation为program程序检索从已分配颜色号到用户定义varying输出变量名的绑定。Program必须是已经进行过连接的。name必须是一个以null为结尾的字符串。如果name不是program中的一个活动的用户定义varying输出片段着色器变量，则将会返回-1。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是一个程序对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateProgram, glBindFragDataLocation</p>
+<h4 class="sigil_not_in_toc">glGetFramebufferAttachmentParameteriv</h4>
+<p class="calibre1">获取关于一个绑定的帧缓冲区对象的信息。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetFramebufferAttachmentParameter(GLenum target,
+　　　　　　GLenum attachment,
+　　　　　　GLenum pname,
+　　　　　　GLint *params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<h4 class="sigil_not_in_toc">target</h4>
+<p class="calibre1">指定查询操作的目标。</p>
+<p class="calibre1">attachment</p>
+<p class="calibre1">指定target中的绑定。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定将要进行查询的绑定的参数。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">指定接收attachment的pname值的变量的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetFramebufferAttachmentParameter返回关于一个绑定的帧缓冲区对象的绑定信息。Target制定帧缓冲区绑定点，必须为GL_DRAW_FRAMEBUFFER、GL_READ_FRAMEBUFFER或GL_FRAMEBUFFER。GL_FRAMEBUFFER等价于GL_DRAW_FRAMEBUFFER。</p>
+<p class="calibre1">如果默认帧缓冲区被绑定到target，那么attachment必须为GL_FRONT_LEFT、GL_FRONT_RIGHT、GL_BACK_LEFT或GL_BACK_RIGHT中的一个来指定一个颜色缓冲区，或者GL_DEPTH是来指定深度缓冲区，或者是GL_STENCIL来指定模板缓冲区。</p>
+<p class="calibre1">如果一个帧缓冲区被绑定，那么attachment必须为GL_COLOR_ATTACHMENTi、GL_DEPTH_ATTACHMENT、GL_STENCIL_ATTACHMENT、GL_DEPTH_STENCIL_ATTACHMMENT或GL_DEPTH_STENCIL_ATTACHMENT。</p>
+<p class="calibre1">GL_COLOR_ATTACHMENTi 中的i 必须在从0到GL_MAX_COLOR_ ATTACHMENTS-1的范围之内。</p>
+<p class="calibre1">如果attachment 为GL_DEPTH_STENCIL_ATTACHMENT，并且不同的对象被绑定到target的深度和模板绑定点，那么查询将会失败。如果这两个绑定点都绑定了同一个对象，那么将会返回关于这个对象的信息。</p>
+<p class="calibre1">在成功从glGetFramebufferAttachmentParameteriv返回的情况下，如果pname为GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE，那么params将包含GL_NONE、GL_FRAMEBUFFER_DEFAULT、GL_TEXTURE或GL_RENDERBUFFER中的一个，指定包含这些绑定图像的对象类型。pname能够接受的其他值取决于对象的类型，如下所示。</p>
+<p class="calibre1">如果GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值为GL_NONE，那么不会有任何帧缓冲区被绑定到tarGet。在这种情况下查询pname，GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME将会返回0，并且所有其他查询都回生成一个错误。</p>
+<p class="calibre1">如果GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值不为GL_NONE，那么这些查询将会应用到所有其他帧缓冲区类型。</p>
+<p class="calibre1">如果pname为GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE、GL_FRAMEBUFFER_ATTACHMENT_ GREEN_SIZE、GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE、GL_FRAMEBUFFER_ ATTACHMENT_ALPHA_SIZE、GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE或GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE，那么params将会包含指定绑定的相应红色、绿色、蓝色、alpha、深度或模板分量的位数。如果请求的分量在attachment中不存在，那么将返回0。</p>
+<p class="calibre1">如果pname为GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE，那么pname将会包含指定绑定的分量的格式，即GL_FLOAT、GL_INT、GL_UNSIGNED_INT、GL_SIGNED_NORMALIZED或GL_UNSIGNED_NORMALIZED，分别对应浮点、有符号整数、无符号整数、有符号标准化定点和无符号标准化定点分量。只有颜色缓冲区才会有整数分量。</p>
+<p class="calibre1">如果pname为GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING，那么param将会包含指定绑定的分量的编码，为GL_LINEAR或GL_SRGB，分别对应线性或sRGB编码分量。只有颜色缓冲区分量可以是sRGB编码的；这些分量将会按照4.1.7和4.1.8部分中所描述的方式进行处理。</p>
+<p class="calibre1">对于默认帧缓冲区来说，颜色编码由实现决定。对于帧缓冲区对象来说，如果一个颜色绑定的内部格式是某种颜色可渲染得SRGB格式，那么分量将是sRGB编码的。</p>
+<p class="calibre1">如果GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值为GL_RENDERBUFFER，那么：</p>
+<p class="calibre1">如果pname 为GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME，那么pname将会包含那个包含绑定图像的渲染缓冲区的名称。</p>
+<p class="calibre1">如果GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值为GL_TEXTURE，那么：</p>
+<p class="calibre1">如果pname 为GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME，那么pname将会包含那个包含绑定图像的纹理对象的名称。</p>
+<p class="calibre1">如果pname 为GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL，那么pname将会包含那个包含绑定图像的纹理对象的Mip贴图层次。</p>
+<p class="calibre1">如果pname为GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE，并且名为GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME的纹理对象是一个立方体贴图纹理，那么params将会包含那个包含绑定图像的立方体贴图纹理对象的立方体贴图表面。否则params将会包含0值。</p>
+<p class="calibre1">如果pname为GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER，并且名为GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME的纹理对象是一个三维纹理或二维数组纹理，那么params将会包含那个包含绑定图像的纹理层的编号。否则params将会包含0值。</p>
+<p class="calibre1">如果pname为GL_FRAMEBUFFER_ATTACHMENT_LAYERED，那么当一个三维纹理、立方体贴图纹理或者一维或二维数组纹理的整个一个层次被绑定时，pname将包含GL_TRUE。否则params将会包含GL_FALSE。</p>
+<p class="calibre1">任何帧缓冲区类型与上面没有提到的任何pname的组合，都会产生一个错误。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果pname对于GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值来说不是有效值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果attachment对于tarGet来说不是一个可接受的值，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果attachment为GL_DEPTH_STENCIL_ATTACHMENT，并且不同的对象被绑定到tarGet的深度和模板绑定点，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值为GL_NONE，并且pname不是GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenFramebuffers, glBindFramebuffer</p>
+<h4 class="sigil_not_in_toc">glGetMultisamplefv</h4>
+<p class="calibre1">检索采样器的位置。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetMultisamplefv(GLenum pname,
+　　　　　　GLuint index,
+　　　　　　GLfloat *val);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定采样参数名称。pname必须为GL_SAMPLE_POSITION。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定其位置将要被查询的样本。</p>
+<p class="calibre1">val</p>
+<p class="calibre1">指定接收样本位置的数组的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetMultisamplefv查询一个给定样本的位置。pname代表要检索的样本参数，并且必须为GL_SAMPLE_POSITION。index 与应该返回其位置的样本相对应。样本位置将作为两个浮点值返回到val[0] 和val[1]中，它们的值都在0和1之间，分别对应这个样本的GL像素空间的x和y位置。(0.5, 0.5)对应于像素中心。index必须在0和GL_SAMPLES - 1的值之间。</p>
+<p class="calibre1">如果多重采样模式没有固定的样本位置，那么返回的值可能只会反映某些像素中样本的位置。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果pname不是一个GL_SAMPLE_POSITION，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果index大于或等于GL_SAMPLES的值，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenFramebuffers, glBindFramebuffer</p>
+<h4 class="sigil_not_in_toc">glGetProgramiv</h4>
+<p class="calibre1">返回一个来自程序对象的参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetProgramiv(GLuint program,
+　　　　　　GLenum pname,
+　　　　　　GLint *params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<h4 class="sigil_not_in_toc">program</h4>
+<p class="calibre1">指定将要被查询的程序对象。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定对象参数。可接受的符号名称为GL_DELETE_STATUS、GL_LINK_STATUS、GL_VALIDATE_STATUS、GL_INFO_LOG_LENGTH、GL_ATTACHED_SHADERS、GL_ACTIVE_ATTRIBUTES、GL_ACTIVE_ATTRIBUTE_MAX_LENGTH、GL_ACTIVE_UNIFORMS、GL_ACTIVE_UNIFORM_BLOCKS、GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH、GL_ACTIVE_UNIFORM_MAX_LENGTH、GL_TRANSFORM_FEEDBACK_BUFFER_MODE、GL_TRANSFORM_FEEDBACK_VARYINGS、GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH、GL_GEOMETRY_VERTICES_OUT、GL_GEOMETRY_INPUT_TYPE和GL_GEOMETRY_OUTPUT_TYPE。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回所需对象参数。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetProgram 将指定程序对象的参数值返回到params。定义的参数如下。</p>
+<p class="calibre1">GL_DELETE_STATUS</p>
+<p class="calibre1">params 在program当前被标记为删除的情况下返回GL_TRUE，在其他情况下返回GL_FALSE。</p>
+<p class="calibre1">GL_LINK_STATUS</p>
+<p class="calibre1">params 在最后一次program上的连接操作成功的情况下返回GL_TRUE，否则返回GL_FALSE。</p>
+<p class="calibre1">GL_VALIDATE_STATUS</p>
+<p class="calibre1">params 在最后一次program上的验证操作成功的情况下返回GL_TRUE，否则返回GL_FALSE。</p>
+<p class="calibre1">GL_INFO_LOG_LENGTH</p>
+<p class="calibre1">params 返回program的信息日志中字符的数量，包括空终止符（也就是说，被请求存储信息日志的字符缓冲器的大小）。如果program 没有任何信息日志，则返回0。</p>
+<p class="calibre1">GL_ATTACHED_SHADERS</p>
+<p class="calibre1">params 返回绑定到program的着色器对象的数量。</p>
+<p class="calibre1">GL_ACTIVE_ATTRIBUTES</p>
+<p class="calibre1">params返回program的活动属性变量的数量。</p>
+<p class="calibre1">GL_ACTIVE_ATTRIBUTE_MAX_LENGTH</p>
+<p class="calibre1">params 返回program最长的活动属性名的长度，包括空终止符（也就是说，被请求存储最长的活动属性名的字符缓冲器的大小）。如果不存在活动的属性，则返回0。</p>
+<p class="calibre1">GL_ACTIVE_UNIFORMS</p>
+<p class="calibre1">params返回program的活动统一变量的数量。</p>
+<p class="calibre1">GL_ACTIVE_UNIFORM_MAX_LENGTH</p>
+<p class="calibre1">params返回program最长的统一变量名的长度，包括空终止符（也就是说，被请求存储最长的统一变量名的字符缓冲器的大小）。如果不存在活动的统一变量，则返回0。</p>
+<p class="calibre1">GL_TRANSFORM_FEEDBACK_BUFFER_MODE</p>
+<p class="calibre1">params返回一个符号常量，指示在激活变换返回时使用的缓冲区模式。这个参数可以为GL_SEPARATE_ATTRIBS 或 GL_INTERLEAVED_ATTRIBS。</p>
+<p class="calibre1">GL_TRANSFORM_FEEDBACK_VARYINGS</p>
+<p class="calibre1">params返回变换反馈模式下要为程序捕捉的varying变量的数量。</p>
+<p class="calibre1">GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH</p>
+<p class="calibre1">params返回要用于变换反馈的最长可用名称的长度，包含空终止符。</p>
+<p class="calibre1">GL_GEOMETRY_VERTICES_OUT</p>
+<p class="calibre1">params返回program中的几何图形着色器将会输出的顶点数的最大值。</p>
+<p class="calibre1">GL_GEOMETRY_INPUT_TYPE</p>
+<p class="calibre1">params返回一个符号常量，指示可以作为输入而被program中包含的几何图形着色器接受的图元类型。</p>
+<p class="calibre1">GL_GEOMETRY_OUTPUT_TYPE</p>
+<p class="calibre1">params返回一个符号常量，指示可以被program中包含的几何图形着色器输出的图元类型。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_ACTIVE_UNIFORM_BLOCKS和GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH只在3.1或更高版本的GL中可用。</p>
+<p class="calibre1">GL_GEOMETRY_VERTICES_OUT、GL_GEOMETRY_INPUT_TYPE和GL_GEOMETRY_OUTPUT_TYPE只在3.2或更高版本的GL中可用。</p>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program没有引用一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果pname为GL_GEOMETRY_VERTICES_OUT、GL_ GEOMETRY_INPUT_TYPE或GL_GEOMETRY_OUTPUT_TYPE，并且program不包含几何图形着色，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetActiveAttrib，自变量为 program。</p>
+<p class="calibre1">glGetActiveUniform，自变量为 program。</p>
+<p class="calibre1">glGetAttachedShaders，自变量为 program。</p>
+<p class="calibre1">glGetProgramInfoLog，自变量为 program。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader, glCreateProgram, glDeleteProgram, glGetShader, glLinkProgram, glValidateProgram</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetProgramInfoLog</h4>
+<p class="calibre1">返回一个程序对象的信息日志。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetProgramInfoLog(GLuint program,
+　　　　　　GLsizei maxLength,
+　　　　　　GLsizei *length,
+　　　　　　GLchar *infoLog)</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定其信息日志将要被查询的程序对象。</p>
+<p class="calibre1">maxLength</p>
+<p class="calibre1">指定用来存储返回的信息日志的字符缓冲器的大小。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">返回在infoLog中返回的字符串的长度（不包括空终止符）。</p>
+<p class="calibre1">infoLog</p>
+<p class="calibre1">指定一个用来返回信息日志的字符数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetProgramInfoLog 返回指定程序对象的信息日志。一个程序对象的信息日志在这个程序对象被连接或验证时将会被修改。返回的字符串以空字符null为结尾。</p>
+<p class="calibre1">glGetProgramInfoLog 将尽可能多的信息日志返回到infoLog，最多可以有maxLength个字符。实际返回的字符的数量（不包括空终结符）由length指定。如果没有要求返回字符串的长度，那么可以在length自变量中传递一个NULL值。可以通过调用值为GL_INFO_LOG_LENGTH的glGetProgram来获取被请求用来存储返回信息日志的缓冲区的大小。</p>
+<p class="calibre1">一个程序对象的信息日志既不是一个空字符串，也不是一个包含关于最后一次连接操作的信息的字符串，也不是一个包含关于最后一次验证操作的信息的字符串。它可以包含诊断信息、警告信息和其它信息。当一个程序对象被创建时，它的信息日志将为一个长度为0的字符串。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">一个程序对象的信息日志是OpenGL实现者（implementer）用来输送连接和验证信息的首要机制。因此，信息日志在开发过程中可能对应用程序开发者有所帮助，甚至在这些操作已经成功时也是如此。</p>
+<p class="calibre1">应用程序开发者不能指望不同的OpenGL实现会产生相同的信息日志。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果maxLength小于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetProgram，其自变量为GL_INFO_LOG_LENGTH。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCompileShader, glGetShaderInfoLog, glLinkProgram, glValidateProgram</p>
+<p class="calibre1">Copyright</p>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetQueryiv</h4>
+<p class="calibre1">返回一个查询对象目标的参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetQueryiv(GLenum target,
+　　　　　　GLenum pname,
+　　　　　　GLint * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定一个查询对象目标。必须是GL_SAMPLES_PASSED、GL_ANY_SAMPLES_PASSED、GL_PRIMITIVES_GENERATED、GL_TRANSFORM_ FEEDBACK_PRIMITIVES_WRITTEN、GL_TIME_ELAPSED或GL_TIMESTAMP。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定一个查询对象目标参数的符号名。可接受的值为GL_CURRENT_QUERY 或 GL_QUERY_COUNTER_BITS。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回所需数据。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetQueryiv 将一个由tarGet指定的查询对象目标的选定参数返回到params。</p>
+<p class="calibre1">pname 指定一个特定查询对象目标参数。当pname为GL_CURRENT_QUERY时，tarGet的当前活动查询的名称（或者在没有活动查询时为0）将会被放入params。</p>
+<p class="calibre1">如果pname为GL_QUERY_COUNTER_BITS，那么用于保存target的查询结果的实现相关位数将会被返回到params。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet或pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetQueryObject, glIsQuery</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetQueryObject</h4>
+<p class="calibre1">返回一个查询对象的参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetQueryObjectiv(GLuint id,
+　　　　　　GLenum pname,
+　　　　　　GLint * params);
+void glGetQueryObjectuiv(GLuint id,
+　　　　　　GLenum pname,
+　　　　　　GLuint * params);
+void glGetQueryObjecti64v(GLuint id,
+　　　　　　GLenum pname,
+　　　　　　GLint64 * params);
+void glGetQueryObjectui64v(GLuint id,
+　　　　　　GLenum pname,
+　　　　　　GLuint64 * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">id</p>
+<p class="calibre1">指定查询对象的名称。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定查询对象参数的符号明。可接受的值为GL_QUERY_RESULT或GL_QUERY_RESULT_AVAILABLE。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回所需数据。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetQueryObject将一个由id指定的查询对象目标的选定参数返回到params。</p>
+<p class="calibre1">pname 指定一个特定查询对象参数。pname 可以是如下情况：</p>
+<p class="calibre1">GL_QUERY_RESULT</p>
+<p class="calibre1">params返回查询对象通过采样计数器的值。初始值为0。</p>
+<p class="calibre1">GL_QUERY_RESULT_AVAILABLE</p>
+<p class="calibre1">params 返回通过采样计数器是否立即可用的信息。如果出现等待查询结果的延迟，则返回GL_FALSE； 否则将返回GL_TRUE，这也表明以前所有的查询的结果也都是可用的。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<p class="calibre1">glGetQueryObject 隐式地刷新了GL管线，所以由封闭查询所界定的任何未完成的渲染将在有限时间内完成。</p>
+<p class="calibre1">如果在调用glGetQueryObject之前使用同一个查询对象 id发布了多个查询，那么将返回最近查询的结果。这样，在发布一个新查询时，以前查询的结果将被丢弃。</p>
+<p class="calibre1">glGetQueryObjecti64v和glGetQueryObjectui64v只在3.3或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果id不是一个查询对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果id是一个当前激活的查询对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBeginQuery, glEndQuery, glGetQueryiv, glIsQuery, glQueryCounter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetRenderbufferParameteriv</h4>
+<p class="calibre1">获取关于一个绑定的渲染缓冲区对象的信息。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetRenderbufferParameteriv(GLenum target,
+　　　　　　GLenum pname,
+　　　　　　GLint *params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定查询操作的目标。target 必须为GL_RENDERBUFFER。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定要从绑定到tarGet的渲染缓冲区中获取其值的参数。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">指定接收查询参数值的数组的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetRenderbufferParameteriv 获取关于一个绑定的渲染缓冲区对象的信息。</p>
+<p class="calibre1">tarGet指定查询操作的目标，必须为GL_RENDERBUFFER。pname指定要查询其值的参数，必须为GL_RENDERBUFFER_WIDTH、GL_RENDERBUFFER_HEIGHT、GL_RENDERBUFFER_INTERNAL_FORMAT、GL_RENDERBUFFER_RED_SIZE、GL_RENDERBUFFER_GREEN_SIZE、GL_RENDERBUFFER_BLUE_SIZE、GL_RENDERBUFFER_ALPHA_SIZE、GL_RENDERBUFFER_DEPTH_SIZE、GL_RENDERBUFFER_DEPTH_SIZE、GL_RENDERBUFFER_STENCIL_SIZE或GL_RENDERBUFFER_SAMPLES中的一个。</p>
+<p class="calibre1">在成功地从glGetRenderbufferParameteriv返回的情况下，如果pname为GL_ RENDERBUFFER_WIDTH、GL_RENDERBUFFER_HEIGHT、GL_RENDERBUFFER_INTERNAL_FORMAT或GL_RENDERBUFFER_SAMPLES，那么params将分别包含当前绑定到target的渲染缓冲区中图像的宽度像素值、高度像素值、内部格式或样本数量。</p>
+<p class="calibre1">如果pname为 GL_RENDERBUFFER_RED_SIZE、GL_RENDERBUFFER_GREEN_SIZE、GL_RENDERBUFFER_BLUE_SIZE, GL_RENDERBUFFER_ALPHA_SIZE、GL_RENDERBUFFER_DEPTH_SIZE或GL_RENDERBUFFER_STENCIL_SIZE，那么params将会包含当前绑定到target的渲染缓冲区中图像的红色、绿色、蓝色、alpha、深度或模板分量的实际分辨率（并非在图像数组定义时指定的分辨率）。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果pname不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenRenderbuffers, glFramebufferRenderbuffer, glBindRenderbuffer,glRenderbufferStorage, glRenderbufferStorageMultisample</p>
+<h4 class="sigil_not_in_toc">glGetSamplerParameter</h4>
+<p class="calibre1">返回采样器参数值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetSamplerParameterfv(GLuint sampler,
+　　　　　　GLenum pname,
+　　　　　　GLfloat * params);
+void glGetSamplerParameteriv(GLuint sampler,
+　　　　　　GLenum pname,
+　　　　　　GLint * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sampler</p>
+<p class="calibre1">指定从中获取参数的采样器对象的名称。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定采样器参数的符号名。GL_TEXTURE_MAG_FILTER、GL_TEXTURE_MIN_FILTER、GL_TEXTURE_MIN_LOD、GL_TEXTURE_MAX_LOD、GL_TEXTURE_LOD_BIAS、GL_TEXTURE_WRAP_S、GL_TEXTURE_WRAP_T、GL_TEXTURE_WRAP_R、GL_TEXTURE_BORDER_COLOR、GL_TEXTURE_COMPARE_MODE和GL_TEXTURE_COMPARE_FUNC都可以被接受。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回采样器参数。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetSamplerParameter将指定为pname的采样器参数的一个或多个值返回到params。</p>
+<p class="calibre1">sampler定义目标采样器，并且必须为一个已存在的采样器对象的名称，从以前的一个glGenSamplers调用返回。</p>
+<p class="calibre1">pname接受与glSamplerParameter相同的符号，解释也是相同的：</p>
+<p class="calibre1">GL_TEXTURE_MAG_FILTER返回单个值的纹理放大过滤器，这是一个符号常量。初始值为GL_LINEAR。</p>
+<p class="calibre1">GL_TEXTURE_MIN_FILTER返回单个值的纹理缩小过滤器，这是一个符号常量。初始值为GL_NEAREST_MIPMAP_LINEAR。</p>
+<p class="calibre1">GL_TEXTURE_MIN_LOD 返回单个值的纹理最小层次细节值。初始值为-1000。</p>
+<p class="calibre1">GL_TEXTURE_MAX_LOD 返回单个值的纹理最大层次细节值。初始值为1000。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_S 返回单个值的纹理坐标环绕函数，这是一个符号常量。初始值为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_T 返回单个值的纹理坐标环绕函数，这是一个符号常量。初始值为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_R 返回单个值的纹理坐标环绕函数，这是一个符号常量。初始值为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_BORDER_COLOR返回4个整数或浮点数，包含纹理边缘的RGBA颜色。返回的浮点值在[0,1]范围内。整数值作为内部浮点表示法一个线性映射返回，这样1.0将会映射到能够表示的最大正整数值，而-1.0则会映射到能够表示的最小负整数值。初始值为(0, 0, 0, 0)。</p>
+<p class="calibre1">GL_TEXTURE_COMPARE_MODE 返回单个值的纹理比较模式，这是一个符号常量。初始值为GL_NONE。参见glSamplerParameter。</p>
+<p class="calibre1">GL_TEXTURE_COMPARE_FUNC 返回单个值的纹理比较函数，这是一个符号常量。初始值为GL_LEQUAL。参见glSamplerParameter。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<p class="calibre1">glGetSamplerParameter 只在3.3或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果sampler 不是以前的一个glGenSamplers调用返回的采样器对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glSamplerParameter, glGenSamplers, glDeleteSamplers, glSamplerParameter</p>
+<h4 class="sigil_not_in_toc">glGetShaderiv</h4>
+<p class="calibre1">返回一个来自着色器对象的参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetShaderiv(GLuint shader,
+　　　　　　GLenum pname,
+　　　　　　GLint *params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定要查询的着色器对象。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定对象参数。可接受的符号名为GL_SHADER_TYPE、GL_DELETE_STATUS、GL_COMPILE_STATUS、GL_INFO_LOG_LENGTH、GL_SHADER_SOURCE_LENGTH。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回所需对象参数。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetShader将指定着色器对象的参数值返回到params。定义下面的参数。</p>
+<p class="calibre1">如果shader 是一个顶点着色器对象，那么GL_SHADER_TYPE params返回GL_VERTEX_SHADER，如果shader 是一个几何图形着色器对象则返回GL_ GEOMETRY_SHADER，而如果shader 是一个片段着色器对象则返回GL_FRAGMENT_SHADER。</p>
+<p class="calibre1">GL_DELETE_STATUSparams 在shader当前被标记为删除的情况下返回GL_TRUE，在其他情况下返回GL_FALSE。</p>
+<p class="calibre1">GL_COMPILE_STATUS params 在最后一次着色器上的编译操作成功的情况下返回GL_TRUE，否则返回GL_FALSE。</p>
+<p class="calibre1">GL_INFO_LOG_LENGTH params 返回shader 的信息日志中字符的数量，包括空终止符（也就是说，被请求存储信息日志的字符缓冲器的大小）。如果shader 没有任何信息日志，则返回0。</p>
+<p class="calibre1">GL_SHADER_SOURCE_LENGTH params返回组成shader的着色器源的一连串的源字符串的长度，包括空终止字符。也就是用来存储着色器源的字符缓冲器的大小。如果不存在源代码，则返回0。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果shader不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果shader没有引用一个着色器对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetShaderInfoLog，其自变量为shader。</p>
+<p class="calibre1">glGetShaderSource，其自变量为shader。</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCompileShader, glCreateShader, glDeleteShader, glGetProgram, glShaderSource</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetShaderInfoLog</h4>
+<p class="calibre1">返回一个着色器对象的信息日志。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetShaderInfoLog(GLuint shader,
+　　　　　　GLsizei maxLength,
+　　　　　　GLsizei *length,
+　　　　　　GLchar *infoLog);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定其信息日志将要被查询的着色器对象。</p>
+<p class="calibre1">maxLength</p>
+<p class="calibre1">指定用来存储返回的信息日志的字符缓冲器的大小。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">返回在infoLog中返回的字符串的长度（不包括空终止符）。</p>
+<p class="calibre1">infoLog</p>
+<p class="calibre1">指定一个用来返回信息日志的字符数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetShaderInfoLog 返回指定着色器对象的信息日志。一个着色器对象的信息日志在这个着色器对象进行编译时将会被修改。返回的字符串以空字符null为结尾。</p>
+<p class="calibre1">glGetShaderInfoLog 将尽可能多的信息日志返回到infoLog，最多可以有maxLength个字符。实际返回的字符的数量（不包括空终结符）由length指定。如果没有要求返回字符串的长度，那么可以在length自变量中传递一个NULL值。可以通过调用值为GL_INFO_LOG_LENGTH的glGetShader来获取被请求用来存储返回信息日志的缓冲区的大小。</p>
+<p class="calibre1">一个着色器对象的信息日志是一个可能包含诊断消息、警告消息和关于最后一个编译操作的其他信息的字符串。当一个着色器对象被创建时，它的信息日志将为一个长度为0的字符串。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">一个着色器对象的信息日志是OpenGL实现者（implementer）用来输送编译处理信息的首要机制。因此，信息日志在开发过程中可能对应用程序开发者有所帮助，甚至在编译已经成功时也是如此。</p>
+<p class="calibre1">应用程序开发者不能指望不同的OpenGL实现会产生相同的信息日志。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果shader不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果shader不是一个着色器对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果maxLength小于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetShader，其自变量为GL_INFO_LOG_LENGTH。</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCompileShader, glGetProgramInfoLog, glLinkProgram, glValidateProgram</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetShaderSource</h4>
+<p class="calibre1">返回来自一个着色器对象的源代码字符串。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetShaderSource(GLuint shader,
+　　　　　　GLsizei bufSize,
+　　　　　　GLsizei * length,
+　　　　　　GLchar * source);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定要查询的着色器对象。</p>
+<p class="calibre1">bufSize</p>
+<p class="calibre1">指定用来存储返回的源代码字符串的字符缓冲器的大小。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">返回在source中返回的字符串的长度（不包括空终止符）。</p>
+<p class="calibre1">source</p>
+<p class="calibre1">指定一个用来返回源代码字符串的字符数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetShaderSource 返回来由shader指定的着色器对象的源代码字符串的串联。着色器对象的源代码字符串是以前调用glShaderSource的结果。由函数返回的字符串将以空字符null为结尾。</p>
+<p class="calibre1">glGetShaderSource将尽可能多的源代码字符串（最多可达到bufSize个字符）返回到isource中。实际返回的字符的数量（不包括空终结符）由length指定。如果没有要求返回字符串的长度，那么可以在length自变量中传递一个NULL值。可以通过调用值为GL_SHADER_SOURCE_LENGTH的glGetShader来获取被请求用来存储返回源代码字符串的缓冲区的大小。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果shader不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果shader不是一个着色器对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果bufSize小于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetShader，其自变量为GL_SHADER_SOURCE_LENGTH。</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateShader, glShaderSource</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetString</h4>
+<p class="calibre1">返回一个描述当前GL连接的字符串。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">const GLubyte* glGetString (GLenum name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">const GLubyte* glGetStringi (GLenum name,
+　　　　　　GLuint index);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">name</p>
+<p class="calibre1">name 指定一个符号常量，为 GL_VENDOR、GL_RENDERER、GL_VERSION或GL_SHADING_LANGUAGE_VERSION中的一个。此外，glGetStringi可以接受GL_EXTENSIONS标记。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">对于glGetStringi，指定将要返回的字符串的索引。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetString返回一个指向描述当前GL连接的某些方面的静态字符串的指针。</p>
+<p class="calibre1">name可以是下列值中的一个。</p>
+<p class="calibre1">GL_VENDOR返回为这个GL实现负责的公司名。这个名称在各发布版本之间不会改变。</p>
+<p class="calibre1">GL_RENDERER</p>
+<p class="calibre1">返回渲染的名称。典型情况下，这个名称是一个硬件平台的特殊配置所特有的。这个名称在各发布版本之间不会改变。</p>
+<p class="calibre1">GL_VERSION</p>
+<p class="calibre1">返回一个版本或发布号。</p>
+<p class="calibre1">GL_SHADING_LANGUAGE_VERSION</p>
+<p class="calibre1">返回一个着色语言的版本或发布号。</p>
+<p class="calibre1">glGetStringi返回一个指向由index进行索引的一个静态字符串的指针。name可以是下列值中的一个。</p>
+<p class="calibre1">GL_EXTENSIONS只针对glGetStringi，返回实现在index支持的扩展字符串。</p>
+<p class="calibre1">GL_VENDOR和GL_RENDERER字符串一起唯一地指定一个平台。它们在发布版本之间不会改变，并且应该用于平台识别算法中。</p>
+<p class="calibre1">GL_VERSION 和 GL_SHADING_LANGUAGE_VERSION 字符串以一个版本数字开始。</p>
+<p class="calibre1">这个版本数字使用下列格式中的一个。</p>
+<p class="calibre1">major_number.minor_number major_number.minor_number.release_number</p>
+<p class="calibre1">供应商指定的信息可能会在版本数字之后出现。它的格式取决于实现，但总是用空格来分隔版本数和供应商指定的信息。</p>
+<p class="calibre1">所有字符串都以null结束。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，glGetString 返回 0。</p>
+<p class="calibre1">客户机和服务器可能支持不同版本或扩展。glGetString总是返回一个兼容的版本数字或扩展列表。发行号总是描述服务器的。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果name不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果index位于索引状态name的有效范围之外，则glGetStringi产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。Copyright © 2010 Khronos Group。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetSynciv</h4>
+<p class="calibre1">查询同步对象的属性。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetSynciv(GLsync sync,
+　　　　　　GLenum pname,
+　　　　　　GLsizei bufSize,
+　　　　　　GLsizei *length,
+　　　　　　GLint *values);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sync</p>
+<p class="calibre1">指定其属性将要被查询的同步对象。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定要从sync中指定的同步对象中获取其值的参数。</p>
+<p class="calibre1">bufSize</p>
+<p class="calibre1">指定其地址在values中给出的缓冲区的大小。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">指定接收位于values中的整数值数量的变量的地址。</p>
+<p class="calibre1">values</p>
+<p class="calibre1">指定接收查询参数值的数组的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetSynciv检索一个同步对象的属性。sync指定要检索其属性的同步对象的名称。</p>
+<p class="calibre1">如果成功，glGetSynciv 将会使用被查询对象的相应正确值来替换values中的最多bufSize个整数 替换的整数值的实际数量返回到在length中指定地址的变量中。如果length 为NULL，则不会返回长度。</p>
+<p class="calibre1">如果pname为GL_OBJECT_TYPE，那么一个代表同步对象指定类型的单个值就会被放入values中。唯一支持的类型就是GL_SYNC_FENCE。</p>
+<p class="calibre1">如果pname为GL_SYNC_STATUS，那么一个代表同步对象状态（GL_SIGNALED或GL_UNSIGNALED）的单个值就会被放入values中。</p>
+<p class="calibre1">如果pname为GL_SYNC_CONDITION，那么一个代表同步对象条件的单个值就会被放入values中。唯一支持的条件就是GL_SYNC_GPU_COMMANDS_COMPLETE。</p>
+<p class="calibre1">如果pname为GL_SYNC_FLAGS，那么一个代表创建同步对象的标记的单个值就会被放入values中。目前不支持任何标记。</p>
+<p class="calibre1">如果出现错误，那么就不会向values或length写入任何东西。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果sync不是一个同步对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果pname不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glFenceSync, glWaitSync, glClientWaitSync</p>
+<h4 class="sigil_not_in_toc">glGetTexImage</h4>
+<p class="calibre1">返回一个纹理图像</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetTexImage(GLenum target,
+　　　　　　GLint level,
+　　　　　　GLenum format,
+　　　　　　GLenum type,
+　　　　　　GLvoid * img);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">target 指定将要获得哪个纹理。GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_TEXTURE_1D_ARRAY、GL_TEXTURE_2D_ARRAY、GL_TEXTURE_RECTANGLE、GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z和GL_TEXTURE_CUBE_MAP_NEGATIVE_Z都可以被接受。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定期望图像的层次细节数量。Level 0 是基本图像层次。</p>
+<p class="calibre1">Level n是第n级Mip贴图缩略图。</p>
+<p class="calibre1">format</p>
+<p class="calibre1">为返回数据指定一个像素格式。支持的格式有GL_STENCIL_INDEX、GL_DEPTH_COMPONENT、GL_DEPTH_STENCIL、GL_RED, GL_GREEN、GL_BLUE、GL_RG, GL_RGB、GL_RGBA、GL_BGR, GL_BGRA、GL_RED_INTEGER、GL_GREEN_INTEGER、GL_BLUE_INTEGER、GL_RG_INTEGER、GL_RGB_INTEGER、GL_RGBA_INTEGER、GL_BGR_INTEGER、GL_BGRA_INTEGER。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">为返回数据指定一个像素类型。支持的类型有GL_UNSIGNED_BYTE、GL_BYTE、GL_UNSIGNED_SHORT、GL_SHORT、GL_UNSIGNED_INT、GL_INT、GL_HALF_FLOAT、GL_FLOAT、GL_UNSIGNED_BYTE_3_3_2、GL_UNSIGNED_BYTE_2_3_3_REV、GL_UNSIGNED_SHORT_5_6_5、GL_UNSIGNED_SHORT_5_6_5_REV、GL_UNSIGNED_SHORT_4_4_4_4、GL_UNSIGNED_SHORT_4_4_4_4_REV、GL_UNSIGNED_SHORT_5_5_5_1、GL_UNSIGNED_SHORT_1_5_5_5_REV、GL_UNSIGNED_INT_8_8_8_8、GL_UNSIGNED_INT_8_8_8_8_REV、GL_UNSIGNED_INT_10_10_10_2、GL_UNSIGNED_INT_2_10_10_10_REV、GL_UNSIGNED_INT_24_8、GL_UNSIGNED_INT_10F_11F_11F_REV、GL_UNSIGNED_INT_5_9_9_9_REV和GL_FLOAT_32_UNSIGNED_INT_24_8_REV。</p>
+<p class="calibre1">img</p>
+<p class="calibre1">返回这个纹理图像 应该为指向一个由type指定类型的数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetTexImage将一个纹理图像返回返回到img。</p>
+<p class="calibre1">tarGet指定需要的纹理图像是否是由glTexImage1D (GL_TEXTURE_1D)、glTexImage2D (GL_TEXTURE_1D_ARRAY、GL_TEXTURE_RECTANGLE、GL_TEXTURE_2D或任意GL_TEXTURE_CUBE_MAP_*)，或者glTexImage3D (GL_TEXTURE_2D_ARRAY、GL_TEXTURE_3D)指定的。level 指定期望图像的层次细节数量。format 和type 指定期望图像数组的格式和类型。要了解关于format和type参数可接受值的描述，可以参考glTexImage1D的参考页。</p>
+<p class="calibre1">如果在纹理图像被指定的情况下，所需的非0缓冲区对象被绑定到GL_PIXEL_PACK_BUFFER目标（参见glBindBuffer），img将被看作缓冲区对象数据存储的一个字节偏移。</p>
+<p class="calibre1">要理解glGetTexImage的操作，可以将选定的内部四分量纹理图像看作一个大小为图像大小的RGBA颜色缓冲区。这样glGetTexImage 的语义就和glReadPixels的语义相同了，除了在以同样的format和type、x和y设为0、width设为纹理图像的宽度、height设为1（1D图像）或设为纹理图像的高度（2D图像）进行调用时不执行任何像素变换操作之外。</p>
+<p class="calibre1">如果选定的纹理图像不包括4个分量，那么将会应用下列映射。单分量纹理都被视为红色设为单分量值、绿色设为0、蓝色设为0、Alpha设为1的RGBA缓冲区。二分量纹理都被视为红色设为分量0的值、Alpha设为分量1的值、绿色设为0、蓝色设为0的RGBA缓冲区。最后，三分量纹理都被视为红色设为分量0、绿色设为分量1、蓝色设为分量2、Alpha设为1的RGBA缓冲区。</p>
+<p class="calibre1">要确定img所需要的大小，使用 glGetTexLevelParameter 来确定内部纹理图像的尺寸，然后基于format和type将所需的像素数缩放到每个像素需要的存储空间。确保把像素存储参数计算进去，特别是GL_PACK_ALIGNMENT。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么img的内容不会进行任何修改。</p>
+<p class="calibre1">glGetTexImage为活动的纹理单元返回纹理图像。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet、format 或type不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果level小于0，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果level大于log<sub class="calibre19">2</sub>
+ max,值，其中max是GL_MAX_TEXTURE_SIZE的返回值，则可能产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果type为GL_UNSIGNED_BYTE_3_3_2、GL_UNSIGNED_BYTE_2_3_3_REV、GL_UNSIGNED_SHORT_5_6_5、GL_UNSIGNED_SHORT_5_6_5_REV或GL_UNSIGNED_INT_10F_11F_11F_REV中的一个，并且format 不是GL_RGB，则返回GL_INVALID_OPERATION。</p>
+<p class="calibre1">如果type为GL_UNSIGNED_SHORT_4_4_4_4、GL_UNSIGNED_SHORT_4_4_4_4_REV、GL_UNSIGNED_SHORT_5_5_5_1、GL_UNSIGNED_SHORT_1_5_5_5_REV、GL_UNSIGNED_INT_8_8_8_8、GL_UNSIGNED_INT_8_8_8_8_REV、GL_UNSIGNED_INT_10_10_10_2、GL_UNSIGNED_INT_2_10_10_10_REV或GL_UNSIGNED_INT_5_9_9_9_REV中的一个，并且format既不是GL_RGBA也不是GL_BGRA，则返回GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER目标，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER 目标，并且数据将要被打包到缓冲区对象，以致内存写入请求将超出数据存储大小，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_PACK_BUFFER 目标，并且img没有平均分成将一个由type指定的数据存储到内存中所需的字节数，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetTexLevelParameter，其自变量为GL_TEXTURE_WIDTH。</p>
+<p class="calibre1">glGetTexLevelParameter，其自变量为GL_TEXTURE_HEIGHT。</p>
+<p class="calibre1">glGetTexLevelParameter，其自变量为GL_TEXTURE_INTERNAL_FORMAT。</p>
+<p class="calibre1">glGet，其自变量为GL_PACK_ALIGNMENT和其他一些值。</p>
+<p class="calibre1">glGet，其自变量为 GL_PIXEL_PACK_BUFFER_BINDING。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glActiveTexture, glReadPixels, glTexImage1D, glTexImage2D, glTexImage3D,glTexSubImage1D, glTexSubImage2D, glTexSubImage3D, glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。Copyright © 2010 Khronos Group。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetTexLevelParameter</h4>
+<p class="calibre1">返回一个指定层次细节的纹理参数值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetTexLevelParameterfv(GLenum target,
+　　　　　　GLint level,
+　　　　　　GLenum pname,
+　　　　　　GLfloat * params);
+void glGetTexLevelParameteriv(GLenum target,
+　　　　　　GLint level,
+　　　　　　GLenum pname,
+　　　　　　GLint * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标纹理的符号名，为GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_TEXTURE_1D_ARRAY、GL_TEXTURE_2D_ARRAY、GL_TEXTURE_RECTANGLE、GL_TEXTURE_2D_MULTISAMPLE、GL_TEXTURE_2D_MULTISAMPLE_ARRAY、GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z、GL_TEXTURE_CUBE_MAP_NEGATIVE_Z、GL_PROXY_TEXTURE_1D、GL_PROXY_TEXTURE_2D、GL_PROXY_TEXTURE_3D、GL_PROXY_TEXTURE_1D_ARRAY、GL_PROXY_TEXTURE_2D_ARRAY、GL_PROXY_TEXTURE_RECTANGLE、GL_PROXY_TEXTURE_2D_MULTISAMPLE、GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY、GL_PROXY_TEXTURE_CUBE_MAP或GL_TEXTURE_BUFFER中的一个。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定期望图像的层次细节数量。Level 0 是基本图像层次。</p>
+<p class="calibre1">Level n是第n级Mip贴图缩略图。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定纹理参数的符号名。GL_TEXTURE_WIDTH、GL_TEXTURE_HEIGHT、GL_TEXTURE_DEPTH、GL_TEXTURE_INTERNAL_FORMAT、GL_TEXTURE_BORDER、GL_TEXTURE_RED_SIZE、GL_TEXTURE_GREEN_SIZE、GL_TEXTURE_BLUE_SIZE、GL_TEXTURE_ALPHA_SIZE、GL_TEXTURE_DEPTH_SIZE、GL_TEXTURE_COMPRESSED<br class="sgc-toc-title"/>
+和GL_TEXTURE_COMPRESSED_IMAGE_SIZE都可以被接受。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回所需数据。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetTexLevelParameter在params中返回一个指定层次细节的纹理参数值，指定为level。</p>
+<p class="calibre1">target定义目标纹理，可以是GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_PROXY_TEXTURE_1D、<br class="sgc-toc-title"/>
+GL_PROXY_TEXTURE_2D、GL_PROXY_TEXTURE_3D、GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_ NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z、GL_TEXTURE_CUBE_MAP_NEGATIVE_Z或GL_PROXY_TEXTURE_CUBE_MAP。</p>
+<p class="calibre1">GL_MAX_TEXTURE_SIZE和GL_MAX_3D_TEXTURE_SIZE都没有进行充分的描述。它需要报告能够以应Mip贴图和边界的最大正方形纹理图像，但是细长的纹理或没有Mip贴图和边界的纹理能够轻松适应纹理内存。代理目标允许用户进行更加精确地查询GL是否能够适应一个给定配置的纹理。如果纹理不能适应，那么能够通过glGetTexLevelParameter进行查询的纹理状态变量将回被设为0。如果纹理能够适应，那么纹理状态值将被按照非代理目标一样设置。</p>
+<p class="calibre1">pname 指定其一个或多个值将被返回的纹理参数。</p>
+<p class="calibre1">可以接受的参数名如下。</p>
+<p class="calibre1">GL_TEXTURE_WIDTH</p>
+<p class="calibre1">params返回单个整数值，即纹理图像的宽度。这个值包括纹理图像的边界。初始值为0。</p>
+<p class="calibre1">GL_TEXTURE_HEIGHT</p>
+<p class="calibre1">params返回单个整数值，即纹理图像的高度。这个值包括纹理图像的边界。初始值为0。</p>
+<p class="calibre1">GL_TEXTURE_DEPTH</p>
+<p class="calibre1">params返回单个整数值，即纹理图像的深度。这个值包括纹理图像的边界。初始值为0。</p>
+<p class="calibre1">GL_TEXTURE_INTERNAL_FORMAT</p>
+<p class="calibre1">params返回单个整数值，即纹理图像的内部格式。</p>
+<p class="calibre1">GL_TEXTURE_RED_TYPE,</p>
+<p class="calibre1">GL_TEXTURE_GREEN_TYPE,</p>
+<p class="calibre1">GL_TEXTURE_BLUE_TYPE,</p>
+<p class="calibre1">GL_TEXTURE_ALPHA_TYPE,</p>
+<p class="calibre1">GL_TEXTURE_DEPTH_TYPE</p>
+<p class="calibre1">用于存储分量的数据类型。可以返回GL_NONE, GL_SIGNED_ NORMALIZED、GL_UNSIGNED_NORMALIZED、GL_FLOAT, GL_INT和GL_UNSIGNED_INT来分别指示有符号标准化定点数、无符号标准化定点数、浮点数、整数非标准化值和无符号整数非标准化分量。</p>
+<p class="calibre1">GL_TEXTURE_RED_SIZE,</p>
+<p class="calibre1">GL_TEXTURE_GREEN_SIZE,</p>
+<p class="calibre1">GL_TEXTURE_BLUE_SIZE,</p>
+<p class="calibre1">GL_TEXTURE_ALPHA_SIZE,</p>
+<p class="calibre1">GL_TEXTURE_DEPTH_SIZE</p>
+<p class="calibre1">一个独立分量的内部存储格式精度。GL选择的精度将与用户要求的glTexImage1D、glTexImage2D、glTexImage3D、glCopyTexImage1D和glCopyTexImage2D的component变量精度非常接近。初始值为0。</p>
+<p class="calibre1">GL_TEXTURE_COMPRESSED</p>
+<p class="calibre1">params返回单个布尔值，指示纹理图像要以一种压缩内部格式进行存储。初始值为GL_FALSE。</p>
+<p class="calibre1">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</p>
+<p class="calibre1">params 返回单个整数值，即将要从glGetCompressedTexImage中返回的压缩纹理图像的无符号字节数。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<p class="calibre1">glGetTexLevelParameter为活动的纹理单元返回纹理层次参数。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet 或pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果level小于0，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果level大于log2 max,值，其中max 是GL_MAX_TEXTURE_SIZE的返回值，则可能产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果tarGet为GL_TEXTURE_BUFFER，并且level 为非0值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果GL_TEXTURE_COMPRESSED_IMAGE_SIZE 在非压缩内部格式的纹理图像或代理目标上进行查询，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glActiveTexture, glGetTexParameter, glCopyTexImage1D, glCopyTexImage2D,glCopyTexSubImage1D, glCopyTexSubImage2D, glCopyTexSubImage3D, glTexImage1D,glTexImage2D, glTexImage3D, glTexSubImage1D, glTexSubImage2D, glTexSubImage3D, glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。Copyright © 2010 Khronos Group。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetTexParameter</h4>
+<p class="calibre1">返回纹理参数值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetTexParameterfv(GLenum target,
+　　　　　　GLenum pname,
+　　　　　　GLfloat * params);
+void glGetTexParameteriv(GLenum target,
+　　　　　　GLenum pname,
+　　　　　　GLint * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标纹理的符号名。GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_1D_ARRAY、GL_TEXTURE_2D_ARRAY、GL_TEXTURE_3D、GL_TEXTURE_RECTANGLE和GL_TEXTURE_CUBE_MAP都可以被接受。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定纹理参数的符号名。GL_TEXTURE_BASE_LEVEL、GL_TEXTURE_BORDER_COLOR、GL_TEXTURE_COMPARE_MODE、GL_TEXTURE_COMPARE_FUNC、GL_TEXTURE_LOD_BIAS、GL_TEXTURE_MAG_FILTER、GL_TEXTURE_MAX_LEVEL、GL_TEXTURE_MAX_LOD、GL_TEXTURE_MIN_FILTER、GL_TEXTURE_MIN_LOD、GL_TEXTURE_SWIZZLE_R、GL_TEXTURE_SWIZZLE_G、GL_TEXTURE_SWIZZLE_B、GL_TEXTURE_SWIZZLE_A、GL_TEXTURE_SWIZZLE_RGBA、GL_TEXTURE_WRAP_S、GL_TEXTURE_WRAP_T和GL_TEXTURE_WRAP_R 都可以被接受。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回这个纹理参数。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetTexParameter 将指定为pname的纹理参数的一个或多个值返回到params。tarGet定义目标纹理。GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_TEXTURE_1D_ARRAY、GL_TEXTURE_2D_ARRAY、GL_TEXTURE_RECTANGLE和GL_TEXTURE_CUBE_MAP分别指定一维纹理、二维纹理、三维纹理、一维数组纹理、二维数组纹理、矩形纹理和立方体贴图纹理。pname接受与glTexParameter相同的符号，解释也是相同的。</p>
+<p class="calibre1">GL_TEXTURE_MAG_FILTER返回单个值的纹理放大过滤器，这是一个符号常量。初始值为GL_LINEAR。</p>
+<p class="calibre1">GL_TEXTURE_MIN_FILTER返回单个值的纹理缩小过滤器，这是一个符号常量。初始值为GL_NEAREST_MIPMAP_LINEAR。</p>
+<p class="calibre1">GL_TEXTURE_MIN_LOD 返回单个值的纹理最小层次细节值。初始值为-1000。</p>
+<p class="calibre1">GL_TEXTURE_MAX_LOD 返回单个值的纹理最大层次细节值。初始值为1000。</p>
+<p class="calibre1">GL_TEXTURE_BASE_LEVEL返回单个值的基本纹理Mip贴图层次。初始值为0。</p>
+<p class="calibre1">GL_TEXTURE_MAX_LEVEL 返回单个值的最大纹理Mip贴图数组层次。初始值为1000。</p>
+<p class="calibre1">GL_TEXTURE_SWIZZLE_R返回红色分量swizzle操作。初始值为GL_RED。</p>
+<p class="calibre1">GL_TEXTURE_SWIZZLE_G 返回绿色分量swizzle操作。初始值为GL_GREEN。</p>
+<p class="calibre1">GL_TEXTURE_SWIZZLE_B 返回蓝色分量swizzle操作。初始值为GL_BLUE。</p>
+<p class="calibre1">GL_TEXTURE_SWIZZLE_A 返回alpha分量swizzle操作。初始值为GL_ALPHA。</p>
+<p class="calibre1">GL_TEXTURE_SWIZZLE_RGBA返回单个查询中所有通道的分量swizzle操作。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_S 返回单个值的纹理坐标环绕函数，这是一个符号常量。初始值为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_T 返回单个值的纹理坐标环绕函数，这是一个符号常量。初始值为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_WRAP_R 返回单个值的纹理坐标环绕函数，这是一个符号常量。初始值为GL_REPEAT。</p>
+<p class="calibre1">GL_TEXTURE_BORDER_COLOR返回4个整数或浮点数，包含纹理边缘的RGBA颜色。返回的浮点值在[0,1]范围内。整数值作为内部浮点表示法一个线性映射返回，这样1.0将会映射到能够表示的最大正整数值，而-1.0则会映射到能够表示的最小负整数值。初始值为(0, 0, 0, 0)。</p>
+<p class="calibre1">GL_TEXTURE_COMPARE_MODE 返回单个值的纹理比较模式，这是一个符号常量。初始值为GL_NONE。参见glTexParameter。</p>
+<p class="calibre1">GL_TEXTURE_COMPARE_FUNC 返回单个值的纹理比较函数，这是一个符号常量。初始值为GL_LEQUAL。参见glTexParameter。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet 或pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright©1991-2006 Silicon Graphics, Inc。Copyright©2010 Khronos Group。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetTransformFeedbackVarying</h4>
+<p class="calibre1">检索关于为了进行变换反馈而选择的varying变量的信息。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetTransformFeedbackVarying(GLuint program,
+　　　　　　GLuint index,
+　　　　　　GLsizei bufSize,
+　　　　　　GLsizei * length,
+　　　　　　GLsizei size,
+　　　　　　GLenum * type, char * name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">目标程序对象的名称。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定相关信息将要被检索的varying变量的索引。</p>
+<p class="calibre1">bufSize</p>
+<p class="calibre1">字符的最大数量（包括空终结符null），它将被写入到name。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">将要接收写入到name的字符数的变量的地址，不包含空终结符。如果length 为NULL，则不会返回长度。</p>
+<p class="calibre1">size</p>
+<p class="calibre1">接收varying变量大小的变量的地址。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">接收varying变量类型的变量的地址。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">将要写入varying变量名称的缓冲区的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">可以通过调用glGetTransformFeedbackVarying来获取将在变换反馈过程中捕获的连接程序中的varying变量设置的相关信息。</p>
+<p class="calibre1">glGetTransformFeedbackVarying提供关于由index选择的varying变量的信息。index为0会选择由传递到glTransformFeedbackVaryings的varyings数组中指定的第一个varying变量，而ndex为GL_TRANSFORM_FEEDBACK_VARYINGS-1则会选择最后一个。</p>
+<p class="calibre1">选定varying变量的名称将作为一个以null为结尾的字符串返回到name中。字符的实际数量被写入到name，但不包括空终结符null，它被返回到length。如果length 为NULL，则不会返回长度。字符的最大数量（包括空终结符null）由bufSize指定。</p>
+<p class="calibre1">program中最长的varying变量的名称的长度是由GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH给出的，它可以使用glGetProgram查询。</p>
+<p class="calibre1">对于选定的varying变量，这个类型被返回到type。varying变量的大小将会返回到size。size中的值以type中返回的类型为单位。返回的类型可以是由glGetActiveAttrib返回的任何标量、向量或矩阵属性类型。如果出现错误，那么返回参数length、size、type和name将为未修改的。这个命令将会返回关于这个varying变量尽可能多的信息。如果没有可用的信息，那么length将被设为为0，而name将为空字符串。在一次失败的链接后调用glGetTransformFeedbackVarying就可能会出现这种情况。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是一个程序对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果index大于或等于GL_TRANSFORM_FEEDBACK_VARYINGS的值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果program 没有进行连接，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetProgram，其自变量为GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBeginTransformFeedback, glEndTransformFeedback, glTransformFeedbackVaryings, glGetProgram</p>
+<h4 class="sigil_not_in_toc">glGetUniform</h4>
+<p class="calibre1">返回一个统一变量的值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetUniformfv(GLuint program,
+　　　　　　GLint location,
+　　　　　　GLfloat * params);
+void glGetUniformiv(GLuint program,
+　　　　　　GLint location,
+　　　　　　GLint * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被查询的程序对象。</p>
+<p class="calibre1">location</p>
+<p class="calibre1">指定将要被查询的统一变量的位置。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回指定统一变量的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetUniform将指定统一变量的一个或多个值返回到 params 。由location指定的统一变量的类型决定了返回值的数量。如果统一变量是在着色器中作为布尔值、整数值或浮点值定义的，那么将返回单个值。如果它是作为vec2、ivec2或 bvec2定义的，那么将返回两个值。如果它是作为vec3、ivec3或 bvec3定义的，那么将返回3个值，依此类推。要查询存储在作为数组声明的统一变量中的值，可以为数组中的每一个元素调用 glGetUniform。要查询存储在作为结构声明的统一变量中的值，可以为结构中的每一个域调用glGetUniform 。为矩阵声明的统一变量的值将以列为主的顺序被返回。</p>
+<p class="calibre1">分配给统一变量的位置在程序对象被连接之前是未知的。</p>
+<p class="calibre1">在连接出现之后，glGetUniformLocation命令可以被用来获得一个统一变量的位置。随后这个位置值可以被传输到glGetUniform，以便查询这个统一变量的当前值。在一个程序对象被成功连接之后，统一变量索引值将保持不变，直到下次连接命令发生。如果一个连接成功，那么统一变量值只能在这个连接之后进行查询。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果program 没有成功进行连接，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果location 没有与指定程序对象的一个有效统一变量位置一致，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetActiveUniform，其自变量为 program 和一个活动统一变量的索引。</p>
+<p class="calibre1">glGetProgram，其自变量为program，以及GL_ACTIVE_UNIFORMS或GL_ACTIVE_UNIFORM_MAX_LENGTH。</p>
+<p class="calibre1">glGetUniformLocation，其自变量为program 和一个统一变量的名称。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateProgram, glLinkProgram, glUniform</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetUniformBlockIndex</h4>
+<p class="calibre1">检索一个指定统一块的索引。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLuint glGetUniformBlockIndex(GLuint program,
+　　　　　　const GLchar *uniformBlockName);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定一个包含统一块的程序的名称。</p>
+<p class="calibre1">uniformBlockName</p>
+<p class="calibre1">指定一个要检索其索引的包含统一块名称的字符数组的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetUniformBlockIndex检索program中一个统一块的索引。</p>
+<p class="calibre1">program必须是一个程序对象的名称，过去必须已经为这个程序对象调用了glLinkProgram 命令，虽然并不要求glLinkProgram必须成功。这个连接可能会失败，因为活动统一变量的数量超出了限制。</p>
+<p class="calibre1">统一变量BlockName 必须包含指定统一块名称的空终止字符串。</p>
+<p class="calibre1">glGetUniformBlockIndex 返回program中名为uniformBlockName 的统一块的同一块索引。如果uniformBlockName没有定义program的一个活动统一块，那么glGetUniformBlockIndex 将返回特殊标识符GL_INVALID_INDEX。一个程序的活动统一块的索引会从0开始按顺序分配。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是过去为其调用过glLinkProgram的一个程序对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glGetUniformBlockIndex只在3.1或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetActiveUniformBlockName, glGetActiveUniformBlock, glLinkProgram</p>
+<h4 class="sigil_not_in_toc">glGetUniformIndices</h4>
+<p class="calibre1">检索一个指定统一块的索引。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLuint glGetUniformIndices(GLuint program,
+　　　　　　GLsizei uniformCount,
+　　　　　　const GLchar **uniformNames,
+　　　　　　GLuint *uniformIndices);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定一个包含将要查询索引的统一变量的程序的名称。</p>
+<p class="calibre1">uniformCount</p>
+<p class="calibre1">指定将要查询索引的统一变量数量。</p>
+<p class="calibre1">uniformNames</p>
+<p class="calibre1">指定一个指向包要含查询的统一变量名称的缓冲区的指针数组的地址。</p>
+<p class="calibre1">uniformIndices</p>
+<p class="calibre1">指定将要接收统一变量索引的数组的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetUniformIndices检索program中一些统一变量的索引。</p>
+<p class="calibre1">program必须是一个程序对象的名称，过去必须已经为这个程序对象调用了glLinkProgram 命令，虽然并不要求glLinkProgram必须成功。这个连接可能会失败，因为活动统一变量的数量超出了限制。</p>
+<p class="calibre1">uniformCount指示uniformNames 名称数组中元素数量，以及可能被写入uniformIndices的索引数量。</p>
+<p class="calibre1">uniformNames包含一个uniformCount 名称列表字符串，这些名称定义了将要查询索引的统一变量名称。对于uniformNames中的每一个名称字符串，分配给以此命名的活动统一变量的索引将被写入到uniformIndices中的相应元素中。如果uniformNames中的一个名称字符串不是活动统一变量的名称，那么特殊值GL_INVALID_INDEX将被写入到uniformIndices中的相应元素中。</p>
+<p class="calibre1">如果出现错误，那么就不会向uniformIndices写入任何东西。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是过去为其调用过glLinkProgram的一个程序对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glGetUniformIndices只在3.1或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetActiveUniform, glGetActiveUniformName, glLinkProgram</p>
+<h4 class="sigil_not_in_toc">glGetUniformLocation</h4>
+<p class="calibre1">返回一个统一变量的位置。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLint glGetUniformLocation(GLuint program,
+　　　　　　const GLchar * name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被查询的程序对象。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">指向一个包含其位置要被查询的统一变量名称的空终止字符串。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetUniformLocation 返回一个整数值，代表一个程序对象中的指定统一变量的位置。name 必须是一个不包含任何空白的空终止字符串。</p>
+<p class="calibre1">name 必须是非结构、结构数组或者向量或矩阵的子分量的program中的一个活动统一变量名称。如果name与program中的一个活动统一变量不一致，或者name以保留前缀“gl_”开始，那么这个函数返回-1。</p>
+<p class="calibre1">对于作为结构或结构数组的统一变量来说，可以通过调用glGetUniformLocation来查询结构中的每个域。数组元素操作符“[ ]”和结构域操作符“.”可以用在name中，以选择结构中的一个数组或域中的元素。使用这些操作符的结果不允许是其他结构、结构数组或者向量或矩阵的子分量。除非name的最后部分表示一个统一变量数组，一个数组的第一个元素的位置可以通过使用数组名或使用附加“[0]”的名称来检索。</p>
+<p class="calibre1">分配给统一变量的实际位置在程序对象成功连接之前是未知的。在连接出现之后，glGetUniformLocation命令可以被用来获得一个统一变量的位置。随后这个位置值可以被传递到glUniform来设置统一变量的值，或者传递到glGetUniform来查询统一变量的当前值。在一个程序对象被成功连接之后，统一变量索引值将保持不变，直到下次连接命令发生。如果一个连接成功，那么统一变量的位置和值就只能在这个连接之后进行查询了。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果program 没有成功进行连接，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetActiveUniform，自变量为 program 和一个活动统一变量的索引。</p>
+<p class="calibre1">glGetProgram，自变量为program，以及GL_ACTIVE_UNIFORMS或GL_ACTIVE_UNIFORM_MAX_LENGTH。</p>
+<p class="calibre1">glGetUniform，自变量为program 和一个统一变量的名称。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glLinkProgram, glUniform</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetVertexAttrib</h4>
+<p class="calibre1">返回一个通用顶点属性参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetVertexAttribdv(GLuint index,
+　　　　　　GLenum pname,
+　　　　　　GLdouble * params);
+void glGetVertexAttribfv(GLuint index,
+　　　　　　GLenum pname,
+　　　　　　GLfloat * params);
+void glGetVertexAttribiv(GLuint index,
+　　　　　　GLenum pname,
+　　　　　　GLint * params);
+void glGetVertexAttribIiv(GLuint index,
+　　　　　　GLenum pname,
+　　　　　　GLint * params);
+void glGetVertexAttribIuiv(GLuint index,
+　　　　　　GLenum pname,
+　　　　　　GLuint * params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">index</p>
+<p class="calibre1">指定将要被查询的通用顶点属性参数。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定将要被查询的通用顶点属性参数的符号名。可接受的值为GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING、GL_VERTEX_ATTRIB_ARRAY_ENABLED、GL_VERTEX_ATTRIB_ARRAY_SIZE、GL_VERTEX_ATTRIB_ARRAY_STRIDE、GL_VERTEX_ATTRIB_ARRAY_TYPE、GL_VERTEX_ATTRIB_ARRAY_NORMALIZED、GL_VERTEX_ATTRIB_ARRAY_INTEGER、GL_VERTEX_ATTRIB_ARRAY_DIVISOR或GL_CURRENT_VERTEX_ATTRIB。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">返回所需数据。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetVertexAttrib将通用顶点属性参数的值返回到params。将要被查询的通用顶点属性由index指定，而将要被查询的参数则由pname指定。</p>
+<p class="calibre1">可以接受的参数名如下。</p>
+<p class="calibre1">params 返回一个单个值，即当前被绑定到与通用顶点属性数组 index一致的绑定点的缓冲区对象的名称。如果没有缓冲区对象被绑定，则返回0。初始值为0。</p>
+<p class="calibre1">GL_VERTEX_ATTRIB_ARRAY_ENABLED</p>
+<p class="calibre1">params 返回一个单个值，如果index的顶点属性数组被激活，那么这个值为非0（true）；如果index的顶点属性数组被禁止，那么这个值为0（false）。初始值为GL_FALSE。</p>
+<p class="calibre1">GL_VERTEX_ATTRIB_ARRAY_SIZE</p>
+<p class="calibre1">params 返回一个单个值，即index的顶点属性数组的大小。这个大小是顶点属性数组的每个元素的值的数量，它应该为1、2、3或4。初始值为4。</p>
+<p class="calibre1">GL_VERTEX_ATTRIB_ARRAY_STRIDE</p>
+<p class="calibre1">params 返回一个单个值，即index的定点属性数组的数组跨距（连续元素之间的字节数）。值0表示数组元素按照时序存储在存储器中。初始值为0。</p>
+<p class="calibre1">GL_VERTEX_ATTRIB_ARRAY_TYPE</p>
+<p class="calibre1">pparams 返回一个单个值，即一个符号常量，指示index的顶点属性数组的数组类型。可能的值有GL_BYTE、GL_UNSIGNED_BYTE、GL_SHORT、GL_UNSIGNED_SHORT、GL_INT、GL_UNSIGNED_INT、GL_FLOAT和 GL_DOUBLE。初始值为GL_FLOAT。</p>
+<p class="calibre1">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</p>
+<p class="calibre1">params 返回一个单个值，如果由index指示的顶点属性数组定点数据类型在转换到浮点数时被标准化，那么这个值为非0（true）；在其他情况下，这个值为0（false）。初始值为GL_FALSE。</p>
+<p class="calibre1">GL_VERTEX_ATTRIB_ARRAY_INTEGER</p>
+<p class="calibre1">params 返回一个单个值，如果由index指示的顶点属性数组定点数据类型包含整数数据类型，那么这个值为非0（true）；在其他情况下，这个值为0（false）。</p>
+<p class="calibre1">初始值为0（GL_FALSE）。</p>
+<p class="calibre1">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</p>
+<p class="calibre1">params返回单个值，即实例渲染使用的频率因数。</p>
+<p class="calibre1">参见glVertexAttribDivisor。初始值为0。</p>
+<p class="calibre1">GL_CURRENT_VERTEX_ATTRIB</p>
+<p class="calibre1">params 返回4个值，表示由index指定的通用顶点属性的当前值。其中通用顶点属性 0 是特殊的，它没有当前状态，所以如果index为0将会产生错误。所有其他通用顶点属性的初始值为（0,0,0,1）。</p>
+<p class="calibre1">除GL_CURRENT_VERTEX_ATTRIB以外，所有参数都表示当前绑定的顶点数组对象中存储的端状态。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么params的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果pname不是GL_CURRENT_VERTEX_ATTRIB，并且当前没有绑定任何顶点数组对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果index 大于或等于GL_MAX_VERTEX_ATTRIBS，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果index为0，并且pname为GL_CURRENT_VERTEX_ATTRIB，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_MAX_VERTEX_ATTRIBS。</p>
+<p class="calibre1">glGetVertexAttribPointerv，其自变量为index和GL_VERTEX_ATTRIB_ARRAY_POINTER。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindAttribLocation, glBindBuffer, glDisableVertexAttribArray, glEnableVertexAttribArray, glVertexAttrib, glVertexAttribDivisor, glVertexAttribPointer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glGetVertexAttribPointerv</h4>
+<p class="calibre1">返回指定通用顶点属性指针的地址。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetVertexAttribPointerv(GLuint index,
+　　　　　　GLenum pname,
+　　　　　　GLvoid ** pointer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">index</p>
+<p class="calibre1">指定将要返回的通用顶点属性参数。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定将要返回的通用顶点属性参数的符号名。必须为GL_VERTEX_ATTRIB_ARRAY_POINTER。</p>
+<p class="calibre1">pointer</p>
+<p class="calibre1">返回指针值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetVertexAttribPointerv 返回指针信息。index 是将要被查询的通用顶点属性，pname是一个代表将要返回的指针的符号常量，而params 则是一个指向用于放置返回数据的位置的指针。</p>
+<p class="calibre1">返回的pointer是缓冲区对象数据存储的字节偏移，这个缓冲区对象是在期望指针被指定时绑定到GL_ARRAY_BUFFER 目标（参见glBindBuffer）的。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">返回的状态是从当前绑定的顶点数组对象获取的。</p>
+<p class="calibre1">每个指针的初始值都为0。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果当前美哟绑定任何顶点数组对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果index 大于或等于GL_MAX_VERTEX_ATTRIBS，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果pname不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_MAX_VERTEX_ATTRIBS。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetVertexAttrib, glVertexAttribPointer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glHint</h4>
+<p class="calibre1">指定实现特有的提示（hint）。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glHint(GLenum target,
+　　　　　　GLenum mode);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定一个符号常量，代表将要被控制的行为。</p>
+<p class="calibre1">GL_LINE_SMOOTH_HINT、GL_POLYGON_SMOOTH_HINT、GL_TEXTURE_COMPRESSION_ HINT和GL_FRAGMENT_SHADER_DERIVATIVE_HINT都可以被接受。</p>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定一个符号常量，代表期望的行为。GL_FASTEST、GL_NICEST和GL_DONT_CARE都可以被接受。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果存在解释的空间，那么GL行为的某些方面可以通过提示（hint）来控制。一个提示由两个自变量来指定。target 是一个符号常量，代表将要被控制的行为，而mode是另一个符号常量，代表期望的行为。每个target 的初始值都为GL_DONT_CARE。mode 可以为下列值其中之一。</p>
+<p class="calibre1">GL_FASTEST</p>
+<p class="calibre1">应当选择效率最高的选项。</p>
+<p class="calibre1">GL_NICEST</p>
+<p class="calibre1">应当选择最正确或质量最高的选项。</p>
+<p class="calibre1">GL_DONT_CARE</p>
+<p class="calibre1">没有优先选择。</p>
+<p class="calibre1">虽然实现中可以被提示（hint）的特性是良好定义的，对提示的解释还是要以实现为基础。和推荐的语义一样，可以由target指定的提示特性如下。</p>
+<p class="calibre1">GL_FRAGMENT_SHADER_DERIVATIVE_HINT</p>
+<p class="calibre1">代表GL着色语言片段处理内建函数派生计算的精度：dFdx、dFdy和fwidth。</p>
+<p class="calibre1">GL_LINE_SMOOTH_HINT</p>
+<p class="calibre1">代表抗锯齿线的采样质量。如果应用一个更大的滤波函数，提示GL_NICEST 能够导致在光栅化时生成更多的像素片段。</p>
+<p class="calibre1">GL_POLYGON_SMOOTH_HINT</p>
+<p class="calibre1">代表抗锯齿多边形的采样质量。如果应用一个更大的滤波函数，提示GL_NICEST 能够导致在光栅化时生成更多的像素片段。</p>
+<p class="calibre1">GL_TEXTURE_COMPRESSION_HINT</p>
+<p class="calibre1">代表压缩纹理图像的质量和性能。提示 GL_FASTEST表示纹理图像应该被尽可能快地进行压缩，而 GL_NICEST 则表示纹理图像应该以尽可能少的图像质量损失被压缩。如果纹理为了重用而将要被glGetCompressedTexImage检索，那么应该选择GL_NICEST。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">对提示的解释要以实现为基础。某些实现会忽略glHint设置。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet或mode不是可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glIsBuffer</h4>
+<p class="calibre1">确定一个名称是否与一个缓冲区对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsBuffer(GLuint buffer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">buffer</p>
+<p class="calibre1">指定一个可能为缓冲区对象名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果buffer 当前是一个缓冲区对象的名称，那么glIsBuffer将返回GL_TRUE。如果buffer 为0，或者为一个当前不是一个缓冲区对象名称的非0值，又或者出现错误，glIsBuffer将返回GL_FALSE。</p>
+<p class="calibre1">一个由glGenBuffers返回，但还没有通过调用glBindBuffer与缓冲区对象建立关联的名称，不是一个缓冲区对象名称。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindBuffer, glDeleteBuffers, glGenBuffers, glGet</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glIsEnabled</h4>
+<p class="calibre1">测试一个功能是否被激活。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsEnabled(GLenum cap);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">cap</p>
+<p class="calibre1">指定一个符号常量来指示一种GL性能。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果cap 是一个激活的功能，那么glIsEnabled 将返回GL_TRUE，否则返回GL_FALSE。</p>
+<p class="calibre1">在初始情况下除了GL_DITHER之外的所有功能将被禁止；GL_DITHER 在初始状态下是激活的。</p>
+<p class="calibre1">下列功能都能被cap所接受。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，glIsEnabled返回GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果cap不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glEnable, glGet</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">常　　量</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">查　　看</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_BLEND</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glBlendFunc, glLogicOp</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_CLIP_DISTANCEi</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_COLOR_LOGIC_OP</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glLogicOp</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_CULL_FACE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glCullFace</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_DEPTH_CLAMP</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_DEPTH_TEST</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glDepthFunc, glDepthRange</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_DITHER</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FRAMEBUFFER_SRGB</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_LINE_SMOOTH</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glLineWidth</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_MULTISAMPLE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glSampleCoverage</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_POLYGON_SMOOTH</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glPolygonMode</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_POLYGON_OFFSET_FILL</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glPolygonOffset</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_POLYGON_OFFSET_LINE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glPolygonOffset</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_POLYGON_OFFSET_POINT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glPolygonOffset</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PROGRAM_POINT_SIZE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_PRIMITIVE_RESTART</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable, glPrimitiveRestartIndex</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLE_ALPHA_TO_COVERAGE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glSampleCoverage</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLE_ALPHA_TO_ONE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glSampleCoverage</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLE_COVERAGE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glSampleCoverage</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLE_MASK</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SCISSOR_TEST</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glScissor</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_STENCIL_TEST</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glStencilFunc, glStencilOp</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_TEXTURE_CUBEMAP_SEAMLESS</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">glEnable</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4 class="sigil_not_in_toc">glIsFramebuffer</h4>
+<p class="calibre1">确定一个名称是否与一个帧缓冲区对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsFramebuffer(GLuint framebuffer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">framebuffer</p>
+<p class="calibre1">指定一个可能为帧缓冲区对象名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果framebuffer当前是一个帧缓冲区对象的名称，那么glIsFramebuffer将返回GL_TRUE。如果framebuffer 为0，或者为一个当前不是一个帧缓冲区对象名称的值，又或者出现错误，glIsFramebuffer将返回GL_FALSE。如果framebuffer是glGenFramebuffers返回的一个名称，并且这时还没有通过一个glBindFramebuffer调用来进行绑定，那么这个名称就不是一个帧缓冲区对象，并且glIsFramebuffer将返回GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenFramebuffers, glBindFramebuffer, glDeleteFramebuffers</p>
+<h4 class="sigil_not_in_toc">glIsProgram</h4>
+<p class="calibre1">确定一个名称是否与一个程序对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsProgram(GLuint program);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定一个潜在的程序对象。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果 program 是以前由glCreateProgram创建的一个程序对象的名称，并且还没有由glDeleteProgram删除，那么glIsProgram将返回GL_TRUE。如果program为0或一个不是程序对象名称的非0值，或者出现错误，glIsProgram将返回GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果program 不是一个有效的程序对象名，则不产生任何错误。</p>
+<p class="calibre1">一个由glDeleteProgram标记为删除但仍然作为当前渲染状态的一部分的程序对象，仍然会被当作一个程序对象，并且glIsProgram将返回GL_TRUE。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_CURRENT_PROGRAM。</p>
+<p class="calibre1">glGetActiveAttrib，其自变量为 program 和一个活动属性变量的索引。</p>
+<p class="calibre1">glGetActiveUniform，其自变量为 program 和一个活动统一变量的索引。</p>
+<p class="calibre1">glGetAttachedShaders，其自变量为 program。</p>
+<p class="calibre1">glGetAttribLocation，其自变量为program 和一个属性变量的名称。</p>
+<p class="calibre1">glGetProgram，其自变量为program和将要查询的参数。</p>
+<p class="calibre1">glGetProgramInfoLog，其自变量为 program。</p>
+<p class="calibre1">glGetUniform，其自变量为program 和一个统一变量的位置。</p>
+<p class="calibre1">glGetUniformLocation，其自变量为program 和一个统一变量的名称。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader, glBindAttribLocation, glCreateProgram, glDeleteProgram, glDetachShader, glLinkProgram, glUniform, glUseProgram, glValidateProgram</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glIsQuery</h4>
+<p class="calibre1">确定一个名称是否与一个查询对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsQuery(GLuint id);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">id</p>
+<p class="calibre1">指定一个可能为查询对象名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果id 当前是一个查询对象的名称，那么glIsQuery 将返回GL_TRUE。如果id 为0，或者为一个当前不是一个查询对象名称的非0值，又或者出现错误，glIsQuery将返回GL_FALSE。</p>
+<p class="calibre1">一个由glGenQueries返回，但还没有通过调用glBeginQuery与查询对象建立关联的名称，不是一个查询对象名称。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBeginQuery, glDeleteQueries, glEndQuery, glGenQueries</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glIsRenderbuffer</h4>
+<p class="calibre1">确定一个名称是否与一个渲染缓冲区对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsRenderbuffer(GLuint renderbuffer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">renderbuffer</p>
+<p class="calibre1">指定一个可能为渲染缓冲区对象名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果renderbuffer 当前是一个渲染缓冲区对象的名称，那么glIsRenderbuffer 将返回GL_TRUE。如果renderbuffer为0，或者为一个当前不是一个渲染缓冲区对象名称的值，又或者出现错误，glIsRenderbuffer 将返回GL_FALSE。如果renderbuffer 是glGenRenderbuffers返回的一个名称，但是这时还没有通过一个glBindRenderbuffer或glFramebufferRenderbuffer调用来进行绑定，那么这个名称就不是一个渲染缓冲区对象，并且glIsRenderbuffer 将返回GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenRenderbuffers, glBindRenderbuffer, glFramebufferRenderbuffer, glDeleteRenderbuffers</p>
+<h4 class="sigil_not_in_toc">glIsSampler</h4>
+<p class="calibre1">确定一个名称是否与一个采样对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsSampler(GLuint id);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">id</p>
+<p class="calibre1">指定一个可能为采样器对象名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果id当前是一个采样器对象的名称，那么glIsSampler将返回GL_TRUE。如果id 为0，或者为一个当前不是一个查询对象名称的非0值，又或者出现错误，glIsQuery将返回GL_FALSE。</p>
+<p class="calibre1">由glGenSamplers返回的名称，就是采样器对象的名称。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glIsSampler只在3.3或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenSamplers, glBindSampler, glDeleteSamplers</p>
+<h4 class="sigil_not_in_toc">glIsShader</h4>
+<p class="calibre1">确定一个名称是否与一个着色器对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsShader(GLuint shader);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定一个潜在的着色器对象。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果 shader 是以前由glCreateShader 创建的一个程序对象的名称，并且还没有由glDeleteShader删除，那么glIsShader 将返回GL_TRUE。如果shader 为0或一个不是着色器对象名称的非0值，或者出现错误，glIsShader 将返回GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果shader不是一个有效的着色器对象名，则不产生任何错误。</p>
+<p class="calibre1">一个由glDeleteShader标记为删除但仍然被绑定在一个程序对象上的着色器对象，仍然会被当作一个着色器对象，并且glIsShader将返回GL_TRUE。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetAttachedShaders，其参数包含一个合法程序对象。</p>
+<p class="calibre1">glGetShader，其自变量为shader 和将要查询的参数。</p>
+<p class="calibre1">glGetShaderInfoLog，其自变量为object。</p>
+<p class="calibre1">glGetShaderSource，其自变量为object。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader, glCompileShader, glCreateShader, glDeleteShader, glDetachShader, glLinkProgram, glShaderSource</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glIsSync</h4>
+<p class="calibre1">确定一个名称是否与一个同步对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsSync(GLsync sync);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sync</p>
+<p class="calibre1">指定一个可能为同步对象名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果sync当前是一个渲染同步对象的名称，那么glIsSync 将返回GL_TRUE。如果sync不是一个同步对象名称的值，又或者出现错误，glIsSync 将返回GL_FALSE。请注意0不是一个同步对象的名称。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glIsSync 在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glFenceSync, glWaitSync, glClientWaitSync, glDeleteSync</p>
+<h4 class="sigil_not_in_toc">glIsTexture</h4>
+<p class="calibre1">确定一个名称是否与一个纹理一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsTexture(GLuint texture);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">texture</p>
+<p class="calibre1">指定一个可能为纹理名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果texture 当前是一个纹理的名称，那么glIsTexture 将返回GL_TRUE。如果texture 为0，或者为一个当前不是一个纹理名称的非0值，又或者出现错误，glIsTexture 将返回GL_FALSE。</p>
+<p class="calibre1">一个由glGenTextures返回，但还没有通过调用glBindTexture与纹理建立关联的名称，不是一个纹理的名称。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindTexture, glCopyTexImage1D, glCopyTexImage2D, glDeleteTextures, glGenTextures, glGet, glGetTexParameter, glTexImage1D, glTexImage2D, glTexImage3D, glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glIsVertexArray</h4>
+<p class="calibre1">确定一个名称是否与一个顶点数组对象一致。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glIsVertexArray(GLuint array);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">array</p>
+<p class="calibre1">指定一个可能为顶点数组对象名称的值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">如果array当前是一个渲染缓冲区对象的名称，那么glIsVertexArray 将返回GL_TRUE。如果renderbuffer 为0，或者array为一个当前不是一个渲染缓冲区对象名称的值，又或者出现错误，glIsVertexArray将返回GL_FALSE。如果array 是glGenVertexArrays返回的一个名称，并且这时还没有通过一个glBindVertexArray调用来进行绑定，那么这个名称就不是一个顶点数组对象，并且glIsVertexArray 将返回GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenVertexArrays, glBindVertexArray, glDeleteVertexArrays</p>
+<h4 class="sigil_not_in_toc">glLineWidth</h4>
+<p class="calibre1">指定光栅化线的宽度。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glLineWidth(GLfloat width);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">width</p>
+<p class="calibre1">指定光栅化线的宽度。初始值为1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glLineWidth指定锯齿线和反锯齿线的宽度。使用一个不为1的线宽度会有不同的影响，这取决于线反锯齿是否被激活。可以通过调用自变量为GL_LINE_SMOOTH的glEnable和glDisable来激活和禁止线反锯齿。初始状态下抗锯齿是关闭的。</p>
+<p class="calibre1">如果线抗锯齿被禁止，那么实际宽度将通过把提供的宽度舍入到最接近的整数来决定。（如果舍入到0的话，那么线宽度将视为1）。如果| ¢x | 7= | ¢y |，i个像素将被填入每个被光栅化的列中，其中i为width被舍入后的值。否则，i个像素将被填入每个被光栅化的行中。</p>
+<p class="calibre1">如果线抗锯齿被激活，光栅化将为每个与宽等于当前线段宽度、长等于线段实际长度并以数学线段为中心的矩形相交的像素正方形生成一个片段。每个片段的覆盖值是矩形区域和相应像素正方形的交集的窗口坐标区域。这个值将在最后的光栅化步骤中保存和使用。</p>
+<p class="calibre1">在线反锯齿被激活时，并不是所有的宽度都能得到支持。如果一个不支持的宽度被请求，那么将使用与它最接近的支持宽度。只有宽度1是保证支持的，其他宽度值则要视具体实现而定。同样，锯齿线宽度也有一个范围。要查询这个范围内支持宽度之间的范围和大小区别可以调用自变量为GL_ALIASED_LINE_WIDTH_RANGE、GL_SMOOTH_LINE_WIDTH_RANGE 和GL_SMOOTH_LINE_WIDTH_GRANULARITY的glGet。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">在GL_LINE_WID被查询时，由glLineWidth指定的线宽度总是被返回。</p>
+<p class="calibre1">锯齿线和反锯齿线的截取和舍入对指定值不产生影响。</p>
+<p class="calibre1">非抗锯齿线宽度可以被截取到一个平台相关的最大值。调用参数为GL_ALIASED_LINE_WIDTH_RANGE的glGet来确定最大宽度。</p>
+<p class="calibre1">在OpenGL 1.2中，标记GL_LINE_WIDTH_RANGE和GL_LINE_WIDTH_GRANULARITY将由GL_ALIASED_LINE_WIDTH_RANGE、GL_SMOOTH_LINE_WIDTH_RANGE和GL_SMOOTH_LINE_WIDTH_GRANULARITY来代替。旧的名称将为了向下的兼容性而被保留，但在新的代码中不会使用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果width小于或等于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_LINE_WIDTH。</p>
+<p class="calibre1">glGet，其自变量为GL_ALIASED_LINE_WIDTH_RANGE。</p>
+<p class="calibre1">glGet，其自变量为GL_SMOOTH_LINE_WIDTH_RANGE。</p>
+<p class="calibre1">glGet，其自变量为GL_SMOOTH_LINE_WIDTH_GRANULARITY。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_LINE_SMOOTH。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glEnable</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glLinkProgram</h4>
+<p class="calibre1">连接一个程序对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glLinkProgram(GLuint program);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被连接的程序对象的句柄。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glLinkProgram 连接由program指定的程序对象。如果GL_VERTEX_SHADER类型的任何着色器对象被绑定到program，那么它们将被用来创建一个可执行文件，这个可执行文件将在可编程顶点处理器中运行。如果GL_GEOMETRY_SHADER类型的任何着色器对象被绑定到program，那么它们将被用来创建一个可执行文件，这个可执行文件将在可编程几何图形处理器中运行。如果GL_FRAGMENT_SHADER类型的任何着色器对象被绑定到program，那么它们将被用来创建一个可执行文件，这个可执行文件将在可编程片段处理器中运行。</p>
+<p class="calibre1">连接操作的状态将作为程序对象状态的一部分被存储。如果程序对象被无错误地连接并准备好使用，这个值将被设为GL_TRUE，否则将被设为GL_FALSE。它可以通过调用自变量为program 和GL_LINK_STATUS的glGetProgram来进行查询。</p>
+<p class="calibre1">成功的连接操作的一个结果是，所有属于program的活动用户定义统一变量都将被初始化为0，并且程序对象的每一个活动统一变量都将分配一个位置，这个位置可以通过调用glGetUniformLocation来进行查询。同时，任何没有被绑定到通用顶点属性索引的活动的用户定义属性变量在这时都会被绑定到一个通用顶点属性索引上。</p>
+<p class="calibre1">就像着色语言规范中指出的，程序对象的连接可能由于很多原因而失败。下面列出了可以导致连接错误的一些情况。</p>
+<ul class="calibre8">
+<li class="di_1ji_wu_xu_lie_biao">超出了实现所支持的活动属性变量的数量。</li>
+<li class="di_1ji_wu_xu_lie_biao">超出了统一变量的存储限制。</li>
+<li class="di_1ji_wu_xu_lie_biao">超出了实现所支持的活动统一变量的数量。</li>
+<li class="di_1ji_wu_xu_lie_biao">顶点着色器、几何图形着色器或片段着色器的main 函数丢失。</li>
+<li class="di_1ji_wu_xu_lie_biao">在片段着色器中实际使用的一个可变变量没有在顶点着色器或几何图形着色器中以同样的方式进行声名（或者根本就没有声名）。</li>
+<li class="di_1ji_wu_xu_lie_biao">一个到函数或变量名的引用没有被决定。</li>
+<li class="di_1ji_wu_xu_lie_biao">一个共享的全局符以两种不同的类型或两种不同的初始值被声明。</li>
+<li class="di_1ji_wu_xu_lie_biao">一个或多个附加着色器对象没有被成功进行编译。</li>
+<li class="di_1ji_wu_xu_lie_biao">绑定一个通用属性矩阵导致矩阵中的一些行超出了GL_MAX_VERTEX_ATTRIBS的最大值。</li>
+<li class="di_1ji_wu_xu_lie_biao">找不到足够的连续顶点属性槽来绑定属性矩阵。</li>
+<li class="di_1ji_wu_xu_lie_biao">程序对象包含形成一个片段着色器的对象，但是不包含形成一个顶点着色器的对象。</li>
+<li class="di_1ji_wu_xu_lie_biao">程序对象包含形成一个几何图形着色器的对象，但是不包含形成一个顶点着色器的对象。</li>
+<li class="di_1ji_wu_xu_lie_biao">程序对象包含形成一个几何图形着色器的对象和输入图元类型、输出图元类型或者在任何编译的几何图形着色器对象中都没有指定的最大输出顶点计数。</li>
+<li class="di_1ji_wu_xu_lie_biao">程序对象包含形成一个几何图形着色器的对象和输入图元类型、输出图元类型或者在多个几何图形着色器对象中进行不同指定的最大输出顶点计数。</li>
+<li class="di_1ji_wu_xu_lie_biao">片段着色器中活动输出的数量大于GL_MAX_DRAW_BUFFERS的值。</li>
+<li class="di_1ji_wu_xu_lie_biao">程序中有一个分配到一个大于或等于GL_MAX_DUAL_SOURCE_DRAW_BUFFERS的值的活动输出，并且有一个分配了大于或等于1的索引的活动输出。</li>
+<li class="di_1ji_wu_xu_lie_biao">有一个以上的varying输出变量被绑定到同一个数字或索引。</li>
+<li class="di_1ji_wu_xu_lie_biao">明确的绑定分配没留下足够的空间供连接器为一个varying输出数组自动分配一个位置，这个数组需要多个连续的位置。</li>
+<li class="di_1ji_wu_xu_lie_biao">由glTransformFeedbackVaryings指定的count 是非0的，但是这个程序对象没有任何顶点着色器或几何图形着色器。</li>
+<li class="di_1ji_wu_xu_lie_biao">任何在varyings 数组中指定到glTransformFeedbackVaryings的变量名都不会作为顶点着色器（或几何图形着色器，如果激活的话）中的一个输出进行声明。</li>
+<li class="di_1ji_wu_xu_lie_biao">varyings 数组中分配给glTransformFeedbackVaryings的任意两个入口都指定同一个varying变量。</li>
+<li class="di_1ji_wu_xu_lie_biao">任何变换反馈varying变量中捕获的分量总数都大于常量GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS，缓冲区模式为SEPARATE_ATTRIBS。</li>
+</ul>
+<p class="calibre1">当一个程序成功连接时，可以通过调用glUseProgram将程序对象设为当前状态的一部分。无论连接操作是否成功，程序对象的信息日志都会被覆盖。信息日志可以通过调用glGetProgramInfoLog获取。</p>
+<p class="calibre1">如果连接操作成功，并且指定的程序对象目前已经作为以前调用glUseProgram的结果而使用，glLinkProgram 也将安装生成可执行文件来作为当前渲染状态的一部分。如果当前使用的程序对象重新连接不成功，那么它的连接状态将被设定为GL_FALSE，但是可执行文件和相关状态将被保留为当前状态的一部分，直到以后调用glUseProgram来使它不再使用。在它移除不用之后，它将不能再作为当前状态的一部分，直到它被成功重连接为止。</p>
+<p class="calibre1">如果program 包含GL_VERTEX_SHADER类型的着色器对象，但不包含GL_FRAGMENT_SHADER类型的着色器对象，那么顶点着色器将被安装到可编程顶点处理器，可执行几何图形着色器（如果存在的话）将被安装到可编程几何图形处理器，但是不会再片段处理器上安装任何可执行程序。这样一个程序的光栅化图元的结果将为未定义的。</p>
+<p class="calibre1">在进行连接操作时，程序对象的信息日志将被刷新，程序将生成。在连接操作之后，应用程序将可以修改绑定的着色器对象、编译绑定的着色器对象、分离着色器对象、删除着色器对象和绑定附加着色器对象。这些操作都不会影响作为程序对象一部分的息日志或程序。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果连接操作成功，那么任何关于以前在program上的连接操作的信息都将丢失（也就是说，一个失败的连接不会恢复program的原有数据）。即使是在不成功的连接操作之后，某些信息仍然可以从program中重新获得。作为例子，参见glGetActiveAttrib和glGetActiveUniform。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果program是当前活动的程序对象，并且变换反馈模式激活，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_CURRENT_PROGRAM。</p>
+<p class="calibre1">glGetActiveAttrib，其自变量为 program 和一个活动属性变量的索引。</p>
+<p class="calibre1">glGetActiveUniform，其自变量为 program 和一个活动统一变量的索引。</p>
+<p class="calibre1">glGetAttachedShaders，其自变量为 program。</p>
+<p class="calibre1">glGetAttribLocation，其自变量为program 和一个属性变量的名称。</p>
+<p class="calibre1">glGetProgram，其自变量为program 和 GL_LINK_STATUS。</p>
+<p class="calibre1">glGetProgramInfoLog，其自变量为 program。</p>
+<p class="calibre1">glGetUniform，其自变量为program和一个统一变量的位置。</p>
+<p class="calibre1">glGetUniformLocation，其自变量为program 和一个统一变量名称。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader, glBindAttribLocation, glCompileShader, glCreateProgram, glDeleteProgram, glDetachShader, glUniform, glUseProgram, glValidateProgram</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glLogicOp</h4>
+<p class="calibre1">为渲染指定一个逻辑像素操作。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glLogicOp(GLenum opcode);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">opcode</p>
+<p class="calibre1">指定一个符号常量，这个符号常量用于选择一个逻辑操作。下列符号都可以接受：GL_CLEAR、GL_SET、GL_COPY、GL_COPY_INVERTED、GL_NOOP、GL_INVERT、GL_AND, GL_NAND、GL_OR、GL_NOR、GL_XOR、GL_EQUIV、GL_AND_REVERSE、GL_AND_INVERTED、GL_OR_REVERSE和GL_OR_INVERTED 初始值为GL_COPY。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glLogicOp 指定一个逻辑操作。如果被激活，这个逻辑操作将应用在在输入颜色索引或RGBA颜色与帧缓冲区中相应位置的颜色索引或RGBA颜色之间。可以调用使用符号常量GL_COLOR_LOGIC_OP的glEnable和glDisable来激活或禁止逻辑操作。初始值是禁止的。</p>
+<p class="calibre1">opcode 是一个从列表中选择的符号常量。在逻辑操作的解释中，s代表输入颜色，而d代表帧缓冲区中的索引。这里使用标准C语言操作。就像这些位操作符建议的，逻辑操作将单独应用到每个源和目的索引或颜色比特对（bit pair）。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">当而启用一个以上的RGBA颜色缓冲区进行绘制时，逻辑操作将单独为每个激活的缓冲区而执行，为目的值使用这个缓冲区内容的目的值（参见glDrawBuffer）。</p>
+<p class="calibre1">逻辑操作不会影响浮点绘制缓冲区。但是，如果GL_COLOR_LOGIC_OP被激活，在这种情况下混合仍然是禁止的。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">opcode</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">对应操作</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_CLEAR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">0</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SET</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">1</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_COPY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">s</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_COPY_INVERTED</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">~s</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_NOOP</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INVERT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">~d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_AND</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">s &amp; d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_NAND</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">~(s &amp; d)</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_OR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">s | d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_NOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">~(s | d)</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_XOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">s ^ d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_EQUIV</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">~(s ^ d)</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_AND_REVERSE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">s &amp; ~d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_AND_INVERTED</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">~s &amp; d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_OR_REVERSE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">s | ~d</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_OR_INVERTED</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">~s | d</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果opcode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_LOGIC_OP_MODE。</p>
+<p class="calibre1">GlIsEnabled，其自变量为GL_COLOR_LOGIC_OP。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBlendFunc, glDrawBuffer, glEnable, glStencilOp</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glMapBuffer</h4>
+<p class="calibre1">映射一个缓冲区对象的数据存储。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void * glMapBuffer(GLenum target,
+　　　　　　GLenum access);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定被映射的目标缓冲区对象。符号常量必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">access</p>
+<p class="calibre1">指定访问策略，指示从缓冲区对象的数据存储中读取、向缓冲区对象的数据存储写入或同时读取或写入是否可能。符号常量必须为GL_READ_ONLY、GL_WRITE_ONLY或GL_READ_WRITE。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLboolean glUnmapBuffer(GLenum target);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定被取消映射的目标缓冲区对象。符号常量必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glMapBuffer将当前被绑定到tarGet的缓冲区对象的整个数据存储映射到客户端的地址空间。然后，根据指定的access策略，这些数据就可以相对于返回的指针直接进行读取和/或写入了。如果GL不能被映射到缓冲区对象的数据存储，glMapBuffer将产生一个错误，并返回NULL。这可能是由于可用虚拟内存不足等系统特定原因而发生的。</p>
+<p class="calibre1">如果映射的数据存储以与指定access策略不一致的方式进行访问，将不会产生错误，但性能会受到负面影响，并可能出现程序中止等系统错误。和glBufferData的usage参数不同，access不是一个提示，并且实际上会限制映射数据存储在一些GL实现上的使用。为了获得可用的最高性能，一个缓冲区对象的数据存储应该以与它指定的usage和access参数一致的方式使用。</p>
+<p class="calibre1">一个映射的数据存储必须在它的缓冲区对象被使用之前通过glUnmapBuffer来解除映射。</p>
+<p class="calibre1">否则，任何试图对缓冲区对象数据存储解除引用的GL命令都会产生错误。当一个数据存储解除映射时，指向它的数据存储的指针将变成无效的。</p>
+<p class="calibre1">glUnmapBuffer 返回GL_TRUE，除非数据存储的内容在数据存储进行映射时被破坏。这可能由影响图形内存可用性的系统特定原因而引起，例如屏幕模式变更。在这种情况下，GL_FALSE 将返回，并且数据存储内容会成为未定义的。一个应用程序必须检测这种罕见的情况并重新初始化数据存储。</p>
+<p class="calibre1">一个缓冲区对象的映射数据存储在缓冲区对象被删除或它的数据存储由glBufferData重新创建时将自动解除映射。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，glMapBuffer 将返回 NULL，并且 glUnmapBuffer 将返回GL_FALSE。</p>
+<p class="calibre1">传递到GL命令的参数值可能并非来自于返回的指针。这不会产生任何错误，但结果将为未定义的，并且可能在不同的GL实现之间区别很大。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果target不是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER，则会产生GL_INVALID_ENUM。</p>
+<p class="calibre1">如果access 不是 GL_READ_ONLY、GL_WRITE_ONLY或GL_READ_WRITE，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果glMapBuffer在GL不能对缓冲区对象的数据存储进行映射时执行，则会产生GL_OUT_OF_MEMORY错误。这可能由多种系统特定原因产生，例如保留虚拟内存不足。</p>
+<p class="calibre1">如果保留的缓冲区对象名称0被绑定到 tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果glMapBuffer 为了一个数据存储已经被映射的缓冲区对象而执行，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果glUnmapBuffer为了一个数据存储当前没有被映射的缓冲区对象而执行，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetBufferPointerv，其自变量为 GL_BUFFER_MAP_POINTER。</p>
+<p class="calibre1">GlGetBufferParameter，其自变量为GL_BUFFER_MAPPED、GL_BUFFER_ACCESS或GL_BUFFER_USAGE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindBuffer, glBindBufferBase, glBindBufferRange, glBufferData,glBufferSubData, glDeleteBuffers</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glMapBufferRange</h4>
+<p class="calibre1">映射一个缓冲区对象的数据存储的一部分。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void *glMapBufferRange(GLenum target,
+　　　　　　GLintptr offset,
+　　　　　　GLsizeiptr length,
+　　　　　　GLbitfield access);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标缓冲区要绑定到的绑定点。</p>
+<p class="calibre1">offset</p>
+<p class="calibre1">指定要被映射的范围的缓冲区中的初始偏置。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">指定被映射的范围的长度。</p>
+<p class="calibre1">access</p>
+<p class="calibre1">指定访问标志的一个组合，指示到这个范围的期望访问。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glMapBufferRange 将缓冲区对象数据存储的全部或一部分映射到客户端地址空间中。tarGet指定缓冲区绑定的目标，必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER中的一个。offset 和length表示被映射的缓冲区对象中的数据范围，以基本机器单元为单位。access是一个位段包含标记，描述所需的映射。这些标记描述如下。</p>
+<p class="calibre1">如果不出现任何错误，那么一旦这个缓冲区中所有挂起的操作完成，将会返回一个指向这个映射范围起始位置的指针，可以根据在access中设置的如下标记位，用来修改和/或查询缓冲区相应范围。</p>
+<p class="calibre1">GL_MAP_READ_BIT表示返回的指针可以用来读取缓冲区对象数据。如果这个指针用来查询不包含这个标记的一个映射，则不会产生任何GL错误，但是结果将是未定义的，并且可能会出现系统错误（可能包括程序终止）。</p>
+<p class="calibre1">GL_MAP_WRITE_BIT表示返回的指针可以用来修改缓冲区对象数据。如果这个指针用来修改不包含这个标记的一个映射，则不会产生任何GL错误，但是结果将是未定义的，并且可能会出现系统错误（可能包括程序终止）。</p>
+<p class="calibre1">此外，后面access中的optional标记位可能用于修改映射。</p>
+<p class="calibre1">GL_MAP_INVALIDATE_RANGE_BIT表示指定范围中前面的内容可能被丢弃。这个范围中的数据是未定义的，除了后续的写入数据之外。如果后续GL操作访问未写入数据，则不会产生任何GL错误，但是结果将是未定义的，并且可能会出现系统错误（可能包括程序终止）。这个标记可能不会用在与GL_MAP_READ_BIT的组合中。</p>
+<p class="calibre1">GL_MAP_INVALIDATE_BUFFER_BIT表示整个缓冲区中前面的内容可能被丢弃。整个缓冲区中的数据是未定义的，除了后续的写入数据之外。如果后续GL操作访问未写入数据，则不会产生任何GL错误，但是结果将是未定义的，并且可能会出现系统错误（可能包括程序终止）。这个标记可能不会用在与GL_MAP_READ_BIT的组合中。</p>
+<p class="calibre1">GL_MAP_FLUSH_EXPLICIT_BIT表示映射的一个或多个不连续的子范围可以被修改。当这个标记被置位时，每个子范围的修改必须通过调用glFlushMappedBufferRange来显式地进行清理。如果映射的一个子范围被修改并且没有被清理，则不会产生GL错误，但是缓冲区中相应子范围中的数据将是未定义的。这个标记可能只会用在与GL_MAP_WRITE_BIT的组合中。如果选择了这个选项，清理会被严格地限制在通过在解除映射之前调用glFlushMappedBufferRange显式地指明的区域之内；如果没有选择这个选项，那么glUnmapBuffer在调用时将会自动清理整个映射范围。</p>
+<p class="calibre1">GL_MAP_UNSYNCHRONIZED_BIT表示GL不应该在从glMapBufferRange返回之前试图对缓冲区中挂起的操作进行同步。如果挂起的源于或修改缓冲区的操作覆盖了映射区域，则不会产生GL错误，但是前面这些操作和后面的任何操作的结果都会为未定义的。</p>
+<p class="calibre1">如果出现错误，glMapBufferRange就会返回一个NULL指针。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果offset或length为负，或者如果offset + length大于或等于GL_BUFFER_SIZE的值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果access有任何一位设置为前面定义值之外的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果下列条件中的任何一个成立，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">缓冲区已经为映射状态。</p>
+<p class="calibre1">GL_MAP_READ_BIT或GL_MAP_WRITE_BIT被置位。</p>
+<p class="calibre1">GL_MAP_READ_BIT被置位，并且GL_MAP_INVALIDATE_RANGE_BIT、GL_MAP_INVALIDATE_BUFFER_BIT或GL_MAP_UNSYNCHRONIZED_BIT中的任何一个被置位。</p>
+<p class="calibre1">GL_MAP_FLUSH_EXPLICIT_BIT被置位，并且GL_MAP_WRITE_BIT没有被置位。</p>
+<p class="calibre1">如果glMapBufferRange失败则产生GL_OUT_OF_MEMORY错误，因为无法获取映射的内存。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glMapBuffer, glFlushMappedBufferRange, glBindBuffer</p>
+<h4 class="sigil_not_in_toc">glMultiDrawArrays</h4>
+<p class="calibre1">从数组数据渲染多组图元。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glMultiDrawArrays(GLenum mode,
+　　　　　　GLint * first,
+　　　　　　GLsizei * count,
+　　　　　　GLsizei primcount);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定将要渲染哪种类型的图元。符号常量GL_POINTS、GL_LINE_STRIP、GL_LINE_LOOP、GL_LINES、GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP、GL_TRIANGLE_FAN、GL_TRIANGLES、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY都是可接受的。</p>
+<p class="calibre1">first</p>
+<p class="calibre1">指向一个由活动数组中的起始索引组成的数组。</p>
+<p class="calibre1">count</p>
+<p class="calibre1">指向一个由将要被渲染的索引数组成的数组。</p>
+<p class="calibre1">primcount</p>
+<p class="calibre1">指定第一个和计数的大小。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glMultiDrawArrays 通过进行很少的子例程调用来指定多组几何图元。我们可以预先指定单独的定点、法线和颜色数组，并通过调用一次glMultiDrawArrays来使用它们构造一个图元序列，而不是通过调用一个GL程序来传输每个单独的顶点、法线、纹理坐标、边缘标记或颜色。</p>
+<p class="calibre1">glMultiDrawArrays 的行为与glDrawArrays相同，除了primcount分离元素范围被指定之外。</p>
+<p class="calibre1">用glMultiDrawArrays 时，他使用count时序元素来从每个激活的数组构造一个几何图元序列，从元素first开始。mode 指定要构造哪种图元，以及如何用这些数组元素来构造这些图元。</p>
+<p class="calibre1">由glMultiDrawArrays 修改的顶点属性在glMultiDrawArrays 返回后会有一个未指定值。没有被修改过的属性将被保持为良好定义的。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果primcount为负值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到一个激活的数组，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDrawElements, glDrawRangeElements</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+<h4 class="sigil_not_in_toc">glMultiDrawElements</h4>
+<p class="calibre1">通过指定数组数据元素来渲染多组图元。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glMultiDrawElements(GLenum mode,
+　　　　　　const GLsizei * count,
+　　　　　　GLenum type, const
+　　　　　　GLvoid ** indices,
+　　　　　　GLsizei primcount);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定将要渲染哪种类型的图元。符号常量GL_POINTS、GL_LINE_STRIP、GL_LINE_LOOP、GL_LINES、GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP、GL_TRIANGLE_FAN、GL_TRIANGLES、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY都是可接受的。</p>
+<p class="calibre1">count</p>
+<p class="calibre1">指向一个元素计数的数组。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">指定indices中的值的类型，必须是GL_UNSIGNED_BYTE、GL_UNSIGNED_SHORT和GL_UNSIGNED_INT中的一个。</p>
+<p class="calibre1">indices</p>
+<p class="calibre1">指定一个指向索引存储位置的指针。</p>
+<p class="calibre1">primcount</p>
+<p class="calibre1">指定count数组的大小。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glMultiDrawElements通过进行很少的子例程调用来指定多组几何图元。我们可以预先指定单独的顶点、法线等数组，并通过调用一次glMultiDrawElements来使用它们构造一个图元序列，而不是通过调用一个GL函数来传输每个单独的顶点、法线、纹理坐标、边缘标记或颜色。</p>
+<p class="calibre1">glMultiDrawElements 在操作上与 glDrawElements 相同，除了primcount单独的元素列表被指定之外。</p>
+<p class="calibre1">由glMultiDrawElements 修改的顶点属性在glMultiDrawElements 返回后会有一个未指定值。没有被修改过的属性将保持它们以前的值。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果primcount为负值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到一个激活的数组或这个元素数组，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDrawArrays, glDrawRangeElements</p>
+</body>
+</html>

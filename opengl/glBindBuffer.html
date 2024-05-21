@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBindBuffer</h4>
+<p class="calibre1">绑定一个指定的缓冲区对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBindBuffer(GLenum target,
+　　　　　GLuint buffer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<h4 class="sigil_not_in_toc">target</h4>
+<p class="calibre1">定义缓冲区对象要绑定到的目标。符号常量必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">buffer</p>
+<p class="calibre1">指定缓冲区对象的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBindBuffer将一个缓冲区对象绑定到指定的缓冲区绑定点。调用一个glBindBuffer，其中target设置为一个可接受符号常量，而buffer则设置为一个缓冲区对象的名称，将这个缓冲区名称绑定到目标上。如果不存在名称为buffer的缓冲区对象，则会重新创建一个。当一个缓冲区对象绑定到目标时，这个目标以前的绑定将自动解除。</p>
+<p class="calibre1">缓冲区对象是无符号整数。数值0被保留，但不存在针对每个缓冲区对象目标的默认缓冲区对象。相反，将buffer设置为0将高效地将以前绑定的缓冲区对象解除绑定，并恢复这个缓冲区对象目标的用户机内存使用（如果支持这个目标的话）。缓冲区对象名称和相应的缓冲区对象内容对当前GL渲染环境的共享显示列表空间来说是本地的。两个渲染环境只有在它们也共享显示列表的的情况下才共享缓冲区对象。</p>
+<p class="calibre1">我们必须使用glGenBuffers来生成一组未使用的缓冲区对象名称。</p>
+<p class="calibre1">在缓冲区对象第一次绑定时，它的即时状态是一个没有映射的大小为0的内存缓冲区，可以进行GL_READ_WRITE访问和使用STATIC_DRAW。</p>
+<p class="calibre1">当一个非0缓冲区对象名称被绑定时，GL将对它绑定到的目标所进行的操作会影响绑定的缓冲区对象，而对它绑定到的目标进行的查询将返回从绑定的缓冲区对象得到的状态。当缓冲区对象名称0被绑定时（就像初始状态一样），尝试修改或查询它绑定到的目标的状态会产生一个GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">当一个非0缓冲区对象被绑定到GL_ARRAY_BUFFER目标时，传统上被认为是到客户端内存的指针的顶点数组指针参数将被解释为缓冲区对象中的一个以基本机器单元来测量的偏移。</p>
+<p class="calibre1">当一个非0缓冲区对象被绑定到GL_ELEMENT__ARRAYBUFFER目标时，glDrawElements、glDrawElements Instanced、glDrawElementsBaseVertex、glDrawRangeElements、glDrawRangeElementsBaseVertex、glMulti DrawElements或glMultiDrawElementsBaseVertex索引参数将被解释为缓冲区对象中的一个以基本机器单元来测量的偏移。</p>
+<p class="calibre1">当一个非0缓冲区对象被绑定到GL_PIXEL_UNPACK_BUFFER目标时，如下命令将受到影响：glGetCompressedTexImage、glGetTexImage和glReadPixels。指针参数将被解释为缓冲区对象中的一个以基本机器单元来测量的偏移。</p>
+<p class="calibre1">当一个非0缓冲区对象被绑定到GL_PIXEL_UNPACK_BUFFER目标时，如下命令将受到影响：glCompressedTexImage1D、glCompressedTexImage2D、glCompressedTexImage3D、glCompressedTexSubImage1D、glCompressedTexSubImage2D、glCompressedTexSubImage3D、glTexImage1D、glTexImage2D、glTexIma<br class="sgc-toc-title"/>
+ge3D、glTexSubImage1D、glTexSubImage2D和glTexSubImage3D。指针参数将被解释为缓冲区对象中的一个以基本机器单元来测量的偏移。</p>
+<p class="calibre1">缓冲区对象GL_COPY_READ_BUFFER和GL_COPY_WRITE_BUFFER是我们可以使用glCopyBufferSubData而不会影响其他绑定的状态。但是，glCopyBufferSubData可以用于任意缓冲区绑定点对。</p>
+<p class="calibre1">GL_TRANSFORM_FEEDBACK_BUFFER缓冲区绑定点可以传递到glBindBuffer，但是不会直接影响变换反馈状态。相反，索引GL_TRANSFORM_ FEEDBACK_BUFFER绑定必须通过调用glBindBufferBase或glBindBufferRange来使用。</p>
+<p class="calibre1">这样就会影响通用GL_TRANSFORM_FEEDABCK_BUFFER绑定。</p>
+<p class="calibre1">类似地，可以使用GL_UNIFORM_BUFFER缓冲区绑定点，但是不会直接影响统一缓冲区绑定点。</p>
+<p class="calibre1">通过glBindBuffer创建的缓冲区对象绑定会保持活动状态，直到一个不同的缓冲区对象名称被绑定到同一个目标，或者直到绑定的缓冲区对象通过glDeleteBuffers删除。</p>
+<p class="calibre1">一旦一个命名的缓冲区对象被创建，它就可以在任何需要的时候被重新绑定到任何目标了。但是，GL实现可能会根据其初始绑定目标来选择如何对一个缓冲区对象的存储进行优化。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_COPY_READ_BUFFER、GL_UNIFORM_BUFFER和GL_TEXTURE_BUFFER目标只在3.1或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个允许值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果buffer不是以前的一个glGenBuffers调用返回的名称，则产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为 GL_ARRAY_BUFFER_BINDING。</p>
+<p class="calibre1">glGet，其自变量为 GL_COPY_READ_BUFFER_BINDING。</p>
+<p class="calibre1">glGet，其自变量为 GL_COPY_WRITE_BUFFER_BINDING。</p>
+<p class="calibre1">glGet，其自变量为 GL_ELEMENT_ARRAY_BUFFER_BINDING。</p>
+<p class="calibre1">glGet，其自变量为 GL_PIXEL_PACK_BUFFER_BINDING。</p>
+<p class="calibre1">glGet，其自变量为 GL_PIXEL_UNPACK_BUFFER_BINDING。</p>
+<p class="calibre1">glGet，其自变量为 GL_TRANSFORM_FEEDBACK_BUFFER_BINDING。</p>
+<p class="calibre1">glGet，其自变量为 GL_UNIFORM_BUFFER_BINDING。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenBuffers、glBindBufferBase、glBindBufferRange、glMapBuffer、glUnmapBuffer、glDeleteBuffers、glGet、glIsBuffer。</p>
+</body>
+</html>

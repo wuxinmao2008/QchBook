@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+
+<h4 class="sigil_not_in_toc">glCopyTexImage2D</h4>
+<p class="calibre1">将像素复制到一个2D纹理图像。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glCopyTexImage2D(GLenum target,
+　　　　　　GLint level,
+　　　　　　GLenum internalformat,
+　　　　　　GLint x,
+　　　　　　GLint y,
+　　　　　　GLsizei width,
+　　　　　　GLsizei height,
+　　　　　　GLint border);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标纹理。必须为GL_TEXTURE_2D、GL_TEXTURE_CUBE_MAP_ POSITIVE_X、GL_TEXTURE_CUBE_ MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_ POSITIVE_Z或GL_TEXTURE_CUBE_MAP_NEGATIVE_Z。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定层次细节数量。Level 0 是基本图像层次。Level n是第n级Mip贴图缩略图。</p>
+<p class="calibre1">internalformat</p>
+<p class="calibre1">指定纹理的内部格式，必须是下列符号常量中的一个：GL_COMPRESSED_RED、GL_COMPRESSED_RG、GL_COMPRESSED_RGB、GL_COMPRESSED_RGBA、GL_COMPRESSED_SRGB、GL_COMPRESSED_SRGB_ALPHA、GL_DEPTH_COMPONENT、GL_DEPTH_COMPONENT16、GL_DEPTH_COMPONENT24、GL_DEPTH_COMPONENT32、GL_RED, GL_RG、GL_RGB、GL_R3_G3_B2、GL_RGB4、GL_RGB5、GL_RGB8, GL_RGB10、GL_RGB12、GL_RGB16、GL_RGBA、GL_RGBA2、GL_RGBA4、GL_RGB5_A1、GL_RGBA8、GL_RGB10_A2、GL_RGBA12、GL_RGBA16、GL_SRGB、GL_SRGB8、GL_SRGB_ALPHA或GL_SRGB8_ALPHA8。</p>
+<p class="calibre1">x</p>
+<p class="calibre1">y</p>
+<p class="calibre1">指定将要复制的像素矩形区域左下角的窗口坐标。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">指定纹理图像的宽度。必须是0 或2n + 2 (border) ，其中n为整数。</p>
+<p class="calibre1">height</p>
+<p class="calibre1">指定纹理图像的高度。必须是0 或2n + 2 (border) ，其中n为整数。</p>
+<p class="calibre1">border</p>
+<p class="calibre1">指定边界的宽度。必须为0或1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCopyTexImage2D使用来自当前GL_READ_BUFFER的像素定义一个二维纹理图像或立方体贴图纹理图像。</p>
+<p class="calibre1">左下角位于(x,y)、宽度为width + 2 (border)、高度为height + 2 (border)的屏幕对齐像素行在由level指定的Mip贴图层次定义纹理数组。internalformat指定纹理数组的内部格式。</p>
+<p class="calibre1">这个矩形中的像素就像调用了glCopyPixels一样被处理，但是在最后的变换之前处理过程将停止。这时所有像素分量值都被限定到[0,1]范围，然后被转换到纹理的内部格式，以便存储到Texel数组中。</p>
+<p class="calibre1">像素的顺序为较低的x和y屏幕坐标对应较低的s和t纹理坐标。</p>
+<p class="calibre1">如果当前GL_READ_BUFFER指定矩形中任何像素在当前渲染环境相关联的窗口之外，那么为这些像素所获得的值将是未定义的。</p>
+<p class="calibre1">当internalformat 是一种sRGB类型时，GL不会自动将源像素转换到sRGB颜色空间。这样，glPixelMap函数就能够用来完成这种转换了。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">1、2、3和4不是可接受的internalformat值。</p>
+<p class="calibre1">高度或宽度为0的图像表示一个NULL（无效）纹理。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_TEXTURE_2D、GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z或GL_TEXTURE_CUBE_MAP_NEGATIVE_Z，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果level小于0，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果level大于log 2 max,值，其中max 是GL_MAX_TEXTURE_SIZE的返回值，则可能产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果width小于 0 或大于2 + GL_MAX_TEXTURE_SIZE，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果不支持非2的幂的纹理且width或depth不能被表示成2k + 2 (border)的形式，其中k为整数，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果border 不是 0 或 1，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果internalformat不是一个可接受的格式，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果internalformat 是 GL_DEPTH_COMPONENT、GL_DEPTH_COMPONENT16、GL_DEPTH_COMPONENT24或GL_DEPTH_COMPONENT32，并且不存在深度缓冲区，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetTexImage</p>
+<p class="calibre1">glIsEnabled ，其自变量为GL_TEXTURE_2D或GL_TEXTURE_CUBE_MAP。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCopyTexImage1D, glCopyTexSubImage1D, glCopyTexSubImage2D, glPixelStore, glTexImage1D, glTexImage2D, glTexSubImage1D, glTexSubImage2D, glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+     
+</body>
+</html>

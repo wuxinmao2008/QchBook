@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glBindSampler</h4>
+<p class="calibre1">将一个指定的采样器绑定到一个纹理目标上。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBindSampler(GLuint unit,
+　　　　　GLuint texture);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">unit</p>
+<p class="calibre1">指定采样器将要绑定到的纹理单元的索引。</p>
+<p class="calibre1">sampler</p>
+<p class="calibre1">指定采样器的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBindSampler将sampler绑定到纹理单元的索引unit。</p>
+<p class="calibre1">sampler 必须是0或以前的一次glGenSamplers调用所返回的采样器的名称。</p>
+<p class="calibre1">unit必须小于GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS的值。</p>
+<p class="calibre1">当一个采样器对象被绑定到一个纹理单元时，它的状态会取代绑定到这个纹理单元的纹理对象的状态。如果这个采样器名称0被绑定到一个纹理单元，那么当前绑定纹理的采样器状态将被激活。单个采样器对象可以同时绑定到多个纹理单元。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glBindSampler只在3.3或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果unit 大于或等于GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS的值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果sampler不是0或以前一次调用所返回的名称，或者这个名称已经通过调用glDeleteSamplers删除了，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_SAMPLER_BINDING。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenSamplers、glDeleteSamplers、glGet、glSamplerParameter、glGetSamplerParameter、glGenTextures、glBindTexture、glDeleteTextures。</p>
+
+</body>
+</html>

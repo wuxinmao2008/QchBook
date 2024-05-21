@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glFenceSync</h4>
+<p class="calibre1">创建一个新的同步对象并将它插入到GL命令流中。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLsync glFenceSync(GLenum condition,
+　　　　　　GLbitfield flags);</code>
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">condition</p>
+<p class="calibre1">指定为了将同步对象设置为标记状态必须满足的条件。</p>
+<p class="calibre1">condition必须为GL_SYNC_GPU_COMMANDS_COMPLETE。</p>
+<p class="calibre1">flags</p>
+<p class="calibre1">指定标志的一个按位组合，控制同步对象的行为。目前没有为这个操作定义任何标志，而flags必须为0。<a id="acc1" href="text00029_split_004.html#anchorc1">
+<sup class="calibre20">[1]</sup>
+</a>
+</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glFenceSync创建一个新的围栏同步对象，将一个围栏命令插入GL命令流并将它与这个同步对象关联起来，并返回一个与这个同步对象对应的非0名称。</p>
+<p class="calibre1">当围栏命令满足了同步对象的指定condition，同步对象由GL设为标记状态，导致sync中的任何glWaitSync和glClientWaitSync命令被阻塞为unblock。其他任何状态都不会受glFenceSync或者关联围栏命令执行的影响。</p>
+<p class="calibre1">condition必须为GL_SYNC_GPU_COMMANDS_COMPLETE。这个条件通过完成与这个同步对象对应的围栏命令和同一个命令流中前面所有命令来满足。在这些命令对GL客户端、服务器状态和帧缓冲区的影响完全实现之前，所有这个同步对象不会被设置为标记状态。请注意当对应同步对象的状态改变时，围栏命令会完成一次，但是在围栏命令完成之前，等待这个同步对象的命令不会解除阻塞。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glFenceSync在3.2或更高版本的GL中，或者在支持ARB_sync扩展的情况下可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果condition不是GL_SYNC_GPU_COMMANDS_COMPLETE，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果flags为非0值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">另外，如果glFenceSync失败，就会返回0。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDeleteSync, glGetSync, glWaitSync, glClientWaitSync</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

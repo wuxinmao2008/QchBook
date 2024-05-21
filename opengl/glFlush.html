@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glFlush</h4>
+<p class="calibre1">在有限的时间内强制执行GL命令。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glFlush(void);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">不同的GL实现缓冲区命令在几个不同的区域中，这些区域包括包括各种缓冲区和图形加速器本身。glFlush 能够清空所有这些缓冲区，以使所有发出的命令在它们一旦被实际渲染引擎接受就可以马上执行。虽然这个执行可能不能在任何特定的时间段中完成，但它确实能在限定的时间内完成。</p>
+<p class="calibre1">由于任何GL程序都可能通过网络来执行，或者在一个缓冲命令的加速器上执行，所以所有程序都要调用glFlush，如果它们想要它们以前发出的命令都能完成的话。例如，在开始等待基于生成图象的用户输入之前就要调用glFlush。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glFlush 可以在任何时间返回。它不会等待所有以前发出的GL命令执行完成。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glFinish</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

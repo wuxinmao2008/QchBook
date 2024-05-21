@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+<h4 class="sigil_not_in_toc">glGetActiveUniformName</h4>
+<p class="calibre1">查询一个活动统一变量的名称。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetActiveUniformName(GLuint program,
+　　　　　　GLuint uniformIndex,
+　　　　　　GLsizei bufSize,
+　　　　　　GLsizei *length,
+　　　　　　GLchar *uniformName);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定包含活动统一索引uniformIndex的程序。</p>
+<p class="calibre1">uniformIndex</p>
+<p class="calibre1">指定其名称将要被查询的活动统一变量的索引。</p>
+<p class="calibre1">bufSize</p>
+<p class="calibre1">指定在uniformName中指定地址的缓冲区的大小（以GLchar为单位）。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">指定变量的地址，这个变量将要接收已经或将要写入到由uniformName进行寻址的缓冲区中的字符数。</p>
+<p class="calibre1">uniformName</p>
+<p class="calibre1">指定一个缓冲区的地址，GL会将program中uniformIndex 位置的活动统一变量的名称写入到这个缓冲区。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetActiveUniformName 返回program中位于uniformIndex 的一个活动统一变量的名称。如果uniformName 不为NULL，那么最多会有bufSize 个字符（包含空终结符）被写入到由uniformName指定地址的数组中。如果length不为NULL，那么已经被写入到（或应该已经被写入到）uniformName的字符数（不包含空终结符）将被放置到由length指定地址的变量中。如果length 为NULL，则不会返回长度。program中最长的统一变量名称的长度是由GL_ACTIVE_UNIFORM_MAX_LENGTH的值给出的，它可以使用glGetProgram查询。</p>
+<p class="calibre1">如果glGetActiveUniformName不成功，那么就不会向length或uniformName写入任何东西。</p>
+<p class="calibre1">Program必须是前面为其发出过glLinkProgram命令的一个程序对象的名称。program不必已经成功进行了连接。这个连接可能会失败，因为活动统一变量的数量超出了限制。</p>
+<p class="calibre1">uniformIndex 必须为program程序的一个活动统一索引，范围在0到GL_ACTIVE_UNIFORMS-1之间，可以通过glGetProgram查询GL_ACTIVE_UNIFORMS的值。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果uniformIndex大于或等于GL_ACTIVE_UNIFORMS的值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果bufSize 为负值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果program 不是一个已经为其发出glLinkProgram命令的程序对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetActiveUniform, glGetUniformIndices, glGetProgram, glLinkProgram</p>
+
+</body>
+</html>

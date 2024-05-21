@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDeleteShader</h4>
+<p class="calibre1">删除一个着色器对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDeleteShader(GLuint shader);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定将要被删除的着色器对象。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDeleteShader释放内存，并使由shader指定的着色器对象相关的名字无效。这个命令有效地撤销glCreateShader调用的的影响。</p>
+<p class="calibre1">如果一个着色器对象被绑定到一个程序对象，那么它将为删除做标记，但在它不再绑定到任何渲染环境的任何程序对象之前都不会被删除（也就是说，它必须在被删除之前解除到它所绑定到的任何地方的绑定）。shader的0值将被默认忽略。</p>
+<p class="calibre1">可以调用自变量为shader和GL_DELETE_STATUS的glGetShader来确定一个对象是否已经被标记为删除。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果shader不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetAttachedShaders 以将要被查询的程序对象为参数。</p>
+<p class="calibre1">glGetShader，其自变量为shader 和GL_DELETE_STATUS。</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateProgram, glCreateShader, glDetachShader, glUseProgram</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

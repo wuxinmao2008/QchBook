@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glCompileShader</h4>
+<p class="calibre1">编译一个着色器对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glCompileShader(GLuint shader);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定要编译的着色器对象。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCompileShader 编译已经被存储到由shader指定的着色器对象的源代码字符串。</p>
+<p class="calibre1">编译状态将会作为着色器对象状态的一部分被存储。如果着色器被编译，没有错误且已经准备好供使用，这个值将被设置为GL_TRUE，否则将被设置为GL_FALSE。它可以通过调用自变量为shader和GL_COMPILE_STATUS的glGetShader进行查询。</p>
+<p class="calibre1">就像着色语言规范中指出的，着色器的编译可能由于很多原因而失败。无论编译成功与否，关于编译的信息都能够通过调用glGetShaderInfoLog来从着色器对象的信息日志中得到。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果shader不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果shader不是一个着色器对象，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetShaderInfoLog，其自变量为shader。</p>
+<p class="calibre1">glGetShader，其自变量为shader 和GL_COMPILE_STATUS。</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateShader、glLinkProgram、glShaderSource。</p>
+
+</body>
+</html>

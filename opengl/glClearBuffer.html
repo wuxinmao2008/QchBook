@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glClearBuffer</h4>
+<p class="calibre1">清除当前绑定的绘制帧缓冲区的独立缓冲区。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glClearBufferiv(GLenum buffer,
+　　　　　　GLint drawBuffer,
+　　　　　　const GLint * value);
+void glClearBufferuiv(GLenum buffer,
+　　　　　　GLint drawBuffer,
+　　　　　　const GLuint * value);
+void glClearBufferfv(GLenum buffer,
+　　　　　　GLint drawBuffer,
+　　　　　　const GLfloat * value);
+void glClearBufferfi(GLenum buffer,
+　　　　　　GLint drawBuffer,
+　　　　　　GLfloat depth,
+　　　　　　GLint stencil);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">buffer</p>
+<p class="calibre1">指定将要清除的缓冲区。</p>
+<p class="calibre1">drawBuffer</p>
+<p class="calibre1">指定将要清除的特定绘制缓冲区。</p>
+<p class="calibre1">value</p>
+<p class="calibre1">对于颜色缓冲区来说，这是一个指向代表R、G、B和A值的四元素向量的指针，这个缓冲区将被清除为这些值。对于深度缓冲区来说，这是一个指向单个深度值的指针，这个缓冲区将被清除为这个值。对于模板缓冲区来说，这是一个指向单个模板值的指针，这个缓冲区将被清除为这个值。</p>
+<p class="calibre1">depth</p>
+<p class="calibre1">深度渲染缓冲区将要被清除为这个值。</p>
+<p class="calibre1">stencil</p>
+<p class="calibre1">模板渲染缓冲区将要被清除为这个值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glClearBuffer*将指定缓冲区清除为特定值。如果buffer为GL_COLOR，那么就可以通过传递i为drawBuffer而指定一个特定的绘制缓冲区GL_DRAWBUFFERi 。在这种情况下，value 指向一个代表R、G、B和A颜色的四元素向量，这个绘制缓冲区将被清除为这些值。</p>
+<p class="calibre1">如果buffer是GL_FRONT、GL_BACK、GL_LEFT、GL_RIGHT或GL_FRONT_AND_BACK中的一个，表示多重缓冲区，那么每个选定的缓冲区都会被清除为同样的值。定点颜色缓冲区的截取和变换的执行方式与glClearColor相同。</p>
+<p class="calibre1">如果buffer 为GL_DEPTH，那么drawBuffer 必须为0，而则指向这个缓冲区将被清除为的单个值。在清除深度缓冲区时应该使用的只有glClearBufferfv。定点深度缓冲区的截取和变换的执行方式与glClearDepth相同。</p>
+<p class="calibre1">如果buffer 为GL_STENCIL，那么drawBuffer 必须为0，而则指向这个模板缓冲区将被清除为的单个值。在清除模板缓冲区时应该使用的只有glClearBufferiv。遮罩和类型变换的执行方式与glClearStencil相同。</p>
+<p class="calibre1">glClearBufferfi可以用来对深度缓冲区和模板缓冲区进行清除。buffer必须为GL_DEPTH_STENCIL，而drawBuffer则必须为0。depth和stencil分别为深度值和模板值。</p>
+<p class="calibre1">如果在value的类型和将要进行清除的缓冲区之间没有进行变换，那么glClearBuffer的结果将是未定义的。但是，并不是一个错误。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果buffer不是GL_COLOR、GL_FRONT、GL_BACK、GL_LEFT、GL_RIGHT、GL_FRONT_AND_BACK、GL_DEPTH或GL_STENCIL，那么glClearBufferif、glClearBufferfv和glClearBufferuiv将生成GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果buffer不是GL_DEPTH_STENCIL，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果buffer是GL_COLOR, GL_FRONT、GL_BACK, GL_LEFT、GL_RIGHT或GL_FRONT_AND_BACK，而drawBuffer大于或等于GL_MAX_DRAW_BUFFERS，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果buffer是GL_DEPTH, GL_STENCIL或GL_DEPTH_STENCIL，并且drawBuffer不是0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glClearColor、glClearDepth、glClearStencil、glClear。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

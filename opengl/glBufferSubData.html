@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBufferSubData</h4>
+<p class="calibre1">更新一个缓冲区对象的数据存储的子集。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBufferSubData(GLenum target,
+　　　　　　GLintptr offset,
+　　　　　　GLsizeiptr size,
+　　　　　　const GLvoid * data);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标缓冲区对象。符号常量必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">offset</p>
+<p class="calibre1">指定将要开始数据替换的缓冲区对象数据存储中的偏移，以字节为单位。</p>
+<p class="calibre1">size</p>
+<p class="calibre1">指定被替换的数据存储区域的大小，以字节为单位。</p>
+<p class="calibre1">data</p>
+<p class="calibre1">指定到将要复制到数据存储的新数据的一个指针。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBufferSubData 重新定义当前捆绑到tarGet的缓冲区对象的一部分或全部数据存储。起始于字节偏移offset和扩展size 字节的数据会从由data指向的内存复制到数据存储。如果offset和size一起定义一个超出缓冲区对象数据存储边界的范围，将会抛出一个错误。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">在替代整个数据存储时，要考虑使用glBufferSubData，而不是使用glBufferData来完全重新创建数据存储。这样可以避免重新定位数据存储的开销。</p>
+<p class="calibre1">考虑使用多个缓冲区对象来避免在数据存储更新时对渲染管线的延迟。如果管线中的任何渲染引用缓冲区对象中由glBufferSubData来进行更新的数据，尤其是来自被更新的指定区域的数据，那么在数据存储能够更新之前，这个渲染必须从管道中抽出（drain from the pipeline）。</p>
+<p class="calibre1">客户端程序必须按照客户端平台的要求（还有一个附加的基本要求，即在缓冲区中由NN组成的数据的偏移）排列数据元素。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个可接受的缓冲区对象，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果offset 或者 size 为负，或者如果offset和size一起定义一个超出缓冲区对象数据存储范围的内存区域，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果保留的缓冲区对象名称0被绑定到 tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果保留的缓冲区对象名称0 被绑定到 tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetBufferSubData</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindBuffer、glBufferData、glMapBuffer、glUnmapBuffer。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

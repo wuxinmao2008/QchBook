@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glCheckFramebufferStatus</h4>
+<p class="calibre1">检查一个帧的完整性状态</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLenum glCheckFramebufferStatus(GLenum target);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定帧缓冲区完整性检查的目标。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCheckFramebufferStatus查询当前绑定到target的帧缓冲区对象的完整性状态。target必须为GL_DRAW_FRAMEBUFFER、GL_READ_FRAMEBUFFER或GL_FRAMEBUFFER。GL_FRAMEBUFFER等价于GL_DRAW_FRAMEBUFFER。</p>
+<p class="calibre1">如果被绑定到的帧缓冲区是完整的，那么返回值将为GL_FRAMEBUFFER_COMPLETE。否则返回值将按如下方式确定。</p>
+<p class="calibre1">如果target为默认帧缓冲区，但默认镇缓冲区不存在，那么将返回GL_FRAMEBUFFER_UNDEFINED。</p>
+<p class="calibre1">如果任何绑定点是帧缓冲区不完全的，那么将返回GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT。</p>
+<p class="calibre1">如果没有图像绑定到帧缓冲区，那么将返回GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT。</p>
+<p class="calibre1">如果由GL_DRAWBUFFERi指定的任何颜色绑定点的GL_ FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值为GL_NONE，那么将返回GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER。</p>
+<p class="calibre1">如果GL_READ_BUFFER不是GL_NONE，并且由GL_READ_BUFFER指定的颜色绑定点的GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值为GL_NONE，那么将返回GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER。</p>
+<p class="calibre1">如果绑定图像的内部各式的组合违反了与实现相关的限定设置，那么将返回GL_FRAMEBUFFER_UNSUPPORTED。</p>
+<p class="calibre1">如果对于所有绑定渲染缓冲区来说GL_RENDERBUFFER_SAMPLES的值不是都相同的；或者对于所有绑定纹理来说GL_TEXTURE_SAMPLES的值不是都相同的；或者如果绑定的图像是渲染缓冲区和纹理的混合，而GL_RENDERBUFFER_SAMPLES的值与GL_TEXTURE_SAMPLES的值不匹配，那么将返回GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE。</p>
+<p class="calibre1">如果对于所有绑定纹理来说GL_TEXTURE_FIXED_SAMPLE_LOCATIONS的值不是都相同的；或者如果绑定的图像是渲染缓冲区和纹理的混合，而对于所有绑定的纹理来说GL_TEXTURE_FIXED_SAMPLE_LOCATIONS的值不都是GL_TRUE，那么也将返回GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE。</p>
+<p class="calibre1">如果任何帧缓冲区绑定是分层的并且任何填充绑定不是分层的，或者所有填充色绑定不是来自于同一个目标的纹理中，那么将返回GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS。</p>
+<p class="calibre1">另外，如果出现任何错误，就会返回0。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_DRAW_FRAMEBUFFER、GL_READ_FRAMEBUFFER或GL_FRAMEBUFFER，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenFramebuffers、glDeleteFramebuffers、glBindFramebuffer。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

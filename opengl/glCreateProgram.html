@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+
+<h4 class="sigil_not_in_toc">glCreateProgram</h4>
+<p class="calibre1">创建一个程序对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLuint glCreateProgram(void);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCreateProgram 创建一个空程序对象并返回一个它可以引用的非0值。程序对象是着色器对象能够绑定到的对象。这提供了一种机制，能够指定将要进行连接的着色器对象来创建一个程序。它还提供了一种方法来检查将要用来创建程序的着色器的兼容性（例如检查一个顶点着色器和一个片段着色器之间的兼容性）。当作为程序对象的一部分而不再需要时，着色器对象可以被分离。</p>
+<p class="calibre1">通过使用glAttachShader成功地将着色器对象绑定到程序对象，成功地使用glCompileShader来编译这些着色器对象，成功地使用glLinkProgram来连接这些着色器对象，能够在这个程序对象中会创建一个或多个可执行文件。这些可执行文件在glUseProgram被调用时成为当前状态的一部分。可以调用glDeleteProgram来删除程序对象。</p>
+<p class="calibre1">当程序对象相关内存不再是任何环境的当前渲染状态的一部分时，它将被删除。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">就像显示列表和纹理对象一样，程序对象的名字空间可以在一组环境之间进行共享，只要环境的服务器端共享同一个地址空间就可以。如果名字空间在环境之间共享，任何绑定的对象和这些绑定对象相关的数据也会被共享。</p>
+<p class="calibre1">在对象被不同的执行线程访问时，应用程序负责提供API调用之间的同步。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果在创建程序对象时发生错误，这个函数返回0。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，自变量为GL_CURRENT_PROGRAM</p>
+<p class="calibre1">glGetActiveAttrib，其参数包含一个合法程序对象和一个活动的属性变量的索引。</p>
+<p class="calibre1">glGetActiveUniform，其参数包含一个合法程序对象和一个活动的统一变量的索引。</p>
+<p class="calibre1">glGetAttachedShaders，其参数包含一个合法程序对象。</p>
+<p class="calibre1">glGetAttribLocation，其参数包含一个合法程序对象和一个属性变量的名称。</p>
+<p class="calibre1">glGetProgram，其参数包含一个合法程序对象和将要查询的参数。</p>
+<p class="calibre1">glGetProgramInfoLog，其参数包含一个合法程序对象。</p>
+<p class="calibre1">glGetUniform，其参数包含一个合法程序对象和一个统一变量的位置。</p>
+<p class="calibre1">glGetUniformLocation，其参数包含一个合法程序对象和一个统一变量的名称。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader, glBindAttribLocation, glCreateShader, glDeleteProgram, glDetachShader, glLinkProgram, glUniform, glUseProgram, glValidateProgram</p>
+
+</body>
+</html>

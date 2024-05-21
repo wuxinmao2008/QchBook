@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+
+<h4 class="sigil_not_in_toc">glBindFragDataLocation</h4>
+<p class="calibre1">将一个用户定义的varying输出变量绑定到一个片段着色器颜色号。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBindFragDataLocation(GLuint program,
+　　　　　GLuint colorNumber,
+　　　　　const char * name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">包含将要修改绑定的varying输出变量的程序的名称。</p>
+<p class="calibre1">colorNumber</p>
+<p class="calibre1">要将一个用户定义的varying输出变量绑定到的颜色号。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">用户定义的将要修改绑定的varying输出变量的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBindFragDataLocation显式地为program程序指定用户定义的varying输出变量name到片段着色器颜色号colorNumber 的绑定。如果name已经进行过绑定，那么它所分配的绑定将由colorNumber代替。name必须是一个以null为结尾的字符串。</p>
+<p class="calibre1">colorNumber必须小于GL_MAX_DRAW_BUFFERS。</p>
+<p class="calibre1">由glBindFragDataLocation指定的绑定在program进行下一次连接之前不会产生任何效果。在创建program之后，可以随时指定绑定。特别是，它们可以在着色器对象被绑定到这个程序之前进行指定。这样，在name中可以指定任何名称，包括那些从没有在任何片段着色器对象中作为varying输出变量使用的名称。</p>
+<p class="calibre1">GL保留了以gl_为开头的名称。</p>
+<p class="calibre1">除了glBindFragDataLocation生成的错误之外，出现下列情况时program程序将会连接失败：</p>
+<p class="calibre1">活动输出的数量大于GL_MAX_DRAW_BUFFERS的值。</p>
+<p class="calibre1">有一个以上的varying输出变量被绑定到同一个颜色号。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">varying输出变量可能会在着色器文本中使用一个location布局限定符来显式地分配索引位置。如果一个着色器在着色器文本中将一个位置静态地分配给一个varying输出变量，那么这个位置将会被使用，而任何通过glBindFragDataLocation分配的位置都将被忽略。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果colorNumber大于或等于GL_MAX_DRAW_BUFFERS，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果name以保留前缀“gl_”开始，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果program不是一个程序对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetFragDataLocation，包含有效的程序对象和一个用户定义的varying输出变量的名称。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateProgram、glGetFragDataLocation。</p>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">GlBeginTransformFeedback</h4>
+    <p class="calibre1">开始变换反馈操作</p>
+    <h4 class="sigil_not_in_toc">C规范</h4>
+    <pre class="dai_ma_wu_xing_hao">
+    <code class="calibre12">void glBeginTransformFeedback(Glenum primitiveMode);</code>
+    
+    </pre>
+    <h4 class="sigil_not_in_toc">参数</h4>
+    <p class="calibre1">primitiveMode</p>
+    <p class="calibre1">指定将要被记录到为了变换反馈进行绑定的缓冲区对象中图元的输出类型。</p>
+    <h4 class="sigil_not_in_toc">C规范</h4>
+    <pre class="dai_ma_wu_xing_hao">
+    <code class="calibre12">void glEndTransformFeedback(void);</code>
+    
+    </pre>
+    <h4 class="sigil_not_in_toc">描述</h4>
+    <p class="calibre1">变换反馈模式捕获由顶点着色器（或者是几何图形着色器，如果激活的话）写入的varying变量值。在调用glBeginTransformFeedback之后，并在后续调用glEndTransformFeedback之前，我们称变换反馈是激活的。变换反馈命令必须是成对的。</p>
+    <p class="calibre1">如果不存在几何图形着色器，那么当变换反馈激活时，glDrawArrays的mode参数必须符合下面列表中指定的值。</p>
+    <p class="calibre1">如果存在几何图形着色器，那么几何图形着色器的输出图元必须符合下面列表中提供的值。</p>
+    <table border="1" width="90%" class="calibre13">
+    <thead class="calibre14">
+    <tr class="calibre15">
+    <th class="calibre16">
+    <p class="calibre1">变换反馈primitiveMode</p>
+    </th>
+    <th class="calibre16">
+    <p class="calibre1">允许的几何图形着色器输出图元类型</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody class="calibre17">
+    <tr class="calibre15">
+    <td class="calibre18">
+    <p class="calibre1">GL_POINTS</p>
+    </td>
+    <td class="calibre18">
+    <p class="calibre1">points</p>
+    </td>
+    </tr>
+    <tr class="calibre15">
+    <td class="calibre18">
+    <p class="calibre1">GL_LINES</p>
+    </td>
+    <td class="calibre18">
+    <p class="calibre1">line_strip</p>
+    </td>
+    </tr>
+    <tr class="calibre15">
+    <td class="calibre18">
+    <p class="calibre1">GL_TRIANGLES</p>
+    </td>
+    <td class="calibre18">
+    <p class="calibre1">triangle_strip</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <table border="1" width="90%" class="calibre13">
+    <thead class="calibre14">
+    <tr class="calibre15">
+    <th class="calibre16">
+    <p class="calibre1">变换反馈primitiveMode</p>
+    </th>
+    <th class="calibre16">
+    <p class="calibre1">允许的渲染图元modes</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody class="calibre17">
+    <tr class="calibre15">
+    <td class="calibre18">
+    <p class="calibre1">GL_POINTS</p>
+    </td>
+    <td class="calibre18">
+    <p class="calibre1">GL_POINTS</p>
+    </td>
+    </tr>
+    <tr class="calibre15">
+    <td class="calibre18">
+    <p class="calibre1">GL_LINES</p>
+    </td>
+    <td class="calibre18">
+    <p class="calibre1">GL_LINES, GL_LINE_LOOP, GL_LINE_STRIP, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY</p>
+    </td>
+    </tr>
+    <tr class="calibre15">
+    <td class="calibre18">
+    <p class="calibre1">GL_TRIANGLES</p>
+    </td>
+    <td class="calibre18">
+    <p class="calibre1">GL_TRIANGLES, GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES_ADJACENCY, GL_TRIANGLE_STRIP_ADJACENCY</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <h4 class="sigil_not_in_toc">注意</h4>
+    <p class="calibre1">几何图形着色器、GL_TRIANGLES_ADJACENCY、GL_TRIANGLE_STRIP_ADJACENCY、GL_LINES_ADJACENCY 和 GL_LINE_STRIP_ADJACENCY图元模式只有在3.2或更高版本的GL中可用。</p>
+    <h4 class="sigil_not_in_toc">错误</h4>
+    <p class="calibre1">如果glBeginTransformFeedback在变换反馈激活时执行，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果glEndTransformFeedback在变换反馈未激活时执行，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果在不存在几何图形着色器时激活变换反馈，并且mode不是允许模式之一，那么glDrawArrays将生成GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果在存在几何图形着色器时激活变换反馈，并且几何图形着色器的输出图元类型语变换反馈primitiveMode不相符，那么glDrawArrays将生成GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果变换反馈模式下的任何绑定点都没有绑定缓冲区对象，那么glEndTransformFeedback将生成GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果由于没有激活的程序对象，或者由于激活的程序对象没有指定要记录的varying变量而不会使用任何绑定点，那么glEndTransformFeedback将生成GL_INVALID_OPERATION错误。</p>
+    <h4 class="sigil_not_in_toc">版权</h4>
+    <p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+     。</p>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glAttachShader</h4>
+<p class="calibre1">将一个着色器对象绑定到一个程序对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glAttachShader(GLuint program,
+　　　　　GLuint shader);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定着色器对象将要绑定到的程序对象。</p>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定要绑定的着色器对象。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">为了创建一个可执行程序，必须找到一种方法来指定一个列表，指明将要把什么东西连接到一起。程序对象就提供了这个机制。必须首先将要在一个程序对象中连接在一起的着色器绑定到这个程序对象上。glAttachShader 将由shader指定的着色器绑定到由program指定的程序对象上。这说明shader将要被包含在将在program上进行的连接操作中。</p>
+<p class="calibre1">所有能够在着色器对象上进行的操作都是合法的，无论着色器对象是否绑定到了程序对象上。在源代码载入到着色器对象之前，或者在着色器对象被编译之前，将着色器对象绑定到程序对象是允许的。绑定同一类型的多个着色器对象是允许的，因为它们中的每一个都可以包含完整着色器的一部分。将一个着色器绑定到多个程序对象也是允许的。如果一个着色器对象在它被绑定到一个程序对象时被删除了，那么它将被标记为删除状态，而在调用glDetachShader来将它从所有它绑定到的程序对象分离之前是不会进行删除的。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program 或 shader 不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果shader不是一个着色器对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果shader 已经绑定到了program，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetAttachedShaders，带有合法程序对象的句柄。</p>
+<p class="calibre1">glGetShaderInfoLog</p>
+<p class="calibre1">glGetShaderSource</p>
+<p class="calibre1">glIsProgram</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCompileShader、glCreateShader、glDeleteShader、glDetachShader、glLinkProgram、glShaderSource。</p>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glClientWaitSync</h4>
+<p class="calibre1">进行阻塞并等待一个同步对象变成标记状态。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLenum glClientWaitSync(GLsync sync,
+　　　　　　GLbitfield flags,
+　　　　　　GLuint64 timeout);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sync</p>
+<p class="calibre1">将要等待其状态的同步对象。</p>
+<p class="calibre1">flags</p>
+<p class="calibre1">一个控制命令清理行为的位段。flags可能为GL_SYNC_FLUSH_COMMANDS_BIT。</p>
+<p class="calibre1">timeout</p>
+<p class="calibre1">超时值，以纳秒为单位，代表实现应该等待sync变成标记状态的时间。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glClientWaitSync导致客户端阻塞并等待由sync指定的同步对象变成标记状态。如果在调用glClientWaitSync时sync为标记状态，那么glClientWaitSync将立即返回，否则它将阻塞并等待sync变为标记状态timeout纳秒。</p>
+<p class="calibre1">返回值是4个状态值中的一个。</p>
+<p class="calibre1">GL_ALREADY_SIGNALED代表当glClientWaitSync调用时sync为标记状态。</p>
+<p class="calibre1">GL_TIMEOUT_EXPIRED代表至少经过了timeout纳秒，而sync并没有变为标记状态。</p>
+<p class="calibre1">GL_CONDITION_SATISFIED代表在timeout到期之前sync变为了标记状态。</p>
+<p class="calibre1">GL_WAIT_FAILED代表出现了一个error。另外，还会出现一个OpenGL error。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glClientWaitSync在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果sync不是一个已存在同步对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果flags包含任意不支持的标记，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glFenceSync、glIsSync、glWaitSync。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

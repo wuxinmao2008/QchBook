@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGenRenderbuffers</h4>
+<p class="calibre1">创建渲染缓冲区对象名称。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGenRenderbuffers(GLsizei n,
+　　　　　　GLuint *renderbuffers);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">n</p>
+<p class="calibre1">指定将要生成的渲染缓冲区对象名称的数量。</p>
+<p class="calibre1">renderbuffers</p>
+<p class="calibre1">指定一个生成的渲染缓冲区对象名称将要存储到其中的数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGenRenderbuffers在irenderbuffers中返回 n 个渲染缓冲区对象名称。并不能保证这些名称会组成一个连续的一组整数，不过可以保证这些返回的名称不会在调用glGenRenderbuffers前就立即被使用。</p>
+<p class="calibre1">调用glGenRenderbuffers 而返回的渲染缓冲区对象名称不会在后续的调用中返回，除非他们首先由glDeleteRenderbuffers来删除。</p>
+<p class="calibre1">renderbuffers 中返回的名称将标记为已使用的，只是为了glGenRenderbuffers 的目的，但是它们只在第一次绑定时才需要。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果n为负值，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glFramebufferRenderbuffer, glDeleteRenderbuffers</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

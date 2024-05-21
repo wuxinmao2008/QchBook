@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGetActiveAttrib</h4>
+<p class="calibre1">返回关于指定程序对象的活动属性变量的信息。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetActiveAttrib(GLuint program,
+　　　　　　GLuint index,
+　　　　　　GLsizei bufSize,
+　　　　　　GLsizei * length,
+　　　　　　GLint * size,
+　　　　　　GLenum * type,
+　　　　　　GLchar * name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被查询的程序对象。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定将要被查询的属性变量的索引。</p>
+<p class="calibre1">bufSize</p>
+<p class="calibre1">指定允许OpenGL写入由name指示的字符缓冲区中的字符的最大数量。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">如果除NULL以外的值被传递的话，则返回实际上由OpenGL写入由name指示的字符串的字符数（不包括空终结符）。</p>
+<p class="calibre1">size</p>
+<p class="calibre1">返回属性变量的大小。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">返回属性变量的数据类型。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">返回一个包括属性变量名的空终止字符串。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetActiveAttrib返回关于由program指定的程序对象的活动属性变量的信息。可以通过调用以GL_ACTIVE_ATTRIBUTES为参数的glGetProgram 来获取活动属性数量。index的值取0时选择第一个活动属性变量。</p>
+<p class="calibre1">index 的允许取值范围为0到活动属性变量的数量减去1的值。</p>
+<p class="calibre1">一个顶点着色器可以使用内建属性变量、用户定义属性变量，或两者同时使用。内建属性变量有一个“gl_”前缀，并引用常规的OpenGL顶点属性（例如gl_Vertex、gl_Normal等，完整列表参见OpenGL着色语言规范）。用户定义的属性变量有任意的名称，并通过有限的通用顶点属性来获取它们的值。一个属性变量（无论是内建的还是用户定义的）如果在程序执行过程中可以进行访问的链接操作过程中决定，那么它会被看作是活动的。</p>
+<p class="calibre1">因此，program 应该在这之前就成为一次glLinkProgram调用的目标，但是不需要已经成功地进行链接。</p>
+<p class="calibre1">被请求用来存储program中最长的属性变量名称字符缓冲器的大小可以通过调用值为GL_ACTIVE_ATTRIBUTE_MAX_LENGTH的glGetProgram来获得。这个值能够被用来分配大小足够的缓冲区来存储返回的属性名。字符缓冲器的大小在bufSize中传递，而指向这个字符缓冲区的指针会传递到name。</p>
+<p class="calibre1">glGetActiveAttrib 返回index指示的属性变量的名称，存储在由name指定的字符缓冲区中。返回的字符串以空字符null为结尾。写入这个缓冲区的字符的实际数量在length中返回，这个数字不包括空终止字符。如果返回字符串的长度没有被请求，那么可以在length自变量中传递一个NULL值。</p>
+<p class="calibre1">type 自变量将返回一个指向属性变量数据类型的指针。可能返回符号常量GL_FLOAT、GL_FLOAT_VEC2、GL_FLOAT_VEC3、GL_FLOAT_VEC4、GL_FLOAT_MAT2、GL_FLOAT_MAT3、GL_FLOAT_MAT4、GL_FLOAT_MAT2x3、GL_FLOAT_MAT2x4、GL_FLOAT_MAT3x2、GL_FLOAT_MAT3x4、GL_FLOAT_MAT4x2、GL_FLOAT_MAT4x3、GL_INT、GL_INT_VEC2、GL_INT_VEC3、GL_INT_VEC4、GL_UNSIGNED_INT_VEC、GL_UNSIGNED_INT_VEC2、GL_UNSIGNED_INT_VEC3或GL_UNSIGNED_INT_VEC4。自变量size将在type中返回的类型单元中返回属性的大小。</p>
+<p class="calibre1">活动属性变量列表可以包含在内建属性变量（这些属性变量以“gl_”前缀开始），同样也可以包含在用户定义属性变量名称中。</p>
+<p class="calibre1">这个函数将返回它所能返回的尽可能多的关于指定活动属性变量的信息。</p>
+<p class="calibre1">如果没有可用的信息，那么length将为0，而name将为空字符串。在一个链接操作失败后调用这个函数就可能会出现这种情况。如果出现错误，那么返回值length、size、type和name将为未修改的。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果index大于或等于program中活动属性变量的数量，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果bufSize小于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_MAX_VERTEX_ATTRIBS。</p>
+<p class="calibre1">glGetProgram，自变量为GL_ACTIVE_ATTRIBUTES或GL_ACTIVE_ATTRIBUTE_MAX_LENGTH。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindAttribLocation, glLinkProgram, glVertexAttrib, glVertexAttribPointer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

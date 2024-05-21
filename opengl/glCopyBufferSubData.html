@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glCopyBufferSubData</h4>
+<p class="calibre1">将缓冲区对象数据存储的一部分复制到其他缓冲区对象的数据存储中。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glCopyBufferSubData(GLenum readtarget,
+　　　　　　GLenum writetarget,
+　　　　　　GLintptr readoffset,
+　　　　　　GLintptr writeoffset,
+　　　　　　GLsizeiptr size);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">readtarget</p>
+<p class="calibre1">指定从哪个目标的数据存储中读取数据。</p>
+<p class="calibre1">writetarget</p>
+<p class="calibre1">指定将数据写入到哪个目标的数据存储中。</p>
+<p class="calibre1">readoffset</p>
+<p class="calibre1">指定readtarget（数据就应该是从中读取的）的数据存储中以基本机器单元为单位的偏移。</p>
+<p class="calibre1">writeoffset</p>
+<p class="calibre1">指定writetarget（数据就应该是写入其中的）的数据存储中以基本机器单元为单位的偏移。</p>
+<p class="calibre1">size</p>
+<p class="calibre1">指定从readtarget复制到writetarget的数据的以基本机器单元为单位的大小。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCopyBufferSubData将绑定到readtarget的数据存储的一部分复制到绑定到writetarget的数据存储中。从源位置复制的由size指定基本机器单元的数量，从偏置readoffset到目的writeoffset，也是以基本机器单元为单位。</p>
+<p class="calibre1">readtarget和writetargetGL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。这些目标中任意一个都可能被使用，虽然特别提供的GL_COPY_READ_BUFFER和GL_COPY_WRITE_BUFFER目标允许我们在缓冲区之间进行复制而不会影响其他GL状态。</p>
+<p class="calibre1">Readoffset、writeoffset和size必须都大于或等于0。此外，readoffset + size绝不能超出绑定到readtarget的缓冲区对象的大小，而且也绝不能超出绑定到writetarget的缓冲区的大小。如果同一个缓冲区对象同时被绑定到readtarget和writetarget，那么由readoffset、writeoffset和size指定的范围绝不能重叠。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glCopyBufferSubData只在3.1或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果readoffset、writeoffset或size中的任何一个为负，或者如果readoffset+size超出绑定到readtarGet的缓冲区对象的大小，或者如果readoffset+size超出绑定到writetarGet的缓冲区的大小，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果同一个缓冲区对象同时被绑定到readtarGet和writetarGet，并且[readoffset, readoffset+size) 和 [writeoffset, writeoffset + size) 的范围重叠，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果0被绑定到readtarGet或writetarGet，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果绑定到readtarGet或writetarGet的缓冲区对象被映射，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenBuffers, glBindBuffer, glBufferData, glBufferSubData, glGetBufferSubData</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

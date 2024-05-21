@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>glBindBufferBase</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBindBufferBase</h4>
+<p class="calibre1">将一个缓冲区对象绑定到一个索引缓冲区目标。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBindBufferBase(GLenum target,
+　　　　　GLuint index,
+　　　　　GLuint buffer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定绑定操作的目标。target必须为GL_TRANSFORM_ FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定由target指定的数组中绑定点的索引。</p>
+<p class="calibre1">buffer</p>
+<p class="calibre1">一个绑定到指定的缓冲区绑定点的缓冲区对象的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBindBufferBase将缓冲区对象buffer绑定到由target指定的目标数组中以ndex为索引的绑定点。每个target表示一个缓冲区绑定点索引数组，也表示能够被其他缓冲区操作函数（例如glBindBuffer或glMapBuffer）使用单个通用绑定点。除了将buffer绑定到索引缓冲区绑定目标之外，glBindBufferBase也会将buffer绑定到由target指定的通用缓冲区绑定点。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glBindBufferBase只在3.0或更高版本的GL中可用。</p>
+<p class="calibre1">调用glBindBufferBase相当于调用将offset 设为0，而将size设为缓冲区大小的glBindBufferRange。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER，则产生GL_INVALID_ ENUM错误。</p>
+<p class="calibre1">如果index 大于或等于tarGet指定的索引绑定点数量，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenBuffers、glDeleteBuffers、glBindBuffer、glBindBufferRange、glMapBuffer、glUnmapBuffer。</p>
+</body>
+</html>

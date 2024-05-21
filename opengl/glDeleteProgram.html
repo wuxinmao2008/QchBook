@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDeleteProgram</h4>
+<p class="calibre1">删除一个程序对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDeleteProgram(GLuint program);</code>
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被删除的程序对象。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDeleteProgram 释放内存，并使由program指定的程序对象相关的名字无效。这个命令有效地撤销glCreateProgram调用的的影响。</p>
+<p class="calibre1">如果一个程序对象被当作当前渲染状态的一部分来使用，那么它将为删除做标记，但在它不再是任何渲染环境当前状态的一部分之前都不会被删除。如果有着色器对象绑定倒要删除的程序对象上，这些着色器对象将被自动分离，但如果没有被之前调用glDeleteShader作删除标记的话，它们将不会被删除。program的0值将被默认忽略。</p>
+<p class="calibre1">可以调用自变量为program和GL_DELETE_STATUS的glGetProgram来确定一个程序对象是否已经被标记为删除。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_CURRENT_PROGRAM。</p>
+<p class="calibre1">glGetProgram，其自变量为program 和 GL_DELETE_STATUS。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCreateShader, glDetachShader, glUseProgram</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

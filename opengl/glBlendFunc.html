@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBlendFunc</h4>
+<p class="calibre1">定义像素算法。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBlendFunc(GLenum sfactor,
+　　　　　　GLenum dfactor);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">sfactor</p>
+<p class="calibre1">指定红、绿、蓝和Alpha源混合因子如何计算。初始值为GL_ONE。</p>
+<p class="calibre1">dfactor</p>
+<p class="calibre1">指定红、绿、蓝和Alpha目标混合因子如何计算。</p>
+<p class="calibre1">下列符号常量都可以接受：GL_ZERO、GL_ONE、GL_SRC_COLOR、GL_ONE_MINUS_SRC_COLOR、GL_DST_COLOR、GL_ONE_MINUS_DST_COLOR、GL_SRC_ALPHA、GL_ONE_MINUS_SRC_ALPHA、GL_DST_ALPHA、GL_ONE_MINUS_DST_ALPHA、GL_CONSTANT_COLOR、GL_ONE_MINUS_CONSTANT_COLOR、GL_CONSTANT_ALPHA和GL_ONE_MINUS_CONSTANT_ALPHA。初始值为GL_ZERO。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">像素能够使用一个将输入（源）RGBA值和已经存在于帧缓冲区（目的）的值进行混合的方程来进行绘制。初始状态下是不支持混合的。使用自变量为 GL_BLEND的glEnable和glDisable 来激活和关闭混合。</p>
+<p class="calibre1">glBlendFunc 在启用时定义混合操作。sfactor指定使用哪种方法来缩放源颜色分量。dfactor指定使用哪种方法来缩放目的颜色分量。这两个参数都必须是下列符号常量中的一个：GL_ZERO、GL_ONE、GL_SRC_COLOR、GL_ONE_MINUS_SRC_COLOR、GL_DST_COLOR、GL_ONE_MINUS_DST_COLOR、GL_SRC_ALPHA、GL_ONE_MINUS_SRC_ALPHA、GL_DST_ALPHA、GL_ONE_MINUS_DST_ALPHA、GL_CONSTANT_COLOR、GL_ONE_MINUS_CONSTANT_COLOR、GL_CONSTANT_ALPHA、GL_ONE_MINUS_CONSTANT_ALPHA、GL_SRC_ALPHA_SATURATE、GL_SRC1_COLOR、GL_ONE_MINUS_SRC1_COLOR、GL_SRC1_ALPHA和GL_ONE_MINUS_SRC1_ALPHA。下表中描述了可能的方法。每种方法定义了4个比例因子，红、绿、蓝和Alpha各对应一个因子。在表中和后面的方程中，第一个源、第二个源和目的颜色分量分别由(R<sub class="calibre19">s0</sub>
+ , G<sub class="calibre19">s0</sub>
+ , B<sub class="calibre19">s0</sub>
+ , A<sub class="calibre19">s0</sub>
+ )、(R<sub class="calibre19">s1</sub>
+ , G<sub class="calibre19">s1</sub>
+ , B<sub class="calibre19">s1</sub>
+ , A<sub class="calibre19">s1</sub>
+ ) 和(R<sub class="calibre19">d</sub>
+ , G<sub class="calibre19">d</sub>
+ , B<sub class="calibre19">d</sub>
+ , A<sub class="calibre19">d</sub>
+ )表示。由glBlendColor指定的颜色由(R<sub class="calibre19">c</sub>
+ ,G<sub class="calibre19">c</sub>
+ ,B<sub class="calibre19">c</sub>
+ ,A<sub class="calibre19">c</sub>
+ )表示。这些值都限制在0和(k<sub class="calibre19">R</sub>
+ ,k<sub class="calibre19">G</sub>
+ ,k<sub class="calibre19">B</sub>
+ ,k<sub class="calibre19">A</sub>
+ )之间的范围内，其中</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">参　　数</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">(f<sub class="calibre19">R</sub>
+ , f<sub class="calibre19">G</sub>
+ , f<sub class="calibre19">B</sub>
+ , f<sub class="calibre19">A</sub>
+ )</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ZERO</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(0, 0, 0, 0)</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1)</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SRC_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1"><img alt="图像说明文字" src="Image00237.jpg" class="calibre9"/>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_SRC_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1)-(<img alt="图像说明文字" src="Image00238.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_DST_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(<img alt="图像说明文字" src="Image00239.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_DST_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1)-(<img alt="图像说明文字" src="Image00240.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SRC_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(<img alt="图像说明文字" src="Image00241.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_SRC_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1)-(<img alt="图像说明文字" src="Image00242.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_DST_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(<img alt="图像说明文字" src="Image00243.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_DST_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1)-(<img alt="图像说明文字" src="Image00244.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_CONSTANT_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(R<sub class="calibre19">c</sub>
+ , G<sub class="calibre19">c</sub>
+ , B<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_CONSTANT_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1) - (R<sub class="calibre19">c</sub>
+ , G<sub class="calibre19">c</sub>
+ , B<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_CONSTANT_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(A<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_CONSTANT_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1) - (A<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ , A<sub class="calibre19">c</sub>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SRC_ALPHA_SATURATE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(i, i, i, 1)</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SRC1_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(<img alt="图像说明文字" src="Image00245.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_SRC1_COLOR</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1)-(<img alt="图像说明文字" src="Image00246.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SRC1_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(<img alt="图像说明文字" src="Image00247.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_ONE_MINUS_SRC1_ALPHA</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">(1, 1, 1, 1)- (<img alt="图像说明文字" src="Image00248.jpg" class="calibre9"/>
+ )</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="calibre1">k<sub class="calibre19">c</sub>
+ = 2<sup class="calibre20">m<sub class="calibre23">c</sub>
+</sup>
+ - 1</p>
+<p class="calibre1">而(m<sub class="calibre19">R</sub>
+ ,m<sub class="calibre19">G</sub>
+ , m<sub class="calibre19">B</sub>
+ , m<sub class="calibre19">A</sub>
+ ) 则是红、绿、蓝和Alpha位平面（bitplane）的数量。</p>
+<p class="calibre1">源和目的比例因子由(s<sub class="calibre19">R</sub>
+ ,s<sub class="calibre19">G</sub>
+ ,s<sub class="calibre19">B</sub>
+ ,s<sub class="calibre19">A</sub>
+ )和(d<sub class="calibre19">R</sub>
+ ,d<sub class="calibre19">G</sub>
+ ,d<sub class="calibre19">B</sub>
+ ,d<sub class="calibre19">A</sub>
+ )表示。表中描述的比例因子由(f<sub class="calibre19">R</sub>
+ ,f<sub class="calibre19">G</sub>
+ ,f<sub class="calibre19">B</sub>
+ ,f<sub class="calibre19">A</sub>
+ )表示，表示源或目的因子。所有比例因子取值范围都是[0,1]。</p>
+<p class="calibre1">在表中，</p>
+<p class="calibre1">i=<img alt="8" src="Image00249.jpg" class="calibre9"/>
+</p>
+<p class="calibre1">为了决定一个像素的混合RGBA值，系统使用下列方程。</p>
+<p class="calibre1">R<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">R</sub>
+ , R<sub class="calibre19">s</sub>
+ s<sub class="calibre19">R</sub>
+ + R<sub class="calibre19">d</sub>
+ d<sub class="calibre19">R</sub>
+ )G<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">G</sub>
+ , G<sub class="calibre19">s</sub>
+ s<sub class="calibre19">G</sub>
+ + G<sub class="calibre19">d</sub>
+ d<sub class="calibre19">G</sub>
+ )B<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">B</sub>
+ , B<sub class="calibre19">s</sub>
+ s<sub class="calibre19">B</sub>
+ + B<sub class="calibre19">d</sub>
+ d<sub class="calibre19">B</sub>
+ )</p>
+<p class="calibre1">A<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">A</sub>
+ , A<sub class="calibre19">s</sub>
+ s<sub class="calibre19">A</sub>
+ + A<sub class="calibre19">d</sub>
+ d<sub class="calibre19">A</sub>
+ )</p>
+<p class="calibre1">不管上面的方程看起来精度如何，由于混合操作中不精确的整数颜色值，混合算法并没有确切地指定。不过，等于1的一个混合因子确保不会改变它的被乘数，而等于0的混合因子会将它的被乘数减小到0。举例来说，当sfactor为GL_SRC_ALPHA，dfactor为GL_ONE_MINUS_SRC_ALPHA，而As等于kA时，方程式简化为替换式R<sub class="calibre19">d</sub>
+ = R<sub class="calibre19">s</sub>
+ G<sub class="calibre19">d</sub>
+ = G<sub class="calibre19">s</sub>
+ B<sub class="calibre19">d</sub>
+ = B<sub class="calibre19">s</sub>
+ A<sub class="calibre19">d</sub>
+ = A<sub class="calibre19">s</sub>
+ 。</p>
+<p class="calibre1">示例</p>
+<p class="calibre1">透明度最好使用从最远到最近存储图元的混合函数(GL_SRC_ALPHA、GL_ONE_MINUS_SRC_ALPHA)来实现。注意这种透明度计算不需要出现帧缓冲区中的Alpha位平面。</p>
+<p class="calibre1">混合函数（GL_SRC_ALPHA、GL_ONE_MINUS_SRC_ALPHA）对于以任意顺序渲染反锯齿点和线也是非常有用的。</p>
+<p class="calibre1">多边形反锯齿使用从最远到最近存储多边形的混合函数(GL_SRC_ALPHA_SATURATE, GL_ONE)来进行优化。（关于多边形反锯齿的信息参见glEnable和glDisable参考页，以及自变量GL_POLYGON_SMOOTH。） 目的Alpha位平面存储累积覆盖，必须使用这个平面以使这个混合函数正确进行操作。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">输入（源）Alpha可以被看作一种材料不透明性，范围从1.0 (KA)开始，这时代表完全不透明，一直到0.0（0），这时代表完全透明。</p>
+<p class="calibre1">当而启用一个以上的颜色缓冲区进行绘制时，GL分别为每个启用的缓冲区执行混合，使用这个缓冲区的内容作为目的颜色。（参见glDrawBuffer)。当启用双源混合时（也就是说，使用一个需要第二个颜色输入的混合因子），启用绘制缓冲区的最大数量将由GL_MAX_DUAL_SOURCE_DRAW_BUFFERS给出，这个值可能要低于GL_MAX_DRAW_BUFFERS。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果sfactor 或dfactor不是可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_BLEND_SRC。</p>
+<p class="calibre1">glGet，其自变量为GL_BLEND_DST。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_BLEND。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBlendColor、glBlendEquation、glBlendFuncSeparate、glClear、glDrawBuffer、glEnable、glLogicOp、glStencilFunc。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

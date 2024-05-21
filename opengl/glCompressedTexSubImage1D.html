@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glCompressedTexSubImage1D</h4>
+<p class="calibre1">定义一个压缩格式的一维纹理子图像。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glCompressedTexSubImage1D(GLenum target,
+　　　　　　GLint level,
+　　　　　　GLint xoffset,
+　　　　　　GLsizei width,
+　　　　　　GLenum format,
+　　　　　　GLsizei imageSize,
+　　　　　　const GLvoid * data);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标纹理。必须为GL_TEXTURE_1D。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定层次细节数量。Level 0 是基本图像层次。Level n是第n级Mip贴图缩略图。</p>
+<p class="calibre1">xoffset</p>
+<p class="calibre1">指定纹理数组中x方向上一个texel的偏移。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">指定纹理子图像的宽度。</p>
+<p class="calibre1">format</p>
+<p class="calibre1">指定在data地址存储的压缩图像数据的格式。</p>
+<p class="calibre1">imageSize</p>
+<p class="calibre1">定起始于由data指定地址的图像数据的无符号字节的数量。</p>
+<p class="calibre1">data</p>
+<p class="calibre1">指定到内存中压缩图像数据的指针。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">纹理贴图着色器读取一个图像数组的元素。</p>
+<p class="calibre1">glCompressedTexSubImage1D 重新定义一个已经存在的一维纹理图像的一个邻近的子区域。由data引用的texel替代已经存在的纹理数组中x索引从xoffset到xoffset + width – 1（包括边界）的部分。这个区域可能不包括任何在纹理数组最初指定的范围之外的texel。指定一个宽度为0的子纹理并不是错误，但是这样做不会产生任何效果。</p>
+<p class="calibre1">internalformat 必须是已知压缩图像格式（例如GL_RGTC），或者是指定扩展的压缩纹理格式。压缩纹理图像的format是由压缩它的GL实现（参见glTexImage1D）选择的，并且应该在纹理被带有glGetTexLevelParameter压缩的时候被查询。</p>
+<p class="calibre1">如果在纹理图像被指定的情况下，非0的指定缓冲区对象被绑定到GL_PIXEL_UNPACK_BUFFER 目标（参见glBindBuffer），data将被看作缓冲区对象数据存储的一个byte偏移。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果internalformat不是下列一般压缩内部格式之一，则产生GL_INVALID_ENUM错误：GL_COMPRESSED_RED、GL_COMPRESSED_RG、GL_COMPRESSED_RGB、GL_COMPRESSED_RGBA、GL_COMPRESSED_SRGB或GL_COMPRESSED_SRGB_ALPHA。</p>
+<p class="calibre1">如果imageSize 与指定压缩图像数据的格式、尺寸和内容不一致，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果指定的压缩内部格式不能像指定纹理压缩扩展中指定的那样支持参数组合，则生成GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_UNPACK_BUFFER 目标，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到GL_PIXEL_UNPACK_BUFFER目标，并且数据将从缓冲区对象中被解包导致内存读取需求超出数据存储大小，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果data没有被以与定义内部压缩格式的扩展规范一致的方式进行编码，则会产生未定义的结果，包括异常程序终止。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetCompressedTexImage</p>
+<p class="calibre1">glGet，其自变量为GL_TEXTURE_COMPRESSED。</p>
+<p class="calibre1">glGet，其自变量为 GL_PIXEL_UNPACK_BUFFER_BINDING。</p>
+<p class="calibre1">glGetTexLevelParameter，其自变量为GL_TEXTURE_INTERNAL_FORMAT 和 GL_TEXTURE_COMPRESSED_IMAGE_SIZE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glActiveTexture, glCompressedTexImage1D, glCompressedTexImage2D, glCompressedTexImage3D, glCompressedTexSubImage2D, glCompressedTexSubImage3D, glCopyTexImage1D, glCopyTexImage2D, glCopyTexSubImage1D, glCopyTexSubImage2D, glCopyTexSubImage3D, glPixelStore, glTexImage2D, glTexImage3D, glTexSubImage1D, glTexSubImage2D, glTexSubImage3D, glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glClear</h4>
+<p class="calibre1">清除缓冲区对数值进行预置。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glClear(GLbitfield mask);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mask</p>
+<p class="calibre1">指出将要清除的缓冲区的遮罩的按位或（Bitwise OR）运算。这3个遮罩为GL_COLOR_BUFFER_BIT、GL_DEPTH_BUFFER_BIT和GL_STENCIL_BUFFER_BIT。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glClear 将窗口的位平面区域设置到之前由glClearColor、glClearDepth和glClearStencil选择的数值。多重颜色缓冲区能够通过使用glDrawBuffer同时选择多个缓冲区来同时进行清除。</p>
+<p class="calibre1">像素所有权测试、裁剪测试、抖动和缓冲区写屏蔽会影响glClear的执行。裁剪框限制了清除区域。Alpha函数、混合函数、逻辑操作、模板、纹理贴图和深度缓冲区都会被glClear忽略。</p>
+<p class="calibre1">glClear 接受单个自变量，即指示哪个缓冲区要被清除几个值的按位或。</p>
+<p class="calibre1">这些值如下所示。</p>
+<p class="calibre1">GL_COLOR_BUFFER_BIT指示当前激活的用来进行颜色写入的缓冲区。</p>
+<p class="calibre1">GL_DEPTH_BUFFER_BIT指示深度缓冲区。</p>
+<p class="calibre1">GL_STENCIL_BUFFER_BIT指示模板缓冲区。</p>
+<p class="calibre1">每个缓冲区的清除值根据这个缓冲区的清除值设置而不同。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果一个缓冲区不存在，那么指向这个缓冲区的glClear不会生效。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">GL_INVALID_VALUE 产生，如果mask中设置了除上面定义的3个位之外的其他位。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_DEPTH_CLEAR_VALUE。</p>
+<p class="calibre1">glGet，其自变量为GL_COLOR_CLEAR_VALUE。</p>
+<p class="calibre1">glGet，其自变量为GL_STENCIL_CLEAR_VALUE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glClearColor、glClearDepth、glClearStencil、glColorMask、glDepthMask、glDrawBuffer、glScissor、glStencilMask。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

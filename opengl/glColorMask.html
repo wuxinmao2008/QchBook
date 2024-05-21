@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glColorMask</h4>
+<p class="calibre1">启用和禁用帧缓冲区颜色分量写入。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glColorMask(GLboolean red,
+　　　　　　GLboolean green,
+　　　　　　GLboolean blue,
+　　　　　　GLboolean alpha);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">red</p>
+<p class="calibre1">green</p>
+<p class="calibre1">blue</p>
+<p class="calibre1">alpha</p>
+<p class="calibre1">指定红、绿、蓝和Alpha值能够或者不能被写入帧缓冲区。初始值都是GL_TRUE，表示颜色分量和以被写入。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glColorMask指定帧缓冲区中单独的颜色分量能够或者不能被写入。例如，如果red是GL_FALSE，不管绘制操作如何尝试，任何颜色缓冲区中的任何像素的红色分量都不会改变。</p>
+<p class="calibre1">不能控制对分量的单独位的改变是。相反，对于整个颜色分量来说，改变是同时被激活或禁止的。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_COLOR_WRITEMASK。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glClear、glDepthMask、glStencilMask。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

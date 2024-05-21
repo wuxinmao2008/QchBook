@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGetAttribLocation</h4>
+<p class="calibre1">返回一个属性变量的位置。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLint glGetAttribLocation(GLuint program,
+　　　　　　const GLchar * name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被查询的程序对象。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">指向一个包含其位置要被查询的属性变量名称的空终止字符串。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetAttribLocation查询以前连接的由program 指定的程序对象，以确定由name指定的属性变量，并返回绑定到这个属性变量的通用顶点属性的索引。如果name是一个矩阵属性变量，则返回矩阵第一列的索引。如果指定的属性变量不是指定程序对象中的一个活动属性，或者如果name 以保留的“gl_”前缀开始，那么将返回值-1。</p>
+<p class="calibre1">可以在任何时间通过调用glBindAttribLocation来指定一个属性变量名称和一个通用属性索引之间的关联。属性绑定在调用glLinkProgram之后才会生效。在一个程序对象被成功连接之后，属性变量索引值将保持不变，直到下次连接命令发生。如果一次连接成功，那么属性值只能在这次连接之后查询。glGetAttribLocation 返回上次为指定程序对象调用glLinkProgram时实际生效的绑定。从上一次连接操作时被指定的参数绑定不会被glGetAttribLocation返回。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果program没有成功进行连接，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetActiveAttrib，其自变量为 program 和一个活动属性的索引。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindAttribLocation, glLinkProgram, glVertexAttrib, glVertexAttribPointer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>    
+<h4 class="sigil_not_in_toc">glDrawBuffers</h4>
+<p class="calibre1">指定一个要绘制到的颜色缓冲区的列表。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDrawBuffers(GLsizei n,
+　　　　　　const GLenum * bufs);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">n</p>
+<p class="calibre1">指定bufs中的缓冲区数量。</p>
+<p class="calibre1">bufs</p>
+<p class="calibre1">指向一个符号常量数组，指定将要向哪个缓冲区中写入片段颜色或数据值。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDrawBuffers定义一个要将片段着色器数据写入到其中的颜色缓冲区的列表。如果一个片段着色器将一个值写入一个或多个用户定义的输出变量，那么每个变量的值将被写入指定到bufs中一个与分配给这个用户定义输出的位置相对应的位置的缓冲区。分配到大于或等于n的位置的用户定义输出所使用的绘制缓冲区将被隐式地设置为GL_NONE，并且任何写入到这样一个输出的数据都将被丢弃。</p>
+<p class="calibre1">bufs中包含的符号常量可以是下列任何一个。</p>
+<p class="calibre1">GL_NONE：片段着色器输出值不会写入任何颜色缓冲区。</p>
+<p class="calibre1">GL_FRONT_LEFT：片段着色器输出值写入左前颜色缓冲区。</p>
+<p class="calibre1">GL_FRONT_RIGHT：片段着色器输出值写入右前颜色缓冲区。</p>
+<p class="calibre1">GL_BACK_LEFT：片段着色器输出值写入左后颜色缓冲区。</p>
+<p class="calibre1">GL_BACK_RIGHT：片段着色器输出值写入右后颜色缓冲区。</p>
+<p class="calibre1">GL_COLOR_ATTACHMENTn：片段着色器输出值被写入当前帧缓冲区的第n个颜色绑定。n的取值范围可以从0到GL_MAX_COLOR_ATTACHMENTS的值。</p>
+<p class="calibre1">除GL_NONE以外，上述符号常量可能在bufs中不会出现多于一次。支持的最大绘图缓冲区数与实现有关，可以通过调用自变量为GL_MAX_DRAW_BUFFERS的glGet来进行查询。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">由于符号常量GL_FRONT、GL_BACK、GL_LEFT、GL_RIGHT和GL_FRONT_AND_BACK 可能引用多个缓冲区，所以它们在bufs数组中是不允许的。</p>
+<p class="calibre1">如果一个片段着色器不写入一个用户定义输出变量，那么着色器执行后的片段颜色值将是未定义的。对于在这种情况下生成的每个片段来说，一个不同的值可能会被写入由bufs指定的每一个缓冲区。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果bufs中的某个值不是可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果GL被绑定到默认帧缓冲区，并且bufs中的一个或多个值是GL_COLOR_ATTACHMENTn标记中的一个，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果GL被绑定到一个帧缓冲区对象，并且bufs中的一个或多个值是GL_NONE或GL_COLOR_ATTACHMENTSn标记之外的任意值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果n小于0，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果GL_NONE以外的一个符号常量在bufs中出现了不止一次，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果bufs中的任何入口（除GL_NONE以外）表示一个在当前GL环境中不存在的颜色缓冲区，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果n大于GL_MAX_DRAW_BUFFERS，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_MAX_DRAW_BUFFERS。</p>
+<p class="calibre1">glGet，其自变量为GL_DRAW_BUFFERSi（其中i表示其值被查询的绘图缓冲区的数量）。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBlendFunc, glColorMask, glDrawBuffers, glLogicOp, glReadBuffer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

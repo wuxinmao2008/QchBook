@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glCreateShader</h4>
+<p class="calibre1">创建一个着色器对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLuint glCreateShader(GLenum shaderType);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">shaderType</p>
+<p class="calibre1">指定要创建的着色器类型。必须是GL_VERTEX_SHADER、GL_GEOMETRY_SHADER或GL_FRAGMENT_SHADER。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCreateShader创建一个空着色器对象并返回一个它可以引用的非0值。着色对象被用来保持定义一个着色器的源代码字符串。</p>
+<p class="calibre1">shaderType 指出了将要被创建的着色器的类型。一共可以支持3种类型的着色器。GL_VERTEX_SHADER类型的着色器是在可编程顶点处理器运行的。</p>
+<p class="calibre1">GL_GEOMETRY_SHADER类型的着色器是在可编程几何图形处理器运行的。GL_FRAGMENT_SHADER类型的着色器是在可编程片段处理器运行的。</p>
+<p class="calibre1">在创建时，一个着色器对象的GL_SHADER_TYPE参数被设置为GL_VERTEX_SHADER、GL_GEOMETRY_SHADER或GL_FRAGMENT_SHADER，这取决于shaderType的值。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">就像显示列表和纹理对象一样，着色器对象的名字空间可以在一组环境之间进行共享，只要环境的服务器端共享同一个地址空间就可以。如果名字空间在环境之间共享，任何绑定的对象和这些绑定对象相关的数据也会被共享。</p>
+<p class="calibre1">在对象被不同的执行线程访问时，应用程序负责提供API调用之间的同步。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果在创建着色器对象时发生错误，这个函数返回0。</p>
+<p class="calibre1">如果shaderType不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetShader，其参数包含一个合法着色器对象和将要查询的参数。</p>
+<p class="calibre1">glGetShaderInfoLog，其参数包含一个合法着色器对象。</p>
+<p class="calibre1">glGetShaderSource，其参数包含一个合法着色器对象glIsShader。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader, glCompileShader, glDeleteShader, glDetachShader, glShaderSource</p>
+
+</body>
+</html>

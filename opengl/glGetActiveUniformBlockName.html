@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGetActiveUniformBlockName</h4>
+<p class="calibre1">检索一个活动统一块的名称。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetActiveUniformBlockName(GLuint program,
+　　　　　　GLuint uniformBlockIndex,
+　　　　　　GLsizei bufSize,
+　　　　　　GLsizei *length,
+　　　　　　GLchar *uniformBlockName);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定一个包含统一块的程序的名称。</p>
+<p class="calibre1">uniformBlockIndex</p>
+<p class="calibre1">指定program中统一块的索引。</p>
+<p class="calibre1">bufSize</p>
+<p class="calibre1">指定由uniformBlockName进行寻址的缓冲区的大小。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">指定接收写入到uniformBlockName的字符数的变量的地址。</p>
+<p class="calibre1">uniformBlockName</p>
+<p class="calibre1">指定一个位于uniformBlockIndex的接收统一块名称的字符数组的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetActiveUniformBlockName检索program中位于uniformBlockIndex的一个活动统一块的名称。</p>
+<p class="calibre1">program必须是一个程序对象的名称，过去必须已经为这个程序对象调用了glLinkProgram 命令，虽然并不要求glLinkProgram必须成功。这个连接可能会失败，因为活动统一变量的数量超出了限制。</p>
+<p class="calibre1">uniformBlockIndex是program的一个活动统一块索引，并且必须小于GL_ACTIVE_UNIFORM_BLOCKS的值。</p>
+<p class="calibre1">一旦成功，由unifomBlockIndex 指定的统一块名称就会返回到uniformBlockName。它的名称以null为结尾。字符的实际数量被写入到uniformBlockName，但不包括空终结符null，它被返回到length。如果length 为NULL，则不会返回长度。</p>
+<p class="calibre1">bufSize包含字符的最大数量（包括空终结符null），它将被写入到uniformBlockName。</p>
+<p class="calibre1">如果出现错误，那么就不会向uniformBlockName或length写入任何东西。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是过去为其调用过glLinkProgram的一个程序对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果uniformBlockIndex大于或等于GL_ACTIVE_UNIFORM_BLOCKS的值，或者不是program中一个活动统一块的索引，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glGetActiveUniformBlockName只在3.1或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetActiveUniformBlock, glGetUniformBlockIndex</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

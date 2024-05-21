@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glActiveTexture</h4>
+<p class="calibre1">选择活动纹理单元。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glActiveTexture(GLenum texture);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">texture</p>
+<p class="calibre1">texture指定要设为活动状态的纹理单元。纹理单元的数量随实现而变化，但最少必须为2个。texture必须为GL_TEXTUREi中的一个，其中i取值范围从0到(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS – 1)之间。初始值为GL_TEXTURE0。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glActiveTexture选择哪个纹理单元后的纹理状态调用将会起作用。一个实现支持的纹理单元的数量与具体实现有关，但至少必须为48。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果texture不是GL_TEXTUREi中的一个，其中i的范围是从0到(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS – 1)，则会产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量值为GL_ACTIVE_TEXTURE或GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenTextures、glBindTexture、glCompressedTexImage1D、glCompressedTexImage2D、glCompressedTexImage3D、glCompressedTexSubImage1D、glCompressedTexSubImage2D、glCompressedTexSubImage3D、glCopyTexImage1D、glCopyTexImage2D、glCopyTexSubImage1D、glCopyTexSubImage2D、glCopyTex SubImage3D、glDeleteTextures glIsTexture、glTexImage1D、glTexImage2D、glTexImage2DMultisample、glTexImage3D、glTexImage3DMultisample、glTexSubImage1D、glTexSubImage2D、glTexSubImage3D、glTexParameter。</p>
+
+</body>
+</html>

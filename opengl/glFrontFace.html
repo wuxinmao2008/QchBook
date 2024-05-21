@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glFrontFace</h4>
+<p class="calibre1">定义前向和背向多边形。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glFrontFace(GLenum mode);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定前向多边形的方向。GL_CW和GL_CCW都可以被接受。</p>
+<p class="calibre1">初始值为GL_CCW。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">在一个完全由不透明的封闭曲面组成的场景中，背向多边形总是不可见的。</p>
+<p class="calibre1">除去这些不可见的多边形对提升图像渲染速度的好处是显而易见的。可以调用自变量为 GL_CULL_FACE的glEnable和glDisable来激活和禁止背向多边形。</p>
+<p class="calibre1">如果一个假象的目标沿着从它的第一个顶点、第二个顶点等等，直到它的最后一个顶点，并且最后返回它的第一个顶点的路径按照顺时针方向围绕多变形的内部移动，则称多边形到窗口坐标的投影顺时针旋转（clockwise winding）。如果目标按照逆时针方向沿着同样的路径围绕多变形的内部移动，那么称多边形的旋转被称为是逆时针的glFrontFace 指定在窗口坐标中按照顺时针方向旋转，或者按照逆时针方向旋转的多边形是否为前向（front-facing）的。将GL_CCW传入mode会选择逆时针为前向；传入GL_CW则为顺时针为前向。在默认情况下，逆时针多边形为前向的。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_FRONT_FACE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCullFace</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDrawBuffer</h4>
+<p class="calibre1">指定绘制到哪个颜色缓冲区。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDrawBuffer(GLenum mode);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定最多4个将要被绘制到的颜色缓冲区。符号常量GL_NONE、GL_FRONT_LEFT、GL_FRONT_RIGHT、GL_BACK_LEFT、GL_BACK_RIGHT、GL_FRONT、GL_BACK、GL_LEFT、GL_RIGHT和GL_FRONT_AND_BACK都是可以接受的。单缓冲区环境的初始值为GL_FRONT，而双缓冲区环境的初始值为GL_BACK。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">在将颜色写入到帧缓冲区时，这些颜色被写入到由glDrawBuffer指定的颜色或冲区。这些规范如下所示。</p>
+<p class="calibre1">GL_NONE：不写入任何颜色缓冲区。</p>
+<p class="calibre1">GL_FRONT_LEFT：只写入左前颜色缓冲区。</p>
+<p class="calibre1">GL_FRONT_RIGHT：只写入右前颜色缓冲区。</p>
+<p class="calibre1">GL_BACK_LEFT：只写入左后颜色缓冲区。</p>
+<p class="calibre1">GL_BACK_RIGHT：只写入右后颜色缓冲区。</p>
+<p class="calibre1">GL_FRONT：只写入左前和右前颜色缓冲区。如果没有右前颜色缓冲区，则只写入左前颜色缓冲区。</p>
+<p class="calibre1">GL_BACK：只写入左后和右后颜色缓冲区。如果没有右后颜色缓冲区，则只写入左后颜色缓冲区。</p>
+<p class="calibre1">GL_LEFT：只写入左前和左后颜色缓冲区。如果没有左后颜色缓冲区，则只写入左前颜色缓冲区。</p>
+<p class="calibre1">GL_RIGHT：只写入右前和右后颜色缓冲区。如果没有右后颜色缓冲区，则只写入右前颜色缓冲区。</p>
+<p class="calibre1">GL_FRONT_AND_BACK：写入所有前后颜色缓冲区（左前、右前、左后、右后）。如果没有后颜色缓冲区，则只写入左前和右前颜色缓冲区。如果没有右颜色缓冲区，则只写入左前和左后颜色缓冲区。如果没有右颜色缓冲区和后颜色缓冲区，则只写入左前颜色缓冲区。</p>
+<p class="calibre1">如果选择了多个颜色缓冲区来进行绘制，那么每个颜色缓冲区将单独计算和请求混合和逻辑操作，并且在每个缓冲区内将产生不同的结果。</p>
+<p class="calibre1">单视场环境（monoscopic context）只包含left缓冲区，而立体视场环境（stereoscopic context）则包含left和right缓冲区。同样，单缓冲区环境只包含front缓冲区，而双缓冲区环境则包含front和back缓冲区。环境是在GL初始化时进行选择的。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果不存在由mode表示的缓冲，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_DRAW_BUFFER。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBlendFunc, glColorMask, glDrawBuffers, glLogicOp, glReadBuffer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

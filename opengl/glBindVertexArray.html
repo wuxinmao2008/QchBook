@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBindVertexArray</h4>
+    <p class="calibre1">绑定一个顶点数组对象。</p>
+    <h4 class="sigil_not_in_toc">C规范</h4>
+    <pre class="dai_ma_wu_xing_hao">
+    <code class="calibre12">void glBindVertexArray(GLuint array);</code>
+    
+    </pre>
+    <h4 class="sigil_not_in_toc">参数</h4>
+    <p class="calibre1">array</p>
+    <p class="calibre1">指定将要进行绑定的顶点数组的名称。</p>
+    <h4 class="sigil_not_in_toc">描述</h4>
+    <p class="calibre1">glBindVertexArray绑定名为array的顶点数组对象。array是以前的一个glGenVertexArrays调用所返回的顶点数组对象的名称，或者也可以设为0来解除已经存在的顶点数组对象绑定。</p>
+    <p class="calibre1">如果不存在名称为buffer的顶点数组对象，则会在数组第一次进行绑定时重新创建一个。如果绑定成功，那么将不会对这个顶点对象的状态进行任何改变，并且将解除以前的任何顶点数组对象绑定。</p>
+    <h4 class="sigil_not_in_toc">错误</h4>
+    <p class="calibre1">如果array不是0或以前的一次调用glGenVertexArrays所返回的顶点数组对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+    <h4 class="sigil_not_in_toc">另外查看</h4>
+    <p class="calibre1">glGenVertexArrays、glDeleteVertexArrays、glVertexAttribPointer、glEnableVertexAttribArray。</p>
+    <h4 class="sigil_not_in_toc">版权</h4>
+    <p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+     。</p>
+</body>
+</html>

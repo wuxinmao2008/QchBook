@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDrawArrays</h4>
+<p class="calibre1">从数组数据渲染图元。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDrawArrays(GLenum mode,
+　　　　　　GLint first,
+　　　　　　GLsizei count);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定将要渲染哪种类型的图元。符号常量GL_POINTS、GL_LINE_STRIP、GL_LINE_LOOP、GL_LINES、GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP、GL_TRIANGLE_FAN、GL_TRIANGLES、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY都是可接受的。</p>
+<p class="calibre1">first</p>
+<p class="calibre1">指定激活的数组中的起始索引。</p>
+<p class="calibre1">count</p>
+<p class="calibre1">指定将要被渲染的索引数量。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDrawArrays 通过进行很少的子例程调用来指定多个几何图元。我们可以预先指定单独的定点、法线和颜色数组，并通过调用一次glDrawArrays来使用它们构造一个图元序列，而不是通过调用一个GL程序来传输每个单独的顶点、法线、纹理坐标、边缘标记或颜色。</p>
+<p class="calibre1">用glDrawArrays时，他使用count时序元素来从每个激活的数组构造一个几何图元序列，从元素first开始。mode 指定要构造哪种图元，以及如何用这些数组元素来构造这些图元。</p>
+<p class="calibre1">由glDrawArrays修改的顶点属性在glDrawArrays返回后会有一个未指定值。没有被修改过的属性将被保持为良好定义的。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果count为负值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到一个激活的数组，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果一个几何图形着色器被激活，并且mode与当前安装的程序对象中几何图形着色器的输入图元类型不兼容，那么将生成GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDrawArraysInstanced, glDrawElements, glDrawRangeElements.</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

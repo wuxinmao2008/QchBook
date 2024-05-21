@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGenerateMipmap</h4>
+<p class="calibre1">为指定的纹理目标生成Mip贴图。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGenerateMipmap(GLenum target);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">定义要生成Mip贴图的纹理要绑定到的目标。target 必须为GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_TEXTURE_1D_ARRAY、GL_TEXTURE_2D_ARRAY或GL_TEXTURE_CUBE_MAP。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGenerateMipmap为绑定到活动纹理单元的tarGet的纹理生成Mip贴图。对于立方体贴图纹理，如果绑定到tarGet的纹理不完全是立方体，那么将产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">Mip贴图的生成会替代从这个数组衍生出的数组的texel数组层次，不管它们以前的内容如何。所有其他Mip贴图数组，也包含这个数组本身，在这种计算中都不会改变。</p>
+<p class="calibre1">衍生Mip贴图数组的内部各式都与这个数组的相应格式相匹配。衍生数组的内容由这个数组经过重复和过滤进行计算。对于一维和二维纹理数组来说，每个层都会单独进行过滤。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个可接受的纹理目标，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果tarGet不是GL_TEXTURE_CUBE_MAP，并且绑定到活动纹理单元的GL_TEXTURE_CUBE_MAP目标的纹理不完全是立方体，则会产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glTexImage2D, glBindTexture, glGenTextures</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

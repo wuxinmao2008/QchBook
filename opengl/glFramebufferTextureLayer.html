@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glFramebufferTextureLayer</h4>
+<p class="calibre1">将一个立方体贴图纹理的表面作为逻辑缓冲区绑定到当前绑定的帧缓冲区。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glFramebufferTextureLayer(GLenum target,
+　　　　　　GLenum attachment,
+　　　　　　GLuint texture,
+　　　　　　GLint level,
+　　　　　　GLint layer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定帧缓冲区目标。target必须为GL_DRAW_FRAMEBUFFER、GL_READ_FRAMEBUFFER或GL_FRAMEBUFFER。GL_FRAMEBUFFER等价于GL_DRAW_FRAMEBUFFER。</p>
+<p class="calibre1">attachment</p>
+<p class="calibre1">指定帧缓冲区的绑定点。attachment必须为GL_COLOR_ATTACHMENTi、GL_DEPTH_ATTACHMENT、GL_STENCIL_ATTACHMENT或GL_DEPTH_STENCIL_ATTACHMMENT。</p>
+<p class="calibre1">texture</p>
+<p class="calibre1">指定将要绑定到由attachment指定的帧缓冲区绑定点的纹理对象。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定将要绑定的Mip贴图层次。</p>
+<p class="calibre1">layer</p>
+<p class="calibre1">指定将要绑定的纹理的层次。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glFramebufferTextureLevel的作用与glFramebufferTexture相似，除了只有由layer给出的纹理层次的单个层被绑定到这个绑定点之外。如果texture不为0,那么layer就必须大于或等于0。texture 必须为0，或者一个已经存在的三维或二维数组纹理的名称。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glFramebufferTextureLayer 只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果attachment不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果texture不是0或者一个已存在的纹理对象的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果texture为非0值，并且layer为负，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果0被绑定到tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果texture不是0或一个已经存在的立方体贴图纹理的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenFramebuffers, glBindFramebuffer, glGenRenderbuffers, glFramebufferTexture, glFramebufferTextureFace</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

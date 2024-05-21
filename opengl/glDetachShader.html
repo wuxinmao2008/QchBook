@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glDetachShader</h4>
+<p class="calibre1">将一个着色器对象从它绑定到的程序对象分离开来。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDetachShader(GLuint program,
+　　　　　　GLuint shader);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定从哪个程序对象来分离着色器对象。</p>
+<p class="calibre1">shader</p>
+<p class="calibre1">指定要分离的着色器对象。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDetachShader将由shader指定的着色器对象从由program指定的程序对象分离开来。这个命令能够用来撤销glAttachShader命令的结果。</p>
+<p class="calibre1">如果shader已经通过调用glDeleteShader来做了删除标记，并且没有被绑定到任何其他程序对象，那么它将在分离之后被删除。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program 或 shader 不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果shader不是一个着色器对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果shader 没有绑定到program，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetAttachedShaders带有合法程序对象的句柄。</p>
+<p class="calibre1">glGetShader，其自变量为shader 和GL_DELETE_STATUS。</p>
+<p class="calibre1">glIsProgram</p>
+<p class="calibre1">glIsShader</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

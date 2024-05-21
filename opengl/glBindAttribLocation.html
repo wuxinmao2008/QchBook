@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glBindAttribLocation</h4>
+<p class="calibre1">将通用顶点属性索引与指定的属性变量关联起来。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBindAttribLocation(GLuint program,
+　　　　　GLuint index,
+　　　　　const GLchar *name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定发生关联的程序对象的句柄。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定将要绑定的一般顶点属性的索引。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">指定一个包含index将要绑定到的顶点着色器属性变量名称的null为结尾的字符串。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBindAttribLocation用来将program指定的程序对象中的一个用户定义的属性变量和一个通用顶点属性索引进行绑定。用户定义的属性变量名称将作为一个在name中以null为结尾的字符串进行传递。将要绑定到这个变量的通用顶点属性索引由index指定。当program成为当前状态的一部分，通过通用顶点属性index提供的值将对name指定的用户定义属性变量进行修改。</p>
+<p class="calibre1">如果name引用一个矩阵属性变量，那么index 引用矩阵的第一列。然后矩阵的其他列将为mat2类型的矩阵自动绑定到index + 1的位置，mat3类型的矩阵自动绑定到index + 1和index + 2，mat4类型的矩阵自动绑定到index + 1、index + 2和index + 3。</p>
+<p class="calibre1">这个命令使顶点着色器可以为属性变量使用描述性的名称，而不是从0到GL_MAX_VERTEX_ATTRIBS -1进行编号的通用变量。发送到每个通用属性索引的值是当前状态的一部分。如果通过调用glUseProgram将一个不同的程序对象设为当前的，通用顶点属性将以这样一种方式被跟踪，即同样被绑定到index的新程序对象中的属性观察同样的值。</p>
+<p class="calibre1">一个程序对象的属性变量和指定为通用的（name-to-generic）属性索引的绑定可以在任何时刻通过调用glBindAttribLocation来显式地进行分配。属性绑定在调用glLinkProgram之后才会生效。在一个程序对象成功连接之后，通用属性的索引值在下一个连接命令出现前将保持固定（并且这些值能够被查询）。</p>
+<p class="calibre1">在程序对象连接之后出现的任何属性绑定在下一次程序对象连接之前将不会生效。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glBindAttribLocation 可以在任何顶点着色器对象被绑定到指定的程序对象之前被调用。将一个通用属性索引绑定到一个在顶点着色器中从来没使用过的属性变量也是允许的。</p>
+<p class="calibre1">如果name以前已经被绑定，那么这个信息将会丢失。这样我们就不能将一个用户定义的属性变量绑定到多个索引上了，但是我们可以将多个用户定义的属性变量绑定到同一个索引上。</p>
+<p class="calibre1">允许应用程序将多个用户定义属性变量绑定到同一个通用顶点属性索引。这称为混叠（aliasing），只有在可执行程序中只有一个混叠属性是活动状态的情况下，或在没有通过着色器中的路径能消耗混叠到同一区域的一组属性中多于1个属性的情况下才被允许。</p>
+<p class="calibre1">编译器和连接器被允许假定没有混叠发生，并且可以采用只有在没有混叠的情况下使用的优化。OpenGL 实现不需要进行错误检查来检测混叠。</p>
+<p class="calibre1">没有明确绑定的活动属性将在调用glLinkProgram时被连接器绑定。分配对区域可以通过调用glGetAttribLocation来查询。</p>
+<p class="calibre1">OpenGL在glBindAttribLocation被调用时复制name字符串，所以应用程序可以在函数返回后立即释放它的name字符串副本。</p>
+<p class="calibre1">通用属性的位置可以在着色器源文本中使用一个location布局限定符来指定。在这种情况下，着色器的源中指定的属性的位置优先，并且可以通过调用glGetAttribLocation进行查询。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果index 大于或等于GL_MAX_VERTEX_ATTRIBS，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果name以保留前缀“gl_”开始，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_MAX_VERTEX_ATTRIBS。</p>
+<p class="calibre1">glGetActiveAttrib，其自变量为 program。</p>
+<p class="calibre1">glGetAttribLocation，其自变量为 program和name。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDisableVertexAttribArray、glEnableVertexAttribArray、glUseProgram、glVertexAttrib、glVertexAttribPointer。</p>
+
+</body>
+</html>

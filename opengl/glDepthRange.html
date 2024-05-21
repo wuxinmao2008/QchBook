@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDepthRange</h4>
+<p class="calibre1">指定从标准化设备坐标到窗口坐标的深度值映射。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDepthRange(GLclampd nearVal,
+　　　　　　GLclampd farVal);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">nearVal</p>
+<p class="calibre1">指定近剪切板到窗口坐标的映射。初始值为0。</p>
+<p class="calibre1">farVal</p>
+<p class="calibre1">指定远剪切板到窗口坐标的映射。初始值为1。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">在进行剪切并除以w之后，深度坐标范围为-1到1，对应于近剪切板和远剪切板。glDepthRange指定这个范围内的标准化深度坐标到窗口深度坐标的线性映射。不管实际深度缓冲区实现如何，窗口坐标深度值都会被认为是在从0到1的范围内（就像颜色分量一样）。这样，glDepthRange所接受的值在被接受之前都被截取到了这个范围内。</p>
+<p class="calibre1">（0,1）的设置将近剪切板映射到0，而将远剪切板映射到1。在这种映射下，深度缓冲区范围被充分利用了。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">nearVal 并不一定是要小于farVal的。相反的映射，例如nearVal = 1、farVal = 0，也是可以接受的。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_DEPTH_RANGE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDepthFunc, glPolygonOffset, glViewport</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

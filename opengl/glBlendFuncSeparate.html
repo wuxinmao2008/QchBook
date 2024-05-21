@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBlendFuncSeparate</h4>
+<p class="calibre1">分别为RGB和Alpha分量指定像素算法。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBlendFuncSeparate(GLenum srcRGB,
+　　　　　　GLenum dstRGB,
+　　　　　　GLenum srcAlpha,
+　　　　　　GLenum dstAlpha);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">srcRGB</p>
+<p class="calibre1">指定红、绿和蓝色混合因子如何进行计算。初始值为GL_ONE。</p>
+<p class="calibre1">dstRGB</p>
+<p class="calibre1">指定红、绿和蓝色目标混合因子如何进行计算。初始值为GL_ZERO。</p>
+<p class="calibre1">srcAlpha</p>
+<p class="calibre1">指定Alpha源混合因子如何进行计算。初始值为GL_ONE。</p>
+<p class="calibre1">dstAlpha</p>
+<p class="calibre1">指定Alpha目标混合因子如何进行计算。初始值为GL_ZERO。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">像素能够使用一个将输入（源）RGBA值和已经存在于帧缓冲区（目的）的值进行混合的方程来进行绘制。初始状态下是不支持混合的。使用自变量为 GL_BLEND的glEnable和glDisable 来激活和关闭混合。</p>
+<p class="calibre1">glBlendFuncSeparate 在激活时定义混合操作。srcRGB 指定使用哪种方法来缩放源RGB颜色分量。dstRGB指定使用哪种方法来缩放目的RGB颜色分量。同样，srcAlpha指定使用哪种方法来缩放源Alpha颜色分量，而dstAlpha指定使用哪种方法来缩放目的Alpha颜色分量。下表中描述了可能的方法。</p>
+<p class="calibre1">每种方法定义了4个比例因子，红、绿、蓝和Alpha各对应一个因子。</p>
+<p class="calibre1">在表中和后面的方程中，第一个源、第二个源和目的颜色分量分别由(R<sub class="calibre19">s0</sub>
+ , G<sub class="calibre19">s0</sub>
+ , B<sub class="calibre19">s0</sub>
+ , A<sub class="calibre19">s0</sub>
+ )、(R<sub class="calibre19">s1</sub>
+ , G<sub class="calibre19">s1</sub>
+ , B<sub class="calibre19">s1</sub>
+ , A<sub class="calibre19">s1</sub>
+ ) 和(R<sub class="calibre19">d</sub>
+ , G<sub class="calibre19">d</sub>
+ , B<sub class="calibre19">d</sub>
+ , A<sub class="calibre19">d</sub>
+ )表示。</p>
+<p class="calibre1"><img alt="图像说明文字" src="Image00250.jpg" class="calibre9"/>
+</p>
+<p class="calibre1">规定它们为0和(k<sub class="calibre19">R</sub>
+ , k<sub class="calibre19">G</sub>
+ , k<sub class="calibre19">B</sub>
+ , k<sub class="calibre19">A</sub>
+ )之间的整数值，其中k<sub class="calibre19">c</sub>
+ =<img alt="7" src="Image00251.jpg" class="calibre9"/>
+ – 1，而(m<sub class="calibre19">R</sub>
+ , m<sub class="calibre19">G</sub>
+ , m<sub class="calibre19">B</sub>
+ , m<sub class="calibre19">A</sub>
+ )则是红、绿、蓝和Alpha位平面（bitplane）的数量。</p>
+<p class="calibre1">源和目的比例因子由(S<sub class="calibre19">R</sub>
+ ,s<sub class="calibre19">G</sub>
+ ,s<sub class="calibre19">B</sub>
+ ,s<sub class="calibre19">A</sub>
+ )和(d<sub class="calibre19">R</sub>
+ ,d<sub class="calibre19">G</sub>
+ ,d<sub class="calibre19">B</sub>
+ ,d<sub class="calibre19">A</sub>
+ )表示。所有比例因子取值范围都是[0,1]。</p>
+<p class="calibre1">在表中，</p>
+<p class="calibre1">i= min(A<sub class="calibre19">s</sub>
+ , 1 - A<sub class="calibre19">d</sub>
+ )</p>
+<p class="calibre1">为了决定一个像素的混合RGBA值，系统使用下列方程。</p>
+<p class="calibre1">R<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">R</sub>
+ , R<sub class="calibre19">s</sub>
+ s<sub class="calibre19">R</sub>
+ + R<sub class="calibre19">d</sub>
+ d<sub class="calibre19">R</sub>
+ )G<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">G</sub>
+ , G<sub class="calibre19">s</sub>
+ s<sub class="calibre19">G</sub>
+ + G<sub class="calibre19">d</sub>
+ d<sub class="calibre19">G</sub>
+ )B<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">B</sub>
+ , B<sub class="calibre19">s</sub>
+ s<sub class="calibre19">B</sub>
+ + B<sub class="calibre19">d</sub>
+ d<sub class="calibre19">B</sub>
+ )</p>
+<p class="calibre1">A<sub class="calibre19">d</sub>
+ = min(k<sub class="calibre19">A</sub>
+ , A<sub class="calibre19">s</sub>
+ s<sub class="calibre19">A</sub>
+ + A<sub class="calibre19">d</sub>
+ d<sub class="calibre19">A</sub>
+ )</p>
+<p class="calibre1">不管上面的方程看起来精度如何，由于混合操作中不精确的整数颜色值，混合算法并没有确切地指定。不过，等于1的一个混合因子确保不会改变它的被乘数，而等于0的混合因子会将它的被乘数减小到0。举例来说，当dstRGB 为GL_SRC_ALPHA，dfactor为GL_ONE_MINUS_SRC_ALPHA，而As等于kA时，方程式简化为替换式R<sub class="calibre19">d</sub>
+ = R<sub class="calibre19">s</sub>
+ G<sub class="calibre19">d</sub>
+ = G<sub class="calibre19">s</sub>
+ B<sub class="calibre19">d</sub>
+ = B<sub class="calibre19">s</sub>
+ A<sub class="calibre19">d</sub>
+ = A<sub class="calibre19">s</sub>
+ 。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">输入（源）Alpha可以被看作一种材料不透明性，范围从1.0 (KA)开始，这时代表完全不透明，一直到0.0（0），这时代表完全透明。</p>
+<p class="calibre1">当而启用一个以上的颜色缓冲区进行绘制时，GL分别为每个启用的缓冲区执行混合，使用这个缓冲区的内容作为目的颜色。（参见glDrawBuffer)。当启用双源混合时（也就是说，使用一个需要第二个颜色输入的混合因子），启用绘制缓冲区的最大数量将由GL_MAX_DUAL_SOURCE_DRAW_BUFFERS给出，这个值可能要低于GL_MAX_DRAW_BUFFERS。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果srcRGB 或dstRGB不是可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_BLEND_SRC_RGB。</p>
+<p class="calibre1">glGet，其自变量为GL_BLEND_SRC_ALPHA。</p>
+<p class="calibre1">glGet，其自变量为GL_BLEND_DST_RGB。</p>
+<p class="calibre1">glGet，其自变量为GL_BLEND_DST_ALPHA。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_BLEND。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBlendColor、glBlendFunc、glBlendEquation、glClear、glDrawBuffer、glEnable、glLogicOp、glStencilFunc。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

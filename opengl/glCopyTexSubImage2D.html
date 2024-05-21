@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glCopyTexSubImage2D</h4>
+<p class="calibre1">复制一个二维纹理子图像。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glCopyTexSubImage2D(GLenum target,
+　　　　　　GLint level,
+　　　　　　GLint xoffset,
+　　　　　　GLint yoffset,
+　　　　　　GLint x,
+　　　　　　GLint y,
+　　　　　　GLsizei width,
+　　　　　　GLsizei height);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标纹理。必须为GL_TEXTURE_2D、GL_TEXTURE_CUBE_MAP_ POSITIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_ POSITIVE_Z或GL_TEXTURE_CUBE_MAP_NEGATIVE_Z。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定层次细节数量。Level 0 是基本图像层次。Level n是第n级Mip贴图缩略图。</p>
+<p class="calibre1">xoffset</p>
+<p class="calibre1">指定纹理数组中x方向上一个texel的偏移。</p>
+<p class="calibre1">yoffset</p>
+<p class="calibre1">指定纹理数组中y方向上一个texel的偏移。</p>
+<p class="calibre1">x</p>
+<p class="calibre1">y</p>
+<p class="calibre1">指定将要复制的像素矩形区域左下角的窗口坐标。</p>
+<p class="calibre1">width</p>
+<p class="calibre1">指定纹理子图像的宽度。</p>
+<p class="calibre1">height</p>
+<p class="calibre1">指定纹理子图像的高度。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCopyTexSubImage2D用来自当前GL_READ_BUFFER（而不是来自主内存，就和glTexSubImage2D的情况一样）的像素来代替一个二维纹理图像或一个立方体贴图纹理图像的一个矩形部分。</p>
+<p class="calibre1">左下角位于(x, y)且宽度度为width、高度为height的屏幕对齐像素矩形代替纹理数组中x索引从xoffset到xoffset + width – 1（包括边界）、y索引从yoffset到yoffset + height – 1（包括边界）的部分，Mip贴图层次由level指定。</p>
+<p class="calibre1">这个矩形中的像素就像调用了glCopyPixels一样被处理，但是在最后的变换之前处理过程将停止。这时所有像素分量值都被限定到[0,1]范围，然后被转换到纹理的内部格式，以便存储到Texel数组中。</p>
+<p class="calibre1">纹理数组中的目的矩形不能包含最初指定的纹理数组之外的任何texel。指定一个宽度或高度为0的子纹理并不是错误，但是这样做不会产生任何效果。</p>
+<p class="calibre1">如果当前GL_READ_BUFFER指定矩形中任何像素在当前渲染环境相关联的读取窗口之外，那么为这些像素所获得的值将是未定义的。</p>
+<p class="calibre1">不能对指定纹理数组的nternalformat,、width、height或border参数，或者指定子区域外的texel值作任何修改。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glPixelStore模式会影响纹理图像。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_TEXTURE_2D、GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z或GL_TEXTURE_CUBE_MAP_NEGATIVE_Z，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果纹理数组没有被以前的glTexImage2D或glCopyTexImage2D操作所定义，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果level小于0，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果level大于log<sub class="calibre19">2</sub>
+ (max)值，其中max 是GL_MAX_TEXTURE_SIZE的返回值，则可能产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果xoffset &lt;– b或 (xoffset + width) &gt; (w – b) ，或者yoffset &lt;– b或 (yoffset + height) &gt; (h – b)，其中w和b分别是被修改的纹理图像的GL_TEXTURE_WIDTH和GL_TEXTURE_BORDER，则产生GL_INVALID_VALUE 错误。注意w和h包含边界宽度的两倍。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetTexImage</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_TEXTURE_2D。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glCopyTexImage1D, glCopyTexImage2D, glCopyTexSubImage1D, glCopyTexSubImage3D, glPixelStore, glReadBuffer, glTexImage1D, glTexImage2D, glTexImage3D, glTexParameter, glTexSubImage1D, glTexSubImage2D,glTexSubImage3D</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

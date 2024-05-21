@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glBindTexture</h4>
+<p class="calibre1">将一个指定的纹理绑定到一个纹理目标上。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBindTexture(GLenum target,
+　　　　　GLuint texture);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">定义纹理要绑定到的目标。必须为GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_TEXTURE_1D_ARRAY、GL_TEXTURE_2D_ARRAY、GL_TEXTURE_RECTANGLE、GL_TEXTURE_CUBE_MAP、GL_TEXTURE_2D_MULTISAMPLE或GL_TEXTURE_2D_MULTISAMPLE_ARRAY。</p>
+<p class="calibre1">纹理贴图</p>
+<p class="calibre1">指定纹理的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBindTexture 使我们可以创建或使用一个已命名的纹理。调用glBindTexture，target设置为GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D、GL_TEXTURE_1D_ARRAY、GL_TEXTURE_2D_ARRAY、GL_TEXTURE_RECTANGLE、GL_TEXTURE_CUBE_MAP、GL_TEXTURE_2D_MULTISAMPLE或GL_TEXTURE_2D_MULTISAMPLE_ARRAY，texture设置为将纹理名称绑定到目标的新纹理的名称。当一个纹理绑定到目标时，这个目标以前的绑定将自动解除。</p>
+<p class="calibre1">纹理是无符号整数。数值0被保留来表示每个纹理目标的默认纹理。纹理名称和相应的纹理内容对当前GL渲染环境的共享对象空间来说是本地的。两个渲染环境只有在它们也共享显示列表的的情况下才共享纹理名称。</p>
+<p class="calibre1">我们必须使用glGenTextures来生成一组新的纹理名称。</p>
+<p class="calibre1">当一个纹理被第一次绑定时，它采用指定的目标：第一次绑定到GL_TEXTURE_1D的纹理成为一维纹理，第一次绑定到GL_TEXTURE_2D的纹理成为二维纹理，第一次绑定到GL_TEXTURE_3D的纹理成为三维纹理，第一次绑定到GL_TEXTURE_1D_ARRAY的纹理成为一维数组纹理，第一次绑定到GL_TEXTURE_2D_ARRAY的纹理成为二维数组纹理，第一次绑定到 GL_TEXTURE_RECTANGLE 的纹理成为矩形纹理，第一次绑定到GL_TEXTURE_CUBE_MAP的纹理成为立方体贴图纹理，第一次绑定到 GL_TEXTURE_2D_MULTISAMPLE的纹理成为二维多重采样纹理，而第一次绑定到 GL_TEXTURE_2D_MULTISAMPLE_ARRAY的纹理成为二维多重采样数组纹理。一维纹理在它第一次绑定后的即时状态与GL初始化时默认GL_TEXTURE_1D的状态相同，对于其他纹理类型来说情况也是类似情况。</p>
+<p class="calibre1">在一个纹理被绑定时，GL将对它绑定到的目标所进行的操作会影响绑定的纹理，而对它绑定到的目标进行的查询将返回从绑定的纹理对象得到的状态。实际上，纹理目标由于当前绑定到它们的纹理而变得混叠，并且纹理名称0会引用在初始化时绑定到它们的默认纹理。</p>
+<p class="calibre1">一个由glBindTexture创建的纹理绑定（texture binding）在一个不同的纹理名称被绑定到同一个目标之前，或在绑定的纹理被glDeleteTextures删除之前会保持活动状态。</p>
+<p class="calibre1">一旦创建了一个命名的纹理，在有需要的时候它就可以被重新绑定到同一个原始目标上。使用glBindTexture来将一个已经存在的指定名称的纹理绑定到一个纹理目标上，通常比使用glTexImage1D、glTexImage2D或glTexImage3D来重新载入纹理图像要快得多。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_TEXTURE_2D_MULTISAMPLE和GL_TEXTURE_2D_MULTISAMPLE_ARRAY目标只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个允许值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果tarGet 不是以前的一个glGenTextures调用返回的名称，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果texture是以前创建的，其目标与tarGet的目标不匹配，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet 其自变量为GL_TEXTURE_BINDING_1D、GL_TEXTURE_BINDING_2D、GL_TEXTURE_BINDING_3D、GL_TEXTURE_BINDING_1D_ARRAY、GL_TEXTURE_BINDING_2D_ARRAY、GL_TEXTURE_BINDING_RECTANGLE、GL_TEXTURE_BINDING_2D_MULTISAMPLE或 GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDeleteTextures、glGenTextures、glGet、glGetTexParameter、glIsTexture、glTexImage1D、glTexImage2D、glTexImage2DMultisample、glTexImage3D、glTexImage3DMultisample、glTexParameter。</p>
+</body>
+</html>

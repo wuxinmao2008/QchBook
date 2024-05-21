@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glFramebufferTexture</h4>
+<p class="calibre1">将一个纹理对象的层次作为逻辑缓冲区绑定到当前绑定的帧缓冲区对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glFramebufferTexture(GLenum target,
+　　　　　　GLenum attachment,
+　　　　　　GLuint texture,
+　　　　　　GLint level);
+void glFramebufferTexture1D(GLenum target,
+　　　　　　GLenum attachment,
+　　　　　　GLuint texture,
+　　　　　　GLint level);
+void glFramebufferTexture2D(GLenum target,
+　　　　　　GLenum attachment,
+　　　　　　GLuint texture,
+　　　　　　GLint level);
+void glFramebufferTexture3D(GLenum target,
+　　　　　　GLenum attachment,
+　　　　　　GLuint texture,
+　　　　　　GLint level,
+　　　　　　GLint layer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定帧缓冲区目标。target必须为GL_DRAW_FRAMEBUFFER、GL_READ_FRAMEBUFFER或GL_FRAMEBUFFER。GL_FRAMEBUFFER等价于GL_DRAW_FRAMEBUFFER。</p>
+<p class="calibre1">attachment</p>
+<p class="calibre1">指定帧缓冲区的绑定点。attachment必须为GL_COLOR_ATTACHMENTi、GL_DEPTH_ATTACHMENT、GL_STENCIL_ATTACHMENT或GL_DEPTH_STENCIL_ATTACHMMENT。</p>
+<p class="calibre1">texture</p>
+<p class="calibre1">指定将要绑定到由attachment指定的帧缓冲区绑定点的纹理对象。</p>
+<p class="calibre1">level</p>
+<p class="calibre1">指定将要绑定的Mip贴图层次。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">mebufferTexture、glFramebufferTexture1D、glFramebufferTexture2D和glFramebufferTexture将一个纹理对象的选定Mip贴图层次或图像作为当前绑定的帧缓冲区对象的一个逻辑缓冲区绑定target。target必须为GL_DRAW_FRAMEBUFFER、GL_READ_FRAMEBUFFER或GL_FRAMEBUFFER。GL_FRAMEBUFFER等价于GL_DRAW_FRAMEBUFFER。</p>
+<p class="calibre1">attachment指定帧缓冲区的逻辑绑定，并且必须为GL_COLOR_ATTACHMENTi、GL_DEPTH_ATTACHMENT、GL_STENCIL_ATTACHMENT或GL_DEPTH_STENCIL_ATTACHMMENT。GL_COLOR_ATTACHMENTi 中的i的取值范围为0到L_MAX_COLOR_ATTACHMENTS - 1的值。将一个纹理的一个层次绑定到GL_DEPTH_STENCIL_ATTACHMENT 就相当于同时将这个层次绑定到GL_DEPTH_ATTACHMENT和GL_STENCIL_ATTACHMENT绑定点。</p>
+<p class="calibre1">如果texture不为0，那么名为texture的纹理对象的指定level 就会被绑定到由attachment指定的帧缓冲区绑定点。对于glFramebufferTexture1D、glFramebufferTexture2D和glFramebufferTexture3D，texture 必须为0或者一个已经存在的以textarget为目标的纹理的名称，或者texture必须为一个已经存在的立方体贴图的名称并且textarget必须为GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y或GL_TEXTURE_CUBE_MAP_NEGATIVE_Z中的一个。</p>
+<p class="calibre1">如果textarget为GL_TEXTURE_RECTANGLE、GL_TEXTURE_2D_MULTISAMPLE或GL_TEXTURE_2D_MULTISAMPLE_ARRAY，那么level必须为0。如果textarget 为GL_TEXTURE_3D，那么level必须大于或等于0，并且小于或等于GL_MAX_3D_TEXTURE_SIZE以2为底的对数。如果textarget 为GL_TEXTURE_CUBE_MAP_ POSITIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y或GL_TEXTURE_CUBE_MAP_NEGATIVE_Z，那么level必须大于或等于0，并且小于或等于GL_MAX_CUBE_MAP_TEXTURE_SIZE以2为底的对数。对于textarget的所有其他值，level必须大于或等于0，并且小于或等于GL_MAX_TEXTURE_SIZE以2为底的对数。</p>
+<p class="calibre1">layer指定一个三维纹理中的一个二维图像的层次。</p>
+<p class="calibre1">对于glFramebufferTexture1D，如果textarget为非0值，那么textarget 必须为GL_TEXTURE_1D。对于glFramebufferTexture2D，如果texture 不为0，那么textarget必须为GL_TEXTURE_2D、GL_TEXTURE_RECTANGLE、GL_TEXTURE_CUBE_MAP_POSITIVE_X、GL_TEXTURE_CUBE_MAP_POSITIVE_Y、GL_TEXTURE_CUBE_MAP_POSITIVE_Z、GL_TEXTURE_CUBE_MAP_NEGATIVE_X、GL_TEXTURE_CUBE_MAP_NEGATIVE_Y、GL_TEXTURE_CUBE_MAP_NEGATIVE_Z或GL_TEXTURE_2D_MULTISAMPLE中的一个。对于glFramebufferTexture3D，如果texture为非0值，那么textarget 必须为GL_TEXTURE_3D。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glFramebufferTexture 只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果renderbuffertarGet不是GL_RENDERBUFFER，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果0被绑定到tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenFramebuffers, glBindFramebuffer, glGenRenderbuffers, glFramebufferTexture, glFramebufferTexture1D,glFramebufferTexture2D, glFramebufferTexture3D</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

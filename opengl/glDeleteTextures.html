@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDeleteTextures</h4>
+<p class="calibre1">删除指定的纹理。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDeleteTextures(GLsizei n,
+　　　　　　const GLuint * textures);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">n</p>
+<p class="calibre1">指定将要被删除的纹理的数量。</p>
+<p class="calibre1">textures</p>
+<p class="calibre1">指定将要被删除的纹理的一个序列。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDeleteTextures删除由textures数组元素指定的n个纹理。在一个纹理被删除以后，它将不再有任何内容或维度，并且它的名字已经可以进行重用了（例如被glGenTextures重用）。如果一个当前被绑定的纹理被删除，绑定将回复到0（默认纹理）。</p>
+<p class="calibre1">glDeleteTextures默认忽略0和不符合现有纹理的名称。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果n为负值，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glIsTexture</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindTexture, glCopyTexImage1D, glCopyTexImage2D, glGenTextures, glGet, glGetTexParameter, glTexImage1D, glTexImage2D, glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

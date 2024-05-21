@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGetActiveUniform</h4>
+<p class="calibre1">返回关于一个指定程序对象的活动统一变量的信息。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetActiveUniform(GLuint program,
+　　　　　　GLuint index,
+　　　　　　GLsizei bufSize,
+　　　　　　GLsizei *length,
+　　　　　　GLint *size,
+　　　　　　GLenum *type,
+　　　　　　GLchar *name);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被查询的程序对象。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定将要被查询的统一变量的索引。</p>
+<p class="calibre1">bufSize</p>
+<p class="calibre1">指定允许OpenGL写入由name指示的字符缓冲区中的字符的最大数量。</p>
+<p class="calibre1">length</p>
+<p class="calibre1">如果除NULL以外的值被传递的话，则返回实际上由OpenGL写入由name指示的字符串的字符数（不包括空终结符）。</p>
+<p class="calibre1">size</p>
+<p class="calibre1">返回统一变量的大小。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">返回统一变量的数据类型。</p>
+<p class="calibre1">name</p>
+<p class="calibre1">返回一个包括统一变量名的空终止字符串。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetActiveUniform</p>
+<p class="calibre1">返回关于由program指定的程序对象的活动统一变量的信息。可以通过调用以GL_ACTIVE_UNIFORMS为参数的glGetProgram 来获取活动统一变量数量。index的值取0时选择第一个活动统一变量。index 的允许取值范围为0到活动统一变量的数量减去1的值。</p>
+<p class="calibre1">着色器可以使用内建统一变量、用户定义统一变量，或两者同时使用。内建统一变量有一个“gl_”前缀，并引用已存在的OpenGL状态或得自这种状态的值（例如gl_DepthRangeParameters，完整列表参见OpenGL着色语言规范）。用户定义的统一变量有任意的名称，并通过调用glUniform来从应用程序中获取它们的值。一个统一变量（无论是内建的还是用户定义的）如果在程序执行过程中可以进行访问的链接操作过程中决定，那么它会被看作是活动的。</p>
+<p class="calibre1">因此，program 应该在这之前就成为一次glLinkProgram调用的目标，但是不需要已经成功地进行链接。</p>
+<p class="calibre1">被请求用来存储program中最长的统一变量名称字符缓冲器的大小可以通过调用值为GL_ACTIVE_UNIFORM_MAX_LENGTH的glGetProgram来获得。这个值能够被用来分配大小足够的缓冲区来存储返回的统一变量名。字符缓冲器的大小在bufSize中传递，而指向这个字符缓冲区的指针会传递到name。</p>
+<p class="calibre1">glGetActiveUniform</p>
+<p class="calibre1">返回index指示的统一变量的名称，存储在由name指定的字符缓冲区中。返回的字符串以空字符null为结尾。写入这个缓冲区的字符的实际数量在length中返回，这个数字不包括空终止字符。如果返回字符串的长度没有被请求，那么可以在length自变量中传递一个NULL值。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">自变量将返回一个指向统一变量数据类型的指针。下表列出了为统一变量返回的符号常量。</p>
+<p class="calibre1">如果一个数组的一个或多个元素是活动的，那么数组的名称将会返回到name，而类型则返回到type，并且size参数将返回使用的最高数组元素索引，并加上1，这是由编译器和/或连接器决定的。只有一个活动统一变量将为统一数组而报告。</p>
+<p class="calibre1">作为结构或结构数组而声明的统一变量不会被这个函数直接返回。取而代之的是，这些统一变量中的每一个都会被简化到它的包括“.”和“[]”运算符的基本组成部分，这样每一个名称作为glGetUniformLocation的自变量都是合法的。这些简化统一变量中的每一个都算作一个活动统一变量，并分配给它一个索引。合法的名称不能是结构、结构数组，或者向量或数组的子分量。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">返回的符号常量</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">着色器统一变量类型</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">float</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_VEC2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">vec2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_VEC3</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">vec3</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_VEC4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">vec4</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">int</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_VEC2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">ivec2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_VEC3</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">ivec3</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_VEC4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">ivec4</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">unsigned int</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_VEC2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">uvec2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_VEC3</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">uvec3</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_VEC4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">uvec4</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_BOOL</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">bool</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_BOOL_VEC2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">bvec2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_BOOL_VEC3</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">bvec3</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_BOOL_VEC4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">bvec4</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT3</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat3</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat4</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT2x3</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat2x3</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT2x4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat2x4</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT3x2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat3x2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT3x4</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat3x4</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT4x2</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat4x2</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FLOAT_MAT4x3</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">mat4x3</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_1D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler1D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_3D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler3D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_CUBE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">samplerCube</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_1D_SHADOW</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler1DShadow</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D_SHADOW</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2DShadow</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_1D_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler1DArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2DArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_1D_ARRAY_SHADOW</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler1DArrayShadow</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D_ARRAY_SHADOW</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2DArrayShadow</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D_MULTISAMPLE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2DMS</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D_MULTISAMPLE_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2DMSArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_CUBE_SHADOW</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">samplerCubeShadow</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_BUFFER</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">samplerBuffer</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D_RECT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2DRect</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_SAMPLER_2D_RECT_SHADOW</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">sampler2DRectShadow</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_1D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler1D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_2D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler2D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_3D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler3D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_CUBE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isamplerCube</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_1D_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler1DArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_2D_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler2DArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_2D_MULTISAMPLE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler2DMS</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler2DMSArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_BUFFER</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isamplerBuffer</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_INT_SAMPLER_2D_RECT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">isampler2DRect</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_1D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler1D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_2D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler2D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_3D</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler3D</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_CUBE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usamplerCube</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_1D_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler2DArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_2D_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler2DArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler2DMS</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler2DMSArray</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_BUFFER</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usamplerBuffer</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_UNSIGNED_INT_SAMPLER_2D_RECT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">usampler2DRect</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="calibre1">统一变量的大小将会返回到size。除数组以外的统一变量的大小将为1。就像前面描述的一样，结构和结构数组将被进行简化，这样返回的每一个名称都将是原来列表中的数据类型。如果这种简化的结果是一个数组，那么返回的大小将如统一数组描述的一样。否则，返回的大小将为1。</p>
+<p class="calibre1">活动统一变量列表可以包含在内建统一变量（这些统一变量以“gl_”前缀开始），同样也可以包含在用户定义统一变量名称中。</p>
+<p class="calibre1">这个函数将返回它所能返回的尽可能多的关于指定活动统一变量的信息。</p>
+<p class="calibre1">如果没有可用的信息，那么length将为0，而name将为空字符串。在一个链接操作失败后调用这个函数就可能会出现这种情况。如果出现错误，那么返回值length、size、type和name将为未修改的。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果index 大于或等于program中活动统一变量的数量，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果bufSize小于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，自变量为GL_MAX_VERTEX_UNIFORM_COMPONENTS、GL_MAX_GEOMETRY_UNIFORM_COMPONENTS、GL_MAX_FRAGMENT_UNIFORM_COMPONENTS或GL_MAX_COMBINED_UNIFORM_COMPONENTS。</p>
+<p class="calibre1">glGetProgram，自变量为GL_ACTIVE_UNIFORMS或GL_ACTIVE_UNIFORM_MAX_LENGTH。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetUniform, glGetUniformLocation, glLinkProgram, glUniform, glUseProgram</p>
+</body>
+</html>

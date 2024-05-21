@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBeginQuery</h4>
+    <p class="calibre1">限定一个查询对象的边界。</p>
+    <h4 class="sigil_not_in_toc">C规范</h4>
+    <pre class="dai_ma_wu_xing_hao">
+    <code class="calibre12">void glBeginQuery(GLenum target,
+    　　　　　GLuint id);</code>
+    
+    </pre>
+    <h4 class="sigil_not_in_toc">参数</h4>
+    <p class="calibre1">target</p>
+    <p class="calibre1">指定在glBeginQuery和相应的glEndQuery之间建立查询对象的目标类型。符号常量必须是GL_SAMPLES_PASSED、GL_ANY_SAMPLES_PASSED、GL_PRIMITIVES_GENERATED、GL_TRANSFORM_ FEEDBACK_PRIMITIVES_WRITTEN和GL_TIME_ELAPSED中的一个。</p>
+    <p class="calibre1">id</p>
+    <p class="calibre1">指定查询对象的名称。</p>
+    <h4 class="sigil_not_in_toc">C规范</h4>
+    <pre class="dai_ma_wu_xing_hao">
+    <code class="calibre12">void glEndQuery(GLenum target);</code>
+    </pre>
+    <h4 class="sigil_not_in_toc">参数</h4>
+    <p class="calibre1">target</p>
+    <p class="calibre1">指定要推断的查询对象的目标类型。符号常量必须是GL_SAMPLES_PASSED、GL_ANY_SAMPLES_PASSED、GL_PRIMITIVES_GENERATED、GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN和GL_TIME_ELAPSED中的一个。</p>
+    <h4 class="sigil_not_in_toc">描述</h4>
+    <p class="calibre1">glBeginQuery 和 glEndQuery 限定查询对象的边界。query必须为以前的一次glGenQueries调用所返回的一个名称。如果一个名为id的查询对象还不存在，那么它将被创建，其类型由决定target。target必须为GL_SAMPLES_PASSED、GL_ANY_SAMPLES_PASSED、GL_PRIMITIVES_GENERATED、GL_TRANSFORM_FEEDBACK_PRIMITIVES_ WRITTEN和GL_TIME_ELAPSED中的一个。查询对象的行为由它的类型决定，具体如下。</p>
+    <p class="calibre1">如果target为GL_SAMPLES_PASSED，那么target必须是一个未使用的名称，或者是一个已存在的遮挡查询结果的名称。在执行glBeginQuery时，查询对象的采样通过计数器将被重置为0。后续渲染将在每一次进行采样并通过深度测试时使这个计数器递增。如果GL_SAMPLE_BUFFERS的值为0，那么采样通过计数器将对每个片段递增1。如果GL_SAMPLE_BUFFERS的值为1，那么采样通过计数器增加的数值为覆盖位进行置位样本的数量。但是，如果片段中的任何样本被覆盖，那么实现使采样通过计数器增加的数值可能为GL_SAMPLES的值，这由实现本身决定。当glEndQuery执行时，采样通过计数器将被分配为查询对象结果的值。这个值可以通过调用以GL_QUERY_RESULT为pname的glGetQueryObject进行查询。</p>
+    <p class="calibre1">如果target为GL_ANY_SAMPLES_PASSED，那么target必须是一个未使用的名称，或者是一个已存在的遮挡查询结果的名称。当glEndQuery执行时，查询对象的采样通过标记将被重设为GL_FALSE。如果有任何样本通过深度测试，那么后续的渲染将导致这个标记被设置为GL_TRUE。当glEndQuery执行时，采样通过标记将被分配为查询对象结果的值。这个值可以通过调用以GL_QUERY_RESULT为pname的glGetQueryObject进行查询。</p>
+    <p class="calibre1">如果target为GL_PRIMITIVES_GENERATED，那么target必须是一个未使用的名称，或者是一个以前被绑定到GL_PRIMITIVES_GENERATED查询绑定点的已存在的图元查询对象的名称。</p>
+    <p class="calibre1">当glEndQuery执行时，查询对象的图元生成计数器将被重设为0。</p>
+    <p class="calibre1">后续渲染将会为几何图形着色器发出的每个顶点，或者在没有几何图形着色器时由顶点着色器发出的每个顶点使计数器递增一次。当glEndQuery执行时，图元生成计数器将被分配为查询对象结果的值。这个值可以通过调用以GL_QUERY_RESULT为pname的glGetQueryObject来进行查询。</p>
+    <p class="calibre1">如果target为GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN，那么target必须是一个未使用的名称，或者是一个以前被绑定到GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN查询绑定点的已存在的图元查询结果的名称。在执行glBeginQuery时，查询对象的图元写入计数器将被重置为0。后续渲染将为每一个写入到绑定的变换反馈缓冲区的顶点使这个计数器递增一次。如果变换反馈模式没有在glBeginQuery调用和glEndQuery调用之间激活，那么计数器将不会递增。当glEndQuery执行时，图元写入计数器将被分配为查询对象结果的值。这个值可以通过调用以GL_QUERY_RESULT为pname的glGetQueryObject来进行查询。</p>
+    <p class="calibre1">如果target为GL_TIME_ELAPSED，那么target必须是一个未使用的名称，或者是一个以前被绑定到GL_TIME_ELAPSED查询绑定点已存在的计时器查询对象的名称。在执行glBeginQuery时，查询对象的时间计数器将被重置为0。在执行glEndQuery时，从调用glBeginQuery消耗的服务器时间将被写入到查询对象的时间计数器。这个值可以通过调用以GL_QUERY_RESULT为pname的glGetQueryObject进行查询。</p>
+    <p class="calibre1">对GL_QUERY_RESULT进行查询将在由这个查询对象限定的渲染完成并且结果可用之前，隐式地对GL管线进行清理。可以对GL_QUERY_RESULT_AVAILABLE进行查询，以确定结果是否立即可用，或者渲染是否还未完成。</p>
+    <h4 class="sigil_not_in_toc">注意</h4>
+    <p class="calibre1">如果通过样本计数超出了可用位数所能表示的最大值（就像以GL_QUERY_COUNTER_BITS为pname的glGetQueryiv报告），计数将成为未定义的。</p>
+    <p class="calibre1">一个实现在它的通过样本计数器中可能会支持0位，在这种情况下查询结果总是未定义的，实际上毫无用处。</p>
+    <p class="calibre1">当SAMPLE_BUFFERS为0时，每个通过深度测试的片段将使通过样本计数器递增1次；当SAMPLE_BUFFERS为1时，一个实现可以在每有一个通过深度测试的片段样本时递增1次，也可以选择在一个片段有任何样本通过深度测试时为这个片段的所有样本增加计数。</p>
+    <p class="calibre1">查询目标GL_ANY_SAMPLES_PASSED和GL_TIME_ELAPSED只在3.3或更高版本的GL中可用。</p>
+    <h4 class="sigil_not_in_toc">错误</h4>
+    <p class="calibre1">如果tarGet不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+    <p class="calibre1">如果glBeginQuery在同一个tarGet的查询对象已经激活的情况下执行，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果glEndQuery在同一个tarGet的查询对象没有激活的情况下执行，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果id 为 0，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果id是一个已经激活的查询对象名称，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果id引用一个类型与tarGet不匹配的已存在查询对象，则产生GL_INVALID_OPERATION错误。</p>
+    <h4 class="sigil_not_in_toc">另外查看</h4>
+    <p class="calibre1">glDeleteQueries、glGenQueries、glGetQueryiv、glGetQueryObject、glIsQuery。</p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBeginConditionalRender</h4>
+    <h4 class="sigil_not_in_toc">开始进行条件渲染。</h4>
+    <h4 class="sigil_not_in_toc">C规范</h4>
+    <pre class="dai_ma_wu_xing_hao">
+    <code class="calibre12">void glBeginConditionalRender(GLuint id,
+    　　　　　GLenum mode);</code>
+    
+    </pre>
+    <h4 class="sigil_not_in_toc">参数</h4>
+    <p class="calibre1">id</p>
+    <p class="calibre1">指定一个遮挡查询对象的名称，这个对象的结果用来决定渲染命令是否被丢弃。</p>
+    <p class="calibre1">mode</p>
+    <p class="calibre1">指定glBeginConditionalRender如何对遮挡查询的结果进行解释。</p>
+    <h4 class="sigil_not_in_toc">C规范</h4>
+    <pre class="dai_ma_wu_xing_hao">
+    <code class="calibre12">void glEndConditionalRender(void);</code>
+    
+    </pre>
+    <h4 class="sigil_not_in_toc">描述</h4>
+    <p class="calibre1">通过使用glBeginConditionalRender开始条件渲染，而通过使用glEndConditionalRender结束条件渲染。在进行条件渲染过程中，如果查询对象id的（GL_SAMPLES_PASSED）结果为0，或者（GL_ANY_SAMPLES_PASSED）结果为GL_FALSE，那么所有顶点数组命令，以及glClear和glClearBuffer都是无效的。类似glVertexAttrib这样的当前顶点状态的设置命令结果将是未定义的。如果（GL_SAMPLES_PASSED）结果为非0值，或者如果（GL_ANY_SAMPLES_PASSED）结果为GL_TRUE，那么这些命令将会被丢弃。glBeginConditionalRender的id参数必须与前面某次glGenQueries调用中返回查询对象的名称相同。mode指定这个查询对象的结果将如何进行解释。如果mode为GL_QUERY_WAIT，那么GL会进行等待直到这个查询的结果可用，然后使用这个结果来决定后续渲染命令是否被丢弃。如果mode为GL_QUERY_NO_WAIT，那么GL可能会选择无条件执行后续渲染命令，而不会等待这个查询完成。</p>
+    <p class="calibre1">如果mode为GL_QUERY_BY_REGION_WAIT，那么GL会等待遮挡查询结果，如果这个遮挡查询的结果为0，那么渲染命令将被丢弃。如果查询结果是非0的，那么后续渲染命令将被执行，但是对于帧缓冲区中与特定遮挡查询的样本数无关的区域来说，GL可能会丢弃命令的结果。这类丢弃会在与实现相关的方法中进行，但是对于那些与遮挡查询样本数有关的样本，这些渲染命令结果可能不会被丢弃。如果mode为GL_QUERY_BY_REGION_NO_WAIT，那么GL的操作与GL_QUERY_BY_REGION_WAIT的情况相同，但是可能会选择无条件执行后续渲染命令，而不会等待这个查询完成。</p>
+    <h4 class="sigil_not_in_toc">注意</h4>
+    <p class="calibre1">glBeginConditionalRender 和 glEndConditionalRender只在3.0或更高版本的GL中可用。</p>
+    <p class="calibre1">GL_ANY_SAMPLES_PASSED查询结果只在3.3或更高版本的GL中可用。</p>
+    <h4 class="sigil_not_in_toc">错误</h4>
+    <p class="calibre1">如果id不是一个已存在查询对象的名称，则产生GL_INVALID_VALUE错误。</p>
+    <p class="calibre1">如果mode不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+    <p class="calibre1">如果在条件渲染激活的情况下调用glBeginConditionalRender，或者如果在条件渲染未激活的情况下调用glEndConditionalRender，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果id是一个目标不是GL_SAMPLES_PASSED或GL_ANY_SAMPLES_PASSED的查询对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+    <p class="calibre1">如果id是一个当前正在进行中的查询对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+    <h4 class="sigil_not_in_toc">另外查看</h4>
+    <p class="calibre1">glGenQueries、glDeleteQueries、glBeginQuery。</p>
+</body>
+</html>

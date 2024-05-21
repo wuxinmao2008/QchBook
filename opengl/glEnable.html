@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+<h4 class="sigil_not_in_toc">glEnable</h4>
+<p class="calibre1">激活或禁止服务器端GL性能。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glEnable(GLenum cap);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">cap</p>
+<p class="calibre1">指定一个符号常量来指示一种GL性能。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDisable(GLenum cap);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">cap</p>
+<p class="calibre1">指定一个符号常量来指示一种GL性能。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glEnablei(GLenum cap,
+　　　　　　GLuint index);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">cap</p>
+<p class="calibre1">指定一个符号常量来指示一种GL性能。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定将要激活的转换的索引。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDisablei(GLenum cap,
+　　　　　　GLuint index);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">cap</p>
+<p class="calibre1">指定一个符号常量来指示一种GL性能。</p>
+<p class="calibre1">index</p>
+<p class="calibre1">指定将要关闭的转换的索引。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glEnable 和 glDisable 用来激活和关闭各种性能。使用glIsEnabled或glGet来决定任何性能的当前设置。除GL_DITHER和GL_MULTISAMPLE以外，其他每一种性能的初始值都是GL_FALSE。GL_DITHER和GL_MULTISAMPLE的初始值是GL_TRUE。</p>
+<p class="calibre1">glEnable 和 glDisable都使用同一个自变量cap，这个自变量可以采用下列值中的一个。</p>
+<p class="calibre1">GL的某些性能是被指定的。glEnablei和glDisablei激活和关闭索引性能。</p>
+<p class="calibre1">GL_BLEND</p>
+<p class="calibre1">如果被激活，则将计算的片段颜色值和颜色缓冲区中的颜色值进行混合。参见glBlendFunc。</p>
+<p class="calibre1">GL_CLIP_DISTANCEi</p>
+<p class="calibre1">如果被激活，则用用户定义的半平面i来裁剪几何图形。</p>
+<p class="calibre1">GL_COLOR_LOGIC_OP</p>
+<p class="calibre1">如果被激活，则将当前选择的逻辑操作应用于输入的计算的片段颜色值和颜色缓冲区值上。参见glLogicOp。</p>
+<p class="calibre1">GL_CULL_FACE</p>
+<p class="calibre1">如果被激活，则根据多边形围绕窗口坐标轴的情况来对其进行进行剔除。参见glCullFace。</p>
+<p class="calibre1">GL_DEPTH_TEST</p>
+<p class="calibre1">如果被激活，则进行深度比较并更新深度缓冲区。请注意即使在深度缓冲区存在、深度遮罩非0的情况下，如果深度测试被禁用，深度缓冲区也不会被更新。参见glDepthFunc和glDepthRange。</p>
+<p class="calibre1">GL_DITHER</p>
+<p class="calibre1">如果被激活，则在颜色分量或索引写入颜色缓冲区之前对其进行抖动。</p>
+<p class="calibre1">GL_LINE_SMOOTH</p>
+<p class="calibre1">如果被激活，则使用正确的滤波来绘制线。否则绘制锯齿线。参见glLineWidth。</p>
+<p class="calibre1">GL_MULTISAMPLE</p>
+<p class="calibre1">如果被激活，则在最终像素颜色的计算中使用多片段样本。参见glSampleCoverage。</p>
+<p class="calibre1">GL_POLYGON_OFFSET_FILL</p>
+<p class="calibre1">如果被激活，并且多边形在GL_FILL模式下被渲染，那么将在深度比较进行前向一个多边形的片段深度值中加入一个偏置。参见glPolygonOffset。</p>
+<p class="calibre1">GL_POLYGON_OFFSET_LINE</p>
+<p class="calibre1">如果被激活，并且多边形在GL_LINE模式下被渲染，那么将在深度比较进行前向一个多边形的片段深度值中加入一个偏置。参见glPolygonOffset。</p>
+<p class="calibre1">GL_POLYGON_OFFSET_POINT</p>
+<p class="calibre1">如果被激活，那么将在深度比较进行前向一个多边形的片段深度值中加入一个偏置，如果这个多边形是在GL_POINT模式下进行渲染的话。参见glPolygonOffset。</p>
+<p class="calibre1">GL_POLYGON_SMOOTH</p>
+<p class="calibre1">如果被激活，则使用正确的滤波来绘制多边形。否则绘制锯齿多边形。对于正确抗锯齿的多边形来说，需要一个alpha缓冲区，并且这个多边形必须从前向后存储。</p>
+<p class="calibre1">GL_PRIMITIVE_RESTART</p>
+<p class="calibre1">激活图元重启。如果被激活，那么任意一个将一组通用属性数组元素变换到GL的绘制命令都将在顶点的索引与图元重启索引相等时对图元进行重启。参见glPrimitiveRestartIndex。</p>
+<p class="calibre1">GL_SAMPLE_ALPHA_TO_COVERAGE</p>
+<p class="calibre1">如果被激活，则计算一个临时覆盖值（temporary coverage value），其中每一个位都由相应采样位置的Alpha值来决定。然后，这个临时覆盖值与片段覆盖值（fragment coverage value）进行逻辑乘（AND，即“与”运算）。</p>
+<p class="calibre1">GL_SAMPLE_ALPHA_TO_ONE</p>
+<p class="calibre1">如果被激活，则每一个采样Alpha值将由能够表示的最大Alpha值代替。</p>
+<p class="calibre1">GL_SAMPLE_COVERAGE</p>
+<p class="calibre1">如果被激活，则片段的覆盖值将与临时覆盖值进行逻辑乘。如果GL_SAMPLE_COVERAGE_INVERT被设置为GL_TRUE，则将覆盖值反相。参见glSampleCoverage。</p>
+<p class="calibre1">GL_SCISSOR_TEST</p>
+<p class="calibre1">如果被激活，则抛弃裁剪矩形以外的片段。参见glScissor。</p>
+<p class="calibre1">GL_STENCIL_TEST</p>
+<p class="calibre1">如果被激活，则进行模板测试并更新模板缓冲区。参见glStencilFunc 和 glStencilOp。</p>
+<p class="calibre1">GL_TEXTURE_CUBE_MAP_SEAMLESS</p>
+<p class="calibre1">如果被激活，则修改对立方体贴图纹理执行采样的方式。更多信息请参考规范。</p>
+<p class="calibre1">GL_PROGRAM_POINT_SIZE</p>
+<p class="calibre1">如果被激活，并且激活了一个顶点着色器或几何图形着色器，那么点大小则是从在gl_PointSize中创建的（可能是被裁剪的）着色器中获取的，并被截取到实现相关的点大小范围。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果cap不是前面列出的一个允许值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果index 大于或等于cap的索引功能数量，则glEnablei和glDisablei会产生GL_INVALID_VALUE错误。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_PRIMITIVE_RESTART只在3.1或更高版本的GL中可用。</p>
+<p class="calibre1">GL_TEXTURE_CUBE_MAP_SEAMLESS在3.2或更高版本的GL中可用。</p>
+<p class="calibre1">glEnable或glDisable能够接受的任何标记也可以被glEnablei和glDisablei接受，但是如果这项功能没有进行索引，那么index能够获取的最大值则为0。</p>
+<p class="calibre1">一般来说，向glEnable或glDisable传递一个索引功能将会分别为所有索引激活或关闭这项功能。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glIsEnabled</p>
+<p class="calibre1">glGet</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glActiveTexture, glBlendFunc, glCullFace, glDepthFunc, glDepthRange, glGet, glIsEnabled, glLineWidth, glLogicOp, glPointSize, glPolygonMode, glPolygonOffset, glSampleCoverage, glScissor, glStencilFunc, glStencilOp, glTexImage1D, glTexImage2D, glTexImage3D</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。Copyright © 2010 Khronos Group。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p> 
+</body>
+</html>

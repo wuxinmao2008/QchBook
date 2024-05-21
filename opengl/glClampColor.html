@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glClampColor</h4>
+<p class="calibre1">指定是否应该对通过glReadPixels读取的数据进行截取。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glClampColor(GLenum target,
+　　　　　　GLenum clamp);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">颜色截取的目标。target必须为GL_CLAMP_READ_COLOR。</p>
+<p class="calibre1">clamp</p>
+<p class="calibre1">指定是否应用颜色截取。clamp必须为GL_TRUE或GL_FALSE。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glClampColor控制在glReadPixels过程中执行的颜色截取操作。target必须为GL_CLAMP_READ_COLOR。如果clamp为GL_TRUE，那么将会开启读取颜色截取；如果clamp为GL_FALSE，那么读取颜色截取将关闭。如果clamp为GL_FIXED_ONLY，那么只有当读取缓冲区有定点部分时才会开启读取颜色截取，否则将关闭。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_RENDERBUFFER，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果clamp不是GL_TRUE或GL_FALSE，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_CLAMP_READ_COLOR。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

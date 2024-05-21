@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glBlendEquationSeparate</h4>
+<p class="calibre1">分别设置RGB混合方程和Alpha混合方程。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBlendEquationSeparate(GLenum modeRGB,
+　　　　　GLenum modeAlpha);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">modeRGB</p>
+<p class="calibre1">指定RGB混合方程，源和目的颜色的红、绿和蓝分量如何结合。它必须是 GL_FUNC_ADD、GL_FUNC_SUBTRACT、GL_FUNC_REVERSE_SUBTRACT、GL_MIN或GL_MAX。</p>
+<p class="calibre1">modeAlpha</p>
+<p class="calibre1">指定Alpha混合方程，源和目的颜色的Alpha分量如何结合。它必须是 GL_FUNC_ADD、GL_FUNC_SUBTRACT、GL_FUNC_REVERSE_SUBTRACT、GL_MIN或GL_MAX。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">混合方程决定一个新的像素（“源”颜色）如何与一个已经存在于帧缓冲区的像素（“目的”颜色）进行结合。这个函数为RGB颜色分量指定一个混合方程，同时为Alpha分量指定一个方程。</p>
+<p class="calibre1">这些方程使用由glBlendFunc或glBlendFuncSeparate指定的源和目的混合因子。关于各种混合因子的描述参见glBlendFunc或glBlendFuncSeparate。</p>
+<table border="1" width="90%" class="calibre13">
+<thead class="calibre14">
+<tr class="calibre15">
+<th class="calibre16">
+<p class="calibre1">模　　式</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">RGB分量</p>
+</th>
+<th class="calibre16">
+<p class="calibre1">Alpha分量</p>
+</th>
+</tr>
+</thead>
+<tbody class="calibre17">
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FUNC_ADD</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Rr = R<sub class="calibre19">s</sub>
+ s<sub class="calibre19">R</sub>
+ + R<sub class="calibre19">d</sub>
+ d<sub class="calibre19">R</sub>
+<br class="sgc-toc-title"/>
+Gr = G<sub class="calibre19">s</sub>
+ s<sub class="calibre19">G</sub>
+ + G<sub class="calibre19">d</sub>
+ d<sub class="calibre19">G</sub>
+<br class="sgc-toc-title"/>
+Br = B<sub class="calibre19">s</sub>
+ s<sub class="calibre19">B</sub>
+ + B<sub class="calibre19">d</sub>
+ d<sub class="calibre19">B</sub>
+</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Ar = A<sub class="calibre19">s</sub>
+ s<sub class="calibre19">A</sub>
+ + A<sub class="calibre19">d</sub>
+ d<sub class="calibre19">A</sub>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FUNC_SUBTRACT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Rr = R<sub class="calibre19">s</sub>
+ s<sub class="calibre19">R</sub>
+ – R<sub class="calibre19">d</sub>
+ d<sub class="calibre19">R</sub>
+<br class="sgc-toc-title"/>
+Gr = G<sub class="calibre19">s</sub>
+ s<sub class="calibre19">G</sub>
+ - G<sub class="calibre19">d</sub>
+ d<sub class="calibre19">G</sub>
+<br class="sgc-toc-title"/>
+Br = B<sub class="calibre19">s</sub>
+ s<sub class="calibre19">B</sub>
+ - B<sub class="calibre19">d</sub>
+ d<sub class="calibre19">B</sub>
+</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Ar = A<sub class="calibre19">s</sub>
+ s<sub class="calibre19">A</sub>
+ - A<sub class="calibre19">d</sub>
+ d<sub class="calibre19">A</sub>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_FUNC_REVERSE_SUBTRACT</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Rr = R<sub class="calibre19">d</sub>
+ d<sub class="calibre19">R</sub>
+ – R<sub class="calibre19">s</sub>
+ s<sub class="calibre19">R</sub>
+<br class="sgc-toc-title"/>
+Gr = G<sub class="calibre19">d</sub>
+ d<sub class="calibre19">G</sub>
+ - G<sub class="calibre19">s</sub>
+ s<sub class="calibre19">G</sub>
+<br class="sgc-toc-title"/>
+Br = B<sub class="calibre19">d</sub>
+ d<sub class="calibre19">B</sub>
+ - B<sub class="calibre19">s</sub>
+ s<sub class="calibre19">B</sub>
+</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Ar = A<sub class="calibre19">d</sub>
+ d<sub class="calibre19">A</sub>
+ - A<sub class="calibre19">s</sub>
+ s<sub class="calibre19">A</sub>
+</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_MIN</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Rr = min(R<sub class="calibre19">s</sub>
+ , R<sub class="calibre19">d</sub>
+ )<br class="sgc-toc-title"/>
+Gr = min(G<sub class="calibre19">s</sub>
+ , G<sub class="calibre19">d</sub>
+ )<br class="sgc-toc-title"/>
+Br = min(B<sub class="calibre19">s</sub>
+ , B<sub class="calibre19">d</sub>
+ )</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Ar = min(A<sub class="calibre19">s</sub>
+ , A<sub class="calibre19">d</sub>
+ )</p>
+</td>
+</tr>
+<tr class="calibre15">
+<td class="calibre18">
+<p class="calibre1">GL_MAX</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Rr = max(R<sub class="calibre19">s</sub>
+ , R<sub class="calibre19">d</sub>
+ )<br class="sgc-toc-title"/>
+Gr = max(G<sub class="calibre19">s</sub>
+ , G<sub class="calibre19">d</sub>
+ )<br class="sgc-toc-title"/>
+Br = max(B<sub class="calibre19">s</sub>
+ , B<sub class="calibre19">d</sub>
+ )</p>
+</td>
+<td class="calibre18">
+<p class="calibre1">Ar = max(A<sub class="calibre19">s</sub>
+ , A<sub class="calibre19">d</sub>
+ )</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="calibre1">在后面的方程中，源和目标颜色分量分别表示为(R<sub class="calibre19">s</sub>
+ , G<sub class="calibre19">s</sub>
+ , B<sub class="calibre19">s</sub>
+ , A<sub class="calibre19">s</sub>
+ )和(R<sub class="calibre19">d</sub>
+ , G<sub class="calibre19">d</sub>
+ , B<sub class="calibre19">d</sub>
+ , A<sub class="calibre19">d</sub>
+ )。结果得到的颜色用(R<sub class="calibre19">r</sub>
+ , G<sub class="calibre19">r</sub>
+ , B<sub class="calibre19">r</sub>
+ , A<sub class="calibre19">r</sub>
+ )表示。源和结果混合因子分别表示为(s<sub class="calibre19">R</sub>
+ , s<sub class="calibre19">G</sub>
+ , s<sub class="calibre19">B</sub>
+ , s<sub class="calibre19">A</sub>
+ )和(d<sub class="calibre19">R</sub>
+ , d<sub class="calibre19">G</sub>
+ , d<sub class="calibre19">B</sub>
+ , d<sub class="calibre19">A</sub>
+ )。在这些方程中，规定所有颜色分量的值都在[0,1]范围内。</p>
+<p class="calibre1">这些方程的结果被截取到[0,1]范围内。</p>
+<p class="calibre1">GL_MIN和GL_MAX 方程对于分析图像数据（例如阈值为一个常量颜色的图像）的应用程序来说是非常有用的。GL_FUNC_ADD 方程对反锯齿和透明度等都非常有用。</p>
+<p class="calibre1">在初始状态下，RGB混合方程和Alpha混合方程都被设置为GL_FUNC_ADD。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">GL_MIN和GL_MAX 方程不使用源或目的因子，只使用源和目的颜色。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果modeRGB或modeAlpha不是GL_FUNC_ADD、GL_FUNC_SUBTRACT、GL_FUNC_REVERSE_SUBTRACT、GL_MAX或GL_MIN中的一个，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其中一个自变量为GL_BLEND_EQUATION_RGB。</p>
+<p class="calibre1">glGet，其中一个自变量为GL_BLEND_EQUATION_ALPHA。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetString、glBlendColor、glBlendFunc、glBlendFuncSeparate。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2006 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+ 
+</body>
+</html>

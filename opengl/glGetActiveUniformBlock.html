@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGetActiveUniformBlock</h4>
+<p class="calibre1">查询关于一个活动统一块的信息。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetActiveUniformBlockiv(GLuint program,
+　　　　　　GLuint uniformBlockIndex,
+　　　　　　GLenum pname,
+　　　　　　GLint params);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定一个包含统一块的程序的名称。</p>
+<p class="calibre1">uniformBlockIndex</p>
+<p class="calibre1">指定program中统一块的索引。</p>
+<p class="calibre1">pname</p>
+<p class="calibre1">指定将要进行查询的参数的名称。</p>
+<p class="calibre1">params</p>
+<p class="calibre1">指定接收查询结果的变量的地址。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetActiveUniformBlockiv检索关于program中一个活动统一块的信息。</p>
+<p class="calibre1">program必须是一个程序对象的名称，过去必须已经为这个程序对象调用了glLinkProgram 命令，虽然并不要求glLinkProgram必须成功。这个连接可能会失败，因为活动统一变量的数量超出了限制。</p>
+<p class="calibre1">uniformBlockIndex是program的一个活动统一块索引，并且必须小于GL_ACTIVE_UNIFORM_BLOCKS的值。</p>
+<p class="calibre1">一旦成功，这个（这些）由pname 指定的统一块参数将会返回到params。如果出现错误，那么就不会向params写入任何东西。</p>
+<p class="calibre1">如果pname为GL_UNIFORM_BLOCK_BINDING，那么将会返回最后由uniformBlockIndex为program指定的统一块选择的统一缓冲区绑定点的索引 如果以前没有指定任何统一块，那么将会返回0。</p>
+<p class="calibre1">如果pname为GL_UNIFORM_BLOCK_DATA_SIZE，那么这个与实现相关的最小总缓冲区对象大小（以基本机器单元为单位）则要求返回由uniformBlockIndex指定的统一块中所有活动的统一变量。我们既不保证也不希望一个给定的实现会像在一个缓冲区对象中一样对统一值进行紧密的包装。这里的例外情况是std140统一块布局，它确保了指定的包装行为，并且不要求应用程序查询偏置和步长。在这种情况下，仍然会需要大小的最小值，即使它已经只根据统一块声明提前确定了。</p>
+<p class="calibre1">如果pname是GL_UNIFORM_BLOCK_NAME_LENGTH，那么将会返回由uniformBlockIndex 指定的统一块名称的总长度（包含空终结符）。</p>
+<p class="calibre1">如果pname是GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS，那么将会返回由uniformBlockIndex 指定的统一块中的活动统一变量数量。</p>
+<p class="calibre1">如果pname是GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES，那么将会返回由uniformBlockIndex 指定的统一块的活动统一变量索引的一个列表。将被写入到params的元素的数量是uniformBlockIndex的GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS值。</p>
+<p class="calibre1">如果pname是GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER、GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER或GL_UNIFORM_BLOCK_ REFERENCED_BY_FRAGMENT_SHADER，那么将返回一个布尔值，分别指示由uniformBlockIndex指定的统一块是否被程序的顶点、几何图形或片段编程阶段引用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果uniformBlockIndex大于或等于GL_ACTIVE_UNIFORM_BLOCKS的值，或者不是program中一个活动统一块的索引，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果pname不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果program不是过去为其调用过glLinkProgram的一个程序对象的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glGetActiveUniformBlockiv只在3.1或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGetActiveUniformBlockName, glGetUniformBlockIndex, glLinkProgram</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

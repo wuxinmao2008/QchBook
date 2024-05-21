@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    <h4 class="sigil_not_in_toc">glCullFace</h4>
+<p class="calibre1">指定前向和背向的面是否能够进行剔除。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glCullFace(GLenum mode);</code>	  
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定前面和背面是否能够进行剔除。符号常量GL_FRONT、GL_BACK和GL_FRONT_AND_BACK可以被接受。初始值为GL_BACK。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glCullFace指定在启用表面剔除时前面和背面是否进行剔除（由mode指定）。初始状态下表面剔除是关闭的。可以调用参数为GL_CULL_FACE的glEnable和glDisable命令来激活和关闭表面剔除。这些表面包括三角形、四边形、多边形和矩形。</p>
+<p class="calibre1">glFrontFace 指定顺时针和逆时针方向的哪一个面为前向和背向的。参见glFrontFace。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果mode为GL_FRONT_AND_BACK，将不会绘制任何表面，但其他图元（例如点和线）将会被绘制。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glIsEnabled，其自变量为GL_CULL_FACE。</p>
+<p class="calibre1">glGet，其自变量为GL_CULL_FACE_MODE。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glEnable, glFrontFace</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</pre>
+</body>
+</html>

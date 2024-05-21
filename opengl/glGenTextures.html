@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGenTextures</h4>
+<p class="calibre1">生成纹理名称。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGenTextures(GLsizei n,
+　　　　　　GLuint * textures);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">n</p>
+<p class="calibre1">指定将要生成的纹理名称的数量。</p>
+<p class="calibre1">textures</p>
+<p class="calibre1">指定一个生成的纹理名称将要存储到其中的数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGenTextures 在textures中返回 n 个纹理名称。并不能保证这些名称会组成一个连续的一组整数，不过可以保证这些返回的名称不会在调用glGenTextures前就立即被使用。</p>
+<p class="calibre1">生成的纹理没有维度，它们会采用第一次绑定到的纹理目标的维度（参见glBindTexture）。</p>
+<p class="calibre1">调用glGenTextures而返回的纹理名称不会在后续的调用中返回，除非他们首先由glDeleteTextures来删除。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果n为负值，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glIsTexture</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindTexture, glCopyTexImage1D, glCopyTexImage2D, glDeleteTextures, glGet, glGetTexParameter, glTexImage1D, glTexImage2D, glTexImage3D, glTexParameter</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>
+</body>
+</html>

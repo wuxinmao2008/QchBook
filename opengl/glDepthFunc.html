@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+<h4 class="sigil_not_in_toc">glDepthFunc</h4>
+<p class="calibre1">指定用于深度缓冲区比较（depth buffer comparison）的值。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDepthFunc(GLenum func);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">func</p>
+<p class="calibre1">指定深度比较函数。符号常量GL_NEVER, GL_LESS、GL_EQUAL、GL_LEQUAL、GL_GREATER、GL_NOTEQUAL、GL_GEQUAL和 GL_ALWAYS 可以被接受。初始值为GL_LESS。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDepthFunc 指定用来将每个输入的像素深度值与深度缓冲区中出现的深度值进行比较的函数。只有在深度测试被激活的情况下才能执行这种比较。</p>
+<p class="calibre1">（参见GL_DEPTH_TEST的glEnable 和 glDisable）。func 指定像素将会被绘制的条件。比较函数如下。</p>
+<p class="calibre1">GL_NEVER：总是不通过。</p>
+<p class="calibre1">GL_LESS：在输入深度值小于存储的深度值时通过。</p>
+<p class="calibre1">GL_EQUAL：在输入深度值等于存储的深度值时通过。</p>
+<p class="calibre1">GL_LEQUAL：在输入深度值小于或等于存储的深度值时通过。</p>
+<p class="calibre1">GL_GREATER：在输入深度值大于存储的深度值时通过。</p>
+<p class="calibre1">GL_NOEQUAL：在输入深度值不等于存储的深度值时通过。</p>
+<p class="calibre1">GL_GEQUAL：在输入深度值大于或等于存储的深度值时通过。</p>
+<p class="calibre1">GL_ALWAYS：总是通过。</p>
+<p class="calibre1">func的初始值为GL_LESS。在初始条件下，深度测试是被禁用的。如果深度测试被禁用，或者不存在深度测试，那么就相当于深度测试总是通过一样。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">即使在深度缓冲区存在、深度遮罩非0的情况下，如果深度测试被禁用，深度缓冲区也不会被更新。如果要无条件地写入到深度缓冲区中，那么深度测试应该被激活，并且设置为GL_ALWAYS。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果func不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGet，其自变量为GL_DEPTH_FUNC。</p>
+<p class="calibre1">glIsEnabled，其自变量为GL_DEPTH_TEST。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDepthRange, glEnable, glPolygonOffset</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 1991-2006 Silicon Graphics, Inc。本文档由SGI Free Software B License授权。相关细节参见 <a href="http://oss.sgi.com/projects/FreeB/">http://oss.sgi.com/projects/FreeB/</a>
+ 。</p>     
+</body>
+</html>

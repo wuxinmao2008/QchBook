@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glFramebufferRenderbuffer</h4>
+<p class="calibre1">将一个渲染缓冲区作为逻辑缓冲区绑定到当前绑定的帧缓冲区对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">GLsync glFramebufferRenderbuffer(GLenum target,
+　　　　　　GLenum attachment,
+　　　　　　GLenum renderbuffertarget,
+　　　　　　GLuint renderbuffer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定帧缓冲区目标。target必须为GL_DRAW_FRAMEBUFFER、GL_READ_FRAMEBUFFER或GL_FRAMEBUFFER。GL_FRAMEBUFFER等价于GL_DRAW_FRAMEBUFFER。</p>
+<p class="calibre1">attachment</p>
+<p class="calibre1">指定帧缓冲区的绑定点。</p>
+<p class="calibre1">renderbuffertarget</p>
+<p class="calibre1">指定渲染缓冲区目标，必须为GL_RENDERBUFFER。</p>
+<p class="calibre1">renderbuffer</p>
+<p class="calibre1">指定将要进行绑定的一个已经存在的renderbuffertarget类型渲染缓冲区对象的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glFramebufferRenderbuffer将一个渲染缓冲区绑定为当前绑定的帧缓冲区对象的一个逻辑缓冲区。renderbuffer是要绑定的渲染缓冲区对象的名称，必须为0或一个已经存在的renderbuffertarget类型渲染缓冲区对象的名称。如果renderbuffer不为0，并且如果glFramebufferRenderbuffer成功，那么渲染缓冲区名称renderbuffer将被作为由当前绑定到target的帧缓冲区的attachment来标识的逻辑缓冲区使用。</p>
+<p class="calibre1">指定绑定点的GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE的值被设置为GL_RENDERBUFFER，并且GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME的值被设置为renderbuffer。由attachment指定的绑定点的所有其他状态都被设置为它们的默认值。渲染缓冲区对象的状态不会发生任何改变，并且以前到这个帧缓冲区target的attachment逻辑缓冲区attachment的任何绑定都会被解除。</p>
+<p class="calibre1">调用帧缓冲区名为zero的glFramebufferRenderbuffer将会对当前绑定到target的帧缓冲区中任何由attachment标识的图像（如果有的话）解除绑定。绑定到target的对象中由attachment指定的绑定点的所有状态都被设置为它们的默认值。</p>
+<p class="calibre1">将attachment设置为GL_DEPTH_STENCIL_ATTACHMENT是一种特别的情况，会导致帧缓冲区对象的深度和模板绑定都被设置成应该为基本内部格式GL_DEPTH_STENCIL的renderbuffer。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是一个可接受的标记，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果renderbuffertarGet不是GL_RENDERBUFFER，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果0被绑定到tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenFramebuffers, glBindFramebuffer, glGenRenderbuffers, glFramebufferTexture, glFramebufferTexture1D,glFramebufferTexture2D, glFramebufferTexture3D</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

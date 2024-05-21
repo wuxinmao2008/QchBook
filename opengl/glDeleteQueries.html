@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDeleteQueries</h4>
+<p class="calibre1">删除指定的查询对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDeleteQueries(GLsizei n,
+　　　　　　const GLuint * ids);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">n</p>
+<p class="calibre1">指定将要被删除的查询对象的数量。</p>
+<p class="calibre1">ids</p>
+<p class="calibre1">指定将要被删除的查询对象的一个序列。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDeleteQueries删除由ids数组元素指定的n个缓冲区对象。在一个缓冲区对象被删除以后，它将不再有任何内容，并且它的名字已经可以进行重用了（例如被glGenQueries重用）。</p>
+<p class="calibre1">glDeleteQueries 默认忽略0和不符合现有查询对象的名称。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果n为负值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果glDeleteQueries在glBegin执行和相应的glEnd执行之间执行，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glIsQuery</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBeginQuery, glEndQuery, glGenQueries, glGetQueryiv, glGetQueryObject</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

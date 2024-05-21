@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glBlitFramebuffer</h4>
+<p class="calibre1">绑定一个顶点数组对象。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBlitFramebuffer(GLint srcX0,
+　　　　　　GLint srcY0,　　　　　　
+　　　　　　GLint srcX1,
+　　　　　　GLint srcY1,
+　　　　　　GLint dstX0,
+　　　　　　GLint dstY0,
+　　　　　　GLint dstX1,
+　　　　　　GLint dstY1,
+　　　　　　GLbitfield mask,
+　　　　　　GLenum filter);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">srcX0</p>
+<p class="calibre1">srcY0</p>
+<p class="calibre1">srcX1</p>
+<p class="calibre1">srcY1</p>
+<p class="calibre1">指定读取帧缓冲区中的读取缓冲区中源矩形的边界。</p>
+<p class="calibre1">dstX0</p>
+<p class="calibre1">dstY0</p>
+<p class="calibre1">dstX1</p>
+<p class="calibre1">dstY1</p>
+<p class="calibre1">指定写入帧缓冲区中的写入缓冲区中目的矩形的边界。</p>
+<p class="calibre1">mask</p>
+<p class="calibre1">对标记进行按位或，指示要对哪些缓冲区进行复制。允许的标志有GL_COLOR_BUFFER_BIT、GL_DEPTH_BUFFER_BIT和GL_STENCIL_BUFFER_BIT。</p>
+<p class="calibre1">filter</p>
+<p class="calibre1">如果图像进行拉伸，那么就要指定进行的插值。必须为GL_NEAREST或GL_LINEAR。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBlitFramebuffer将一个像素值矩形从读取帧缓冲区中的一个区域移动到绘制帧缓冲区中的另一个区域。mask就是对一些值进行的按位或，指示要对哪些缓冲区进行复制。这些值包括GL_COLOR_BUFFER_BIT、GL_DEPTH_BUFFER_BIT和GL_STENCIL_BUFFER_BIT。与这些缓冲区对应的像素从由(srcX0; srcY0)和(srcX1; srcY1)位置限定的源矩形被复制到由(dstX0; dstY0)和(dstX1; dstY1)位置限定的目标矩形。其中包含了矩形的底部边界，但没有包含顶部边界。</p>
+<p class="calibre1">从读取缓冲区中获取的实际区域被限制在这些传输的源缓冲区的交叉部分，其中可能包括由读取缓冲区选择的颜色缓冲区、深度缓冲区和/或模板缓冲区，根据遮罩而定。写入到绘制缓冲区的实际区域被限制在这些被写入的目的缓冲区的交叉部分，其中可能包括多重绘制缓冲区、深度缓冲区和/或模板缓冲区，根据遮罩而定。源区域或目的区域是否改变要跟据这些限制条件而定，应用到被传输的像素上的缩放和偏置会被执行，就像不存在着些限制一样。</p>
+<p class="calibre1">如果源矩形和目的矩形的大小不相等，那么filter会指定将要在重新设定源图像大小时应用的插值方法，并且必须为GL_NEAREST或GL_LINEAR。</p>
+<p class="calibre1">GL_LINEAR只是一种对于颜色缓冲区有效的插值方法。如果filter不是GL_NEAREST，并且mask包括GL_DEPTH_BUFFER_BIT或GL_STENCIL_BUFFER_BIT，那么不会传输任何数据，并且会产生一个GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果filter是GL_LINEAR，并且源矩形需要在源帧缓冲区的边界之外进行采样，那么这些值将被读取，就像应用了像纹理环绕模式一样。</p>
+<p class="calibre1">当颜色缓冲区进行传输时，那么将会从读取帧缓冲区的读取缓冲区中获取值，并写入到绘制帧缓冲区的每个绘制缓冲区中。</p>
+<p class="calibre1">如果源矩形和目的矩形重叠，或只是同一个矩形，并且读取缓冲区和绘制缓冲区是同一个缓冲区，那么操作的结果将是未定义的。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glBindVertexArray在3.0或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mask包含GL_DEPTH_BUFFER_BIT 或GL_STENCIL_BUFFER_BIT中的任何一个，并且filter不是GL_NEAREST，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果mask包含GL_DEPTH_BUFFER_BIT，或者下列条件中的任何一个成立，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">读取缓冲区包含定点或浮点值，而任何绘制缓冲区都不包含定点值或浮点值。</p>
+<p class="calibre1">读取缓冲区包含无符号值，而任何绘制缓冲区都不包含无符号值。</p>
+<p class="calibre1">读取缓冲区包含有符号值，而任何绘制缓冲区都不包含有符号值。</p>
+<p class="calibre1">如果mask包含GL_DEPTH_BUFFER_BIT 或GL_STENCIL_BUFFER_BIT，并且源深度格式和目的深度格式、源模板格式和目的模板格式不匹配，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果filter是GL_LINEAR，并且读取缓冲区包含整型数据，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果读取和绘制缓冲区的GL_SAMPLES值不相等，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果读取和绘制缓冲区的GL_SAMPLE_BUFFERS都大于0，并且源矩形和目的矩形的维度不相等，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果绑定到GL_DRAW_ FRAMEBUFFER_BINDING或GL_READ_FRAMEBUFFER_BINDING的对象不完全是真缓冲区，则产生GL_INVALID_FRAMEBUFFER_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glReadPixels、glCheckFramebufferStatus、glGenFramebuffers、glBindFramebuffer、glDeleteFramebuffers。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

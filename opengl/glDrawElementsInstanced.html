@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glDrawElementsInstanced</h4>
+<p class="calibre1">绘制一组元素的多个实例。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glDrawElementsInstanced(GLenum mode,
+　　　　　　GLsizei count,
+　　　　　　GLenum type,
+　　　　　　const void * indices,
+　　　　　　GLsizei primcount);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">mode</p>
+<p class="calibre1">指定将要渲染哪种类型的图元。符号常量GL_POINTS、GL_LINE_STRIP、GL_LINE_LOOP、GL_LINES、GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP、GL_TRIANGLE_FAN、GL_TRIANGLES、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY都是可接受的。</p>
+<p class="calibre1">count</p>
+<p class="calibre1">指定将要被渲染的元素数量。</p>
+<p class="calibre1">type</p>
+<p class="calibre1">指定indices中的值的类型，必须是GL_UNSIGNED_BYTE、GL_UNSIGNED_SHORT和GL_UNSIGNED_INT中的一个。</p>
+<p class="calibre1">indices</p>
+<p class="calibre1">指定一个指向索引存储位置的指针。</p>
+<p class="calibre1">primcount</p>
+<p class="calibre1">指定将要被渲染的指定范围索引的实例的数量。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glDrawElementsInstanced的行为与glDrawElements相同，除了执行一组元素的primcount实例，以及内部计数器instanceID 的值在每次迭代时都会递增之外。instanceID 是一个内部32位整型计数器，可以由gl_InstanceID这样的顶点着色器进行读取。</p>
+<p class="calibre1">glDrawElementsInstanced的效果与下列代码相同。</p>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">&lt;![CDATA[ if (mode, count, or type is invalid )
+generate appropriate error
+else {
+for (int i = 0; i &lt; primcount ; i++) {
+instanceID = i;
+glDrawElements(mode, count, type, indices);
+}
+instanceID = 0;
+}]]&gt;</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">glDrawElementsInstanced只在3.1或更高版本的GL中可用。</p>
+<p class="calibre1">GL_LINE_STRIP_ADJACENCY、GL_LINES_ADJACENCY、GL_TRIANGLE_STRIP_ADJACENCY和GL_TRIANGLES_ADJACENCY只在3.2或更高版本的GL中可用。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果mode不是GL_POINTS、GL_LINE_STRIP、GL_LINE_LOOP、GL_LINES、GL_TRIANGLE_STRIP、GL_TRIANGLE_FAN或GL_TRIANGLES，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果count或者primcount为负值，则产生GL_INVALID_VALUE 错误。</p>
+<p class="calibre1">如果一个几何图形着色器被激活，并且mode与当前安装的程序对象中几何图形着色器的输入图元类型不兼容，那么将生成GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果非0缓冲区对象名称被绑定到一个激活的数组，并且缓冲区对象的数据存储当前被映射，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glDrawElements, glDrawArraysInstanced</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2010 Khronos Group。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGetBufferParameteriv</h4>
+<p class="calibre1">返回一个缓冲区对象的参数。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetBufferParameteriv(GLenum target,
+　　　　　　GLenum value,
+　　　　　　GLint * data);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定目标缓冲区对象。符号常量必须是GL_ARRAY_BUFFER、GL_COPY_READ_BUFFER、GL_COPY_WRITE_BUFFER、GL_ELEMENT_ARRAY_BUFFER、GL_PIXEL_PACK_BUFFER、GL_PIXEL_UNPACK_BUFFER、GL_TEXTURE_BUFFER、GL_TRANSFORM_FEEDBACK_BUFFER或GL_UNIFORM_BUFFER。</p>
+<p class="calibre1">value</p>
+<p class="calibre1">指定缓冲区对象参数的符号明。可接受的值为GL_BUFFER_ACCESS、GL_BUFFER_MAPPED、GL_BUFFER_SIZE或GL_BUFFER_USAGE。</p>
+<p class="calibre1">data</p>
+<p class="calibre1">返回所需参数。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetBufferParameteriv 将一个由tarGet指定的缓冲区对象的一个选定参数返回到data。</p>
+<p class="calibre1">value 指定一个具体的缓冲区对象参数，如下所示。</p>
+<h4 class="sigil_not_in_toc">GL_BUFFER_ACCESS</h4>
+<p class="calibre1">params 返回在进行缓冲区对象映射时设置的访问策略。初始值为GL_READ_WRITE。</p>
+<p class="calibre1">GL_BUFFER_MAPPED</p>
+<p class="calibre1">params 返回一个指示缓冲区对象当前是否被映射的标记。初始值为GL_FALSE。</p>
+<p class="calibre1">GL_BUFFER_SIZE</p>
+<p class="calibre1">params 返回缓冲区对象的大小，以字节为单位。初始值为0。</p>
+<p class="calibre1">GL_BUFFER_USAGE</p>
+<p class="calibre1">params 返回缓冲区对象的使用模式。初始值为GL_STATIC_DRAW。</p>
+<h4 class="sigil_not_in_toc">注意</h4>
+<p class="calibre1">如果有错误产生，那么data的内容不会进行任何修改。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet 或value不是一个可接受的值，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果保留的缓冲区对象名称0被绑定到 tarGet，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glBindBuffer, glBufferData, glMapBuffer, glUnmapBuffer</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2005 Addison-Wesley。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>

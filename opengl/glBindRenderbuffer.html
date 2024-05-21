@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glBindRenderbuffer</h4>
+<p class="calibre1">将一个渲染缓冲区绑定到一个渲染缓冲区目标上。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glBindRenderbuffer(GLenum target,
+　　　　　GLuint renderbuffer);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">target</p>
+<p class="calibre1">指定绑定操作的渲染缓冲区目标。target必须为GL_RENDERBUFFER。</p>
+<p class="calibre1">renderbuffer</p>
+<p class="calibre1">指定将要进行绑定的渲染缓冲区对象的名称。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glBindRenderbuffer将名称为renderbuffer 的帧缓冲区对象绑定到target指定的渲染缓冲区目标上。</p>
+<p class="calibre1">target必须为GL_RENDERBUFFER。</p>
+<p class="calibre1">renderbuffer是以前的一个glGenRenderbuffers调用所返回的渲染缓冲区对象的名称，或者也可以设为0来解除已经存在的从一个渲染缓冲区对象到target的绑定。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果tarGet不是GL_RENDERBUFFER，则产生GL_INVALID_ENUM错误。</p>
+<p class="calibre1">如果renderbuffer不是0或以前的一次glGenRenderbuffers调用所返回的渲染缓冲区的名称，则产生GL_INVALID_OPERATION错误。</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glGenRenderbuffers、glDeleteRenderbuffers、glRenderbufferStorage、glRenderbufferStorageMultisample、glIsRenderbuffer。</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+</body>
+</html>

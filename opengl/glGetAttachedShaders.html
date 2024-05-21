@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#" lang="en" xml:lang="en">
+  <head>
+    <title>未知</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="../page_styles.css"/>
+</head>
+<body>
+    
+<h4 class="sigil_not_in_toc">glGetAttachedShaders</h4>
+<p class="calibre1">返回绑定到一个程序对象的着色器对象的句柄。</p>
+<h4 class="sigil_not_in_toc">C规范</h4>
+<pre class="dai_ma_wu_xing_hao">
+<code class="calibre12">void glGetAttachedShaders(GLuint program,
+　　　　　　GLsizei maxCount,
+　　　　　　GLsizei * count,
+　　　　　　GLuint * shaders);</code>
+
+</pre>
+<h4 class="sigil_not_in_toc">参数</h4>
+<p class="calibre1">program</p>
+<p class="calibre1">指定将要被查询的程序对象。</p>
+<p class="calibre1">maxCount</p>
+<p class="calibre1">指定用于存储返回的对象名称的数组的大小。</p>
+<p class="calibre1">count</p>
+<p class="calibre1">返回在objects中实际返回的名称数量。</p>
+<p class="calibre1">shaders</p>
+<p class="calibre1">指定一个用于返回绑定着色器对象的名称的数组。</p>
+<h4 class="sigil_not_in_toc">描述</h4>
+<p class="calibre1">glGetAttachedShaders 返回绑定到program的着色器对象的名称。绑定到program的着色器对象的名称将被返回到shaders中。写入shaders的着色器名称的实际数量返回到count中。如果没有着色器被绑定到program，那么count将被设为0。可以返回到shaders的着色器名称的最大数量由maxCount指定。</p>
+<p class="calibre1">如果实际返回的名称数量不是必需的（例如，它刚刚通过调用glGetProgram而获得），可能会传递一个NULL值来充数。如果没有着色器对象被绑定到program，count中将返回一个0值。绑定的实际数量可以通过调用值为GL_ATTACHED_SHADERS的glGetProgram来获取。</p>
+<h4 class="sigil_not_in_toc">错误</h4>
+<p class="calibre1">如果program不是由OpenGL产生的值，则产生GL_INVALID_VALUE错误。</p>
+<p class="calibre1">如果program不是一个程序对象，则产生GL_INVALID_OPERATION错误。</p>
+<p class="calibre1">如果maxCount小于0，则产生GL_INVALID_VALUE 错误。</p>
+<h4 class="sigil_not_in_toc">相关Get函数</h4>
+<p class="calibre1">glGetProgram，其自变量为GL_ATTACHED_SHADERS。</p>
+<p class="calibre1">glIsProgram</p>
+<h4 class="sigil_not_in_toc">另外查看</h4>
+<p class="calibre1">glAttachShader, glDetachShader</p>
+<h4 class="sigil_not_in_toc">版权</h4>
+<p class="calibre1">Copyright © 2003-2005 3Dlabs Inc. Ltd。这些材料可以按照Open Publication License, v 1.0, 8 June 1999中规定的条款和条件进行发布。<a href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</a>
+ 。</p>
+</body>
+</html>
