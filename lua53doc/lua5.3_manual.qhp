@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 sp1 (x64) (http://www.altova.com) by asf (kv) -->
+<QtHelpProject version="1.0">
+	<namespace>lua53</namespace>
+	<virtualFolder>doc</virtualFolder>
+	<filterSection>
+		<toc>
+			<section title="Lua5.3 欢迎你" ref="index.html">
+				<section title="关于Lua" ref="index.html#about"/>
+				<section title="安装Lua" ref="index.html#install"/>
+				<section title="自Lua5.2以来的变更" ref="index.html#changes"/>
+				<section title="License" ref="index.html#license"/>
+			</section>
+			<section title="Lua5.3 参考手册" ref="contents.html">
+				<section title="1.简介" ref="manual.html"/>
+				<section title="2.基本概念" ref="manual.html#2">
+					<section title="2.1 值与类型" ref="manual.html#2.1"/>
+					<section title="2.2 环境与全局环境" ref="manual.html#2.2"/>
+					<section title="2.3 错误处理" ref="manual.html#2.3"/>
+					<section title="2.4 元表及元方法" ref="manual.html#2.4"/>
+					<section title="2.5 垃圾收集" ref="manual.html#2.5"/>
+					<section title="2.6 协程" ref="manual.html#2.6"/>
+				</section>
+				<section title="3.语言定义" ref="manual.html#3">
+					<section title="3.1 词法约定" ref="manual.html#3.1"/>
+					<section title="3.2 变量" ref="manual.html#3.2"/>
+					<section title="3.3 语句" ref="manual.html#3.3"/>
+					<section title="3.4 表达式" ref="manual.html#3.4"/>
+					<section title="3.5 可见性规则" ref="manual.html#3.5"/>
+				</section>
+				<section title="4.编程接口" ref="manual.html#4">
+					<section title="4.1 栈" ref="manual.html#4.1"/>
+					<section title="4.2 栈大小" ref="manual.html#4.2"/>
+					<section title="4.3 有效索引与可接受索引" ref="manual.html#4.3"/>
+					<section title="4.4 C闭包" ref="manual.html#4.4"/>
+					<section title="4.5 注册表" ref="manual.html#4.5"/>
+					<section title="4.6 C中的错误处理" ref="manual.html#4.6"/>
+					<section title="4.7 C中的让出处理" ref="manual.html#4.7"/>
+					<section title="4.8 函数和类型" ref="manual.html#4.8"/>
+					<section title="4.9 调试接口" ref="manual.html#4.9"/>
+				</section>
+				<section title="5. 辅助库" ref="manual.html#5">
+					<section title="5.1 函数和类型" ref="manual.html#5.1"/>
+				</section>
+				<section title="6. 标准库" ref="manual.html#6">
+					<section title="6.1 基本函数" ref="manual.html#6.1"/>
+					<section title="6.2 协程管理" ref="manual.html#6.2"/>
+					<section title="6.3 模块" ref="manual.html#6.3"/>
+					<section title="6.4 字符串处理" ref="manual.html#6.4"/>
+					<section title="6.5 UTF-8支持" ref="manual.html#6.5"/>
+					<section title="6.6 表处理" ref="manual.html#6.6"/>
+					<section title="6.7 数学函数" ref="manual.html#6.7"/>
+					<section title="6.8 输入输出设施" ref="manual.html#6.8"/>
+					<section title="6.9 操作系统设施" ref="manual.html#6.9"/>
+					<section title="6.10 调试库" ref="manual.html#6.10"/>
+				</section>
+				<section title="7. 独立版Lua" ref="manual.html#7"/>
+				<section title="8. 与之前版本不兼容的地方" ref="manual.html#8">
+					<section title="8.1 语言的变更" ref="manual.html#8.1"/>
+					<section title="8.2 库的变更" ref="manual.html#8.2"/>
+					<section title="8.3 API 的变更" ref="manual.html#8.3"/>
+				</section>
+				<section title="9. Lua的完整语法" ref="manual.html#9"/>
+			</section>
+		</toc>
+		<keywords>
+			<keyword name="lua::_G" ref="manual.html#pdf-_G"/>
+			<keyword name="lua::_VERSION" ref="manual.html#pdf-_VERSION"/>
+			<keyword name="lua::assert" ref="manual.html#pdf-assert"/>
+			<keyword name="lua::collectgarbage" ref="manual.html#pdf-collectgarbage"/>
+			<keyword name="lua::dofile" ref="manual.html#pdf-dofile"/>
+			<keyword name="lua::error" ref="manual.html#pdf-error"/>
+			<keyword name="lua::getmetatable" ref="manual.html#pdf-getmetatable"/>
+			<keyword name="lua::ipairs" ref="manual.html#pdf-ipairs"/>
+			<keyword name="lua::load" ref="manual.html#pdf-load"/>
+			<keyword name="lua::loadfile" ref="manual.html#pdf-loadfile"/>
+			<keyword name="lua::next" ref="manual.html#pdf-next"/>
+			<keyword name="lua::pairs" ref="manual.html#pdf-pairs"/>
+			<keyword name="lua::pcall" ref="manual.html#pdf-pcall"/>
+			<keyword name="lua::print" ref="manual.html#pdf-print"/>
+			<keyword name="lua::rawequal" ref="manual.html#pdf-rawequal"/>
+			<keyword name="lua::rawget" ref="manual.html#pdf-rawget"/>
+			<keyword name="lua::rawlen" ref="manual.html#pdf-rawlen"/>
+			<keyword name="lua::rawset" ref="manual.html#pdf-rawset"/>
+			<keyword name="lua::require" ref="manual.html#pdf-require"/>
+			<keyword name="lua::select" ref="manual.html#pdf-select"/>
+			<keyword name="lua::setmetatable" ref="manual.html#pdf-setmetatable"/>
+			<keyword name="lua::tonumber" ref="manual.html#pdf-tonumber"/>
+			<keyword name="lua::tostring" ref="manual.html#pdf-tostring"/>
+			<keyword name="lua::type" ref="manual.html#pdf-type"/>
+			<keyword name="lua::xpcall" ref="manual.html#pdf-xpcall"/>
+			<keyword name="lua::coroutine.create" ref="manual.html#pdf-coroutine.create"/>
+			<keyword name="lua::coroutine.isyieldable" ref="manual.html#pdf-coroutine.isyieldable"/>
+			<keyword name="lua::coroutine.resume" ref="manual.html#pdf-coroutine.resume"/>
+			<keyword name="lua::coroutine.running" ref="manual.html#pdf-coroutine.running"/>
+			<keyword name="lua::coroutine.status" ref="manual.html#pdf-coroutine.status"/>
+			<keyword name="lua::coroutine.wrap" ref="manual.html#pdf-coroutine.wrap"/>
+			<keyword name="lua::coroutine.yield" ref="manual.html#pdf-coroutine.yield"/>
+			<keyword name="lua::debug.debug" ref="manual.html#pdf-debug.debug"/>
+			<keyword name="lua::debug.gethook" ref="manual.html#pdf-debug.gethook"/>
+			<keyword name="lua::debug.getinfo" ref="manual.html#pdf-debug.getinfo"/>
+			<keyword name="lua::debug.getlocal" ref="manual.html#pdf-debug.getlocal"/>
+			<keyword name="lua::debug.getmetatable" ref="manual.html#pdf-debug.getmetatable"/>
+			<keyword name="lua::debug.getregistry" ref="manual.html#pdf-debug.getregistry"/>
+			<keyword name="lua::debug.getupvalue" ref="manual.html#pdf-debug.getupvalue"/>
+			<keyword name="lua::debug.getuservalue" ref="manual.html#pdf-debug.getuservalue"/>
+			<keyword name="lua::debug.sethook" ref="manual.html#pdf-debug.sethook"/>
+			<keyword name="lua::debug.setlocal" ref="manual.html#pdf-debug.setlocal"/>
+			<keyword name="lua::debug.setmetatable" ref="manual.html#pdf-debug.setmetatable"/>
+			<keyword name="lua::debug.setupvalue" ref="manual.html#pdf-debug.setupvalue"/>
+			<keyword name="lua::debug.setuservalue" ref="manual.html#pdf-debug.setuservalue"/>
+			<keyword name="lua::debug.traceback" ref="manual.html#pdf-debug.traceback"/>
+			<keyword name="lua::debug.upvalueid" ref="manual.html#pdf-debug.upvalueid"/>
+			<keyword name="lua::debug.upvaluejoin" ref="manual.html#pdf-debug.upvaluejoin"/>
+			<keyword name="lua::io.close" ref="manual.html#pdf-io.close"/>
+			<keyword name="lua::io.flush" ref="manual.html#pdf-io.flush"/>
+			<keyword name="lua::io.input" ref="manual.html#pdf-io.input"/>
+			<keyword name="lua::io.lines" ref="manual.html#pdf-io.lines"/>
+			<keyword name="lua::io.open" ref="manual.html#pdf-io.open"/>
+			<keyword name="lua::io.output" ref="manual.html#pdf-io.output"/>
+			<keyword name="lua::io.popen" ref="manual.html#pdf-io.popen"/>
+			<keyword name="lua::io.read" ref="manual.html#pdf-io.read"/>
+			<keyword name="lua::io.stderr" ref="manual.html#pdf-io.stderr"/>
+			<keyword name="lua::io.stdin" ref="manual.html#pdf-io.stdin"/>
+			<keyword name="lua::io.stdout" ref="manual.html#pdf-io.stdout"/>
+			<keyword name="lua::io.tmpfile" ref="manual.html#pdf-io.tmpfile"/>
+			<keyword name="lua::io.type" ref="manual.html#pdf-io.type"/>
+			<keyword name="lua::io.write" ref="manual.html#pdf-io.write"/>
+			<keyword name="lua::file:close" ref="manual.html#pdf-file:close"/>
+			<keyword name="lua::file:flush" ref="manual.html#pdf-file:flush"/>
+			<keyword name="lua::file:lines" ref="manual.html#pdf-file:lines"/>
+			<keyword name="lua::file:read" ref="manual.html#pdf-file:read"/>
+			<keyword name="lua::file:seek" ref="manual.html#pdf-file:seek"/>
+			<keyword name="lua::file:setvbuf" ref="manual.html#pdf-file:setvbuf"/>
+			<keyword name="lua::file:write" ref="manual.html#pdf-file:write"/>
+			<keyword name="lua::math.abs" ref="manual.html#pdf-math.abs"/>
+			<keyword name="lua::math.acos" ref="manual.html#pdf-math.acos"/>
+			<keyword name="lua::math.asin" ref="manual.html#pdf-math.asin"/>
+			<keyword name="lua::math.atan" ref="manual.html#pdf-math.atan"/>
+			<keyword name="lua::math.ceil" ref="manual.html#pdf-math.ceil"/>
+			<keyword name="lua::math.cos" ref="manual.html#pdf-math.cos"/>
+			<keyword name="lua::math.deg" ref="manual.html#pdf-math.deg"/>
+			<keyword name="lua::math.exp" ref="manual.html#pdf-math.exp"/>
+			<keyword name="lua::math.floor" ref="manual.html#pdf-math.floor"/>
+			<keyword name="lua::math.fmod" ref="manual.html#pdf-math.fmod"/>
+			<keyword name="lua::math.huge" ref="manual.html#pdf-math.huge"/>
+			<keyword name="lua::math.log" ref="manual.html#pdf-math.log"/>
+			<keyword name="lua::math.max" ref="manual.html#pdf-math.max"/>
+			<keyword name="lua::math.maxinteger" ref="manual.html#pdf-math.maxinteger"/>
+			<keyword name="lua::math.min" ref="manual.html#pdf-math.min"/>
+			<keyword name="lua::math.mininteger" ref="manual.html#pdf-math.mininteger"/>
+			<keyword name="lua::math.modf" ref="manual.html#pdf-math.modf"/>
+			<keyword name="lua::math.pi" ref="manual.html#pdf-math.pi"/>
+			<keyword name="lua::math.rad" ref="manual.html#pdf-math.rad"/>
+			<keyword name="lua::math.random" ref="manual.html#pdf-math.random"/>
+			<keyword name="lua::math.randomseed" ref="manual.html#pdf-math.randomseed"/>
+			<keyword name="lua::math.sin" ref="manual.html#pdf-math.sin"/>
+			<keyword name="lua::math.sqrt" ref="manual.html#pdf-math.sqrt"/>
+			<keyword name="lua::math.tan" ref="manual.html#pdf-math.tan"/>
+			<keyword name="lua::math.tointeger" ref="manual.html#pdf-math.tointeger"/>
+			<keyword name="lua::math.type" ref="manual.html#pdf-math.type"/>
+			<keyword name="lua::math.ult" ref="manual.html#pdf-math.ult"/>
+			<keyword name="lua::os.clock" ref="manual.html#pdf-os.clock"/>
+			<keyword name="lua::os.date" ref="manual.html#pdf-os.date"/>
+			<keyword name="lua::os.difftime" ref="manual.html#pdf-os.difftime"/>
+			<keyword name="lua::os.execute" ref="manual.html#pdf-os.execute"/>
+			<keyword name="lua::os.exit" ref="manual.html#pdf-os.exit"/>
+			<keyword name="lua::os.getenv" ref="manual.html#pdf-os.getenv"/>
+			<keyword name="lua::os.remove" ref="manual.html#pdf-os.remove"/>
+			<keyword name="lua::os.rename" ref="manual.html#pdf-os.rename"/>
+			<keyword name="lua::os.setlocale" ref="manual.html#pdf-os.setlocale"/>
+			<keyword name="lua::os.time" ref="manual.html#pdf-os.time"/>
+			<keyword name="lua::os.tmpname" ref="manual.html#pdf-os.tmpname"/>
+			<keyword name="lua::package.config" ref="manual.html#pdf-package.config"/>
+			<keyword name="lua::package.cpath" ref="manual.html#pdf-package.cpath"/>
+			<keyword name="lua::package.loaded" ref="manual.html#pdf-package.loaded"/>
+			<keyword name="lua::package.loadlib" ref="manual.html#pdf-package.loadlib"/>
+			<keyword name="lua::package.path" ref="manual.html#pdf-package.path"/>
+			<keyword name="lua::package.preload" ref="manual.html#pdf-package.preload"/>
+			<keyword name="lua::package.searchers" ref="manual.html#pdf-package.searchers"/>
+			<keyword name="lua::package.searchpath" ref="manual.html#pdf-package.searchpath"/>
+			<keyword name="lua::string.byte" ref="manual.html#pdf-string.byte"/>
+			<keyword name="lua::string.char" ref="manual.html#pdf-string.char"/>
+			<keyword name="lua::string.dump" ref="manual.html#pdf-string.dump"/>
+			<keyword name="lua::string.find" ref="manual.html#pdf-string.find"/>
+			<keyword name="lua::string.format" ref="manual.html#pdf-string.format"/>
+			<keyword name="lua::string.gmatch" ref="manual.html#pdf-string.gmatch"/>
+			<keyword name="lua::string.gsub" ref="manual.html#pdf-string.gsub"/>
+			<keyword name="lua::string.len" ref="manual.html#pdf-string.len"/>
+			<keyword name="lua::string.lower" ref="manual.html#pdf-string.lower"/>
+			<keyword name="lua::string.match" ref="manual.html#pdf-string.match"/>
+			<keyword name="lua::string.pack" ref="manual.html#pdf-string.pack"/>
+			<keyword name="lua::string.packsize" ref="manual.html#pdf-string.packsize"/>
+			<keyword name="lua::string.rep" ref="manual.html#pdf-string.rep"/>
+			<keyword name="lua::string.reverse" ref="manual.html#pdf-string.reverse"/>
+			<keyword name="lua::string.sub" ref="manual.html#pdf-string.sub"/>
+			<keyword name="lua::string.unpack" ref="manual.html#pdf-string.unpack"/>
+			<keyword name="lua::string.upper" ref="manual.html#pdf-string.upper"/>
+			<keyword name="lua::table.concat" ref="manual.html#pdf-table.concat"/>
+			<keyword name="lua::table.insert" ref="manual.html#pdf-table.insert"/>
+			<keyword name="lua::table.move" ref="manual.html#pdf-table.move"/>
+			<keyword name="lua::table.pack" ref="manual.html#pdf-table.pack"/>
+			<keyword name="lua::table.remove" ref="manual.html#pdf-table.remove"/>
+			<keyword name="lua::table.sort" ref="manual.html#pdf-table.sort"/>
+			<keyword name="lua::table.unpack" ref="manual.html#pdf-table.unpack"/>
+			<keyword name="lua::utf8.char" ref="manual.html#pdf-utf8.char"/>
+			<keyword name="lua::utf8.charpattern" ref="manual.html#pdf-utf8.charpattern"/>
+			<keyword name="lua::utf8.codepoint" ref="manual.html#pdf-utf8.codepoint"/>
+			<keyword name="lua::utf8.codes" ref="manual.html#pdf-utf8.codes"/>
+			<keyword name="lua::utf8.len" ref="manual.html#pdf-utf8.len"/>
+			<keyword name="lua::utf8.offset" ref="manual.html#pdf-utf8.offset"/>
+			<keyword name="lua::LUA_CPATH" ref="manual.html#pdf-LUA_CPATH"/>
+			<keyword name="lua::LUA_CPATH_5_3" ref="manual.html#pdf-LUA_CPATH_5_3"/>
+			<keyword name="lua::LUA_INIT" ref="manual.html#pdf-LUA_INIT"/>
+			<keyword name="lua::LUA_INIT_5_3" ref="manual.html#pdf-LUA_INIT_5_3"/>
+			<keyword name="lua::LUA_PATH" ref="manual.html#pdf-LUA_PATH"/>
+			<keyword name="lua::LUA_PATH_5_3" ref="manual.html#pdf-LUA_PATH_5_3"/>
+			<keyword name="lua::lua_Alloc" ref="manual.html#lua_Alloc"/>
+			<keyword name="lua::lua_CFunction" ref="manual.html#lua_CFunction"/>
+			<keyword name="lua::lua_Debug" ref="manual.html#lua_Debug"/>
+			<keyword name="lua::lua_Hook" ref="manual.html#lua_Hook"/>
+			<keyword name="lua::lua_Integer" ref="manual.html#lua_Integer"/>
+			<keyword name="lua::lua_KContext" ref="manual.html#lua_KContext"/>
+			<keyword name="lua::lua_KFunction" ref="manual.html#lua_KFunction"/>
+			<keyword name="lua::lua_Number" ref="manual.html#lua_Number"/>
+			<keyword name="lua::lua_Reader" ref="manual.html#lua_Reader"/>
+			<keyword name="lua::lua_State" ref="manual.html#lua_State"/>
+			<keyword name="lua::lua_Unsigned" ref="manual.html#lua_Unsigned"/>
+			<keyword name="lua::lua_Writer" ref="manual.html#lua_Writer"/>
+			<keyword name="lua::lua_absindex" ref="manual.html#lua_absindex"/>
+			<keyword name="lua::lua_arith" ref="manual.html#lua_arith"/>
+			<keyword name="lua::lua_atpanic" ref="manual.html#lua_atpanic"/>
+			<keyword name="lua::lua_call" ref="manual.html#lua_call"/>
+			<keyword name="lua::lua_callk" ref="manual.html#lua_callk"/>
+			<keyword name="lua::lua_checkstack" ref="manual.html#lua_checkstack"/>
+			<keyword name="lua::lua_close" ref="manual.html#lua_close"/>
+			<keyword name="lua::lua_compare" ref="manual.html#lua_compare"/>
+			<keyword name="lua::lua_concat" ref="manual.html#lua_concat"/>
+			<keyword name="lua::lua_copy" ref="manual.html#lua_copy"/>
+			<keyword name="lua::lua_createtable" ref="manual.html#lua_createtable"/>
+			<keyword name="lua::lua_dump" ref="manual.html#lua_dump"/>
+			<keyword name="lua::lua_error" ref="manual.html#lua_error"/>
+			<keyword name="lua::lua_gc" ref="manual.html#lua_gc"/>
+			<keyword name="lua::lua_getallocf" ref="manual.html#lua_getallocf"/>
+			<keyword name="lua::lua_getextraspace" ref="manual.html#lua_getextraspace"/>
+			<keyword name="lua::lua_getfield" ref="manual.html#lua_getfield"/>
+			<keyword name="lua::lua_getglobal" ref="manual.html#lua_getglobal"/>
+			<keyword name="lua::lua_gethook" ref="manual.html#lua_gethook"/>
+			<keyword name="lua::lua_gethookcount" ref="manual.html#lua_gethookcount"/>
+			<keyword name="lua::lua_gethookmask" ref="manual.html#lua_gethookmask"/>
+			<keyword name="lua::lua_geti" ref="manual.html#lua_geti"/>
+			<keyword name="lua::lua_getinfo" ref="manual.html#lua_getinfo"/>
+			<keyword name="lua::lua_getlocal" ref="manual.html#lua_getlocal"/>
+			<keyword name="lua::lua_getmetatable" ref="manual.html#lua_getmetatable"/>
+			<keyword name="lua::lua_getstack" ref="manual.html#lua_getstack"/>
+			<keyword name="lua::lua_gettable" ref="manual.html#lua_gettable"/>
+			<keyword name="lua::lua_gettop" ref="manual.html#lua_gettop"/>
+			<keyword name="lua::lua_getupvalue" ref="manual.html#lua_getupvalue"/>
+			<keyword name="lua::lua_getuservalue" ref="manual.html#lua_getuservalue"/>
+			<keyword name="lua::lua_insert" ref="manual.html#lua_insert"/>
+			<keyword name="lua::lua_isboolean" ref="manual.html#lua_isboolean"/>
+			<keyword name="lua::lua_iscfunction" ref="manual.html#lua_iscfunction"/>
+			<keyword name="lua::lua_isfunction" ref="manual.html#lua_isfunction"/>
+			<keyword name="lua::lua_isinteger" ref="manual.html#lua_isinteger"/>
+			<keyword name="lua::lua_islightuserdata" ref="manual.html#lua_islightuserdata"/>
+			<keyword name="lua::lua_isnil" ref="manual.html#lua_isnil"/>
+			<keyword name="lua::lua_isnone" ref="manual.html#lua_isnone"/>
+			<keyword name="lua::lua_isnoneornil" ref="manual.html#lua_isnoneornil"/>
+			<keyword name="lua::lua_isnumber" ref="manual.html#lua_isnumber"/>
+			<keyword name="lua::lua_isstring" ref="manual.html#lua_isstring"/>
+			<keyword name="lua::lua_istable" ref="manual.html#lua_istable"/>
+			<keyword name="lua::lua_isthread" ref="manual.html#lua_isthread"/>
+			<keyword name="lua::lua_isuserdata" ref="manual.html#lua_isuserdata"/>
+			<keyword name="lua::lua_isyieldable" ref="manual.html#lua_isyieldable"/>
+			<keyword name="lua::lua_len" ref="manual.html#lua_len"/>
+			<keyword name="lua::lua_load" ref="manual.html#lua_load"/>
+			<keyword name="lua::lua_newstate" ref="manual.html#lua_newstate"/>
+			<keyword name="lua::lua_newtable" ref="manual.html#lua_newtable"/>
+			<keyword name="lua::lua_newthread" ref="manual.html#lua_newthread"/>
+			<keyword name="lua::lua_newuserdata" ref="manual.html#lua_newuserdata"/>
+			<keyword name="lua::lua_next" ref="manual.html#lua_next"/>
+			<keyword name="lua::lua_numbertointeger" ref="manual.html#lua_numbertointeger"/>
+			<keyword name="lua::lua_pcall" ref="manual.html#lua_pcall"/>
+			<keyword name="lua::lua_pcallk" ref="manual.html#lua_pcallk"/>
+			<keyword name="lua::lua_pop" ref="manual.html#lua_pop"/>
+			<keyword name="lua::lua_pushboolean" ref="manual.html#lua_pushboolean"/>
+			<keyword name="lua::lua_pushcclosure" ref="manual.html#lua_pushcclosure"/>
+			<keyword name="lua::lua_pushcfunction" ref="manual.html#lua_pushcfunction"/>
+			<keyword name="lua::lua_pushfstring" ref="manual.html#lua_pushfstring"/>
+			<keyword name="lua::lua_pushglobaltable" ref="manual.html#lua_pushglobaltable"/>
+			<keyword name="lua::lua_pushinteger" ref="manual.html#lua_pushinteger"/>
+			<keyword name="lua::lua_pushlightuserdata" ref="manual.html#lua_pushlightuserdata"/>
+			<keyword name="lua::lua_pushliteral" ref="manual.html#lua_pushliteral"/>
+			<keyword name="lua::lua_pushlstring" ref="manual.html#lua_pushlstring"/>
+			<keyword name="lua::lua_pushnil" ref="manual.html#lua_pushnil"/>
+			<keyword name="lua::lua_pushnumber" ref="manual.html#lua_pushnumber"/>
+			<keyword name="lua::lua_pushstring" ref="manual.html#lua_pushstring"/>
+			<keyword name="lua::lua_pushthread" ref="manual.html#lua_pushthread"/>
+			<keyword name="lua::lua_pushvalue" ref="manual.html#lua_pushvalue"/>
+			<keyword name="lua::lua_pushvfstring" ref="manual.html#lua_pushvfstring"/>
+			<keyword name="lua::lua_rawequal" ref="manual.html#lua_rawequal"/>
+			<keyword name="lua::lua_rawget" ref="manual.html#lua_rawget"/>
+			<keyword name="lua::lua_rawgeti" ref="manual.html#lua_rawgeti"/>
+			<keyword name="lua::lua_rawgetp" ref="manual.html#lua_rawgetp"/>
+			<keyword name="lua::lua_rawlen" ref="manual.html#lua_rawlen"/>
+			<keyword name="lua::lua_rawset" ref="manual.html#lua_rawset"/>
+			<keyword name="lua::lua_rawseti" ref="manual.html#lua_rawseti"/>
+			<keyword name="lua::lua_rawsetp" ref="manual.html#lua_rawsetp"/>
+			<keyword name="lua::lua_register" ref="manual.html#lua_register"/>
+			<keyword name="lua::lua_remove" ref="manual.html#lua_remove"/>
+			<keyword name="lua::lua_replace" ref="manual.html#lua_replace"/>
+			<keyword name="lua::lua_resume" ref="manual.html#lua_resume"/>
+			<keyword name="lua::lua_rotate" ref="manual.html#lua_rotate"/>
+			<keyword name="lua::lua_setallocf" ref="manual.html#lua_setallocf"/>
+			<keyword name="lua::lua_setfield" ref="manual.html#lua_setfield"/>
+			<keyword name="lua::lua_setglobal" ref="manual.html#lua_setglobal"/>
+			<keyword name="lua::lua_sethook" ref="manual.html#lua_sethook"/>
+			<keyword name="lua::lua_seti" ref="manual.html#lua_seti"/>
+			<keyword name="lua::lua_setlocal" ref="manual.html#lua_setlocal"/>
+			<keyword name="lua::lua_setmetatable" ref="manual.html#lua_setmetatable"/>
+			<keyword name="lua::lua_settable" ref="manual.html#lua_settable"/>
+			<keyword name="lua::lua_settop" ref="manual.html#lua_settop"/>
+			<keyword name="lua::lua_setupvalue" ref="manual.html#lua_setupvalue"/>
+			<keyword name="lua::lua_setuservalue" ref="manual.html#lua_setuservalue"/>
+			<keyword name="lua::lua_status" ref="manual.html#lua_status"/>
+			<keyword name="lua::lua_stringtonumber" ref="manual.html#lua_stringtonumber"/>
+			<keyword name="lua::lua_toboolean" ref="manual.html#lua_toboolean"/>
+			<keyword name="lua::lua_tocfunction" ref="manual.html#lua_tocfunction"/>
+			<keyword name="lua::lua_tointeger" ref="manual.html#lua_tointeger"/>
+			<keyword name="lua::lua_tointegerx" ref="manual.html#lua_tointegerx"/>
+			<keyword name="lua::lua_tolstring" ref="manual.html#lua_tolstring"/>
+			<keyword name="lua::lua_tonumber" ref="manual.html#lua_tonumber"/>
+			<keyword name="lua::lua_tonumberx" ref="manual.html#lua_tonumberx"/>
+			<keyword name="lua::lua_topointer" ref="manual.html#lua_topointer"/>
+			<keyword name="lua::lua_tostring" ref="manual.html#lua_tostring"/>
+			<keyword name="lua::lua_tothread" ref="manual.html#lua_tothread"/>
+			<keyword name="lua::lua_touserdata" ref="manual.html#lua_touserdata"/>
+			<keyword name="lua::lua_type" ref="manual.html#lua_type"/>
+			<keyword name="lua::lua_typename" ref="manual.html#lua_typename"/>
+			<keyword name="lua::lua_upvalueid" ref="manual.html#lua_upvalueid"/>
+			<keyword name="lua::lua_upvalueindex" ref="manual.html#lua_upvalueindex"/>
+			<keyword name="lua::lua_upvaluejoin" ref="manual.html#lua_upvaluejoin"/>
+			<keyword name="lua::lua_version" ref="manual.html#lua_version"/>
+			<keyword name="lua::lua_xmove" ref="manual.html#lua_xmove"/>
+			<keyword name="lua::lua_yield" ref="manual.html#lua_yield"/>
+			<keyword name="lua::lua_yieldk" ref="manual.html#lua_yieldk"/>
+			<keyword name="lua::luaL_Buffer" ref="manual.html#luaL_Buffer"/>
+			<keyword name="lua::luaL_Reg" ref="manual.html#luaL_Reg"/>
+			<keyword name="lua::luaL_Stream" ref="manual.html#luaL_Stream"/>
+			<keyword name="lua::luaL_addchar" ref="manual.html#luaL_addchar"/>
+			<keyword name="lua::luaL_addlstring" ref="manual.html#luaL_addlstring"/>
+			<keyword name="lua::luaL_addsize" ref="manual.html#luaL_addsize"/>
+			<keyword name="lua::luaL_addstring" ref="manual.html#luaL_addstring"/>
+			<keyword name="lua::luaL_addvalue" ref="manual.html#luaL_addvalue"/>
+			<keyword name="lua::luaL_argcheck" ref="manual.html#luaL_argcheck"/>
+			<keyword name="lua::luaL_argerror" ref="manual.html#luaL_argerror"/>
+			<keyword name="lua::luaL_buffinit" ref="manual.html#luaL_buffinit"/>
+			<keyword name="lua::luaL_buffinitsize" ref="manual.html#luaL_buffinitsize"/>
+			<keyword name="lua::luaL_callmeta" ref="manual.html#luaL_callmeta"/>
+			<keyword name="lua::luaL_checkany" ref="manual.html#luaL_checkany"/>
+			<keyword name="lua::luaL_checkinteger" ref="manual.html#luaL_checkinteger"/>
+			<keyword name="lua::luaL_checklstring" ref="manual.html#luaL_checklstring"/>
+			<keyword name="lua::luaL_checknumber" ref="manual.html#luaL_checknumber"/>
+			<keyword name="lua::luaL_checkoption" ref="manual.html#luaL_checkoption"/>
+			<keyword name="lua::luaL_checkstack" ref="manual.html#luaL_checkstack"/>
+			<keyword name="lua::luaL_checkstring" ref="manual.html#luaL_checkstring"/>
+			<keyword name="lua::luaL_checktype" ref="manual.html#luaL_checktype"/>
+			<keyword name="lua::luaL_checkudata" ref="manual.html#luaL_checkudata"/>
+			<keyword name="lua::luaL_checkversion" ref="manual.html#luaL_checkversion"/>
+			<keyword name="lua::luaL_dofile" ref="manual.html#luaL_dofile"/>
+			<keyword name="lua::luaL_dostring" ref="manual.html#luaL_dostring"/>
+			<keyword name="lua::luaL_error" ref="manual.html#luaL_error"/>
+			<keyword name="lua::luaL_execresult" ref="manual.html#luaL_execresult"/>
+			<keyword name="lua::luaL_fileresult" ref="manual.html#luaL_fileresult"/>
+			<keyword name="lua::luaL_getmetafield" ref="manual.html#luaL_getmetafield"/>
+			<keyword name="lua::luaL_getmetatable" ref="manual.html#luaL_getmetatable"/>
+			<keyword name="lua::luaL_getsubtable" ref="manual.html#luaL_getsubtable"/>
+			<keyword name="lua::luaL_gsub" ref="manual.html#luaL_gsub"/>
+			<keyword name="lua::luaL_len" ref="manual.html#luaL_len"/>
+			<keyword name="lua::luaL_loadbuffer" ref="manual.html#luaL_loadbuffer"/>
+			<keyword name="lua::luaL_loadbufferx" ref="manual.html#luaL_loadbufferx"/>
+			<keyword name="lua::luaL_loadfile" ref="manual.html#luaL_loadfile"/>
+			<keyword name="lua::luaL_loadfilex" ref="manual.html#luaL_loadfilex"/>
+			<keyword name="lua::luaL_loadstring" ref="manual.html#luaL_loadstring"/>
+			<keyword name="lua::luaL_newlib" ref="manual.html#luaL_newlib"/>
+			<keyword name="lua::luaL_newlibtable" ref="manual.html#luaL_newlibtable"/>
+			<keyword name="lua::luaL_newmetatable" ref="manual.html#luaL_newmetatable"/>
+			<keyword name="lua::luaL_newstate" ref="manual.html#luaL_newstate"/>
+			<keyword name="lua::luaL_openlibs" ref="manual.html#luaL_openlibs"/>
+			<keyword name="lua::luaL_optinteger" ref="manual.html#luaL_optinteger"/>
+			<keyword name="lua::luaL_optlstring" ref="manual.html#luaL_optlstring"/>
+			<keyword name="lua::luaL_optnumber" ref="manual.html#luaL_optnumber"/>
+			<keyword name="lua::luaL_optstring" ref="manual.html#luaL_optstring"/>
+			<keyword name="lua::luaL_prepbuffer" ref="manual.html#luaL_prepbuffer"/>
+			<keyword name="lua::luaL_prepbuffsize" ref="manual.html#luaL_prepbuffsize"/>
+			<keyword name="lua::luaL_pushresult" ref="manual.html#luaL_pushresult"/>
+			<keyword name="lua::luaL_pushresultsize" ref="manual.html#luaL_pushresultsize"/>
+			<keyword name="lua::luaL_ref" ref="manual.html#luaL_ref"/>
+			<keyword name="lua::luaL_requiref" ref="manual.html#luaL_requiref"/>
+			<keyword name="lua::luaL_setfuncs" ref="manual.html#luaL_setfuncs"/>
+			<keyword name="lua::luaL_setmetatable" ref="manual.html#luaL_setmetatable"/>
+			<keyword name="lua::luaL_testudata" ref="manual.html#luaL_testudata"/>
+			<keyword name="lua::luaL_tolstring" ref="manual.html#luaL_tolstring"/>
+			<keyword name="lua::luaL_traceback" ref="manual.html#luaL_traceback"/>
+			<keyword name="lua::luaL_typename" ref="manual.html#luaL_typename"/>
+			<keyword name="lua::luaL_unref" ref="manual.html#luaL_unref"/>
+			<keyword name="lua::luaL_where" ref="manual.html#luaL_where"/>
+			<keyword name="lua::luaopen_base" ref="manual.html#pdf-luaopen_base"/>
+			<keyword name="lua::luaopen_coroutine" ref="manual.html#pdf-luaopen_coroutine"/>
+			<keyword name="lua::luaopen_debug" ref="manual.html#pdf-luaopen_debug"/>
+			<keyword name="lua::luaopen_io" ref="manual.html#pdf-luaopen_io"/>
+			<keyword name="lua::luaopen_math" ref="manual.html#pdf-luaopen_math"/>
+			<keyword name="lua::luaopen_os" ref="manual.html#pdf-luaopen_os"/>
+			<keyword name="lua::luaopen_package" ref="manual.html#pdf-luaopen_package"/>
+			<keyword name="lua::luaopen_string" ref="manual.html#pdf-luaopen_string"/>
+			<keyword name="lua::luaopen_table" ref="manual.html#pdf-luaopen_table"/>
+			<keyword name="lua::luaopen_utf8" ref="manual.html#pdf-luaopen_utf8"/>
+			<keyword name="lua::LUA_ERRERR" ref="manual.html#pdf-LUA_ERRERR"/>
+			<keyword name="lua::LUA_ERRFILE" ref="manual.html#pdf-LUA_ERRFILE"/>
+			<keyword name="lua::LUA_ERRGCMM" ref="manual.html#pdf-LUA_ERRGCMM"/>
+			<keyword name="lua::LUA_ERRMEM" ref="manual.html#pdf-LUA_ERRMEM"/>
+			<keyword name="lua::LUA_ERRRUN" ref="manual.html#pdf-LUA_ERRRUN"/>
+			<keyword name="lua::LUA_ERRSYNTAX" ref="manual.html#pdf-LUA_ERRSYNTAX"/>
+			<keyword name="lua::LUA_HOOKCALL" ref="manual.html#pdf-LUA_HOOKCALL"/>
+			<keyword name="lua::LUA_HOOKCOUNT" ref="manual.html#pdf-LUA_HOOKCOUNT"/>
+			<keyword name="lua::LUA_HOOKLINE" ref="manual.html#pdf-LUA_HOOKLINE"/>
+			<keyword name="lua::LUA_HOOKRET" ref="manual.html#pdf-LUA_HOOKRET"/>
+			<keyword name="lua::LUA_HOOKTAILCALL" ref="manual.html#pdf-LUA_HOOKTAILCALL"/>
+			<keyword name="lua::LUA_MASKCALL" ref="manual.html#pdf-LUA_MASKCALL"/>
+			<keyword name="lua::LUA_MASKCOUNT" ref="manual.html#pdf-LUA_MASKCOUNT"/>
+			<keyword name="lua::LUA_MASKLINE" ref="manual.html#pdf-LUA_MASKLINE"/>
+			<keyword name="lua::LUA_MASKRET" ref="manual.html#pdf-LUA_MASKRET"/>
+			<keyword name="lua::LUA_MAXINTEGER" ref="manual.html#pdf-LUA_MAXINTEGER"/>
+			<keyword name="lua::LUA_MININTEGER" ref="manual.html#pdf-LUA_MININTEGER"/>
+			<keyword name="lua::LUA_MINSTACK" ref="manual.html#pdf-LUA_MINSTACK"/>
+			<keyword name="lua::LUA_MULTRET" ref="manual.html#pdf-LUA_MULTRET"/>
+			<keyword name="lua::LUA_NOREF" ref="manual.html#pdf-LUA_NOREF"/>
+			<keyword name="lua::LUA_OK" ref="manual.html#pdf-LUA_OK"/>
+			<keyword name="lua::LUA_OPADD" ref="manual.html#pdf-LUA_OPADD"/>
+			<keyword name="lua::LUA_OPBAND" ref="manual.html#pdf-LUA_OPBAND"/>
+			<keyword name="lua::LUA_OPBNOT" ref="manual.html#pdf-LUA_OPBNOT"/>
+			<keyword name="lua::LUA_OPBOR" ref="manual.html#pdf-LUA_OPBOR"/>
+			<keyword name="lua::LUA_OPBXOR" ref="manual.html#pdf-LUA_OPBXOR"/>
+			<keyword name="lua::LUA_OPDIV" ref="manual.html#pdf-LUA_OPDIV"/>
+			<keyword name="lua::LUA_OPEQ" ref="manual.html#pdf-LUA_OPEQ"/>
+			<keyword name="lua::LUA_OPIDIV" ref="manual.html#pdf-LUA_OPIDIV"/>
+			<keyword name="lua::LUA_OPLE" ref="manual.html#pdf-LUA_OPLE"/>
+			<keyword name="lua::LUA_OPLT" ref="manual.html#pdf-LUA_OPLT"/>
+			<keyword name="lua::LUA_OPMOD" ref="manual.html#pdf-LUA_OPMOD"/>
+			<keyword name="lua::LUA_OPMUL" ref="manual.html#pdf-LUA_OPMUL"/>
+			<keyword name="lua::LUA_OPPOW" ref="manual.html#pdf-LUA_OPPOW"/>
+			<keyword name="lua::LUA_OPSHL" ref="manual.html#pdf-LUA_OPSHL"/>
+			<keyword name="lua::LUA_OPSHR" ref="manual.html#pdf-LUA_OPSHR"/>
+			<keyword name="lua::LUA_OPSUB" ref="manual.html#pdf-LUA_OPSUB"/>
+			<keyword name="lua::LUA_OPUNM" ref="manual.html#pdf-LUA_OPUNM"/>
+			<keyword name="lua::LUA_REFNIL" ref="manual.html#pdf-LUA_REFNIL"/>
+			<keyword name="lua::LUA_REGISTRYINDEX" ref="manual.html#pdf-LUA_REGISTRYINDEX"/>
+			<keyword name="lua::LUA_RIDX_GLOBALS" ref="manual.html#pdf-LUA_RIDX_GLOBALS"/>
+			<keyword name="lua::LUA_RIDX_MAINTHREAD" ref="manual.html#pdf-LUA_RIDX_MAINTHREAD"/>
+			<keyword name="lua::LUA_TBOOLEAN" ref="manual.html#pdf-LUA_TBOOLEAN"/>
+			<keyword name="lua::LUA_TFUNCTION" ref="manual.html#pdf-LUA_TFUNCTION"/>
+			<keyword name="lua::LUA_TLIGHTUSERDATA" ref="manual.html#pdf-LUA_TLIGHTUSERDATA"/>
+			<keyword name="lua::LUA_TNIL" ref="manual.html#pdf-LUA_TNIL"/>
+			<keyword name="lua::LUA_TNONE" ref="manual.html#pdf-LUA_TNONE"/>
+			<keyword name="lua::LUA_TNUMBER" ref="manual.html#pdf-LUA_TNUMBER"/>
+			<keyword name="lua::LUA_TSTRING" ref="manual.html#pdf-LUA_TSTRING"/>
+			<keyword name="lua::LUA_TTABLE" ref="manual.html#pdf-LUA_TTABLE"/>
+			<keyword name="lua::LUA_TTHREAD" ref="manual.html#pdf-LUA_TTHREAD"/>
+			<keyword name="lua::LUA_TUSERDATA" ref="manual.html#pdf-LUA_TUSERDATA"/>
+			<keyword name="lua::LUA_USE_APICHECK" ref="manual.html#pdf-LUA_USE_APICHECK"/>
+			<keyword name="lua::LUA_YIELD" ref="manual.html#pdf-LUA_YIELD"/>
+			<keyword name="lua::LUAL_BUFFERSIZE" ref="manual.html#pdf-LUAL_BUFFERSIZE"/>
+		</keywords>
+		<files>
+			<file>*.html</file>
+			<file>*.gif</file>
+			<file>*.png</file>
+			<file>*.css</file>
+		</files>
+	</filterSection>
+</QtHelpProject>
