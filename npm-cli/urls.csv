@@ -1,0 +1,67 @@
+﻿标题,标题链接,Box-sc-g0xbh4-0
+npm,https://npm.nodejs.cn/cli/v10/commands/npm,JavaScript 包管理器
+npm access,https://npm.nodejs.cn/cli/v10/commands/npm-access,设置已发布包的访问级别
+npm adduser,https://npm.nodejs.cn/cli/v10/commands/npm-adduser,添加注册表用户账户
+npm audit,https://npm.nodejs.cn/cli/v10/commands/npm-audit,运行安全审计
+npm bugs,https://npm.nodejs.cn/cli/v10/commands/npm-bugs,网络浏览器中的包的错误可能
+npm cache,https://npm.nodejs.cn/cli/v10/commands/npm-cache,操纵包缓存
+npm ci,https://npm.nodejs.cn/cli/v10/commands/npm-ci,安装一个干净的项目
+npm completion,https://npm.nodejs.cn/cli/v10/commands/npm-completion,npm 的制表符补全
+npm config,https://npm.nodejs.cn/cli/v10/commands/npm-config,管理 npm 配置文件
+npm dedupe,https://npm.nodejs.cn/cli/v10/commands/npm-dedupe,减少重复
+npm deprecate,https://npm.nodejs.cn/cli/v10/commands/npm-deprecate,弃用某个版本的包
+npm diff,https://npm.nodejs.cn/cli/v10/commands/npm-diff,注册表差异命令
+npm dist-tag,https://npm.nodejs.cn/cli/v10/commands/npm-dist-tag,修改包分发标签
+npm docs,https://npm.nodejs.cn/cli/v10/commands/npm-docs,Web 浏览器中的包的文档可能
+npm doctor,https://npm.nodejs.cn/cli/v10/commands/npm-doctor,检查你的环境
+npm edit,https://npm.nodejs.cn/cli/v10/commands/npm-edit,编辑已安装的包
+npm exec,https://npm.nodejs.cn/cli/v10/commands/npm-exec,从 npm 包运行命令
+npm explain,https://npm.nodejs.cn/cli/v10/commands/npm-explain,解释已安装的包
+npm explore,https://npm.nodejs.cn/cli/v10/commands/npm-explore,浏览已安装的包
+npm find-dupes,https://npm.nodejs.cn/cli/v10/commands/npm-find-dupes,在包树中查找重复项
+npm fund,https://npm.nodejs.cn/cli/v10/commands/npm-fund,检索资金信息
+npm help,https://npm.nodejs.cn/cli/v10/commands/npm-help,搜索 npm 帮助文档
+npm help-search,https://npm.nodejs.cn/cli/v10/commands/npm-help-search,获取有关 npm 的帮助
+npm hook,https://npm.nodejs.cn/cli/v10/commands/npm-hook,管理注册表钩子
+npm init,https://npm.nodejs.cn/cli/v10/commands/npm-init,创建一个 package.json 文件
+npm install,https://npm.nodejs.cn/cli/v10/commands/npm-install,安装包
+npm install-ci-test,https://npm.nodejs.cn/cli/v10/commands/npm-install-ci-test,安装一个干净的项目并运行测试
+npm install-test,https://npm.nodejs.cn/cli/v10/commands/npm-install-test,安装包并运行测试
+npm link,https://npm.nodejs.cn/cli/v10/commands/npm-link,符号链接包文件夹
+npm login,https://npm.nodejs.cn/cli/v10/commands/npm-login,登录到注册表用户账户
+npm logout,https://npm.nodejs.cn/cli/v10/commands/npm-logout,注销注册表
+npm ls,https://npm.nodejs.cn/cli/v10/commands/npm-ls,列出已安装的包
+npm org,https://npm.nodejs.cn/cli/v10/commands/npm-org,管理组织
+npm outdated,https://npm.nodejs.cn/cli/v10/commands/npm-outdated,检查过时的包
+npm owner,https://npm.nodejs.cn/cli/v10/commands/npm-owner,管理包所有者
+npm pack,https://npm.nodejs.cn/cli/v10/commands/npm-pack,从包创建 tarball
+npm ping,https://npm.nodejs.cn/cli/v10/commands/npm-ping,Ping npm 注册表
+npm pkg,https://npm.nodejs.cn/cli/v10/commands/npm-pkg,管理你的 package.json
+npm prefix,https://npm.nodejs.cn/cli/v10/commands/npm-prefix,显示前缀
+npm profile,https://npm.nodejs.cn/cli/v10/commands/npm-profile,更改注册表配置文件的设置
+npm prune,https://npm.nodejs.cn/cli/v10/commands/npm-prune,删除无关的包
+npm publish,https://npm.nodejs.cn/cli/v10/commands/npm-publish,发布一个包
+npm query,https://npm.nodejs.cn/cli/v10/commands/npm-query,检索过滤的包列表
+npm rebuild,https://npm.nodejs.cn/cli/v10/commands/npm-rebuild,重建一个包
+npm repo,https://npm.nodejs.cn/cli/v10/commands/npm-repo,在浏览器中打开包仓库页面
+npm restart,https://npm.nodejs.cn/cli/v10/commands/npm-restart,重启一个包
+npm root,https://npm.nodejs.cn/cli/v10/commands/npm-root,显示 npm root
+npm run-script,https://npm.nodejs.cn/cli/v10/commands/npm-run-script,运行任意包脚本
+npm sbom,https://npm.nodejs.cn/cli/v10/commands/npm-sbom,生成软件物料清单 (SBOM)
+npm search,https://npm.nodejs.cn/cli/v10/commands/npm-search,搜索包
+npm shrinkwrap,https://npm.nodejs.cn/cli/v10/commands/npm-shrinkwrap,锁定发布的依赖版本
+npm star,https://npm.nodejs.cn/cli/v10/commands/npm-star,标记你最喜欢的包
+npm stars,https://npm.nodejs.cn/cli/v10/commands/npm-stars,查看标记为收藏的包
+npm start,https://npm.nodejs.cn/cli/v10/commands/npm-start,启动一个包
+npm stop,https://npm.nodejs.cn/cli/v10/commands/npm-stop,停止一个包
+npm team,https://npm.nodejs.cn/cli/v10/commands/npm-team,管理组织团队和团队成员资格
+npm test,https://npm.nodejs.cn/cli/v10/commands/npm-test,测试一个包
+npm token,https://npm.nodejs.cn/cli/v10/commands/npm-token,管理你的身份验证令牌
+npm uninstall,https://npm.nodejs.cn/cli/v10/commands/npm-uninstall,删除包
+npm unpublish,https://npm.nodejs.cn/cli/v10/commands/npm-unpublish,从注册表中删除包
+npm unstar,https://npm.nodejs.cn/cli/v10/commands/npm-unstar,从你最喜欢的包中删除一个项目
+npm update,https://npm.nodejs.cn/cli/v10/commands/npm-update,更新包
+npm version,https://npm.nodejs.cn/cli/v10/commands/npm-version,修改包版本
+npm view,https://npm.nodejs.cn/cli/v10/commands/npm-view,查看注册表信息
+npm whoami,https://npm.nodejs.cn/cli/v10/commands/npm-whoami,显示 npm 用户名
+npx,https://npm.nodejs.cn/cli/v10/commands/npx,从 npm 包运行命令
