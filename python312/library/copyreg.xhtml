@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="copyreg --- 注册 pickle 支持函数" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/copyreg.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="源代码: Lib/copyreg.py[https://github.com/python/cpython/tree/3.12/Lib/copyreg.py] copyreg 模块提供了可在封存特定对象时使用的一种定义函数方式。 pickle 和 copy 模块会在封存/拷贝特定对象时使用这些函数。 此模块提供了非类对象构造器的相关配置信息。 这样的构造器可以是工厂函数或类实例。 示例: 以..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="源代码: Lib/copyreg.py[https://github.com/python/cpython/tree/3.12/Lib/copyreg.py] copyreg 模块提供了可在封存特定对象时使用的一种定义函数方式。 pickle 和 copy 模块会在封存/拷贝特定对象时使用这些函数。 此模块提供了非类对象构造器的相关配置信息。 这样的构造器可以是工厂函数或类实例。 示例: 以..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>copyreg --- 注册 pickle 支持函数</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/copyreg.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-copyreg">
+<span id="copyreg-register-pickle-support-functions"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">copyreg</span></code> --- 注册 <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> 支持函数</h1>
+<p><strong>源代码:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.12/Lib/copyreg.py">Lib/copyreg.py</a><span class="link-target"> [https://github.com/python/cpython/tree/3.12/Lib/copyreg.py]</span></p>
+<hr class="docutils" id="index-0" />
+<p><a class="reference internal" href="#module-copyreg" title="copyreg: Register pickle support functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">copyreg</span></code></a> 模块提供了可在封存特定对象时使用的一种定义函数方式。 <a class="reference internal" href="pickle.xhtml#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> 和 <a class="reference internal" href="copy.xhtml#module-copy" title="copy: Shallow and deep copy operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">copy</span></code></a> 模块会在封存/拷贝特定对象时使用这些函数。 此模块提供了非类对象构造器的相关配置信息。 这样的构造器可以是工厂函数或类实例。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="copyreg.constructor">
+<span class="sig-prename descclassname"><span class="pre">copyreg.</span></span><span class="sig-name descname"><span class="pre">constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将 <em>object</em> 声明为一个有效的构造器。 如果 <em>object</em> 是不可调用的（因而不是一个有效的构造器）则会引发 <a class="reference internal" href="exceptions.xhtml#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="copyreg.pickle">
+<span class="sig-prename descclassname"><span class="pre">copyreg.</span></span><span class="sig-name descname"><span class="pre">pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constructor_ob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>声明 <em>function</em> 应当被用作 <em>type</em> 类型的对象的“归约”函数。 <em>function</em> 必须返回一个字符串或包含二至六个元素的元组。 请参阅 <a class="reference internal" href="pickle.xhtml#pickle.Pickler.dispatch_table" title="pickle.Pickler.dispatch_table"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dispatch_table</span></code></a> 了解有关 <em>function</em> 的接口的更多细节。</p>
+<p><em>constructor_ob</em> 形参是一个旧式特性并且现在会被忽略，但如果传入则它必须为一个可调用对象。</p>
+<p>请注意一个 pickler 或 <a class="reference internal" href="pickle.xhtml#pickle.Pickler" title="pickle.Pickler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pickle.Pickler</span></code></a> 的子类的 <a class="reference internal" href="pickle.xhtml#pickle.Pickler.dispatch_table" title="pickle.Pickler.dispatch_table"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dispatch_table</span></code></a> 属性也可以被用来声明约归函数。</p>
+</dd></dl>
+
+<section id="example">
+<h2>示例</h2>
+<p>以下示例将会显示如何注册一个封存函数，以及如何来使用它：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">copyreg</span><span class="o">,</span> <span class="nn">copy</span><span class="o">,</span> <span class="nn">pickle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">pickle_c</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pickling a C instance...&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">a</span><span class="p">,)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">copyreg</span><span class="o">.</span><span class="n">pickle</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">pickle_c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  
+<span class="go">pickling a C instance...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  
+<span class="go">pickling a C instance...</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

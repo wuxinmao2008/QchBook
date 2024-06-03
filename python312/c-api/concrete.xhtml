@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="具体的对象层" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/c-api/concrete.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="本章中的函数特定于某些 Python 对象类型。 将错误类型的对象传递给它们并不是一个好主意；如果您从 Python 程序接收到一个对象，但不确定它是否具有正确的类型，则必须首先执行类型检查；例如，要检查对象是否为字典，请使用 PyDict_Check() 。 本章的结构类似于 Python 对象类型的“家族树”。 基本对象: 本节描述Python类型对象和单一实例对象 象None。 类型对..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="本章中的函数特定于某些 Python 对象类型。 将错误类型的对象传递给它们并不是一个好主意；如果您从 Python 程序接收到一个对象，但不确定它是否具有正确的类型，则必须首先执行类型检查；例如，要检查对象是否为字典，请使用 PyDict_Check() 。 本章的结构类似于 Python 对象类型的“家族树”。 基本对象: 本节描述Python类型对象和单一实例对象 象None。 类型对..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>具体的对象层</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/c-api/concrete.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="concrete-objects-layer">
+<span id="concrete"></span><h1>具体的对象层</h1>
+<p>本章中的函数特定于某些 Python 对象类型。 将错误类型的对象传递给它们并不是一个好主意；如果您从 Python 程序接收到一个对象，但不确定它是否具有正确的类型，则必须首先执行类型检查；例如，要检查对象是否为字典，请使用 <a class="reference internal" href="dict.xhtml#c.PyDict_Check" title="PyDict_Check"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyDict_Check()</span></code></a>。 本章的结构类似于 Python 对象类型的“家族树”。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>虽然本章所描述的函数会仔细检查传入对象的类型，但是其中许多函数不会检查传入的对象是否为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 允许传入 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 可能导致内存访问冲突和解释器的立即终止。</p>
+</div>
+<section id="fundamental-objects">
+<span id="fundamental"></span><h2>基本对象</h2>
+<p>本节描述Python类型对象和单一实例对象 象None。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="type.xhtml">类型对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type.xhtml#creating-heap-allocated-types">创建堆分配类型</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="none.xhtml"><code class="docutils literal notranslate"><span class="pre">None</span></code> 对象</a></li>
+</ul>
+</div>
+</section>
+<section id="numeric-objects">
+<span id="numericobjects"></span><h2>数值对象</h2>
+<div class="toctree-wrapper compound" id="index-0">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="long.xhtml">整数型对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bool.xhtml">布尔对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="float.xhtml">浮点数对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="float.xhtml#pack-and-unpack-functions">打包与解包函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="float.xhtml#pack-functions">打包函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="float.xhtml#unpack-functions">解包函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="complex.xhtml">复数对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="complex.xhtml#complex-numbers-as-c-structures">表示复数的C结构体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex.xhtml#complex-numbers-as-python-objects">表示复数的Python对象</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="sequence-objects">
+<span id="sequenceobjects"></span><h2>序列对象</h2>
+<p id="index-1">序列对象的一般操作在前一章中讨论过;本节介绍Python语言固有的特定类型的序列对象。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bytes.xhtml">bytes 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bytearray.xhtml">字节数组对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bytearray.xhtml#type-check-macros">类型检查宏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bytearray.xhtml#direct-api-functions">直接 API 函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bytearray.xhtml#macros">宏</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.xhtml">Unicode对象和编解码器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unicode.xhtml#unicode-objects">Unicode对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#unicode-type">Unicode类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#unicode-character-properties">Unicode字符属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#creating-and-accessing-unicode-strings">创建和访问 Unicode 字符串</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#locale-encoding">语言区域编码格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#file-system-encoding">文件系统编码格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#wchar-t-support">wchar_t 支持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.xhtml#built-in-codecs">内置编解码器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#generic-codecs">泛型编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#utf-8-codecs">UTF-8 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#utf-32-codecs">UTF-32 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#utf-16-codecs">UTF-16 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#utf-7-codecs">UTF-7 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#unicode-escape-codecs">Unicode-Escape 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#raw-unicode-escape-codecs">Raw-Unicode-Escape 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#latin-1-codecs">Latin-1 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#ascii-codecs">ASCII 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#character-map-codecs">字符映射编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#mbcs-codecs-for-windows">Windows 中的 MBCS 编解码器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unicode.xhtml#methods-slots">方法和槽位</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.xhtml#methods-and-slot-functions">方法与槽位函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuple.xhtml">元组对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tuple.xhtml#struct-sequence-objects">结构序列对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list.xhtml">列表对象</a></li>
+</ul>
+</div>
+</section>
+<section id="container-objects">
+<span id="mapobjects"></span><h2>容器对象</h2>
+<div class="toctree-wrapper compound" id="index-2">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dict.xhtml">字典对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="set.xhtml">集合对象</a></li>
+</ul>
+</div>
+</section>
+<section id="function-objects">
+<span id="otherobjects"></span><h2>Function 对象</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function.xhtml">Function 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="method.xhtml">实例方法对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="method.xhtml#method-objects">方法对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell.xhtml">Cell 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.xhtml">代码对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.xhtml#extra-information">附加信息</a></li>
+</ul>
+</div>
+</section>
+<section id="other-objects">
+<h2>其他对象</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="file.xhtml">文件对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module.xhtml">模块对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.xhtml#initializing-c-modules">初始化 C 模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.xhtml#single-phase-initialization">单阶段初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.xhtml#multi-phase-initialization">多阶段初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.xhtml#low-level-module-creation-functions">底层模块创建函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.xhtml#support-functions">支持函数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.xhtml#module-lookup">查找模块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterator.xhtml">迭代器对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="descriptor.xhtml">描述符对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slice.xhtml">切片对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="slice.xhtml#ellipsis-object">Ellipsis 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="memoryview.xhtml">MemoryView 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weakref.xhtml">弱引用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capsule.xhtml">Capsule 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.xhtml">帧对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frame.xhtml#internal-frames">内部帧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gen.xhtml">生成器对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coro.xhtml">协程对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contextvars.xhtml">上下文变量对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datetime.xhtml">DateTime 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.xhtml">类型注解对象</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

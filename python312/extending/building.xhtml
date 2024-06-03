@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="4. 构建C/C++扩展" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/extending/building.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="一个CPython的C扩展是一个共享库(例如一个Linux上的.so ，或者Windows上的.pyd)，其会导出一个 初始化函数 。 为了可导入，共享库必须在 PYTHONPATH 中列出，且必须按照模块名称命名，并带有正确的扩展名。 当使用 setuptools 时，会自动生成正确的文件名。 初始化函数的声明如下： 该函数返回完整初始化过的模块，或一个 PyModuleDef 实例。 请..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="一个CPython的C扩展是一个共享库(例如一个Linux上的.so ，或者Windows上的.pyd)，其会导出一个 初始化函数 。 为了可导入，共享库必须在 PYTHONPATH 中列出，且必须按照模块名称命名，并带有正确的扩展名。 当使用 setuptools 时，会自动生成正确的文件名。 初始化函数的声明如下： 该函数返回完整初始化过的模块，或一个 PyModuleDef 实例。 请..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>4. 构建C/C++扩展</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/extending/building.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="building-c-and-c-extensions">
+<span id="building"></span><h1><span class="section-number">4. </span>构建C/C++扩展</h1>
+<p>一个CPython的C扩展是一个共享库(例如一个Linux上的 <code class="docutils literal notranslate"><span class="pre">.so</span></code> ，或者Windows上的 <code class="docutils literal notranslate"><span class="pre">.pyd</span></code> )，其会导出一个 <em>初始化函数</em> 。</p>
+<p>为了可导入，共享库必须在 <span class="target" id="index-4"></span><a class="reference internal" href="../using/cmdline.xhtml#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> 中列出，且必须按照模块名称命名，并带有正确的扩展名。 当使用 setuptools 时，会自动生成正确的文件名。</p>
+<p>初始化函数的声明如下：</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInit_modulename">
+<a class="reference internal" href="../c-api/structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInit_modulename</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<p>该函数返回完整初始化过的模块，或一个 <a class="reference internal" href="../c-api/module.xhtml#c.PyModuleDef" title="PyModuleDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code></a> 实例。 请查看 <a class="reference internal" href="../c-api/module.xhtml#initializing-modules"><span class="std std-ref">初始化 C 模块</span></a> 了解详情。</p>
+<p>对于仅有ASCII编码的模块名，函数必须是 <code class="docutils literal notranslate"><span class="pre">PyInit_&lt;modulename&gt;</span></code> ，将 <code class="docutils literal notranslate"><span class="pre">&lt;modulename&gt;</span></code> 替换为模块的名字。当使用 <a class="reference internal" href="../c-api/module.xhtml#multi-phase-initialization"><span class="std std-ref">多阶段初始化</span></a> 时，允许使用非ASCII编码的模块名。此时初始化函数的名字是 <code class="docutils literal notranslate"><span class="pre">PyInitU_&lt;modulename&gt;</span></code> ，而 <code class="docutils literal notranslate"><span class="pre">&lt;modulename&gt;</span></code> 需要用Python的 <em>punycode</em> 编码，连字号需替换为下划线。在Python里:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">initfunc_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">UnicodeEncodeError</span><span class="p">:</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;U_&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;punycode&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s1">&#39;PyInit&#39;</span> <span class="o">+</span> <span class="n">suffix</span>
+</pre></div>
+</div>
+<p>可以在一个动态库里导出多个模块，通过定义多个初始化函数。而导入他们需要符号链接或自定义导入器，因为缺省时只有对应了文件名的函数才会被发现。查看 <em>&quot;一个库里的多模块&quot;</em> 章节，在 <span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0489/"><strong>PEP 489</strong></a><span class="link-target"> [https://peps.python.org/pep-0489/]</span> 了解更多细节。</p>
+<section id="building-c-and-c-extensions-with-setuptools">
+<span id="setuptools-index"></span><span id="install-index"></span><h2><span class="section-number">4.1. </span>使用 setuptools 构建 C 和 C++ 扩展</h2>
+<p>Python 3.12 及更新的版本不再包含 distutils。 请参考 <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/setuptools.html">https://setuptools.readthedocs.io/en/latest/setuptools.html</a> 上的 <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> 文档来更多地了解如何使用 setuptools 来构建和分发 C/C++ 扩展。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="curses.panel --- 针对 curses 的面板栈扩展" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/curses.panel.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="面板是具有添加深度功能的窗口，因此它们可以从上至下堆叠为栈，只有显示每个窗口的可见部分会显示出来。 面板可以在栈中被添加、上移或下移，也可以被移除。 函数: curses.panel 模块定义了以下函数: Panel 对象: Panel 对象，如上面 new_panel() 所返回的对象，是带有栈顺序的多个窗口。 总是会有一个窗口与确定内容的面板相关联，面板方法会负责窗口在面板栈中的深度。 ..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="面板是具有添加深度功能的窗口，因此它们可以从上至下堆叠为栈，只有显示每个窗口的可见部分会显示出来。 面板可以在栈中被添加、上移或下移，也可以被移除。 函数: curses.panel 模块定义了以下函数: Panel 对象: Panel 对象，如上面 new_panel() 所返回的对象，是带有栈顺序的多个窗口。 总是会有一个窗口与确定内容的面板相关联，面板方法会负责窗口在面板栈中的深度。 ..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>curses.panel --- 针对 curses 的面板栈扩展</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/curses.panel.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-curses.panel">
+<span id="curses-panel-a-panel-stack-extension-for-curses"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code> --- 针对 curses 的面板栈扩展</h1>
+<hr class="docutils" />
+<p>面板是具有添加深度功能的窗口，因此它们可以从上至下堆叠为栈，只有显示每个窗口的可见部分会显示出来。 面板可以在栈中被添加、上移或下移，也可以被移除。</p>
+<section id="functions">
+<span id="cursespanel-functions"></span><h2>函数</h2>
+<p><a class="reference internal" href="#module-curses.panel" title="curses.panel: A panel stack extension that adds depth to  curses windows."><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code></a> 模块定义了以下函数:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.bottom_panel">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">bottom_panel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回面板栈中的底部面板。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.new_panel">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">new_panel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">win</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回一个面板对象，将其与给定的窗口 <em>win</em> 相关联。 请注意你必须显式地保持所返回的面板对象。 如果你不这样做，面板对象会被垃圾回收并从面板栈中被移除。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.top_panel">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">top_panel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回面板栈中的顶部面板。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.update_panels">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">update_panels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>在面板栈发生改变后更新虚拟屏幕。 这不会调用 <a class="reference internal" href="curses.xhtml#curses.doupdate" title="curses.doupdate"><code class="xref py py-func docutils literal notranslate"><span class="pre">curses.doupdate()</span></code></a>，因此你不必自己执行此操作。</p>
+</dd></dl>
+
+</section>
+<section id="panel-objects">
+<span id="curses-panel-objects"></span><h2>Panel 对象</h2>
+<p>Panel 对象，如上面 <a class="reference internal" href="#curses.panel.new_panel" title="curses.panel.new_panel"><code class="xref py py-func docutils literal notranslate"><span class="pre">new_panel()</span></code></a> 所返回的对象，是带有栈顺序的多个窗口。 总是会有一个窗口与确定内容的面板相关联，面板方法会负责窗口在面板栈中的深度。</p>
+<p>Panel 对象具有以下方法:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.above">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">above</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回当前面板之上的面板。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.below">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">below</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回当前面板之下的面板。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.bottom">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">bottom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>将面板推至栈底部。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.hidden">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">hidden</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>如果面板被隐藏（不可见）则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>，否则返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.hide">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>隐藏面板。 这不会删除对象，它只是让窗口在屏幕上不可见。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.move">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将面板移至屏幕坐标 <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">x)</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.replace">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">win</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将与面板相关联的窗口改为窗口 <em>win</em>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.set_userptr">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">set_userptr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将面板的用户指向设为 <em>obj</em>。 这被用来将任意数据与面板相关联，数据可以是任何 Python 对象。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.show">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>显示面板（面板可能已被隐藏）。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.top">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">top</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>将面板推至栈顶部。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.userptr">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">userptr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回面板的用户指针。 这可以是任何 Python 对象。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.window">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回与面板相关联的窗口对象。</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

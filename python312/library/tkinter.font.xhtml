@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="tkinter.font --- Tkinter 字体包装器" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/tkinter.font.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="源代码: Lib/tkinter/font.py[https://github.com/python/cpython/tree/3.12/Lib/tkinter/font.py] tkinter.font 模块提供用于创建和使用命名字体的 Font 类。 不同的字体粗细和倾斜是：" />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="源代码: Lib/tkinter/font.py[https://github.com/python/cpython/tree/3.12/Lib/tkinter/font.py] tkinter.font 模块提供用于创建和使用命名字体的 Font 类。 不同的字体粗细和倾斜是：" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>tkinter.font --- Tkinter 字体包装器</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/tkinter.font.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-tkinter.font">
+<span id="tkinter-font-tkinter-font-wrapper"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code> --- Tkinter 字体包装器</h1>
+<p><strong>源代码:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.12/Lib/tkinter/font.py">Lib/tkinter/font.py</a><span class="link-target"> [https://github.com/python/cpython/tree/3.12/Lib/tkinter/font.py]</span></p>
+<hr class="docutils" />
+<p><a class="reference internal" href="#module-tkinter.font" title="tkinter.font: Tkinter font-wrapping class (Tk)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code></a> 模块提供用于创建和使用命名字体的 <a class="reference internal" href="#tkinter.font.Font" title="tkinter.font.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a> 类。</p>
+<p>不同的字体粗细和倾斜是：</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="tkinter.font.NORMAL">
+<span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">NORMAL</span></span></dt>
+<dt class="sig sig-object py" id="tkinter.font.BOLD">
+<span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">BOLD</span></span></dt>
+<dt class="sig sig-object py" id="tkinter.font.ITALIC">
+<span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">ITALIC</span></span></dt>
+<dt class="sig sig-object py" id="tkinter.font.ROMAN">
+<span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">ROMAN</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tkinter.font.Font">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">Font</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p><a class="reference internal" href="#tkinter.font.Font" title="tkinter.font.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a> 类表示命名字体。<em>Font</em> 实例具有唯一的名称，可以通过其族、大小和样式配置进行指定。命名字体是 Tk 将字体创建和标识为单个对象的方法，而不是通过每次出现时的属性来指定字体。</p>
+<blockquote>
+<div><p>参数：</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><em>font</em> - 字体指示符元组 (family, size, options)</div>
+<div class="line"><em>name</em> - 唯一的字体名</div>
+<div class="line"><em>exists</em> - 指向现有命名字体（如果有）</div>
+</div>
+</div></blockquote>
+<p>其他关键字选项（如果指定了 <em>font</em>，则忽略）：</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><em>family</em> - 字体系列，例如 Courier，Times</div>
+<div class="line"><em>size</em> - 字体大小</div>
+<div class="line-block">
+<div class="line">如果 <em>size</em> 为正数，则解释为以磅为单位的大小。</div>
+<div class="line">如果 <em>size</em> 是负数，则将其绝对值</div>
+<div class="line">解释为以像素为单位的大小。</div>
+</div>
+<div class="line"><em>weight</em> - 字体强调 (NORMAL, BOLD)（普通，加粗）</div>
+<div class="line"><em>slant</em> - ROMAN, ITALIC（正体，斜体）</div>
+<div class="line"><em>underline</em> - 字体下划线（0 - 无下划线，1 - 有下划线）</div>
+<div class="line"><em>overstrike</em> - 字体删除线（0 - 无删除线，1 - 有删除线）</div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="tkinter.font.Font.actual">
+<span class="sig-name descname"><span class="pre">actual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displayof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回字体的属性。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkinter.font.Font.cget">
+<span class="sig-name descname"><span class="pre">cget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>检索字体的某一个属性值。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkinter.font.Font.config">
+<span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>修改字体的某一个属性值。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkinter.font.Font.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回当前字体的新实例。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkinter.font.Font.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displayof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回以当前字体格式化时文本将在指定显示上占用的空间量。如果未指定显示，则假定为主应用程序窗口。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkinter.font.Font.metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回特定字体的数据。选项包括：</p>
+<dl class="simple">
+<dt><em>ascent</em> - 基线和最高点之间的距离</dt><dd><p>（在该字体中的一个字符可以占用的空间中）</p>
+</dd>
+<dt><em>descent</em> - 基线和最低点之间的距离</dt><dd><p>（在该字体中的一个字符可以占用的空间中）</p>
+</dd>
+<dt><em>linespace</em> - 所需最小垂直间距（在两个</dt><dd><p>该字体的字符间，使得这两个字符在垂直方向上不重叠）。</p>
+</dd>
+</dl>
+<p><em>fixed</em> - 如果该字体宽度被固定则为1，否则为0。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter.font.families">
+<span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">families</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displayof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回不同的字体系列。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter.font.names">
+<span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回定义字体的名字。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter.font.nametofont">
+<span class="sig-prename descclassname"><span class="pre">tkinter.font.</span></span><span class="sig-name descname"><span class="pre">nametofont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回一个 <a class="reference internal" href="#tkinter.font.Font" title="tkinter.font.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a> 类，代表一个 tk 命名的字体。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版本发生变更: </span>增加了 <em>root</em> 形参。</p>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="MemoryView 对象" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/c-api/memoryview.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="一个 memoryview 对象C级别的 缓冲区接口 暴露为一个可以像任何其他对象一样传递的 Python 对象。" />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="一个 memoryview 对象C级别的 缓冲区接口 暴露为一个可以像任何其他对象一样传递的 Python 对象。" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>MemoryView 对象</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/c-api/memoryview.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="index-0">
+<span id="memoryview-objects"></span><span id="id1"></span><h1>MemoryView 对象</h1>
+<p>一个 <a class="reference internal" href="../library/stdtypes.xhtml#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a> 对象C级别的 <a class="reference internal" href="buffer.xhtml#bufferobjects"><span class="std std-ref">缓冲区接口</span></a> 暴露为一个可以像任何其他对象一样传递的 Python 对象。</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMemoryView_FromObject">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMemoryView_FromObject</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>从提供缓冲区接口的对象创建 memoryview 对象。 如果 <em>obj</em> 支持可写缓冲区导出，则 memoryview 对象将可以被读/写，否则它可能是只读的，也可以是导出器自行决定的读/写。</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.PyBUF_READ">
+<span class="sig-name descname"><span class="n"><span class="pre">PyBUF_READ</span></span></span><br /></dt>
+<dd><p>用于请求只读缓冲区的旗标。</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.PyBUF_WRITE">
+<span class="sig-name descname"><span class="n"><span class="pre">PyBUF_WRITE</span></span></span><br /></dt>
+<dd><p>用于请求可写缓冲区的旗标。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMemoryView_FromMemory">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMemoryView_FromMemory</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">mem</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a> 自 3.7 版起.</em><p>使用 <em>mem</em> 作为底层缓冲区创建一个 memoryview 对象。 <em>flags</em> 可以是 <a class="reference internal" href="#c.PyBUF_READ" title="PyBUF_READ"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_READ</span></code></a> 或者 <a class="reference internal" href="#c.PyBUF_WRITE" title="PyBUF_WRITE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_WRITE</span></code></a> 之一.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMemoryView_FromBuffer">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMemoryView_FromBuffer</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="buffer.xhtml#c.Py_buffer" title="Py_buffer"><span class="n"><span class="pre">Py_buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">view</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a> 自 3.11 版起.</em><p>创建一个包含给定缓冲区结构 <em>view</em> 的 memoryview 对象。 对于简单的字节缓冲区，<a class="reference internal" href="#c.PyMemoryView_FromMemory" title="PyMemoryView_FromMemory"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMemoryView_FromMemory()</span></code></a> 是首选函数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMemoryView_GetContiguous">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMemoryView_GetContiguous</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">buffertype</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n"><span class="pre">order</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>从定义缓冲区接口的对象创建一个 memoryview 对象 <a class="reference internal" href="../glossary.xhtml#term-contiguous"><span class="xref std std-term">contiguous</span></a> 内存块（在 'C' 或 'F'ortran <em>order</em> 中）。 如果内存是连续的，则 memoryview 对象指向原始内存。 否则，复制并且 memoryview 指向新的 bytes 对象。</p>
+<p><em>buffertype</em> 可以为 <a class="reference internal" href="#c.PyBUF_READ" title="PyBUF_READ"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_READ</span></code></a> 或 <a class="reference internal" href="#c.PyBUF_WRITE" title="PyBUF_WRITE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_WRITE</span></code></a> 中的一个。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMemoryView_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMemoryView_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>obj</em> 是一个 memoryview 对象则返回真值。 目前不允许创建 <a class="reference internal" href="../library/stdtypes.xhtml#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a> 的子类。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMemoryView_GET_BUFFER">
+<a class="reference internal" href="buffer.xhtml#c.Py_buffer" title="Py_buffer"><span class="n"><span class="pre">Py_buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMemoryView_GET_BUFFER</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">mview</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回指向 memoryview 的导出缓冲区私有副本的指针。 <em>mview</em> <strong>必须</strong> 是一个 memoryview 实例；这个宏不检查它的类型，你必须自己检查，否则你将面临崩溃风险。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMemoryView_GET_BASE">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMemoryView_GET_BASE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">mview</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回 memoryview 所基于的导出对象的指针，或者如果 memoryview 已由函数 <a class="reference internal" href="#c.PyMemoryView_FromMemory" title="PyMemoryView_FromMemory"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMemoryView_FromMemory()</span></code></a> 或 <a class="reference internal" href="#c.PyMemoryView_FromBuffer" title="PyMemoryView_FromBuffer"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMemoryView_FromBuffer()</span></code></a> 创建则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 <em>mview</em> <strong>必须</strong> 是一个 memoryview 实例。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

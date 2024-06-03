@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="fileinput --- 迭代来自多个输入流的行" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/fileinput.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="源代码: Lib/fileinput.py[https://github.com/python/cpython/tree/3.12/Lib/fileinput.py] 此模块实现了一个辅助类和一些函数用来快速编写访问标准输入或文件列表的循环。 如果你只想要读写一个文件请参阅 open() 。 典型用法为: 此程序会迭代 sys.argv[1:] 中列出的所有文件内的行，如果列表为空则会使用 ..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="源代码: Lib/fileinput.py[https://github.com/python/cpython/tree/3.12/Lib/fileinput.py] 此模块实现了一个辅助类和一些函数用来快速编写访问标准输入或文件列表的循环。 如果你只想要读写一个文件请参阅 open() 。 典型用法为: 此程序会迭代 sys.argv[1:] 中列出的所有文件内的行，如果列表为空则会使用 ..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>fileinput --- 迭代来自多个输入流的行</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/fileinput.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-fileinput">
+<span id="fileinput-iterate-over-lines-from-multiple-input-streams"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">fileinput</span></code> --- 迭代来自多个输入流的行</h1>
+<p><strong>源代码:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.12/Lib/fileinput.py">Lib/fileinput.py</a><span class="link-target"> [https://github.com/python/cpython/tree/3.12/Lib/fileinput.py]</span></p>
+<hr class="docutils" />
+<p>此模块实现了一个辅助类和一些函数用来快速编写访问标准输入或文件列表的循环。 如果你只想要读写一个文件请参阅 <a class="reference internal" href="functions.xhtml#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>。</p>
+<p>典型用法为:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fileinput</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fileinput</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">):</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>此程序会迭代 <code class="docutils literal notranslate"><span class="pre">sys.argv[1:]</span></code> 中列出的所有文件内的行，如果列表为空则会使用 <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code>。 如果有一个文件名为 <code class="docutils literal notranslate"><span class="pre">'-'</span></code>，它也会被替换为 <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code> 并且可选参数 <em>mode</em> 和 <em>openhook</em> 会被忽略。 要指定替代文件列表，请将其作为第一个参数传给 <a class="reference internal" href="#fileinput.input" title="fileinput.input"><code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code></a>。 也允许使用单个文件。</p>
+<p>所有文件都默认以文本模式打开，但你可以通过在调用 <a class="reference internal" href="#fileinput.input" title="fileinput.input"><code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code></a> 或 <a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 时指定 <em>mode</em> 形参来覆盖此行为。 如果在打开或读取文件时发生了 I/O 错误，将会引发 <a class="reference internal" href="exceptions.xhtml#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版本发生变更: </span>原来会引发 <a class="reference internal" href="exceptions.xhtml#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>；现在它是 <a class="reference internal" href="exceptions.xhtml#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 的别名。</p>
+</div>
+<p>如果 <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code> 被使用超过一次，则第二次之后的使用将不返回任何行，除非是被交互式的使用，或都是被显式地重置 (例如使用 <code class="docutils literal notranslate"><span class="pre">sys.stdin.seek(0)</span></code>)。</p>
+<p>空文件打开后将立即被关闭；它们在文件列表中会被注意到的唯一情况只有当最后打开的文件为空的时候。</p>
+<p>反回的行不会对换行符做任何处理，这意味着文件中的最后一行可能不带换行符。</p>
+<p>你可以通过将 <em>openhook</em> 形参传给 <a class="reference internal" href="#fileinput.input" title="fileinput.input"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileinput.input()</span></code></a> 或 <a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput()</span></code></a> 来提供一个打开钩子以便控制文件的打开方式。 此钩子必须为一个函数，它接受两个参数 <em>filename</em> 和 <em>mode</em>，并返回一个以相应模式打开的文件型对象。 如果指定了 <em>encoding</em> 和/或 <em>errors</em>，它们将作为额外的关键字参数被传给这个钩子。 此模块提供了一个 <a class="reference internal" href="#fileinput.hook_compressed" title="fileinput.hook_compressed"><code class="xref py py-func docutils literal notranslate"><span class="pre">hook_compressed()</span></code></a> 来支持压缩文件。</p>
+<p>以下函数是此模块的初始接口：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.input">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">openhook</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>创建一个 <a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 类的实例。 该实例将被用作此模块中函数的全局状态，并且还将在迭代期间被返回使用。 此函数的形参将被继续传递给 <a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 类的构造器。</p>
+<p><a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 实例可以在 <a class="reference internal" href="../reference/compound_stmts.xhtml#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> 语句中被用作上下文管理器。 在这个例子中，<em>input</em> 在 <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code> 语句结束后将会被关闭，即使发生了异常也是如此:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">fileinput</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">files</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;spam.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs.txt&#39;</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">process</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.2 版本发生变更: </span>可以被用作上下文管理器。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版本发生变更: </span>关键字形参 <em>mode</em> 和 <em>openhook</em> 现在是仅限关键字形参。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版本发生变更: </span>增加了仅限关键字形参 <em>encoding</em> 和 <em>errors</em>。</p>
+</div>
+</dd></dl>
+
+<p>下列函数会使用 <a class="reference internal" href="#fileinput.input" title="fileinput.input"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileinput.input()</span></code></a> 所创建的全局状态；如果没有活动的状态，则会引发 <a class="reference internal" href="exceptions.xhtml#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.filename">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">filename</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回当前被读取的文件名。 在第一行被读取之前，返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.fileno">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">fileno</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回以整数表示的当前文件“文件描述符”。 当未打开文件时（处在第一行和文件之间），返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.lineno">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">lineno</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回已被读取的累计行号。 在第一行被读取之前，返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>。 在最后一个文件的最后一行被读取之后，返回该行的行号。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.filelineno">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">filelineno</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回当前文件中的行号。 在第一行被读取之前，返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>。 在最后一个文件的最后一行被读取之后，返回此文件中该行的行号。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.isfirstline">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">isfirstline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>如果刚读取的行是其所在文件的第一行则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>，否则返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.isstdin">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">isstdin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>如果最后读取的行来自 <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code> 则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>，否则返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.nextfile">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">nextfile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>关闭当前文件以使下次迭代将从下一个文件（如果存在）读取第一行；不是从该文件读取的行将不会被计入累计行数。 直到下一个文件的第一行被读取之后文件名才会改变。 在第一行被读取之前，此函数将不会生效；它不能被用来跳过第一个文件。 在最后一个文件的最后一行被读取之后，此函数将不再生效。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.close">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>关闭序列。</p>
+</dd></dl>
+
+<p>此模块所提供的实现了序列行为的类同样也可用于子类化：</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fileinput.FileInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">FileInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">openhook</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>类 <a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 是具体的实现；它的方法 <a class="reference internal" href="#fileinput.filename" title="fileinput.filename"><code class="xref py py-meth docutils literal notranslate"><span class="pre">filename()</span></code></a>, <a class="reference internal" href="#fileinput.fileno" title="fileinput.fileno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fileno()</span></code></a>, <a class="reference internal" href="#fileinput.lineno" title="fileinput.lineno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">lineno()</span></code></a>, <a class="reference internal" href="#fileinput.filelineno" title="fileinput.filelineno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">filelineno()</span></code></a>, <a class="reference internal" href="#fileinput.isfirstline" title="fileinput.isfirstline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isfirstline()</span></code></a>, <a class="reference internal" href="#fileinput.isstdin" title="fileinput.isstdin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isstdin()</span></code></a>, <a class="reference internal" href="#fileinput.nextfile" title="fileinput.nextfile"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nextfile()</span></code></a> 和 <a class="reference internal" href="#fileinput.close" title="fileinput.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> 对应于此模块具有相同名称的函数。 此外它还是一个 <a class="reference internal" href="../glossary.xhtml#term-iterable"><span class="xref std std-term">iterable</span></a> 并且具有可返回下一个输入行的 <a class="reference internal" href="io.xhtml#io.TextIOBase.readline" title="io.TextIOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a> 方法。 此序列必须以严格的序列顺序来访问；随机访问和 <a class="reference internal" href="io.xhtml#io.TextIOBase.readline" title="io.TextIOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a> 不可被混用。</p>
+<p>通过 <em>mode</em> 你可以指定要传给 <a class="reference internal" href="functions.xhtml#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 的文件模式。 它必须为 <code class="docutils literal notranslate"><span class="pre">'r'</span></code> 和 <code class="docutils literal notranslate"><span class="pre">'rb'</span></code> 中的一个。</p>
+<p><em>openhook</em> 如果给出则必须为一个函数，它接受两个参数 <em>filename</em> 和 <em>mode</em>，并相应地返回一个打开的文件型对象。 你不能同时使用 <em>inplace</em> 和 <em>openhook</em>。</p>
+<p>你可以指定 <em>encoding</em> 和 <em>errors</em> 来将其传给 <a class="reference internal" href="functions.xhtml#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 或 <em>openhook</em>。</p>
+<p><a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 实例可以在 <a class="reference internal" href="../reference/compound_stmts.xhtml#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> 语句中被用作上下文管理器。 在这个例子中，<em>input</em> 在 <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code> 语句结束后将会被关闭，即使发生了异常也是如此:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">FileInput</span><span class="p">(</span><span class="n">files</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;spam.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs.txt&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nb">input</span><span class="p">:</span>
+    <span class="n">process</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.2 版本发生变更: </span>可以被用作上下文管理器。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版本发生变更: </span>关键字形参 <em>mode</em> 和 <em>openhook</em> 现在是仅限关键字形参。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版本发生变更: </span>增加了仅限关键字形参 <em>encoding</em> 和 <em>errors</em>。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.11 版本发生变更: </span><code class="docutils literal notranslate"><span class="pre">'rU'</span></code> 和 <code class="docutils literal notranslate"><span class="pre">'U'</span></code> 模式以及 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> 方法已被移除。</p>
+</div>
+</dd></dl>
+
+<p><strong>可选的原地过滤:</strong> 如果传递了关键字参数 <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> 给 <a class="reference internal" href="#fileinput.input" title="fileinput.input"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileinput.input()</span></code></a> 或 <a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 构造器，则文件会被移至备份文件并将标准输出定向到输入文件（如果已存在与备份文件同名的文件，它将被静默地替换）。 这使得编写一个能够原地重写其输入文件的过滤器成为可能。 如果给出了 <em>backup</em> 形参 (通常形式为 <code class="docutils literal notranslate"><span class="pre">backup='.&lt;some</span> <span class="pre">extension&gt;'</span></code>)，它将指定备份文件的扩展名，并且备份文件会被保留；默认情况下扩展名为 <code class="docutils literal notranslate"><span class="pre">'.bak'</span></code> 并且它会在输出文件关闭时被删除。 在读取标准输入时原地过滤会被禁用。</p>
+<p>此模块提供了以下两种打开文件钩子：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.hook_compressed">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">hook_compressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>使用 <a class="reference internal" href="gzip.xhtml#module-gzip" title="gzip: Interfaces for gzip compression and decompression using file objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gzip</span></code></a> 和 <a class="reference internal" href="bz2.xhtml#module-bz2" title="bz2: Interfaces for bzip2 compression and decompression."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bz2</span></code></a> 模块透明地打开 gzip 和 bzip2 压缩的文件（通过扩展名 <code class="docutils literal notranslate"><span class="pre">'.gz'</span></code> 和 <code class="docutils literal notranslate"><span class="pre">'.bz2'</span></code> 来识别）。 如果文件扩展名不是 <code class="docutils literal notranslate"><span class="pre">'.gz'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'.bz2'</span></code>，文件会以正常方式打开（即使用 <a class="reference internal" href="functions.xhtml#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 并且不带任何解压操作）。</p>
+<p><em>encoding</em> 和 <em>errors</em> 值会被传给 <a class="reference internal" href="io.xhtml#io.TextIOWrapper" title="io.TextIOWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a> 用于压缩文件以及打开普通文件。</p>
+<p>用法示例:  <code class="docutils literal notranslate"><span class="pre">fi</span> <span class="pre">=</span> <span class="pre">fileinput.FileInput(openhook=fileinput.hook_compressed,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span></code></p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版本发生变更: </span>增加了仅限关键字形参 <em>encoding</em> 和 <em>errors</em>。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileinput.hook_encoded">
+<span class="sig-prename descclassname"><span class="pre">fileinput.</span></span><span class="sig-name descname"><span class="pre">hook_encoded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>返回一个通过 <a class="reference internal" href="functions.xhtml#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 打开每个文件的钩子，使用给定的 <em>encoding</em> 和 <em>errors</em> 来读取文件。</p>
+<p>使用示例: <code class="docutils literal notranslate"><span class="pre">fi</span> <span class="pre">=</span> <span class="pre">fileinput.FileInput(openhook=fileinput.hook_encoded(&quot;utf-8&quot;,</span> <span class="pre">&quot;surrogateescape&quot;))</span></code></p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.6 版本发生变更: </span>添加了可选的 <em>errors</em> 形参。</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">自 3.10 版本弃用: </span>此函数已被弃用，因为 <a class="reference internal" href="#fileinput.input" title="fileinput.input"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileinput.input()</span></code></a> 和 <a class="reference internal" href="#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileInput</span></code></a> 现在有了 <em>encoding</em> 和 <em>errors</em> 形参。</p>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

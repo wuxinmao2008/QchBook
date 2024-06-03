@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="email.encoders: 编码器" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/email.encoders.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="源代码: Lib/email/encoders.py[https://github.com/python/cpython/tree/3.12/Lib/email/encoders.py] 此模块是旧版 ( Compat32) email API 的组成部分。 在新版 API 中将由 set_content() 方法的 cte 形参提供该功能。 此模块在 Python 3 中已弃用。 这里提供..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="源代码: Lib/email/encoders.py[https://github.com/python/cpython/tree/3.12/Lib/email/encoders.py] 此模块是旧版 ( Compat32) email API 的组成部分。 在新版 API 中将由 set_content() 方法的 cte 形参提供该功能。 此模块在 Python 3 中已弃用。 这里提供..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>email.encoders: 编码器</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/email.encoders.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-email.encoders">
+<span id="email-encoders-encoders"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.encoders</span></code>: 编码器</h1>
+<p><strong>源代码:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.12/Lib/email/encoders.py">Lib/email/encoders.py</a><span class="link-target"> [https://github.com/python/cpython/tree/3.12/Lib/email/encoders.py]</span></p>
+<hr class="docutils" />
+<p>此模块是旧版 (<code class="docutils literal notranslate"><span class="pre">Compat32</span></code>) email API 的组成部分。 在新版 API 中将由 <a class="reference internal" href="email.message.xhtml#email.message.EmailMessage.set_content" title="email.message.EmailMessage.set_content"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_content()</span></code></a> 方法的 <em>cte</em> 形参提供该功能。</p>
+<p>此模块在 Python 3 中已弃用。 这里提供的函数不应被显式地调用，因为 <a class="reference internal" href="email.mime.xhtml#email.mime.text.MIMEText" title="email.mime.text.MIMEText"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEText</span></code></a> 类会在类实例化期间使用 <em>_subtype</em> 和 <em>_charset</em> 值来设置内容类型和 CTE 标头。</p>
+<p>本节中的其余文本是此模块的原始文档。</p>
+<p>当创建全新的 <a class="reference internal" href="email.compat32-message.xhtml#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 对象时，你经常需要对载荷编码以便通过兼容的邮件服务器进行传输。 对于包含二进制数据的 <em class="mimetype">image/*</em> 和 <em class="mimetype">text/*</em> 类型的消息来说尤其如此。</p>
+<p><a class="reference internal" href="email.xhtml#module-email" title="email: Package supporting the parsing, manipulating, and generating email messages."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> 包在其 <a class="reference internal" href="#module-email.encoders" title="email.encoders: Encoders for email message payloads."><code class="xref py py-mod docutils literal notranslate"><span class="pre">encoders</span></code></a> 模块中提供了一些方便的编码器。 这些编码器实际上由 <a class="reference internal" href="email.mime.xhtml#email.mime.audio.MIMEAudio" title="email.mime.audio.MIMEAudio"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEAudio</span></code></a> 和 <a class="reference internal" href="email.mime.xhtml#email.mime.image.MIMEImage" title="email.mime.image.MIMEImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEImage</span></code></a> 类构造器使用以提供默认编码格式。 所有编码器函数都只接受一个参数，即要编码的消息对象。 它们通常会提取有效截荷，对其进行编码，并将载荷重置为新近编码的值。 它们还应当相应地设置 <em class="mailheader">Content-Transfer-Encoding</em> 标头。</p>
+<p>请注意，这些函数对于多段消息没有意义。 它们必须应用到各个单独的段上面，而不是整体。如果直接传递一个多段类型的消息，会产生一个 <a class="reference internal" href="exceptions.xhtml#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 错误。</p>
+<p>下面是提供的编码函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="email.encoders.encode_quopri">
+<span class="sig-prename descclassname"><span class="pre">email.encoders.</span></span><span class="sig-name descname"><span class="pre">encode_quopri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将有效数据编码为经转换的可打印形式，并将 <em class="mailheader">Content-Transfer-Encoding</em> 标头设置为 <code class="docutils literal notranslate"><span class="pre">quoted-printable</span></code> <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>。 当大多数实际的数据是普通的可打印数据但包含少量不可打印的字符时，这是一个很好的编码。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="email.encoders.encode_base64">
+<span class="sig-prename descclassname"><span class="pre">email.encoders.</span></span><span class="sig-name descname"><span class="pre">encode_base64</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将有效载荷编码为 base64 形式，并将 <em class="mailheader">Content-Transfer-Encoding</em> 标头设为 <code class="docutils literal notranslate"><span class="pre">base64</span></code>。 当你的载荷主要包含不可打印数据时这是一种很好用的编码格式，因为它比 quoted-printable 更紧凑。 base64 编码格式的缺点是它会使文本变成人类不可读的形式。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="email.encoders.encode_7or8bit">
+<span class="sig-prename descclassname"><span class="pre">email.encoders.</span></span><span class="sig-name descname"><span class="pre">encode_7or8bit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>此函数并不实际改变消息的有效载荷，但它会基于载荷数据将 <em class="mailheader">Content-Transfer-Encoding</em> 标头相应地设为 <code class="docutils literal notranslate"><span class="pre">7bit</span></code> 或 <code class="docutils literal notranslate"><span class="pre">8bit</span></code>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="email.encoders.encode_noop">
+<span class="sig-prename descclassname"><span class="pre">email.encoders.</span></span><span class="sig-name descname"><span class="pre">encode_noop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>此函数什么都不会做；它甚至不会设置 <em class="mailheader">Content-Transfer-Encoding</em> 标头。</p>
+</dd></dl>
+
+<p class="rubric">备注</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>请注意使用 <a class="reference internal" href="#email.encoders.encode_quopri" title="email.encoders.encode_quopri"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encode_quopri()</span></code></a> 编码格式还会对数据中的所有制表符和空格符进行编码。</p>
+</aside>
+</aside>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="将扩展模块移植到 Python 3" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/howto/cporting.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="对于将扩展模块移植到 Python 3，我们推荐下列资源： Supporting Python 3: An in-depth guide 中的 Migrating C extensions[http://python3porting.com/cextensions.html] 这一章，这本书介绍了如何从 Python 2 迁移到 Python 3，包括指导读者如何移植扩展模块。, py3c ..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="对于将扩展模块移植到 Python 3，我们推荐下列资源： Supporting Python 3: An in-depth guide 中的 Migrating C extensions[http://python3porting.com/cextensions.html] 这一章，这本书介绍了如何从 Python 2 迁移到 Python 3，包括指导读者如何移植扩展模块。, py3c ..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>将扩展模块移植到 Python 3</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/howto/cporting.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="porting-extension-modules-to-python-3">
+<span id="cporting-howto"></span><h1>将扩展模块移植到 Python 3</h1>
+<p>对于将扩展模块移植到 Python 3，我们推荐下列资源：</p>
+<ul class="simple">
+<li><p><em>Supporting Python 3: An in-depth guide</em> 中的 <a class="reference external" href="http://python3porting.com/cextensions.html">Migrating C extensions</a><span class="link-target"> [http://python3porting.com/cextensions.html]</span> 这一章，这本书介绍了如何从 Python 2 迁移到 Python 3，包括指导读者如何移植扩展模块。</p></li>
+<li><p><em>py3c</em> 项目中的 <a class="reference external" href="https://py3c.readthedocs.io/en/latest/guide.html">Porting guide</a><span class="link-target"> [https://py3c.readthedocs.io/en/latest/guide.html]</span> 提供了有关支持代码的指导性建议。</p></li>
+<li><p><a class="reference external" href="https://cython.org/">Cython</a><span class="link-target"> [https://cython.org/]</span> 和 <a class="reference external" href="https://cffi.readthedocs.io/en/latest/">CFFI</a><span class="link-target"> [https://cffi.readthedocs.io/en/latest/]</span> 库提供了对于 Python 的 C API 的抽象。 扩展大都需要进行重写以使用两者中的一个，然后就可以通过库来处理各种 Python 版本和实现之间的差异。</p></li>
+</ul>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

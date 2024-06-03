@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="getpass --- 可移植的密码输入" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/getpass.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="源代码: Lib/getpass.py[https://github.com/python/cpython/tree/3.12/Lib/getpass.py] 可用性: 非 Emscripten，非 WASI。 此模块在 WebAssembly 平台 wasm32-emscripten 和 wasm32-wasi 上不适用或不可用。 请参阅 WebAssembly 平台 了解详情。 getp..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="源代码: Lib/getpass.py[https://github.com/python/cpython/tree/3.12/Lib/getpass.py] 可用性: 非 Emscripten，非 WASI。 此模块在 WebAssembly 平台 wasm32-emscripten 和 wasm32-wasi 上不适用或不可用。 请参阅 WebAssembly 平台 了解详情。 getp..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>getpass --- 可移植的密码输入</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/getpass.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-getpass">
+<span id="getpass-portable-password-input"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">getpass</span></code> --- 可移植的密码输入</h1>
+<p><strong>源代码:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.12/Lib/getpass.py">Lib/getpass.py</a><span class="link-target"> [https://github.com/python/cpython/tree/3.12/Lib/getpass.py]</span></p>
+<hr class="docutils" />
+<div class="availability docutils container">
+<p><a class="reference internal" href="intro.xhtml#availability"><span class="std std-ref">可用性</span></a>: 非 Emscripten，非 WASI。</p>
+<p>此模块在 WebAssembly 平台 <code class="docutils literal notranslate"><span class="pre">wasm32-emscripten</span></code> 和 <code class="docutils literal notranslate"><span class="pre">wasm32-wasi</span></code> 上不适用或不可用。 请参阅 <a class="reference internal" href="intro.xhtml#wasm-availability"><span class="std std-ref">WebAssembly 平台</span></a> 了解详情。</p>
+</div>
+<p><a class="reference internal" href="#module-getpass" title="getpass: Portable reading of passwords and retrieval of the userid."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getpass</span></code></a> 模块提供了两个函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="getpass.getpass">
+<span class="sig-prename descclassname"><span class="pre">getpass.</span></span><span class="sig-name descname"><span class="pre">getpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Password:</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>提示用户输入一个密码且不会回显。 用户会看到字符串 <em>prompt</em> 作为提示，其默认值为 <code class="docutils literal notranslate"><span class="pre">'Password:</span> <span class="pre">'</span></code>。 在 Unix 上，如有必要提示会使用替换错误句柄写入到文件型对象 <em>stream</em>。 <em>stream</em> 默认指向控制终端 (<code class="file docutils literal notranslate"><span class="pre">/dev/tty</span></code>)，如果不可用则指向 <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code> (此参数在 Windows 上会被忽略)。</p>
+<p>如果回显自由输入不可用则 getpass() 将回退为打印一条警告消息到 <em>stream</em> 并且从 <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code> 读取同时发出 <a class="reference internal" href="#getpass.GetPassWarning" title="getpass.GetPassWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">GetPassWarning</span></code></a>。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果你从 IDLE 内部调用 getpass，输入可能是在你启动 IDLE 的终端中而非在 IDLE 窗口本身中完成。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="getpass.GetPassWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">getpass.</span></span><span class="sig-name descname"><span class="pre">GetPassWarning</span></span></dt>
+<dd><p>一个当密码输入可能被回显时发出的 <a class="reference internal" href="exceptions.xhtml#UserWarning" title="UserWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UserWarning</span></code></a> 子类。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="getpass.getuser">
+<span class="sig-prename descclassname"><span class="pre">getpass.</span></span><span class="sig-name descname"><span class="pre">getuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>返回用户的“登录名称”。</p>
+<p>此函数会按顺序检查环境变量 <span class="target" id="index-6"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LOGNAME</span></code>, <span class="target" id="index-7"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">USER</span></code>, <code class="xref std std-envvar docutils literal notranslate"><span class="pre">LNAME</span></code> 和 <span class="target" id="index-8"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">USERNAME</span></code>，并返回其中第一个被设置为非空字符串的值。 如果均未设置，则在支持 <a class="reference internal" href="pwd.xhtml#module-pwd" title="pwd: The password database (getpwnam() and friends). (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pwd</span></code></a> 模块的系统上将返回来自密码数据库的登录名，否则将引发一个异常。</p>
+<p>通常情况下，此函数应优先于 <a class="reference internal" href="os.xhtml#os.getlogin" title="os.getlogin"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.getlogin()</span></code></a> 使用。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

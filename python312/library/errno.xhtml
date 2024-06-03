@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="errno --- 标准 errno 系统符号" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/errno.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="该模块提供了标准的 errno 系统符号。每个符号的值都是相应的整数值。名称和描述借用自 linux/include/errno.h ，它应该是全包含的。 如果要将数字的错误代码转换为错误信息，请使用 os.strerror() 。 在下面的列表中，当前平台上没有使用的符号没有被本模块定义。 已定义的符号的具体列表可参见 errno.errorcode.keys() 。 可用的符号包括：" />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="该模块提供了标准的 errno 系统符号。每个符号的值都是相应的整数值。名称和描述借用自 linux/include/errno.h ，它应该是全包含的。 如果要将数字的错误代码转换为错误信息，请使用 os.strerror() 。 在下面的列表中，当前平台上没有使用的符号没有被本模块定义。 已定义的符号的具体列表可参见 errno.errorcode.keys() 。 可用的符号包括：" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>errno --- 标准 errno 系统符号</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/errno.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-errno">
+<span id="errno-standard-errno-system-symbols"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">errno</span></code> --- 标准 errno 系统符号</h1>
+<hr class="docutils" />
+<p>该模块提供了标准的 <code class="docutils literal notranslate"><span class="pre">errno</span></code> 系统符号。每个符号的值都是相应的整数值。名称和描述借用自 <code class="file docutils literal notranslate"><span class="pre">linux/include/errno.h</span></code> ，它应该是全包含的。</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.errorcode">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">errorcode</span></span></dt>
+<dd><p>提供从 errno 值到底层系统中字符串名称的映射的字典。例如， <code class="docutils literal notranslate"><span class="pre">errno.errorcode[errno.EPERM]</span></code> 映射为 <code class="docutils literal notranslate"><span class="pre">'EPERM'</span></code> 。</p>
+</dd></dl>
+
+<p>如果要将数字的错误代码转换为错误信息，请使用 <a class="reference internal" href="os.xhtml#os.strerror" title="os.strerror"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.strerror()</span></code></a>。</p>
+<p>在下面的列表中，当前平台上没有使用的符号没有被本模块定义。 已定义的符号的具体列表可参见 <code class="docutils literal notranslate"><span class="pre">errno.errorcode.keys()</span></code>。 可用的符号包括：</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EPERM">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EPERM</span></span></dt>
+<dd><p>操作不允许。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#PermissionError" title="PermissionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PermissionError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOENT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOENT</span></span></dt>
+<dd><p>没有这样的文件或目录。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#FileNotFoundError" title="FileNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ESRCH">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ESRCH</span></span></dt>
+<dd><p>没有这样的进程。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#ProcessLookupError" title="ProcessLookupError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ProcessLookupError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EINTR">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EINTR</span></span></dt>
+<dd><p>系统调用中断。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EIO">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EIO</span></span></dt>
+<dd><p>I/O 错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENXIO">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENXIO</span></span></dt>
+<dd><p>无此设备或地址</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.E2BIG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">E2BIG</span></span></dt>
+<dd><p>参数列表过长</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOEXEC">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOEXEC</span></span></dt>
+<dd><p>执行格式错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBADF">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBADF</span></span></dt>
+<dd><p>错误的文件号</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ECHILD">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ECHILD</span></span></dt>
+<dd><p>没有子进程。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#ChildProcessError" title="ChildProcessError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ChildProcessError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EAGAIN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EAGAIN</span></span></dt>
+<dd><p>再试一次。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#BlockingIOError" title="BlockingIOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BlockingIOError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOMEM">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOMEM</span></span></dt>
+<dd><p>内存不足</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EACCES">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EACCES</span></span></dt>
+<dd><p>权限被拒绝。 这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#PermissionError" title="PermissionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PermissionError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EFAULT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EFAULT</span></span></dt>
+<dd><p>错误的地址</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTBLK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTBLK</span></span></dt>
+<dd><p>需要块设备</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBUSY">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBUSY</span></span></dt>
+<dd><p>设备或资源忙</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EEXIST">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EEXIST</span></span></dt>
+<dd><p>文件存在。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#FileExistsError" title="FileExistsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EXDEV">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EXDEV</span></span></dt>
+<dd><p>跨设备链接</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENODEV">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENODEV</span></span></dt>
+<dd><p>无此设备</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTDIR">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTDIR</span></span></dt>
+<dd><p>不是一个目录。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#NotADirectoryError" title="NotADirectoryError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotADirectoryError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EISDIR">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EISDIR</span></span></dt>
+<dd><p>是一个目录。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#IsADirectoryError" title="IsADirectoryError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IsADirectoryError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EINVAL">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EINVAL</span></span></dt>
+<dd><p>无效的参数</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENFILE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENFILE</span></span></dt>
+<dd><p>文件表溢出</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EMFILE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EMFILE</span></span></dt>
+<dd><p>打开的文件过多</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTTY">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTTY</span></span></dt>
+<dd><p>不是打字机</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ETXTBSY">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ETXTBSY</span></span></dt>
+<dd><p>文本文件忙</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EFBIG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EFBIG</span></span></dt>
+<dd><p>文件过大</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOSPC">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOSPC</span></span></dt>
+<dd><p>设备已无可用空间</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ESPIPE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ESPIPE</span></span></dt>
+<dd><p>非法查找</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EROFS">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EROFS</span></span></dt>
+<dd><p>只读文件系统</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EMLINK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EMLINK</span></span></dt>
+<dd><p>链接过多</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EPIPE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EPIPE</span></span></dt>
+<dd><p>管道中断。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#BrokenPipeError" title="BrokenPipeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenPipeError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EDOM">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EDOM</span></span></dt>
+<dd><p>数学参数超出函数范围</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ERANGE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ERANGE</span></span></dt>
+<dd><p>数学运算结果无法表示</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EDEADLK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EDEADLK</span></span></dt>
+<dd><p>将发生资源死锁</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENAMETOOLONG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENAMETOOLONG</span></span></dt>
+<dd><p>文件名过长</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOLCK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOLCK</span></span></dt>
+<dd><p>没有可用的记录锁</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOSYS">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOSYS</span></span></dt>
+<dd><p>功能未实现</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTEMPTY">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTEMPTY</span></span></dt>
+<dd><p>目录非空</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ELOOP">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ELOOP</span></span></dt>
+<dd><p>遇到过多的符号链接</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EWOULDBLOCK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EWOULDBLOCK</span></span></dt>
+<dd><p>操作会阻塞。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#BlockingIOError" title="BlockingIOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BlockingIOError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOMSG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOMSG</span></span></dt>
+<dd><p>没有所需类型的消息</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EIDRM">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EIDRM</span></span></dt>
+<dd><p>标识符被移除</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ECHRNG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ECHRNG</span></span></dt>
+<dd><p>信道编号超出范围</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EL2NSYNC">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EL2NSYNC</span></span></dt>
+<dd><p>级别 2 未同步</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EL3HLT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EL3HLT</span></span></dt>
+<dd><p>级别 3 已停止</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EL3RST">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EL3RST</span></span></dt>
+<dd><p>级别 3 重置</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ELNRNG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ELNRNG</span></span></dt>
+<dd><p>链接编号超出范围</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EUNATCH">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EUNATCH</span></span></dt>
+<dd><p>未附加协议驱动</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOCSI">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOCSI</span></span></dt>
+<dd><p>没有可用的 CSI 结构</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EL2HLT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EL2HLT</span></span></dt>
+<dd><p>级别 2 已停止</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBADE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBADE</span></span></dt>
+<dd><p>无效的交换</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBADR">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBADR</span></span></dt>
+<dd><p>无效的请求描述符</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EXFULL">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EXFULL</span></span></dt>
+<dd><p>交换已满</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOANO">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOANO</span></span></dt>
+<dd><p>没有阳极</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBADRQC">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBADRQC</span></span></dt>
+<dd><p>无效的请求码·</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBADSLT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBADSLT</span></span></dt>
+<dd><p>无效的槽位</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EDEADLOCK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EDEADLOCK</span></span></dt>
+<dd><p>文件锁定死锁错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBFONT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBFONT</span></span></dt>
+<dd><p>错误的字体文件格式</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOSTR">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOSTR</span></span></dt>
+<dd><p>设备不是流</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENODATA">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENODATA</span></span></dt>
+<dd><p>没有可用的数据</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ETIME">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ETIME</span></span></dt>
+<dd><p>计时器已到期</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOSR">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOSR</span></span></dt>
+<dd><p>流资源不足</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENONET">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENONET</span></span></dt>
+<dd><p>机器不在网络上</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOPKG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOPKG</span></span></dt>
+<dd><p>包未安装</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EREMOTE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EREMOTE</span></span></dt>
+<dd><p>对象是远程的</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOLINK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOLINK</span></span></dt>
+<dd><p>链接已被切断</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EADV">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EADV</span></span></dt>
+<dd><p>广告错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ESRMNT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ESRMNT</span></span></dt>
+<dd><p>挂载错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ECOMM">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ECOMM</span></span></dt>
+<dd><p>发送时通讯错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EPROTO">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EPROTO</span></span></dt>
+<dd><p>协议错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EMULTIHOP">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EMULTIHOP</span></span></dt>
+<dd><p>已尝试多跳</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EDOTDOT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EDOTDOT</span></span></dt>
+<dd><p>RFS 专属错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBADMSG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBADMSG</span></span></dt>
+<dd><p>非数据消息</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EOVERFLOW">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EOVERFLOW</span></span></dt>
+<dd><p>值相对于已定义数据类型过大</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTUNIQ">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTUNIQ</span></span></dt>
+<dd><p>名称在网络上不唯一</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EBADFD">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EBADFD</span></span></dt>
+<dd><p>文件描述符处于错误状态</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EREMCHG">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EREMCHG</span></span></dt>
+<dd><p>远端地址已改变</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ELIBACC">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ELIBACC</span></span></dt>
+<dd><p>无法访问所需的共享库</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ELIBBAD">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ELIBBAD</span></span></dt>
+<dd><p>访问已损坏的共享库</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ELIBSCN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ELIBSCN</span></span></dt>
+<dd><p>a.out 中的 .lib 部分已损坏</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ELIBMAX">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ELIBMAX</span></span></dt>
+<dd><p>尝试链接过多的共享库</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ELIBEXEC">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ELIBEXEC</span></span></dt>
+<dd><p>无法直接执行共享库</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EILSEQ">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EILSEQ</span></span></dt>
+<dd><p>非法字节序列</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ERESTART">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ERESTART</span></span></dt>
+<dd><p>已中断系统调用需要重启</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ESTRPIPE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ESTRPIPE</span></span></dt>
+<dd><p>流管道错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EUSERS">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EUSERS</span></span></dt>
+<dd><p>用户过多</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTSOCK">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTSOCK</span></span></dt>
+<dd><p>在非套接字上执行套接字操作</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EDESTADDRREQ">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EDESTADDRREQ</span></span></dt>
+<dd><p>需要目标地址</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EMSGSIZE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EMSGSIZE</span></span></dt>
+<dd><p>消息过长</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EPROTOTYPE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EPROTOTYPE</span></span></dt>
+<dd><p>套接字的协议类型错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOPROTOOPT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOPROTOOPT</span></span></dt>
+<dd><p>协议不可用</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EPROTONOSUPPORT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EPROTONOSUPPORT</span></span></dt>
+<dd><p>协议不受支持</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ESOCKTNOSUPPORT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ESOCKTNOSUPPORT</span></span></dt>
+<dd><p>套接字类型不受支持</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EOPNOTSUPP">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EOPNOTSUPP</span></span></dt>
+<dd><p>操作在传输端点上不受支持</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTSUP">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTSUP</span></span></dt>
+<dd><p>操作不受支持</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EPFNOSUPPORT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EPFNOSUPPORT</span></span></dt>
+<dd><p>协议族不受支持</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EAFNOSUPPORT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EAFNOSUPPORT</span></span></dt>
+<dd><p>地址族不受协议支持</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EADDRINUSE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EADDRINUSE</span></span></dt>
+<dd><p>地址已被使用</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EADDRNOTAVAIL">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EADDRNOTAVAIL</span></span></dt>
+<dd><p>无法分配要求的地址</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENETDOWN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENETDOWN</span></span></dt>
+<dd><p>网络已断开</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENETUNREACH">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENETUNREACH</span></span></dt>
+<dd><p>网络不可达</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENETRESET">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENETRESET</span></span></dt>
+<dd><p>网络因重置而断开连接</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ECONNABORTED">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ECONNABORTED</span></span></dt>
+<dd><p>软件导致连接中止。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#ConnectionAbortedError" title="ConnectionAbortedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionAbortedError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ECONNRESET">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ECONNRESET</span></span></dt>
+<dd><p>连接被对方重置。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#ConnectionResetError" title="ConnectionResetError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionResetError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOBUFS">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOBUFS</span></span></dt>
+<dd><p>没有可用的缓冲区空间</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EISCONN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EISCONN</span></span></dt>
+<dd><p>传输端点已连接</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTCONN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTCONN</span></span></dt>
+<dd><p>传输端点未连接</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ESHUTDOWN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ESHUTDOWN</span></span></dt>
+<dd><p>在传输端点关闭后无法发送。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#BrokenPipeError" title="BrokenPipeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenPipeError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ETOOMANYREFS">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ETOOMANYREFS</span></span></dt>
+<dd><p>引用过多：无法拼接</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ETIMEDOUT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ETIMEDOUT</span></span></dt>
+<dd><p>连接超时。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#TimeoutError" title="TimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ECONNREFUSED">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ECONNREFUSED</span></span></dt>
+<dd><p>连接被拒绝。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#ConnectionRefusedError" title="ConnectionRefusedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionRefusedError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EHOSTDOWN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EHOSTDOWN</span></span></dt>
+<dd><p>主机已关闭</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EHOSTUNREACH">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EHOSTUNREACH</span></span></dt>
+<dd><p>没有到主机的路由</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EALREADY">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EALREADY</span></span></dt>
+<dd><p>操作已经在进行中。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#BlockingIOError" title="BlockingIOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BlockingIOError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EINPROGRESS">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EINPROGRESS</span></span></dt>
+<dd><p>操作现在正在进行中。这个错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#BlockingIOError" title="BlockingIOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BlockingIOError</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ESTALE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ESTALE</span></span></dt>
+<dd><p>过期的 NFS 文件句柄</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EUCLEAN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EUCLEAN</span></span></dt>
+<dd><p>结构需要清理</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTNAM">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTNAM</span></span></dt>
+<dd><p>不是 XENIX 命名类型文件</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENAVAIL">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENAVAIL</span></span></dt>
+<dd><p>没有可用的 XENIX 信标</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EISNAM">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EISNAM</span></span></dt>
+<dd><p>是命名类型文件</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EREMOTEIO">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EREMOTEIO</span></span></dt>
+<dd><p>远程 I/O 错误</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EDQUOT">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EDQUOT</span></span></dt>
+<dd><p>超出配额</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EQFULL">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EQFULL</span></span></dt>
+<dd><p>接口输出队列已满</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.11.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTCAPABLE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTCAPABLE</span></span></dt>
+<dd><p>功能不足。 此错误被映射到异常 <a class="reference internal" href="exceptions.xhtml#PermissionError" title="PermissionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PermissionError</span></code></a>。</p>
+<div class="availability docutils container">
+<p><a class="reference internal" href="intro.xhtml#availability"><span class="std std-ref">可用性</span></a>: WASI, FreeBSD</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.11.1.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ECANCELED">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ECANCELED</span></span></dt>
+<dd><p>操作已被取消</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EOWNERDEAD">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EOWNERDEAD</span></span></dt>
+<dd><p>所有者已不存在</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.ENOTRECOVERABLE">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">ENOTRECOVERABLE</span></span></dt>
+<dd><p>状态无法恢复</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2.</span></p>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

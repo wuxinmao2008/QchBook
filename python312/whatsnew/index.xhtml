@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Python的新变化" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/whatsnew/index.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="这个“Python 有什么新变化？”系列内容会带您浏览 Python 大版本之间重要的变化。在新版发布后，如果您希望掌握最新变化，请务必阅读这些内容。 Python 3.12 有什么新变化- 摘要 -- 发布重点, 新的特性, 有关类型提示的新增特性, 其他语言特性修改, 新增模块, 改进的模块, 性能优化, CPython 字节码的改变, 演示和工具, 弃用, 移除, 移植到 Python..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="这个“Python 有什么新变化？”系列内容会带您浏览 Python 大版本之间重要的变化。在新版发布后，如果您希望掌握最新变化，请务必阅读这些内容。 Python 3.12 有什么新变化- 摘要 -- 发布重点, 新的特性, 有关类型提示的新增特性, 其他语言特性修改, 新增模块, 改进的模块, 性能优化, CPython 字节码的改变, 演示和工具, 弃用, 移除, 移植到 Python..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>Python的新变化</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/index.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="what-s-new-in-python">
+<span id="whatsnew-index"></span><h1>Python的新变化</h1>
+<p>这个“Python 有什么新变化？”系列内容会带您浏览 Python 大版本之间重要的变化。在新版发布后，如果您希望掌握最新变化，请务必阅读这些内容。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.12.xhtml">Python 3.12 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#new-features-related-to-type-hints">有关类型提示的新增特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#cpython-bytecode-changes">CPython 字节码的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#demos-and-tools">演示和工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#removed">移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#porting-to-python-3-12">移植到 Python 3.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#build-changes">构建的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#c-api-changes">C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.12.xhtml#notable-changes-in-3-12-4">3.12.4 中的重要变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.11.xhtml">Python 3.11 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#new-features-related-to-type-hints">有关类型提示的新增特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#other-cpython-implementation-changes">其他 CPython 实现的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#faster-cpython">更快的 CPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#cpython-bytecode-changes">CPython 字节码的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#pending-removal-in-python-3-12">计划在 Python 3.12 中移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#removed">移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#porting-to-python-3-11">移植到 Python 3.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#build-changes">构建的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#c-api-changes">C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#notable-changes-in-3-11-4">3.11.4 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.11.xhtml#notable-changes-in-3-11-5">3.11.5 中的重要变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.10.xhtml">Python 3.10 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#new-features-related-to-type-hints">有关类型提示的新增特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#removed">移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#porting-to-python-3-10">移植到 Python 3.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#cpython-bytecode-changes">CPython 字节码的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#build-changes">构建的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#c-api-changes">C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#notable-security-feature-in-3-10-7">3.10.7 中的重要安全特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#notable-security-feature-in-3-10-8">3.10.8 中的重要安全特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.10.xhtml#notable-changes-in-3-10-12">3.10.12 中的重要变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.9.xhtml">Python 3.9 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#you-should-check-for-deprecationwarning-in-your-code">请检查代码中的 DeprecationWarning。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#removed">移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#porting-to-python-3-9">移植到 Python 3.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#build-changes">构建的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#c-api-changes">C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#notable-changes-in-python-3-9-1">Python 3.9.1 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#notable-changes-in-python-3-9-2">Python 3.9.2 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#notable-changes-in-python-3-9-3">Python 3.9.3 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#notable-changes-in-python-3-9-5">Python 3.9.5 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#notable-security-feature-in-3-9-14">3.9.14 中的重要安全特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.9.xhtml#notable-changes-in-3-9-17">3.9.17 中的重要变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.8.xhtml">Python 3.8 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#api-and-feature-removals">API 与特性的移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#porting-to-python-3-8">移植到 Python 3.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-python-3-8-1">Python 3.8.1 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-python-3-8-2">Python 3.8.2 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-python-3-8-3">Python 3.8.3 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-python-3-8-8">Python 3.8.8 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-python-3-8-9">Python 3.8.9 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-python-3-8-10">Python 3.8.10 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#id1">Python 3.8.10 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-python-3-8-12">Python 3.8.12 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-security-feature-in-3-8-14">3.8.14 中的重要安全特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.8.xhtml#notable-changes-in-3-8-17">3.8.17 中的重要变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.7.xhtml">Python 3.7 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#summary-release-highlights">摘要 - 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#c-api-changes">C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#build-changes">构建的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#other-cpython-implementation-changes">其他 CPython 实现的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#deprecated-python-behavior">已弃用的 Python 行为</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#deprecated-python-modules-functions-and-methods">已弃用的 Python 模块、函数和方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#deprecated-functions-and-types-of-the-c-api">已弃用的 C API 函数和类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#platform-support-removals">平台支持的移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#api-and-feature-removals">API 与特性的移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#module-removals">移除的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#windows-only-changes">Windows 专属的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#porting-to-python-3-7">移植到 Python 3.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#notable-changes-in-python-3-7-1">Python 3.7.1 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#notable-changes-in-python-3-7-2">Python 3.7.2 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#notable-changes-in-python-3-7-6">Python 3.7.6 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#notable-changes-in-python-3-7-10">Python 3.7.10 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#notable-changes-in-python-3-7-11">Python 3.7.11 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7.xhtml#notable-security-feature-in-3-7-14">3.7.14 中的重要安全特性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.6.xhtml">Python 3.6 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#other-improvements">其他改进</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#removed">移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#porting-to-python-3-6">移植到Python 3.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#notable-changes-in-python-3-6-2">Python 3.6.2 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#notable-changes-in-python-3-6-4">Python 3.6.4 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#notable-changes-in-python-3-6-5">Python 3.6.5 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#notable-changes-in-python-3-6-7">Python 3.6.7 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#notable-changes-in-python-3-6-10">Python 3.6.10 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#notable-changes-in-python-3-6-13">Python 3.6.13 中的重要变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.6.xhtml#notable-changes-in-python-3-6-14">Python 3.6.14 中的重要变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.5.xhtml">Python 3.5 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#other-module-level-changes">其他模块级更改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#removed">移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#porting-to-python-3-5">移植到Python 3.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.5.xhtml#notable-changes-in-python-3-5-4">Python 3.5.4 的显著变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.4.xhtml">Python 3.4 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#summary-release-highlights">摘要 - 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#new-features">新的特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#cpython-implementation-changes">CPython 实现的变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#removed">移除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#porting-to-python-3-4">移植到 Python 3.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.xhtml#changed-in-3-4-3">3.4.3 的变化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.3.xhtml">Python 3.3 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#summary-release-highlights">摘要 -- 发布重点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-405-virtual-environments">PEP 405: 虚拟环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-420-implicit-namespace-packages">PEP 420: 隐式命名空间包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-3118-new-memoryview-implementation-and-buffer-protocol-documentation">PEP 3118: 新的内存视图实现和缓冲协议文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-393-flexible-string-representation">PEP 393: 灵活的字符串表示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-397-python-launcher-for-windows">PEP 397: 适用于Windows的Python启动器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-3151-reworking-the-os-and-io-exception-hierarchy">PEP 3151: 重写 OS 和 IO 异常的层次结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-380-syntax-for-delegating-to-a-subgenerator">PEP 380: 委托给子生成器的语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-409-suppressing-exception-context">PEP 409: 清除异常上下文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-414-explicit-unicode-literals">PEP 414: 显式的Unicode文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-3155-qualified-name-for-classes-and-functions">PEP 3155: 类和函数的限定名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-412-key-sharing-dictionary">PEP 412: Key-Sharing Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-362-function-signature-object">PEP 362: 函数签名对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#pep-421-adding-sys-implementation">PEP 421: 添加 sys.implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#using-importlib-as-the-implementation-of-import">使用 importlib 作为导入的实现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#a-finer-grained-import-lock">A Finer-Grained Import Lock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#builtin-functions-and-types">Builtin functions and types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#improved-modules">改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#deprecated">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.xhtml#porting-to-python-3-3">移植到 Python 3.3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.2.xhtml">Python 3.2 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#pep-384-defining-a-stable-abi">PEP 384: 定义稳定的ABI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#pep-389-argparse-command-line-parsing-module">PEP 389: Argparse 命令行解析模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#pep-391-dictionary-based-configuration-for-logging">PEP 391:  基于字典的日志配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#pep-3148-the-concurrent-futures-module">PEP 3148:  <code class="docutils literal notranslate"><span class="pre">concurrent.futures</span></code> 模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#pep-3147-pyc-repository-directories">PEP 3147:  PYC 仓库目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#pep-3149-abi-version-tagged-so-files">PEP 3149: 带有 ABI 版本标签的 .so 文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#pep-3333-python-web-server-gateway-interface-v1-0-1">PEP 3333: Python Web服务器网关接口v1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#new-improved-and-deprecated-modules">新增，改进和弃用的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#multi-threading">多线程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#unicode">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#codecs">编解码器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#documentation">文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#idle">IDLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#code-repository">代码库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.xhtml#porting-to-python-3-2">移植到 Python 3.2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.1.xhtml">Python 3.1 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#pep-372-ordered-dictionaries">PEP 372: 有序字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#pep-378-format-specifier-for-thousands-separator">PEP 378: 千位分隔符的格式说明符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#new-improved-and-deprecated-modules">新增，改进和弃用的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#optimizations">性能优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#idle">IDLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.xhtml#porting-to-python-3-1">移植到 Python 3.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.0.xhtml">Python 3.0 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#common-stumbling-blocks">常见的绊脚石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#overview-of-syntax-changes">语法变化概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#changes-already-present-in-python-2-6">Changes Already Present In Python 2.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#library-changes">库的修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#pep-3101-a-new-approach-to-string-formatting"><strong>PEP 3101</strong>: A New Approach To String Formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#changes-to-exceptions">Changes To Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#miscellaneous-other-changes">Miscellaneous Other Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#performance">性能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.xhtml#porting-to-python-3-0">移植到 Python 3.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.7.xhtml">Python 2.7 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#the-future-for-python-2-x">Python 2.x的未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#changes-to-the-handling-of-deprecation-warnings">对于弃用警告处理方式的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#python-3-1-features">Python 3.1 特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#pep-372-adding-an-ordered-dictionary-to-collections">PEP 372：将有序字典 添加到收藏集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#pep-378-format-specifier-for-thousands-separator">PEP 378: 千位分隔符的格式说明符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#pep-389-the-argparse-module-for-parsing-command-lines">PEP 389：用于解析命令行的 argparse 模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#pep-391-dictionary-based-configuration-for-logging">PEP 391: 基于字典的日志配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#pep-3106-dictionary-views">PEP 3106: 字典视图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#pep-3137-the-memoryview-object">PEP 3137: memoryview 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#new-and-improved-modules">新增和改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#other-changes-and-fixes">其他的改变和修正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#porting-to-python-2-7">移植到 Python 2.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#new-features-added-to-python-2-7-maintenance-releases">New Features Added to Python 2.7 Maintenance Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.7.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.6.xhtml">Python 2.6 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#python-3-0">Python 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#changes-to-the-development-process">开发过程的变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-343-the-with-statement">PEP 343: &quot;with&quot; 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-366-explicit-relative-imports-from-a-main-module">PEP 366: 从主模块显式相对导入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-370-per-user-site-packages-directory">PEP 370: 分用户的 site-packages 目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-371-the-multiprocessing-package">PEP 371: 多任务处理包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3101-advanced-string-formatting">PEP 3101: 高级字符串格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3105-print-as-a-function">PEP 3105: <code class="docutils literal notranslate"><span class="pre">print</span></code> 改为函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3110-exception-handling-changes">PEP 3110: 异常处理的变更</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3112-byte-literals">PEP 3112: 字节字面值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3116-new-i-o-library">PEP 3116: 新 I/O 库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3118-revised-buffer-protocol">PEP 3118: 修改缓冲区协议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3119-abstract-base-classes">PEP 3119: 抽象基类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3127-integer-literal-support-and-syntax">PEP 3127: 整型文字支持和语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3129-class-decorators">PEP 3129: 类装饰器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#pep-3141-a-type-hierarchy-for-numbers">PEP 3141: A Type Hierarchy for Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#new-and-improved-modules">新增和改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#deprecations-and-removals">Deprecations and Removals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#porting-to-python-2-6">移植到Python 2.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.6.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.5.xhtml">Python 2.5 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-308-conditional-expressions">PEP 308: 条件表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-309-partial-function-application">PEP 309: 部分功能应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-314-metadata-for-python-software-packages-v1-1">PEP 314: Python软件包的元数据 v1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-328-absolute-and-relative-imports">PEP 328: 绝对导入和相对导入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-338-executing-modules-as-scripts">PEP 338: 将模块作为脚本执行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-341-unified-try-except-finally">PEP 341: 统一 try/except/finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-342-new-generator-features">PEP 342: 生成器的新特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-343-the-with-statement">PEP 343: &quot;with&quot; 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-352-exceptions-as-new-style-classes">PEP 352: 异常作为新型的类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-353-using-ssize-t-as-the-index-type">PEP 353: 使用ssize_t作为索引类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#pep-357-the-index-method">PEP 357: '__index__' 方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#new-improved-and-removed-modules">新增，改进和删除的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#porting-to-python-2-5">移植到Python 2.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.4.xhtml">Python 2.4 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-218-built-in-set-objects">PEP 218: 内置集合对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-237-unifying-long-integers-and-integers">PEP 237: 统一长整数和整数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-289-generator-expressions">PEP 289: 生成器表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-292-simpler-string-substitutions">PEP 292: 更简单的字符串替换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-318-decorators-for-functions-and-methods">PEP 318: 函数和方法的装饰器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-322-reverse-iteration">PEP 322: 反向迭代</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-324-new-subprocess-module">PEP 324: 新的子进程模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-327-decimal-data-type">PEP 327: 十进制数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-328-multi-line-imports">PEP 328: 多行导入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#pep-331-locale-independent-float-string-conversions">PEP 331: Locale-Independent Float/String Conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#new-improved-and-deprecated-modules">新增，改进和弃用的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#porting-to-python-2-4">移植到 Python 2.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.3.xhtml">Python 2.3 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-218-a-standard-set-datatype">PEP 218: 标准集合数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-255-simple-generators">PEP 255: 简单的生成器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-263-source-code-encodings">PEP 263: 源代码的字符编码格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-273-importing-modules-from-zip-archives">PEP 273: 从ZIP压缩包导入模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-277-unicode-file-name-support-for-windows-nt">PEP 277: 针对 Windows NT 的 Unicode 文件名支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-278-universal-newline-support">PEP 278: 通用换行支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-279-enumerate">PEP 279: enumerate()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-282-the-logging-package">PEP 282: logging 包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-285-a-boolean-type">PEP 285: 布尔类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-293-codec-error-handling-callbacks">PEP 293: 编解码器错误处理回调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-301-package-index-and-metadata-for-distutils">PEP 301: Distutils的软件包索引和元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-302-new-import-hooks">PEP 302: 新导入钩子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-305-comma-separated-files">PEP 305: 逗号分隔文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pep-307-pickle-enhancements">PEP 307：对 pickle 的改进</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#extended-slices">扩展切片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#other-language-changes">其他语言特性修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#new-improved-and-deprecated-modules">新增，改进和弃用的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#pymalloc-a-specialized-object-allocator">Pymalloc: A Specialized Object Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#build-and-c-api-changes">构建和 C API 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#other-changes-and-fixes">其他的改变和修正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#porting-to-python-2-3">移植到 Python 2.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.2.xhtml">Python 2.2 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#introduction">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#peps-252-and-253-type-and-class-changes">PEP 252 和 253：类型和类的修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#pep-234-iterators">PEP 234: 迭代器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#pep-255-simple-generators">PEP 255: 简单的生成器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#pep-237-unifying-long-integers-and-integers">PEP 237: 统一长整数和整数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#pep-238-changing-the-division-operator">PEP 238：修改除法运算符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#unicode-changes">Unicode 的改变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#pep-227-nested-scopes">PEP 227: 嵌套的作用域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#new-and-improved-modules">新增和改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#interpreter-changes-and-fixes">解释器的改变和修正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#other-changes-and-fixes">其他的改变和修正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.1.xhtml">Python 2.1 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#introduction">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-227-nested-scopes">PEP 227: 嵌套的作用域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-236-future-directives">PEP 236: __future__ 指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-207-rich-comparisons">PEP 207: 富比较</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-230-warning-framework">PEP 230: 警告框架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-229-new-build-system">PEP 229: 新的构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-205-weak-references">PEP 205: 弱引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-232-function-attributes">PEP 232: 函数属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-235-importing-modules-on-case-insensitive-platforms">PEP 235: 在大小写不敏感的平台上导入模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-217-interactive-display-hook">PEP 217: 交互模式显示钩子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-208-new-coercion-model">PEP 208: 新的强制转换模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#pep-241-metadata-in-python-packages">PEP 241: Python 包中的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#new-and-improved-modules">新增和改进的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#other-changes-and-fixes">其他的改变和修正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.0.xhtml">Python 2.0 有什么新变化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#introduction">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#what-about-python-1-6">Python 1.6 将会怎样？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#new-development-process">新开发流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#unicode">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#list-comprehensions">列表推导式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#augmented-assignment">增强赋值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#string-methods">字符串的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#garbage-collection-of-cycles">循环的垃圾回收</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#other-core-changes">其他核心变化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#porting-to-2-0">移植 Python 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#extending-embedding-changes">扩展/嵌入更改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#distutils-making-modules-easy-to-install">Distutils：使模块易于安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#xml-modules">XML 模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#module-changes">模块更改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#new-modules">新增模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#idle-improvements">IDLE 改进</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#deleted-and-deprecated-modules">删除和弃用的模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.xhtml#acknowledgements">致谢</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>这个“更新日志”是基于 <a class="reference external" href="https://github.com/python/cpython/tree/3.12/Misc/NEWS.d">Misc/NEWS.d</a><span class="link-target"> [https://github.com/python/cpython/tree/3.12/Misc/NEWS.d]</span> 目录树内容的 <a class="reference external" href="https://pypi.org/project/blurb/">file built</a><span class="link-target"> [https://pypi.org/project/blurb/]</span> 的 HTML 版本，它包含了对于当前 Python 版本的 <em>全部</em> 较重要更改。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.xhtml">更新日志</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-next">Python next</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-3-final">Python 3.12.3 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-2-final">Python 3.12.2 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-1-final">Python 3.12.1 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-final">Python 3.12.0 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-release-candidate-3">Python 3.12.0 release candidate 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-release-candidate-2">Python 3.12.0 release candidate 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-release-candidate-1">Python 3.12.0 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-beta-4">Python 3.12.0 beta 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-beta-3">Python 3.12.0 beta 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-beta-2">Python 3.12.0 beta 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-beta-1">Python 3.12.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-alpha-7">Python 3.12.0 alpha 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-alpha-6">Python 3.12.0 alpha 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-alpha-5">Python 3.12.0 alpha 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-alpha-4">Python 3.12.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-alpha-3">Python 3.12.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-alpha-2">Python 3.12.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-12-0-alpha-1">Python 3.12.0 alpha 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-beta-1">Python 3.11.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-alpha-7">Python 3.11.0 alpha 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-alpha-6">Python 3.11.0 alpha 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-alpha-5">Python 3.11.0 alpha 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-alpha-4">Python 3.11.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-alpha-3">Python 3.11.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-alpha-2">Python 3.11.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-11-0-alpha-1">Python 3.11.0 alpha 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-beta-1">Python 3.10.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-alpha-7">Python 3.10.0 alpha 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-alpha-6">Python 3.10.0 alpha 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-alpha-5">Python 3.10.0 alpha 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-alpha-4">Python 3.10.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-alpha-3">Python 3.10.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-alpha-2">Python 3.10.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-10-0-alpha-1">Python 3.10.0 alpha 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-9-0-beta-1">Python 3.9.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-9-0-alpha-6">Python 3.9.0 alpha 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-9-0-alpha-5">Python 3.9.0 alpha 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-9-0-alpha-4">Python 3.9.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-9-0-alpha-3">Python 3.9.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-9-0-alpha-2">Python 3.9.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-9-0-alpha-1">Python 3.9.0 alpha 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-8-0-beta-1">Python 3.8.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-8-0-alpha-4">Python 3.8.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-8-0-alpha-3">Python 3.8.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-8-0-alpha-2">Python 3.8.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-8-0-alpha-1">Python 3.8.0 alpha 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-final">Python 3.7.0 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-release-candidate-1">Python 3.7.0 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-beta-5">Python 3.7.0 beta 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-beta-4">Python 3.7.0 beta 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-beta-3">Python 3.7.0 beta 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-beta-2">Python 3.7.0 beta 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-beta-1">Python 3.7.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-alpha-4">Python 3.7.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-alpha-3">Python 3.7.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-alpha-2">Python 3.7.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-7-0-alpha-1">Python 3.7.0 alpha 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-6-final">Python 3.6.6 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-6-release-candidate-1">Python 3.6.6 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-5-final">Python 3.6.5 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-5-release-candidate-1">Python 3.6.5 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-4-final">Python 3.6.4 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-4-release-candidate-1">Python 3.6.4 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-3-final">Python 3.6.3 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-3-release-candidate-1">Python 3.6.3 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-2-final">Python 3.6.2 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-2-release-candidate-2">Python 3.6.2 release candidate 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-2-release-candidate-1">Python 3.6.2 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-1-final">Python 3.6.1 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-1-release-candidate-1">Python 3.6.1 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-final">Python 3.6.0 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-release-candidate-2">Python 3.6.0 release candidate 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-release-candidate-1">Python 3.6.0 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-beta-4">Python 3.6.0 beta 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-beta-3">Python 3.6.0 beta 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-beta-2">Python 3.6.0 beta 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-beta-1">Python 3.6.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-alpha-4">Python 3.6.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-alpha-3">Python 3.6.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-alpha-2">Python 3.6.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-6-0-alpha-1">Python 3.6.0 alpha 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-5-final">Python 3.5.5 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-5-release-candidate-1">Python 3.5.5 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-4-final">Python 3.5.4 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-4-release-candidate-1">Python 3.5.4 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-3-final">Python 3.5.3 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-3-release-candidate-1">Python 3.5.3 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-2-final">Python 3.5.2 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-2-release-candidate-1">Python 3.5.2 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-1-final">Python 3.5.1 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-1-release-candidate-1">Python 3.5.1 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-final">Python 3.5.0 final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-release-candidate-4">Python 3.5.0 release candidate 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-release-candidate-3">Python 3.5.0 release candidate 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-release-candidate-2">Python 3.5.0 release candidate 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-release-candidate-1">Python 3.5.0 release candidate 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-beta-4">Python 3.5.0 beta 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-beta-3">Python 3.5.0 beta 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-beta-2">Python 3.5.0 beta 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-beta-1">Python 3.5.0 beta 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-alpha-4">Python 3.5.0 alpha 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-alpha-3">Python 3.5.0 alpha 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-alpha-2">Python 3.5.0 alpha 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.xhtml#python-3-5-0-alpha-1">Python 3.5.0 alpha 1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

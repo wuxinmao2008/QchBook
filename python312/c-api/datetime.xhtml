@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="DateTime 对象" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/c-api/datetime.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="datetime 模块提供了各种日期和时间对象。 在使用这些函数之前，必须在你的源代码中包含头文件 datetime.h(请注意此文件并未包括在 Python.h 中)，并且 PyDateTime_IMPORT 必须被发起调用，通常是作为模块初始化函数的一部分。 这个宏会将指向特定 C 结构体的指针放入一个静态变量 PyDateTimeAPI 中，它将被下列的宏所使用。 宏访问UTC单例: ..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="datetime 模块提供了各种日期和时间对象。 在使用这些函数之前，必须在你的源代码中包含头文件 datetime.h(请注意此文件并未包括在 Python.h 中)，并且 PyDateTime_IMPORT 必须被发起调用，通常是作为模块初始化函数的一部分。 这个宏会将指向特定 C 结构体的指针放入一个静态变量 PyDateTimeAPI 中，它将被下列的宏所使用。 宏访问UTC单例: ..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>DateTime 对象</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/c-api/datetime.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="datetime-objects">
+<span id="datetimeobjects"></span><h1>DateTime 对象</h1>
+<p><a class="reference internal" href="../library/datetime.xhtml#module-datetime" title="datetime: Basic date and time types."><code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code></a> 模块提供了各种日期和时间对象。 在使用这些函数之前，必须在你的源代码中包含头文件 <code class="file docutils literal notranslate"><span class="pre">datetime.h</span></code> (请注意此文件并未包括在 <code class="file docutils literal notranslate"><span class="pre">Python.h</span></code> 中)，并且 <code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDateTime_IMPORT</span></code> 必须被发起调用，通常是作为模块初始化函数的一部分。 这个宏会将指向特定 C 结构体的指针放入一个静态变量 <code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTimeAPI</span></code> 中，它将被下列的宏所使用。</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyDateTime_Date">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_Date</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 的这个子类型表示 Python 日期对象。</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyDateTime_DateTime">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DateTime</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 的这个子类型表示 Python 日期时间对象。</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyDateTime_Time">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_Time</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 的这个子类型表示 Python 时间对象。</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyDateTime_Delta">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_Delta</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 的这个子类型表示两个日期时间值之间的差值。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyDateTime_DateType">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DateType</span></span></span><br /></dt>
+<dd><p>这个 <a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的实例代表 Python 日期类型；它与 Python 层面的 <a class="reference internal" href="../library/datetime.xhtml#datetime.date" title="datetime.date"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> 对象相同。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyDateTime_DateTimeType">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DateTimeType</span></span></span><br /></dt>
+<dd><p>这个 <a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的实例代表 Python 日期时间类型；它与 Python 层面的 <a class="reference internal" href="../library/datetime.xhtml#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> 对象相同。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyDateTime_TimeType">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TimeType</span></span></span><br /></dt>
+<dd><p>这个 <a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的实例代表 Python 时间类型；它与 Python 层面的 <a class="reference internal" href="../library/datetime.xhtml#datetime.time" title="datetime.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a> 对象相同。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyDateTime_DeltaType">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DeltaType</span></span></span><br /></dt>
+<dd><p>这个 <a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的实例是代表两个日期时间值之间差值的 Python 类型；它与 Python 层面的 <a class="reference internal" href="../library/datetime.xhtml#datetime.timedelta" title="datetime.timedelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> 对象相同。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyDateTime_TZInfoType">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TZInfoType</span></span></span><br /></dt>
+<dd><p>这个 <a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的实例代表 Python 时区信息类型；它与 Python 层面的 <a class="reference internal" href="../library/datetime.xhtml#datetime.tzinfo" title="datetime.tzinfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.tzinfo</span></code></a> 对象相同。</p>
+</dd></dl>
+
+<p>宏访问UTC单例:</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyDateTime_TimeZone_UTC">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TimeZone_UTC</span></span></span><br /></dt>
+<dd><p>返回表示 UTC 的时区单例，与 <a class="reference internal" href="../library/datetime.xhtml#datetime.timezone.utc" title="datetime.timezone.utc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">datetime.timezone.utc</span></code></a> 为同一对象。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
+</div>
+</dd></dl>
+
+<p>类型检查宏：</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDate_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDate_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_DateType" title="PyDateTime_DateType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DateType</span></code></a> 类型或 <code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DateType</span></code> 的某个子类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDate_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDate_CheckExact</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_DateType" title="PyDateTime_DateType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DateType</span></code></a> 类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_DateTimeType" title="PyDateTime_DateTimeType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DateTimeType</span></code></a> 类型或 <code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DateTimeType</span></code> 的某个子类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_CheckExact</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_DateTimeType" title="PyDateTime_DateTimeType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DateTimeType</span></code></a> 类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTime_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTime_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_TimeType" title="PyDateTime_TimeType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_TimeType</span></code></a> 类型或 <code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_TimeType</span></code> 的某个子类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTime_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTime_CheckExact</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_TimeType" title="PyDateTime_TimeType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_TimeType</span></code></a> 类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDelta_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDelta_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_DeltaType" title="PyDateTime_DeltaType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DeltaType</span></code></a> 类型或 <code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DeltaType</span></code> 的某个子类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。  此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDelta_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDelta_CheckExact</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_DeltaType" title="PyDateTime_DeltaType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_DeltaType</span></code></a> 类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTZInfo_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTZInfo_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_TZInfoType" title="PyDateTime_TZInfoType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_TZInfoType</span></code></a> 类型或 <code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_TZInfoType</span></code> 的某个子类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。  此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTZInfo_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTZInfo_CheckExact</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ob</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>ob</em> 为 <a class="reference internal" href="#c.PyDateTime_TZInfoType" title="PyDateTime_TZInfoType"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyDateTime_TZInfoType</span></code></a> 类型则返回真值。 <em>ob</em> 不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<p>用于创建对象的宏：</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDate_FromDate">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDate_FromDate</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">year</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">month</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">day</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回指定年、月、日的 <a class="reference internal" href="../library/datetime.xhtml#datetime.date" title="datetime.date"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> 对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_FromDateAndTime">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_FromDateAndTime</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">year</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">month</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">day</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">hour</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">minute</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">second</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">usecond</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回具有指定 year, month, day, hour, minute, second 和 microsecond 属性的 <a class="reference internal" href="../library/datetime.xhtml#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> 对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_FromDateAndTimeAndFold">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_FromDateAndTimeAndFold</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">year</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">month</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">day</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">hour</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">minute</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">second</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">usecond</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">fold</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回具有指定 year, month, day, hour, minute, second, microsecond 和 fold 属性的 <a class="reference internal" href="../library/datetime.xhtml#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> 对象。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTime_FromTime">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTime_FromTime</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">hour</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">minute</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">second</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">usecond</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回具有指定 hour, minute, second and microsecond 属性的 <a class="reference internal" href="../library/datetime.xhtml#datetime.time" title="datetime.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a> 对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTime_FromTimeAndFold">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTime_FromTimeAndFold</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">hour</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">minute</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">second</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">usecond</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">fold</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回具有指定 hour, minute, second, microsecond 和 fold 属性的 <a class="reference internal" href="../library/datetime.xhtml#datetime.time" title="datetime.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a> 对象。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDelta_FromDSU">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDelta_FromDSU</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">days</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">seconds</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">useconds</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回代表给定天、秒和微秒数的 <a class="reference internal" href="../library/datetime.xhtml#datetime.timedelta" title="datetime.timedelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> 对象。 将执行正规化操作以使最终的微秒和秒数处在 <a class="reference internal" href="../library/datetime.xhtml#datetime.timedelta" title="datetime.timedelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> 对象的文档指明的区间之内。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTimeZone_FromOffset">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTimeZone_FromOffset</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">offset</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回一个 <a class="reference internal" href="../library/datetime.xhtml#datetime.timezone" title="datetime.timezone"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timezone</span></code></a> 对象，该对象具有以 <em>offset</em> 参数表示 的未命名固定时差。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTimeZone_FromOffsetAndName">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTimeZone_FromOffsetAndName</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">offset</span></span>, <a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回一个 <a class="reference internal" href="../library/datetime.xhtml#datetime.timezone" title="datetime.timezone"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timezone</span></code></a> 对象，该对象具有以 <em>offset</em> 参数表示的固定时差和时区名称 <em>name</em>。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
+</div>
+</dd></dl>
+
+<p>一些用来从日期对象中提取字段的宏。 参数必须是 <a class="reference internal" href="#c.PyDateTime_Date" title="PyDateTime_Date"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyDateTime_Date</span></code></a> 包括其子类 (如 <a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyDateTime_DateTime</span></code></a>) 的实例。 参数不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>，且不会检查类型:</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_GET_YEAR">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_GET_YEAR</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Date" title="PyDateTime_Date"><span class="n"><span class="pre">PyDateTime_Date</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>以正整数的形式返回年份值。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_GET_MONTH">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_GET_MONTH</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Date" title="PyDateTime_Date"><span class="n"><span class="pre">PyDateTime_Date</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回月，从0到12的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_GET_DAY">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_GET_DAY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Date" title="PyDateTime_Date"><span class="n"><span class="pre">PyDateTime_Date</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回日期，从0到31的整数。</p>
+</dd></dl>
+
+<p>一些用来从日期时间对象中提取字段的宏。 参数必须是 <a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyDateTime_DateTime</span></code></a> 包括其子类的实例。 参数不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>，并且不会检查类型:</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DATE_GET_HOUR">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DATE_GET_HOUR</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><span class="n"><span class="pre">PyDateTime_DateTime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回小时，从0到23的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DATE_GET_MINUTE">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DATE_GET_MINUTE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><span class="n"><span class="pre">PyDateTime_DateTime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回分钟，从0到59的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DATE_GET_SECOND">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DATE_GET_SECOND</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><span class="n"><span class="pre">PyDateTime_DateTime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回秒，从0到59的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DATE_GET_MICROSECOND">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DATE_GET_MICROSECOND</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><span class="n"><span class="pre">PyDateTime_DateTime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回微秒，从0到999999的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DATE_GET_FOLD">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DATE_GET_FOLD</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><span class="n"><span class="pre">PyDateTime_DateTime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回折叠值，为整数 0 或 1。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DATE_GET_TZINFO">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DATE_GET_TZINFO</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_DateTime" title="PyDateTime_DateTime"><span class="n"><span class="pre">PyDateTime_DateTime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回 tzinfo (可以为 <code class="docutils literal notranslate"><span class="pre">None</span></code>)。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
+</div>
+</dd></dl>
+
+<p>一些用来从时间对象中提取字段的宏。 参数必须是 <a class="reference internal" href="#c.PyDateTime_Time" title="PyDateTime_Time"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyDateTime_Time</span></code></a> 包括其子类的实例。 参数不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>，且不会检查类型:</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_TIME_GET_HOUR">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TIME_GET_HOUR</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Time" title="PyDateTime_Time"><span class="n"><span class="pre">PyDateTime_Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回小时，从0到23的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_TIME_GET_MINUTE">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TIME_GET_MINUTE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Time" title="PyDateTime_Time"><span class="n"><span class="pre">PyDateTime_Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回分钟，从0到59的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_TIME_GET_SECOND">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TIME_GET_SECOND</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Time" title="PyDateTime_Time"><span class="n"><span class="pre">PyDateTime_Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回秒，从0到59的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_TIME_GET_MICROSECOND">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TIME_GET_MICROSECOND</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Time" title="PyDateTime_Time"><span class="n"><span class="pre">PyDateTime_Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回微秒，从0到999999的整数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_TIME_GET_FOLD">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TIME_GET_FOLD</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Time" title="PyDateTime_Time"><span class="n"><span class="pre">PyDateTime_Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回折叠值，为整数 0 或 1。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_TIME_GET_TZINFO">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_TIME_GET_TZINFO</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Time" title="PyDateTime_Time"><span class="n"><span class="pre">PyDateTime_Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回 tzinfo (可以为 <code class="docutils literal notranslate"><span class="pre">None</span></code>)。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
+</div>
+</dd></dl>
+
+<p>一些用来从时间差对象中提取字段的宏。 参数必须是 <a class="reference internal" href="#c.PyDateTime_Delta" title="PyDateTime_Delta"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyDateTime_Delta</span></code></a> 包括其子类的实例。参数不能为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>，并且不会检查类型:</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DELTA_GET_DAYS">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DELTA_GET_DAYS</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Delta" title="PyDateTime_Delta"><span class="n"><span class="pre">PyDateTime_Delta</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回天数，从-999999999到999999999的整数。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DELTA_GET_SECONDS">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DELTA_GET_SECONDS</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Delta" title="PyDateTime_Delta"><span class="n"><span class="pre">PyDateTime_Delta</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回秒数，从0到86399的整数。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_DELTA_GET_MICROSECONDS">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_DELTA_GET_MICROSECONDS</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyDateTime_Delta" title="PyDateTime_Delta"><span class="n"><span class="pre">PyDateTime_Delta</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回微秒数，从0到999999的整数。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.3.</span></p>
+</div>
+</dd></dl>
+
+<p>一些便于模块实现 DB API 的宏:</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDateTime_FromTimestamp">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTime_FromTimestamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>创建并返回一个给定元组参数的新 <a class="reference internal" href="../library/datetime.xhtml#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> 对象，适合传给 <a class="reference internal" href="../library/datetime.xhtml#datetime.datetime.fromtimestamp" title="datetime.datetime.fromtimestamp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">datetime.datetime.fromtimestamp()</span></code></a>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyDate_FromTimestamp">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDate_FromTimestamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>创建并返回一个给定元组参数的新 <a class="reference internal" href="../library/datetime.xhtml#datetime.date" title="datetime.date"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> 对象，适合传给 <a class="reference internal" href="../library/datetime.xhtml#datetime.date.fromtimestamp" title="datetime.date.fromtimestamp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">datetime.date.fromtimestamp()</span></code></a>。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

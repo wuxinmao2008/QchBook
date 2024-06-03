@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="元组对象" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/c-api/tuple.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="结构序列对象: 结构序列对象是等价于 namedtuple() 的 C 对象，即一个序列，其中的条目也可以通过属性访问。 要创建结构序列，你首先必须创建特定的结构序列类型。" />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="结构序列对象: 结构序列对象是等价于 namedtuple() 的 C 对象，即一个序列，其中的条目也可以通过属性访问。 要创建结构序列，你首先必须创建特定的结构序列类型。" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>元组对象</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/c-api/tuple.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="tuple-objects">
+<span id="tupleobjects"></span><h1>元组对象</h1>
+<dl class="c type" id="index-0">
+<dt class="sig sig-object c" id="c.PyTupleObject">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTupleObject</span></span></span><br /></dt>
+<dd><p>这个 <a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 的子类型代表一个 Python 的元组对象。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyTuple_Type">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_Type</span></span></span><br /></dt>
+<dd><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p><a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的实例代表一个 Python 元组类型，这与 Python 层面的 <a class="reference internal" href="../library/stdtypes.xhtml#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> 是相同的对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>p</em> 是一个 tuple 对象或者 tuple 类型的子类型的实例则返回真值。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_CheckExact</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>p</em> 是一个 tuple 对象但不是 tuple 类型的子类型的实例则返回真值。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_New">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_New</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>成功时返回一个新的元组对象，长度为 <em>len</em>，失败时返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_Pack">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_Pack</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">n</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>成功时返回一个新的元组对象，大小为 <em>n</em> ，失败时返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 元组值初始化为指向 Python 对象的后续 <em>n</em> 个 C 参数。 <code class="docutils literal notranslate"><span class="pre">PyTuple_Pack(2,</span> <span class="pre">a,</span> <span class="pre">b)</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Py_BuildValue(&quot;(OO)&quot;,</span> <span class="pre">a,</span> <span class="pre">b)</span></code> 相等。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_Size">
+<a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_Size</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>获取指向元组对象的指针，并返回该元组的大小。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_GET_SIZE">
+<a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_GET_SIZE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>返回元组 <em>p</em> 的大小，它必须为非 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 并且指向一个元组；不执行错误检查。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_GetItem">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_GetItem</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pos</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>返回 <em>p</em> 所指向的元组中位于 <em>pos</em> 处的对象。 如果 <em>pos</em> 为负值或超出范围，则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 并设置一个 <a class="reference internal" href="../library/exceptions.xhtml#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> 异常。</p>
+<p>返回的引用是从元组 <em>p</em> 借入的（也就是说：它只在你持有对 <em>p</em> 的引用时才是可用的）。 要获取 <a class="reference internal" href="../glossary.xhtml#term-strong-reference"><span class="xref std std-term">strong reference</span></a>，请使用 <a class="reference internal" href="refcounting.xhtml#c.Py_NewRef" title="Py_NewRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_NewRef(PyTuple_GetItem(...))</span></code></a> 或 <a class="reference internal" href="sequence.xhtml#c.PySequence_GetItem" title="PySequence_GetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySequence_GetItem()</span></code></a>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_GET_ITEM">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_GET_ITEM</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pos</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>类似于 <a class="reference internal" href="#c.PyTuple_GetItem" title="PyTuple_GetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_GetItem()</span></code></a>，但不检查其参数。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_GetSlice">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_GetSlice</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">low</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">high</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>返回 <em>p</em> 所指向的元组的从 <em>low</em> 到 <em>high</em> 的切片，或者在失败时返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 这等价于 Python 表达式 <code class="docutils literal notranslate"><span class="pre">p[low:high]</span></code>。 不支持从元组末尾进行索引。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_SetItem">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_SetItem</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pos</span></span>, <a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>在 <em>p</em> 指向的元组的 <em>pos</em> 位置插入对对象 <em>o</em> 的引用。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>；如果 <em>pos</em> 越界，则返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>，并抛出一个 <a class="reference internal" href="../library/exceptions.xhtml#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> 异常。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此函数会“窃取”对 <em>o</em> 的引用，并丢弃对元组中已在受影响位置的条目的引用。</p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyTuple_SET_ITEM">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyTuple_SET_ITEM</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pos</span></span>, <a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>类似于 <a class="reference internal" href="#c.PyTuple_SetItem" title="PyTuple_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_SetItem()</span></code></a>，但不进行错误检查，并且应该 <em>只是</em> 被用来填充全新的元组。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>这个函数会“窃取”一个对 <em>o</em> 的引用，但是，不与 <a class="reference internal" href="#c.PyTuple_SetItem" title="PyTuple_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_SetItem()</span></code></a> 不同，它 <em>不会</em> 丢弃对任何被替换项的引用；元组中位于 <em>pos</em> 位置的任何引用都将被泄漏。</p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c._PyTuple_Resize">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_PyTuple_Resize</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">newsize</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>可以用于调整元组的大小。 <em>newsize</em> 将是元组的新长度。 因为元组 <em>被认为</em> 是不可变的，所以只有在对象仅有一个引用时，才应该使用它。 如果元组已经被代码的其他部分所引用，请不要使用此项。 元组在最后总是会增长或缩小。 把它看作是销毁旧元组并创建一个新元组，只会更有效。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code> 。 客户端代码不应假定 <code class="docutils literal notranslate"><span class="pre">*p</span></code> 的结果值将与调用此函数之前的值相同。 如果替换了 <code class="docutils literal notranslate"><span class="pre">*p</span></code> 引用的对象，则原始的 <code class="docutils literal notranslate"><span class="pre">*p</span></code> 将被销毁。 失败时，返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>，将 <code class="docutils literal notranslate"><span class="pre">*p</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>，并引发 <a class="reference internal" href="../library/exceptions.xhtml#MemoryError" title="MemoryError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MemoryError</span></code></a> 或者 <a class="reference internal" href="../library/exceptions.xhtml#SystemError" title="SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a>。</p>
+</dd></dl>
+
+</section>
+<section id="struct-sequence-objects">
+<span id="id1"></span><h1>结构序列对象</h1>
+<p>结构序列对象是等价于 <a class="reference internal" href="../library/collections.xhtml#collections.namedtuple" title="collections.namedtuple"><code class="xref py py-func docutils literal notranslate"><span class="pre">namedtuple()</span></code></a> 的 C 对象，即一个序列，其中的条目也可以通过属性访问。 要创建结构序列，你首先必须创建特定的结构序列类型。</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_NewType">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_NewType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyStructSequence_Desc" title="PyStructSequence_Desc"><span class="n"><span class="pre">PyStructSequence_Desc</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">desc</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>根据 <em>desc</em> 中的数据创建一个新的结构序列类型，如下所述。 可以使用 <a class="reference internal" href="#c.PyStructSequence_New" title="PyStructSequence_New"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyStructSequence_New()</span></code></a> 创建结果类型的实例。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_InitType">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_InitType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <a class="reference internal" href="#c.PyStructSequence_Desc" title="PyStructSequence_Desc"><span class="n"><span class="pre">PyStructSequence_Desc</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">desc</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>从 <em>desc</em> 就地初始化结构序列类型 <em>type</em>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_InitType2">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_InitType2</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <a class="reference internal" href="#c.PyStructSequence_Desc" title="PyStructSequence_Desc"><span class="n"><span class="pre">PyStructSequence_Desc</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">desc</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>与 <code class="docutils literal notranslate"><span class="pre">PyStructSequence_InitType</span></code> 相同，但成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code> ，失败时返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code> 。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.4.</span></p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyStructSequence_Desc">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_Desc</span></span></span><br /></dt>
+<dd><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a> （包括所有成员）.</em><p>包含要创建的结构序列类型的元信息。</p>
+<dl class="c member">
+<dt class="sig sig-object c" id="c.PyStructSequence_Desc.name">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">name</span></span></span><br /></dt>
+<dd><p>结构序列类型的名称。</p>
+</dd></dl>
+
+<dl class="c member">
+<dt class="sig sig-object c" id="c.PyStructSequence_Desc.doc">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">doc</span></span></span><br /></dt>
+<dd><p>指向类型的文档字符串的指针或以 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 表示忽略。</p>
+</dd></dl>
+
+<dl class="c member">
+<dt class="sig sig-object c" id="c.PyStructSequence_Desc.fields">
+<a class="reference internal" href="#c.PyStructSequence_Field" title="PyStructSequence_Field"><span class="n"><span class="pre">PyStructSequence_Field</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">fields</span></span></span><br /></dt>
+<dd><p>指向以 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 结尾的数组的指针，该数组包含新类型的字段名。</p>
+</dd></dl>
+
+<dl class="c member">
+<dt class="sig sig-object c" id="c.PyStructSequence_Desc.n_in_sequence">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">n_in_sequence</span></span></span><br /></dt>
+<dd><p>Python 端可见的字段数（如果用作元组）。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyStructSequence_Field">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_Field</span></span></span><br /></dt>
+<dd><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a> （包括所有成员）.</em><p>描述结构序列的一个字段。 由于结构序列是以元组为模型的，因此所有字段的类型都是 <span class="c-expr sig sig-inline c"><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n">PyObject</span></a><span class="p">*</span></span>。 <a class="reference internal" href="#c.PyStructSequence_Desc" title="PyStructSequence_Desc"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyStructSequence_Desc</span></code></a> 的 <a class="reference internal" href="#c.PyStructSequence_Desc.fields" title="PyStructSequence_Desc.fields"><code class="xref c c-member docutils literal notranslate"><span class="pre">fields</span></code></a> 数组中的索引决定了描述结构序列的是哪个字段。</p>
+<dl class="c member">
+<dt class="sig sig-object c" id="c.PyStructSequence_Field.name">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">name</span></span></span><br /></dt>
+<dd><p>字段的名称或 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 表示结束已命名字段列表，设为 <a class="reference internal" href="#c.PyStructSequence_UnnamedField" title="PyStructSequence_UnnamedField"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyStructSequence_UnnamedField</span></code></a> 则保持未命名状态。</p>
+</dd></dl>
+
+<dl class="c member">
+<dt class="sig sig-object c" id="c.PyStructSequence_Field.doc">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">doc</span></span></span><br /></dt>
+<dd><p>字段文档字符串或 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 表示省略。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyStructSequence_UnnamedField">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_UnnamedField</span></span></span><br /></dt>
+<dd><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a> 自 3.11 版起.</em><p>字段名的特殊值将保持未命名状态。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.9 版本发生变更: </span>这个类型已从 <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span></code> 更改。</p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_New">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_New</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>创建 <em>type</em> 的实例，该实例必须使用 <a class="reference internal" href="#c.PyStructSequence_NewType" title="PyStructSequence_NewType"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyStructSequence_NewType()</span></code></a> 创建。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_GetItem">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_GetItem</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pos</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>Return the object at position <em>pos</em> in the struct sequence pointed to by <em>p</em>.
+No bounds checking is performed.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_GET_ITEM">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_GET_ITEM</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pos</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>Macro equivalent of <a class="reference internal" href="#c.PyStructSequence_GetItem" title="PyStructSequence_GetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyStructSequence_GetItem()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_SetItem">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_SetItem</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pos</span></span>, <a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="stableabi"> 属于 <a class="reference internal" href="stable.xhtml#stable"><span class="std std-ref">稳定 ABI</span></a>.</em><p>将结构序列 <em>p</em> 的索引 <em>pos</em> 处的字段设置为值 <em>o</em>。 与 <a class="reference internal" href="#c.PyTuple_SET_ITEM" title="PyTuple_SET_ITEM"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_SET_ITEM()</span></code></a> 一样，它应该只用于填充全新的实例。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>这个函数“窃取”了指向 <em>o</em> 的一个引用。</p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyStructSequence_SET_ITEM">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyStructSequence_SET_ITEM</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <a class="reference internal" href="intro.xhtml#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">pos</span></span>, <a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Similar to <a class="reference internal" href="#c.PyStructSequence_SetItem" title="PyStructSequence_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyStructSequence_SetItem()</span></code></a>, but implemented as a static
+inlined function.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>这个函数“窃取”了指向 <em>o</em> 的一个引用。</p>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

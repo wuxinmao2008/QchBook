@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Python 语言参考手册" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/reference/index.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="本参考手册介绍了 Python 句法与“核心语义”。在力求简明扼要的同时，我们也尽量做到准确、完整。有关内置对象类型、内置函数、模块的语义在 Python 标准库 中介绍。有关本语言的非正式介绍，请参阅 Python 教程 。对于 C 或 C++ 程序员，我们还提供了两个手册： 扩展和嵌入 Python 解释器 介绍了如何编写 Python 扩展模块， Python/C API 参考手册 则..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="本参考手册介绍了 Python 句法与“核心语义”。在力求简明扼要的同时，我们也尽量做到准确、完整。有关内置对象类型、内置函数、模块的语义在 Python 标准库 中介绍。有关本语言的非正式介绍，请参阅 Python 教程 。对于 C 或 C++ 程序员，我们还提供了两个手册： 扩展和嵌入 Python 解释器 介绍了如何编写 Python 扩展模块， Python/C API 参考手册 则..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>Python 语言参考手册</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/reference/index.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="the-python-language-reference">
+<span id="reference-index"></span><h1>Python 语言参考手册</h1>
+<p>本参考手册介绍了 Python 句法与“核心语义”。在力求简明扼要的同时，我们也尽量做到准确、完整。有关内置对象类型、内置函数、模块的语义在 <a class="reference internal" href="../library/index.xhtml#library-index"><span class="std std-ref">Python 标准库</span></a> 中介绍。有关本语言的非正式介绍，请参阅 <a class="reference internal" href="../tutorial/index.xhtml#tutorial-index"><span class="std std-ref">Python 教程</span></a> 。对于 C 或 C++ 程序员，我们还提供了两个手册：<a class="reference internal" href="../extending/index.xhtml#extending-index"><span class="std std-ref">扩展和嵌入 Python 解释器</span></a> 介绍了如何编写 Python 扩展模块，<a class="reference internal" href="../c-api/index.xhtml#c-api-index"><span class="std std-ref">Python/C API 参考手册</span></a> 则详细介绍了 C/C++ 的可用接口。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.xhtml">1. 概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.xhtml#alternate-implementations">1.1. 其他实现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.xhtml#notation">1.2. 标注</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lexical_analysis.xhtml">2. 词法分析</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lexical_analysis.xhtml#line-structure">2.1. 行结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical_analysis.xhtml#other-tokens">2.2. 其他形符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical_analysis.xhtml#identifiers">2.3. 标识符和关键字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical_analysis.xhtml#literals">2.4. 字面值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical_analysis.xhtml#operators">2.5. 运算符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical_analysis.xhtml#delimiters">2.6. 分隔符</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datamodel.xhtml">3. 数据模型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datamodel.xhtml#objects-values-and-types">3.1. 对象、值与类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datamodel.xhtml#the-standard-type-hierarchy">3.2. 标准类型层级结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datamodel.xhtml#special-method-names">3.3. 特殊方法名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datamodel.xhtml#coroutines">3.4. 协程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="executionmodel.xhtml">4. 执行模型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="executionmodel.xhtml#structure-of-a-program">4.1. 程序的结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executionmodel.xhtml#naming-and-binding">4.2. 命名与绑定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executionmodel.xhtml#exceptions">4.3. 异常</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="import.xhtml">5. 导入系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#importlib">5.1. <code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#packages">5.2. 包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#searching">5.3. 搜索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#loading">5.4. 加载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#the-path-based-finder">5.5. 基于路径的查找器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#replacing-the-standard-import-system">5.6. 替换标准导入系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#package-relative-imports">5.7. 包相对导入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#special-considerations-for-main">5.8. 有关 __main__ 的特殊事项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="import.xhtml#references">5.9. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expressions.xhtml">6. 表达式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#arithmetic-conversions">6.1. 算术转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#atoms">6.2. 原子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#primaries">6.3. 原型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#await-expression">6.4. await 表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#the-power-operator">6.5. 幂运算符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#unary-arithmetic-and-bitwise-operations">6.6. 一元算术和位运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#binary-arithmetic-operations">6.7. 二元算术运算符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#shifting-operations">6.8. 移位运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#binary-bitwise-operations">6.9. 二元位运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#comparisons">6.10. 比较运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#boolean-operations">6.11. 布尔运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#assignment-expressions">6.12. 赋值表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#conditional-expressions">6.13. 条件表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#lambda">6.14. lambda 表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#expression-lists">6.15. 表达式列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#evaluation-order">6.16. 求值顺序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.xhtml#operator-precedence">6.17. 运算符优先级</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simple_stmts.xhtml">7. 简单语句</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#expression-statements">7.1. 表达式语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#assignment-statements">7.2. 赋值语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-assert-statement">7.3. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">assert</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-pass-statement">7.4. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-del-statement">7.5. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-return-statement">7.6. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-yield-statement">7.7. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">yield</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-raise-statement">7.8. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-break-statement">7.9. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-continue-statement">7.10. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">continue</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-import-statement">7.11. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-global-statement">7.12. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">global</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-nonlocal-statement">7.13. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">nonlocal</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_stmts.xhtml#the-type-statement">7.14. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">type</span></code> 语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compound_stmts.xhtml">8. 复合语句</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#the-if-statement">8.1. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#the-while-statement">8.2. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#the-for-statement">8.3. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#the-try-statement">8.4. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#the-with-statement">8.5. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#the-match-statement">8.6. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">match</span></code> 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#function-definitions">8.7. 函数定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#class-definitions">8.8. 类定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#coroutines">8.9. 协程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_stmts.xhtml#type-parameter-lists">8.10. 类型形参列表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toplevel_components.xhtml">9. 顶级组件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toplevel_components.xhtml#complete-python-programs">9.1. 完整的 Python 程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toplevel_components.xhtml#file-input">9.2. 文件输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toplevel_components.xhtml#interactive-input">9.3. 交互式输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toplevel_components.xhtml#expression-input">9.4. 表达式输入</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.xhtml">10. 完整的语法规范</a></li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

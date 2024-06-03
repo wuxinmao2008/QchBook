@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="实例方法对象" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/c-api/method.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="实例方法是 PyCFunction 的包装器，也是将 PyCFunction 与类对象绑定的新方法。 它取代了以前的调用 PyMethod_New(func, NULL, class) 。 方法对象: 方法是绑定的函数对象。 方法总是会被绑定到一个用户自定义类的实例。 未绑定方法（绑定到一个类的方法）已不再可用。" />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="实例方法是 PyCFunction 的包装器，也是将 PyCFunction 与类对象绑定的新方法。 它取代了以前的调用 PyMethod_New(func, NULL, class) 。 方法对象: 方法是绑定的函数对象。 方法总是会被绑定到一个用户自定义类的实例。 未绑定方法（绑定到一个类的方法）已不再可用。" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>实例方法对象</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/c-api/method.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="instance-method-objects">
+<span id="instancemethod-objects"></span><h1>实例方法对象</h1>
+<p id="index-0">实例方法是 <a class="reference internal" href="structures.xhtml#c.PyCFunction" title="PyCFunction"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCFunction</span></code></a> 的包装器，也是将 <a class="reference internal" href="structures.xhtml#c.PyCFunction" title="PyCFunction"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCFunction</span></code></a> 与类对象绑定的新方法。 它取代了以前的调用 <code class="docutils literal notranslate"><span class="pre">PyMethod_New(func,</span> <span class="pre">NULL,</span> <span class="pre">class)</span></code>。</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_Type">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_Type</span></span></span><br /></dt>
+<dd><p>这个 <a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 实例代表 Python 实例方法类型。 它并不对 Python 程序公开。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>o</em> 是一个实例方法对象 (类型为 <a class="reference internal" href="#c.PyInstanceMethod_Type" title="PyInstanceMethod_Type"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyInstanceMethod_Type</span></code></a>) 则返回真值。 形参必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_New">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_New</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">func</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回一个新的实例方法对象，<em>func</em> 应为任意可调用对象。 <em>func</em> 将在实例方法被调用时作为函数被调用。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_Function">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_Function</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">im</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>返回关联到实例方法 <em>im</em> 的函数对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_GET_FUNCTION">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_GET_FUNCTION</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">im</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>宏版本的 <a class="reference internal" href="#c.PyInstanceMethod_Function" title="PyInstanceMethod_Function"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyInstanceMethod_Function()</span></code></a>，略去了错误检测。</p>
+</dd></dl>
+
+</section>
+<section id="method-objects">
+<span id="id1"></span><h1>方法对象</h1>
+<p id="index-1">方法是绑定的函数对象。 方法总是会被绑定到一个用户自定义类的实例。 未绑定方法（绑定到一个类的方法）已不再可用。</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyMethod_Type">
+<a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Type</span></span></span><br /></dt>
+<dd><p id="index-2">这个 <a class="reference internal" href="type.xhtml#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 实例代表 Python 方法类型。 它作为 <code class="docutils literal notranslate"><span class="pre">types.MethodType</span></code> 向 Python 程序公开。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>如果 <em>o</em> 是一个方法对象 (类型为 <a class="reference internal" href="#c.PyMethod_Type" title="PyMethod_Type"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyMethod_Type</span></code></a>) 则返回真值。 形参必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_New">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_New</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">func</span></span>, <a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">self</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_new_ref">返回值：新的引用。</em><p>返回一个新的方法对象，<em>func</em> 应为任意可调用对象，<em>self</em> 为该方法应绑定的实例。 在方法被调用时 <em>func</em> 将作为函数被调用。 <em>self</em> 必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_Function">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Function</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>返回关联到方法 <em>meth</em> 的函数对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_GET_FUNCTION">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_GET_FUNCTION</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>宏版本的 <a class="reference internal" href="#c.PyMethod_Function" title="PyMethod_Function"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMethod_Function()</span></code></a>，略去了错误检测。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_Self">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Self</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>返回关联到方法 <em>meth</em> 的实例。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_GET_SELF">
+<a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_GET_SELF</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.xhtml#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><em class="refcount return_borrowed_ref">返回值：借入的引用。</em><p>宏版本的 <a class="reference internal" href="#c.PyMethod_Self" title="PyMethod_Self"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMethod_Self()</span></code></a>，略去了错误检测。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

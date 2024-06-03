@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="互联网数据处理" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/netdata.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="本章介绍了一些支持处理因特网上常用数据格式的模块。 email--- 电子邮件与 MIME 处理包- email.message: Representing an email message, email.parser: 解析电子邮件消息- FeedParser API, Parser API, 附加说明., email.generator: Generating MIME document..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="本章介绍了一些支持处理因特网上常用数据格式的模块。 email--- 电子邮件与 MIME 处理包- email.message: Representing an email message, email.parser: 解析电子邮件消息- FeedParser API, Parser API, 附加说明., email.generator: Generating MIME document..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>互联网数据处理</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/netdata.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="internet-data-handling">
+<span id="netdata"></span><h1>互联网数据处理</h1>
+<p>本章介绍了一些支持处理因特网上常用数据格式的模块。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="email.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> --- 电子邮件与 MIME 处理包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="email.message.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message</span></code>: Representing an email message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.parser.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.parser</span></code>: 解析电子邮件消息</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="email.parser.xhtml#feedparser-api">FeedParser API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="email.parser.xhtml#parser-api">Parser API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="email.parser.xhtml#additional-notes">附加说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="email.generator.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.generator</span></code>: Generating MIME documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.policy.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.policy</span></code>: 策略对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.errors.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.errors</span></code>: 异常和缺陷类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.headerregistry.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.headerregistry</span></code>: 自定义标头对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.contentmanager.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code>: 管理 MIME 内容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="email.contentmanager.xhtml#content-manager-instances">内容管理器实例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="email.examples.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code>: 示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.compat32-message.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message.Message</span></code>: 使用 <code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code> API 来表示电子邮件消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.mime.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime</span></code>: 从头创建电子邮件和 MIME 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.header.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.header</span></code>: 国际化标头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.charset.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.charset</span></code>: 表示字符集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.encoders.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.encoders</span></code>: 编码器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.utils.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.utils</span></code>: Miscellaneous utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.iterators.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.iterators</span></code>: 迭代器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="json.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code> --- JSON encoder and decoder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json.xhtml#basic-usage">基本使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.xhtml#encoders-and-decoders">编码器和解码器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.xhtml#exceptions">异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.xhtml#standard-compliance-and-interoperability">标准符合性和互操作性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json.xhtml#character-encodings">字符编码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.xhtml#infinite-and-nan-number-values">Infinite 和 NaN 数值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.xhtml#repeated-names-within-an-object">对象中的重复名称</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.xhtml#top-level-non-object-non-array-values">顶级非对象，非数组值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json.xhtml#implementation-limitations">实现限制</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json.xhtml#module-json.tool">命令行界面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json.xhtml#command-line-options">命令行选项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mailbox.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mailbox</span></code> --- 操纵多种格式的邮箱</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mailbox.xhtml#mailbox-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mailbox</span></code> 对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#maildir-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">Maildir</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#mbox-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">mbox</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#mh-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">MH</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#babyl-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">Babyl</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#mmdf-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">MMDF</span></code> 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mailbox.xhtml#message-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> 对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#maildirmessage-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">MaildirMessage</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#mboxmessage-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">mboxMessage</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#mhmessage-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">MHMessage</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#babylmessage-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">BabylMessage</span></code> 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mailbox.xhtml#mmdfmessage-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">MMDFMessage</span></code> 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mailbox.xhtml#exceptions">异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mailbox.xhtml#examples">例子</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mimetypes.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mimetypes</span></code> --- Map filenames to MIME types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mimetypes.xhtml#mimetypes-objects">MimeTypes 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="base64.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code> --- Base16, Base32, Base64, Base85 数据编码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="base64.xhtml#security-considerations">安全考量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="binascii.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code> --- 在二进制数据和 ASCII 之间进行转换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quopri.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quopri</span></code> --- 编码与解码 MIME 转码的可打印数据</a></li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

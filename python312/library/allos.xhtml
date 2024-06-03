@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="通用操作系统服务" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/allos.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="本章中描述的各模块提供了在（几乎）所有的操作系统上可用的操作系统特性的接口，例如文件和时钟。这些接口通常以 Unix 或 C 接口为参考对象，不过在大多数其他系统上也可用。这里有一个概述： os--- 多种操作系统接口- 文件名，命令行参数，以及环境变量。, Python UTF-8 模式, 进程参数, 创建文件对象, 文件描述符操作- 查询终端的尺寸, 文件描述符的继承., 文件和目录- ..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="本章中描述的各模块提供了在（几乎）所有的操作系统上可用的操作系统特性的接口，例如文件和时钟。这些接口通常以 Unix 或 C 接口为参考对象，不过在大多数其他系统上也可用。这里有一个概述： os--- 多种操作系统接口- 文件名，命令行参数，以及环境变量。, Python UTF-8 模式, 进程参数, 创建文件对象, 文件描述符操作- 查询终端的尺寸, 文件描述符的继承., 文件和目录- ..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>通用操作系统服务</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/allos.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="generic-operating-system-services">
+<span id="allos"></span><h1>通用操作系统服务</h1>
+<p>本章中描述的各模块提供了在（几乎）所有的操作系统上可用的操作系统特性的接口，例如文件和时钟。这些接口通常以 Unix 或 C 接口为参考对象，不过在大多数其他系统上也可用。这里有一个概述：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="os.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code> --- 多种操作系统接口</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#file-names-command-line-arguments-and-environment-variables">文件名，命令行参数，以及环境变量。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#python-utf-8-mode">Python UTF-8 模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#process-parameters">进程参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#file-object-creation">创建文件对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#file-descriptor-operations">文件描述符操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="os.xhtml#querying-the-size-of-a-terminal">查询终端的尺寸</a></li>
+<li class="toctree-l3"><a class="reference internal" href="os.xhtml#inheritance-of-file-descriptors">文件描述符的继承</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#files-and-directories">文件和目录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="os.xhtml#linux-extended-attributes">Linux 扩展属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#process-management">进程管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#interface-to-the-scheduler">调度器接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#miscellaneous-system-information">其他系统信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.xhtml#random-numbers">随机数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code> --- 处理流的核心工具</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io.xhtml#overview">概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#text-i-o">文本 I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#binary-i-o">二进制 I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#raw-i-o">原始 I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io.xhtml#text-encoding">文本编码格式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#opt-in-encodingwarning">选择性的 EncodingWarning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io.xhtml#high-level-module-interface">高阶模块接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.xhtml#class-hierarchy">类的层次结构</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#i-o-base-classes">I/O 基类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#raw-file-i-o">原始文件 I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#buffered-streams">缓冲流</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#id1">文本 I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io.xhtml#performance">性能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#id2">二进制 I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#id3">文本 I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#multi-threading">多线程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.xhtml#reentrancy">可重入性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="time.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">time</span></code> --- 时间的访问和转换</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="time.xhtml#functions">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.xhtml#clock-id-constants">Clock ID 常量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.xhtml#timezone-constants">时区常量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="argparse.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code> --- 用于命令行选项、参数和子命令的解析器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#core-functionality">核心功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#quick-links-for-add-argument">有关 add_argument() 的快速链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#example">示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#creating-a-parser">创建一个解析器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#adding-arguments">添加参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#parsing-arguments">解析参数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#argumentparser-objects">ArgumentParser 对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#prog">prog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#usage">usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#description">description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#epilog">epilog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#parents">parents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#formatter-class">formatter_class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#prefix-chars">prefix_chars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#fromfile-prefix-chars">fromfile_prefix_chars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#argument-default">argument_default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#allow-abbrev">allow_abbrev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#conflict-handler">conflict_handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#add-help">add_help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#exit-on-error">exit_on_error</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#the-add-argument-method">add_argument() 方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#name-or-flags">name or flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#action">action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#nargs">nargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#const">const</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#default">默认值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#type">type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#choices">choices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#required">required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#help">help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#metavar">metavar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#dest">dest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#action-classes">Action 类</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#the-parse-args-method">parse_args() 方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#option-value-syntax">选项值语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#invalid-arguments">无效的参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#arguments-containing">包含 <code class="docutils literal notranslate"><span class="pre">-</span></code> 的参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#argument-abbreviations-prefix-matching">参数缩写（前缀匹配）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#beyond-sys-argv">在 <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code> 以外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#the-namespace-object">命名空间对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#other-utilities">其它实用工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#sub-commands">子命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#filetype-objects">FileType 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#argument-groups">参数组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#mutual-exclusion">互斥</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#parser-defaults">解析器默认值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#printing-help">打印帮助</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#partial-parsing">部分解析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#customizing-file-parsing">自定义文件解析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#exiting-methods">退出方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argparse.xhtml#intermixed-parsing">混合解析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#upgrading-optparse-code">升级 optparse 代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argparse.xhtml#exceptions">异常</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getopt.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code> --- C 风格的命令行选项解析器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code> --- Python 的日志记录工具</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#logger-objects">记录器对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#logging-levels">日志级别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#handler-objects">处理器对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#formatter-objects">格式器对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#filter-objects">过滤器对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#logrecord-objects">LogRecord 属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#logrecord-attributes">LogRecord 属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#loggeradapter-objects">LoggerAdapter 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#thread-safety">线程安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#module-level-functions">模块级函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#module-level-attributes">模块级属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.xhtml#integration-with-the-warnings-module">与警告模块集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logging.config.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code> --- Logging configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging.config.xhtml#configuration-functions">配置函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.config.xhtml#security-considerations">安全考量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.config.xhtml#configuration-dictionary-schema">配置字典架构</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#dictionary-schema-details">字典架构细节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#incremental-configuration">增量配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#object-connections">对象连接</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#user-defined-objects">用户定义对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#handler-configuration-order">处理器配置顺序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#access-to-external-objects">访问外部对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#access-to-internal-objects">访问内部对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#import-resolution-and-custom-importers">导入解析与定制导入器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.config.xhtml#configuring-queuehandler-and-queuelistener">配置 QueueHandler 和 QueueListener</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.config.xhtml#configuration-file-format">配置文件格式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logging.handlers.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code> --- Logging handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#streamhandler">StreamHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#filehandler">FileHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#nullhandler">NullHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#watchedfilehandler">WatchedFileHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#baserotatinghandler">BaseRotatingHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#rotatingfilehandler">RotatingFileHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#timedrotatingfilehandler">TimedRotatingFileHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#sockethandler">SocketHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#datagramhandler">DatagramHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#sysloghandler">SysLogHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#nteventloghandler">NTEventLogHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#smtphandler">SMTPHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#memoryhandler">MemoryHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#httphandler">HTTPHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#queuehandler">QueueHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.handlers.xhtml#queuelistener">QueueListener</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getpass.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">getpass</span></code> --- 可移植的密码输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curses.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses</span></code> --- 字符单元显示的终端处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curses.xhtml#functions">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curses.xhtml#window-objects">Window 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curses.xhtml#constants">常量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="curses.xhtml#module-curses.textpad"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.textpad</span></code> --- 用于 curses 程序的文本输入控件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curses.xhtml#textbox-objects">文本框对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="curses.ascii.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.ascii</span></code> --- 用于 ASCII 字符的工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curses.panel.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code> --- 针对 curses 的面板栈扩展</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curses.panel.xhtml#functions">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curses.panel.xhtml#panel-objects">Panel 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="platform.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">platform</span></code> --- 获取底层平台的标识数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="platform.xhtml#cross-platform">跨平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.xhtml#java-platform">Java平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.xhtml#windows-platform">Windows平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.xhtml#macos-platform">macOS 平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.xhtml#unix-platforms">Unix 平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.xhtml#linux-platforms">Linux 平台</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errno.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">errno</span></code> --- 标准 errno 系统符号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ctypes.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ctypes</span></code> --- Python 的外部函数库</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ctypes.xhtml#ctypes-tutorial">ctypes 教程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#loading-dynamic-link-libraries">载入动态连接库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#accessing-functions-from-loaded-dlls">操作导入的动态链接库中的函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#calling-functions">调用函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#fundamental-data-types">基础数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#calling-functions-continued">调用函数，继续</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#calling-variadic-functions">调用可变函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#calling-functions-with-your-own-custom-data-types">使用自定义的数据类型调用函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#specifying-the-required-argument-types-function-prototypes">指定必选参数的类型(函数原型)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#return-types">返回类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#passing-pointers-or-passing-parameters-by-reference">传递指针（或以引用方式传递形参）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#structures-and-unions">结构体和联合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#structure-union-alignment-and-byte-order">结构体/联合字段对齐及字节顺序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#bit-fields-in-structures-and-unions">结构体和联合中的位域</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#arrays">数组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#pointers">指针</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#type-conversions">类型转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#incomplete-types">不完整类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#callback-functions">回调函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#accessing-values-exported-from-dlls">访问 dll 的导出变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#surprises">意外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#variable-sized-data-types">变长数据类型</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ctypes.xhtml#ctypes-reference">ctypes 参考手册</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#finding-shared-libraries">寻找动态链接库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#loading-shared-libraries">加载动态链接库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#foreign-functions">外部函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#function-prototypes">函数原型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#utility-functions">工具函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#data-types">数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#ctypes-fundamental-data-types-2">基础数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#structured-data-types">结构化数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.xhtml#arrays-and-pointers">数组与指针</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="syslog --- Unix syslog 库例程" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/syslog.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="此模块提供一个接口到Unix syslog 日常库. 参考 Unix 手册页关于 syslog 设施的详细描述. 可用性: Unix, 非 Emscripten, 非 WASI。 This module wraps the system syslog family of routines. A pure Python library that can speak to a syslog se..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="此模块提供一个接口到Unix syslog 日常库. 参考 Unix 手册页关于 syslog 设施的详细描述. 可用性: Unix, 非 Emscripten, 非 WASI。 This module wraps the system syslog family of routines. A pure Python library that can speak to a syslog se..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>syslog --- Unix syslog 库例程</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/syslog.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-syslog">
+<span id="syslog-unix-syslog-library-routines"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">syslog</span></code> --- Unix syslog 库例程</h1>
+<hr class="docutils" />
+<p>此模块提供一个接口到Unix <code class="docutils literal notranslate"><span class="pre">syslog</span></code> 日常库. 参考 Unix 手册页关于 <code class="docutils literal notranslate"><span class="pre">syslog</span></code> 设施的详细描述.</p>
+<div class="availability docutils container">
+<p><a class="reference internal" href="intro.xhtml#availability"><span class="std std-ref">可用性</span></a>: Unix, 非 Emscripten, 非 WASI。</p>
+</div>
+<p>This module wraps the system <code class="docutils literal notranslate"><span class="pre">syslog</span></code> family of routines.  A pure Python
+library that can speak to a syslog server is available in the
+<a class="reference internal" href="logging.handlers.xhtml#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a> module as <code class="xref py py-class docutils literal notranslate"><span class="pre">SysLogHandler</span></code>.</p>
+<p>这个模块定义了以下函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="syslog.syslog">
+<span class="sig-prename descclassname"><span class="pre">syslog.</span></span><span class="sig-name descname"><span class="pre">syslog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">syslog.</span></span><span class="sig-name descname"><span class="pre">syslog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将字符串 <em>message</em> 发送到系统日志记录器。 如有必要会添加末尾换行符。 每条消息都带有一个由 <em>facility</em> 和 <em>level</em> 组成的优先级标价签。 可选的 <em>priority</em> 参数默认值为 <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_INFO</span></code>，它确定消息的优先级。 如果未在 <em>priority</em> 中使用逻辑或 (<code class="docutils literal notranslate"><span class="pre">LOG_INFO</span> <span class="pre">|</span> <span class="pre">LOG_USER</span></code>) 对 facility 进行编码，则会使用在 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 调用中所给定的值。</p>
+<p>如果 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 未在对 <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> 的调用之前被调用，则将不带参数地调用 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a>。</p>
+<p class="audit-hook">引发 <a class="reference internal" href="sys.xhtml#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.syslog</span></code> 使用参数 <code class="docutils literal notranslate"><span class="pre">priority</span></code>, <code class="docutils literal notranslate"><span class="pre">message</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.2 版本发生变更: </span>在之前的版本中，如果 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 未在对 <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> 的调用之前被调用则它将不会被自动调用，而是由 syslog 实现来负责调用 <code class="docutils literal notranslate"><span class="pre">openlog()</span></code>。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.12 版本发生变更: </span>此函数在子解释器中受到限制。 （该限制只影响在多解释器中运行的代码因而与大多数用户无关。） <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 必须在子解释器使用 <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> 之前在主解释器中被调用。 否则它将引发 <a class="reference internal" href="exceptions.xhtml#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="syslog.openlog">
+<span class="sig-prename descclassname"><span class="pre">syslog.</span></span><span class="sig-name descname"><span class="pre">openlog</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">ident</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">logoption</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">facility</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><p>后续 <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> 调用的日志选项可以通过调用 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 来设置。 如果日志当前未打开则 <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> 将不带参数地调用 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a>。</p>
+<p>可选的 <em>ident</em> 关键字参数是在每条消息前添加的字符串，默认为 <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code> 去除打头的路径部分。 可选的 <em>logoption</em> 关键字参数（默认为 0）是一个位字段 -- 请参见下文了解可能的组合值。 可选的 <em>facility</em> 关键字参数 (默认为 <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_USER</span></code>) 为没有显式编码 facility 的消息设置默认的 facility。</p>
+<p class="audit-hook">引发 <a class="reference internal" href="sys.xhtml#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.openlog</span></code> 使用参数 <code class="docutils literal notranslate"><span class="pre">ident</span></code>, <code class="docutils literal notranslate"><span class="pre">logoption</span></code>, <code class="docutils literal notranslate"><span class="pre">facility</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.2 版本发生变更: </span>在之前的版本中，不允许使用关键字参数，并且要求必须有 <em>ident</em>。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.12 版本发生变更: </span>此函数在子解释器中受到限制。 （该限制只影响在多解释器中运行的代码因而与大多数用户无关。）  此函数只能在主解释器中被调用。 如果在子解释器中被调用它将引发 <a class="reference internal" href="exceptions.xhtml#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="syslog.closelog">
+<span class="sig-prename descclassname"><span class="pre">syslog.</span></span><span class="sig-name descname"><span class="pre">closelog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>重置日志模块值并且调用系统库 <code class="docutils literal notranslate"><span class="pre">closelog()</span></code>.</p>
+<p>这使得此模块在初始导入时行为固定。 例如，<a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 将在首次调用 <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> 时被调用（如果 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 还未被调用过），并且 <em>ident</em> 和其他 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> 形参会被重置为默认值。</p>
+<p class="audit-hook">引发一个 <a class="reference internal" href="sys.xhtml#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.closelog</span></code> 不附带任何参数。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.12 版本发生变更: </span>此函数在子解释器中受到限制。 （该限制只影响在多解释器中运行的代码因而与大多数用户无关。）  此函数只能在主解释器中被调用。 如果在子解释器中被调用它将引发 <a class="reference internal" href="exceptions.xhtml#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="syslog.setlogmask">
+<span class="sig-prename descclassname"><span class="pre">syslog.</span></span><span class="sig-name descname"><span class="pre">setlogmask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maskpri</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>将优先级掩码设为 <em>maskpri</em> 并返回之前的掩码值。 调用 <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> 并附带未在 <em>maskpri</em> 中设置的优先级将会被忽略。 默认设置为记录所有优先级。 函数 <code class="docutils literal notranslate"><span class="pre">LOG_MASK(pri)</span></code> 可计算单个优先级 <em>pri</em> 的掩码。 函数 <code class="docutils literal notranslate"><span class="pre">LOG_UPTO(pri)</span></code> 可计算包括 <em>pri</em> 在内的所有优先级的掩码。</p>
+<p class="audit-hook">引发一个 <a class="reference internal" href="sys.xhtml#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.setlogmask</span></code> 附带参数 <code class="docutils literal notranslate"><span class="pre">maskpri</span></code>。</p>
+</dd></dl>
+
+<p>此模块定义了一下常量:</p>
+<dl class="simple">
+<dt>Priority levels (high to low):</dt><dd><p><code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_EMERG</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_ALERT</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_CRIT</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_ERR</span></code>,
+<code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_WARNING</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_NOTICE</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_INFO</span></code>,
+<code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_DEBUG</span></code>.</p>
+</dd>
+<dt>Facilities:</dt><dd><p><code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_KERN</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_USER</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_MAIL</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_DAEMON</span></code>,
+<code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_AUTH</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_LPR</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_NEWS</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_UUCP</span></code>,
+<code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_CRON</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_SYSLOG</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_LOCAL0</span></code> to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_LOCAL7</span></code>, and, if defined in <code class="docutils literal notranslate"><span class="pre">&lt;syslog.h&gt;</span></code>,
+<code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_AUTHPRIV</span></code>.</p>
+</dd>
+<dt>Log options:</dt><dd><p><code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_PID</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_CONS</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_NDELAY</span></code>, and, if defined
+in <code class="docutils literal notranslate"><span class="pre">&lt;syslog.h&gt;</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_ODELAY</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_NOWAIT</span></code>, and
+<code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_PERROR</span></code>.</p>
+</dd>
+</dl>
+<section id="examples">
+<h2>例子</h2>
+<section id="simple-example">
+<h3>简单示例</h3>
+<p>一个简单的示例集:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syslog</span>
+
+<span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="s1">&#39;Processing started&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_ERR</span><span class="p">,</span> <span class="s1">&#39;Processing started&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>一个设置多种日志选项的示例，其中有在日志消息中包含进程 ID，以及将消息写入用于邮件日志记录的目标设施等:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">syslog</span><span class="o">.</span><span class="n">openlog</span><span class="p">(</span><span class="n">logoption</span><span class="o">=</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_PID</span><span class="p">,</span> <span class="n">facility</span><span class="o">=</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_MAIL</span><span class="p">)</span>
+<span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="s1">&#39;E-mail processing initiated...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

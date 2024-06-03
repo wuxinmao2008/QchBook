@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="数据持久化" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/persistence.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="本章中描述的模块支持在磁盘上以持久形式存储 Python 数据。 pickle 和 marshal 模块可以将许多 Python 数据类型转换为字节流，然后从字节中重新创建对象。 各种与 DBM 相关的模块支持一系列基于散列的文件格式，这些格式存储字符串到其他字符串的映射。 本章中描述的模块列表是： pickle--- Python object serialization- 与其他 Pyt..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="本章中描述的模块支持在磁盘上以持久形式存储 Python 数据。 pickle 和 marshal 模块可以将许多 Python 数据类型转换为字节流，然后从字节中重新创建对象。 各种与 DBM 相关的模块支持一系列基于散列的文件格式，这些格式存储字符串到其他字符串的映射。 本章中描述的模块列表是： pickle--- Python object serialization- 与其他 Pyt..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>数据持久化</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/persistence.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="data-persistence">
+<span id="persistence"></span><h1>数据持久化</h1>
+<p>本章中描述的模块支持在磁盘上以持久形式存储 Python 数据。 <a class="reference internal" href="pickle.xhtml#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> 和 <a class="reference internal" href="marshal.xhtml#module-marshal" title="marshal: Convert Python objects to streams of bytes and back (with different constraints)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">marshal</span></code></a> 模块可以将许多 Python 数据类型转换为字节流，然后从字节中重新创建对象。 各种与 DBM 相关的模块支持一系列基于散列的文件格式，这些格式存储字符串到其他字符串的映射。</p>
+<p>本章中描述的模块列表是：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pickle.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> --- Python object serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#relationship-to-other-python-modules">与其他 Python 模块间的关系</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#comparison-with-marshal">与 <code class="docutils literal notranslate"><span class="pre">marshal</span></code> 间的关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#comparison-with-json">与 <code class="docutils literal notranslate"><span class="pre">json</span></code> 模块的比较</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#data-stream-format">数据流格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#module-interface">模块接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#what-can-be-pickled-and-unpickled">可以被封存/解封的对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#pickling-class-instances">封存类实例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#persistence-of-external-objects">持久化外部对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#dispatch-tables">Dispatch 表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#handling-stateful-objects">处理有状态的对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#custom-reduction-for-types-functions-and-other-objects">类型，函数和其他对象的自定义归约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#out-of-band-buffers">外部缓冲区</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#provider-api">提供方 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#consumer-api">使用方 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pickle.xhtml#example">示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#restricting-globals">限制全局变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#performance">性能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.xhtml#examples">例子</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="copyreg.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">copyreg</span></code> --- 注册 <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> 支持函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="copyreg.xhtml#example">示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shelve.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code> --- Python object persistence</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shelve.xhtml#restrictions">限制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shelve.xhtml#example">示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marshal.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">marshal</span></code> --- Internal Python object serialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbm.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm</span></code> --- Unix &quot;数据库&quot; 接口</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dbm.xhtml#module-dbm.gnu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code> --- GNU 数据库管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbm.xhtml#module-dbm.ndbm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code> --- 新数据库管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbm.xhtml#module-dbm.dumb"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code> --- 便携式 DBM 实现</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite3.xhtml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sqlite3</span></code> --- DB-API 2.0 interface for SQLite databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sqlite3.xhtml#tutorial">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite3.xhtml#reference">参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#module-functions">模块函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#module-constants">模块常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#connection-objects">连接对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#cursor-objects">游标对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#row-objects">Row 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#blob-objects">Blob 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#prepareprotocol-objects">PrepareProtocol 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#exceptions">异常</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#sqlite-and-python-types">SQLite 与 Python 类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#default-adapters-and-converters-deprecated">默认适配器和转换器（已弃用）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#command-line-interface">命令行接口</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite3.xhtml#how-to-guides">常用方案指引</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-use-placeholders-to-bind-values-in-sql-queries">如何在 SQL 查询中使用占位符来绑定值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-adapt-custom-python-types-to-sqlite-values">如何将自定义 Python 类型适配到 SQLite 值</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sqlite3.xhtml#how-to-write-adaptable-objects">如何编写可适配对象</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite3.xhtml#how-to-register-adapter-callables">如何注册适配器可调用对象</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-convert-sqlite-values-to-custom-python-types">如何将 SQLite 值转换为自定义 Python 类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#adapter-and-converter-recipes">适配器和转换器范例程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-use-connection-shortcut-methods">如何使用连接快捷方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-use-the-connection-context-manager">如何使用连接上下文管理器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-work-with-sqlite-uris">如何使用 SQLite URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-create-and-use-row-factories">如何创建并使用行工厂对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#how-to-handle-non-utf-8-text-encodings">如何处理非 UTF-8 文本编码格式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite3.xhtml#explanation">说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite3.xhtml#transaction-control">事务控制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sqlite3.xhtml#transaction-control-via-the-autocommit-attribute">通过 <code class="docutils literal notranslate"><span class="pre">autocommit</span></code> 属性进行事务控制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite3.xhtml#transaction-control-via-the-isolation-level-attribute">通过 <code class="docutils literal notranslate"><span class="pre">isolation_level</span></code> 属性进行事务控制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

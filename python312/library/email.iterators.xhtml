@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="email.iterators: 迭代器" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/library/email.iterators.xhtml" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="源代码: Lib/email/iterators.py[https://github.com/python/cpython/tree/3.12/Lib/email/iterators.py] 通过 Message.walk 方法来迭代消息对象树是相当容易的。 email.iterators 模块提供了一些适用于消息对象树的高层级迭代器。 增加了以下函数作为有用的调试工具。 它 不应当 被视为..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="源代码: Lib/email/iterators.py[https://github.com/python/cpython/tree/3.12/Lib/email/iterators.py] 通过 Message.walk 方法来迭代消息对象树是相当容易的。 email.iterators 模块提供了一些适用于消息对象树的高层级迭代器。 增加了以下函数作为有用的调试工具。 它 不应当 被视为..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>email.iterators: 迭代器</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="canonical" href="https://docs.python.org/3/library/email.iterators.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+ 
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-email.iterators">
+<span id="email-iterators-iterators"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.iterators</span></code>: 迭代器</h1>
+<p><strong>源代码:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.12/Lib/email/iterators.py">Lib/email/iterators.py</a><span class="link-target"> [https://github.com/python/cpython/tree/3.12/Lib/email/iterators.py]</span></p>
+<hr class="docutils" />
+<p>通过 <a class="reference internal" href="email.compat32-message.xhtml#email.message.Message.walk" title="email.message.Message.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.walk</span></code></a> 方法来迭代消息对象树是相当容易的。 <a class="reference internal" href="#module-email.iterators" title="email.iterators: Iterate over a  message object tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.iterators</span></code></a> 模块提供了一些适用于消息对象树的高层级迭代器。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="email.iterators.body_line_iterator">
+<span class="sig-prename descclassname"><span class="pre">email.iterators.</span></span><span class="sig-name descname"><span class="pre">body_line_iterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>此函数会迭代 <em>msg</em> 的所有子部分中的所有载荷，逐行返回字符串载荷。 它会跳过所有子部分的标头，并且它也会跳过任何包含不为 Python 字符串的载荷的子部分。 这基本上等价于使用 <a class="reference internal" href="io.xhtml#io.TextIOBase.readline" title="io.TextIOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a> 从一个文件读取消息的纯文本表示形式，并跳过所有中间的标头。</p>
+<p>可选的 <em>decode</em> 会被传递给 <a class="reference internal" href="email.compat32-message.xhtml#email.message.Message.get_payload" title="email.message.Message.get_payload"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.get_payload</span></code></a>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="email.iterators.typed_subpart_iterator">
+<span class="sig-prename descclassname"><span class="pre">email.iterators.</span></span><span class="sig-name descname"><span class="pre">typed_subpart_iterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maintype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>此函数会迭代 <em>msg</em> 的所有子部分，只返回其中与 <em>maintype</em> 和 <em>subtype</em> 所指定的 MIME 类型相匹配的子部分。</p>
+<p>请注意 <em>subtype</em> 是可选项；如果省略，则仅使用主类型来进行子部分 MIME 类型的匹配。 <em>maintype</em> 也是可选项；它的默认值为 <em class="mimetype">text</em>。</p>
+<p>因此，在默认情况下 <a class="reference internal" href="#email.iterators.typed_subpart_iterator" title="email.iterators.typed_subpart_iterator"><code class="xref py py-func docutils literal notranslate"><span class="pre">typed_subpart_iterator()</span></code></a> 会返回每一个 MIME 类型为 <em class="mimetype">text/*</em> 的子部分。</p>
+</dd></dl>
+
+<p>增加了以下函数作为有用的调试工具。 它 <em>不应当</em> 被视为该包所支持的公共接口的组成部分。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="email.iterators._structure">
+<span class="sig-prename descclassname"><span class="pre">email.iterators.</span></span><span class="sig-name descname"><span class="pre">_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>打印消息对象结构的内容类型的缩进表示形式。 例如:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">message_from_file</span><span class="p">(</span><span class="n">somefile</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_structure</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="go">multipart/mixed</span>
+<span class="go">    text/plain</span>
+<span class="go">    text/plain</span>
+<span class="go">    multipart/digest</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">    text/plain</span>
+</pre></div>
+</div>
+<p>可选项 <em>fp</em> 是一个作为打印输出目标的文件型对象。 它必须适用于 Python 的 <a class="reference internal" href="functions.xhtml#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> 函数。 <em>level</em> 是供内部使用的。 <em>include_default</em> 如果为真值，则会同时打印默认类型。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
